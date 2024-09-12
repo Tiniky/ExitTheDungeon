@@ -414,5 +414,9 @@ added validation for the template
 added interactable tiles generation for the room template inspector
 made some changes to the inspector to make the tileprefab and tilemap added automatically
 added a validator for the template
+
+WEEK 2
 created 3-3 combat room and corridor templates
 created the rest of the templates
+created dev plan with deadlines
+fixed github issues
