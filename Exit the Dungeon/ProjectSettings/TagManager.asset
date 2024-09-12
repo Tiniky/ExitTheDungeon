@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - grid
+  - collisionTM
+  - minimapTM
+  - groundTM
+  - decorationTM
+  - frontTM
+  - roomTM
+  - minimapPlayer
+  - weapons
+  - shadowTM
+  - CAM
+  - Enemy
+  - Ally
+  - HealthText
+  - GemText
+  - SkillText
+  - InteractText
+  - ScrollText
+  - InitiativeScreen
+  - participant
+  - queue
+  - inqueue
+  - minimap
+  - cell
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Camera1
+  - Camera2
+  - Player
+  - Minimap
+  - Room
+  - Wall
+  - PlayerParticle
+  - Enemy
+  - EnemyParticle
+  - Environment
+  - PlayerWeapon
+  - EnemyWeapon
+  - Camera 3
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Collision
+    uniqueID: 880252821
+    locked: 0
+  - name: Ground
+    uniqueID: 2631059115
+    locked: 0
+  - name: Shadow
+    uniqueID: 706210401
+    locked: 0
+  - name: GroundDecor
+    uniqueID: 2168768603
+    locked: 0
+  - name: Instances
+    uniqueID: 3249585277
+    locked: 0
+  - name: Front
+    uniqueID: 346198587
+    locked: 0
+  - name: Minimap
+    uniqueID: 1915580759
+    locked: 0

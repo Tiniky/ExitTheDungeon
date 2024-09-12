@@ -1,0 +1,5160 @@
+fileFormatVersion: 2
+guid: 551bb9768a6debd4096ad5196c0d468b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1624751026213659101
+    second: HUMAN_ROGUE_universal_0
+  - first:
+      213: 7845376920564100087
+    second: HUMAN_ROGUE_universal_1
+  - first:
+      213: 2519089139530044114
+    second: HUMAN_ROGUE_universal_2
+  - first:
+      213: -8339096436037446039
+    second: HUMAN_ROGUE_universal_3
+  - first:
+      213: 5214452087072976829
+    second: HUMAN_ROGUE_universal_4
+  - first:
+      213: 3525468963812022862
+    second: HUMAN_ROGUE_universal_5
+  - first:
+      213: -6458034364037443998
+    second: HUMAN_ROGUE_universal_6
+  - first:
+      213: -129582023018994271
+    second: HUMAN_ROGUE_universal_7
+  - first:
+      213: 6314700346605922024
+    second: HUMAN_ROGUE_universal_8
+  - first:
+      213: -2956861202117337807
+    second: HUMAN_ROGUE_universal_9
+  - first:
+      213: -6649304079688825873
+    second: HUMAN_ROGUE_universal_10
+  - first:
+      213: -4131271791697171003
+    second: HUMAN_ROGUE_universal_11
+  - first:
+      213: -3970843715573886943
+    second: HUMAN_ROGUE_universal_12
+  - first:
+      213: 1727232356064915032
+    second: HUMAN_ROGUE_universal_13
+  - first:
+      213: -7414898473239158214
+    second: HUMAN_ROGUE_universal_14
+  - first:
+      213: 3015520686420558128
+    second: HUMAN_ROGUE_universal_15
+  - first:
+      213: 935557853393095866
+    second: HUMAN_ROGUE_universal_16
+  - first:
+      213: -6434588822784434026
+    second: HUMAN_ROGUE_universal_17
+  - first:
+      213: -6174776069624892027
+    second: HUMAN_ROGUE_universal_18
+  - first:
+      213: 4410309095294916484
+    second: HUMAN_ROGUE_universal_19
+  - first:
+      213: 275166052288495661
+    second: HUMAN_ROGUE_universal_20
+  - first:
+      213: -3083054049967295346
+    second: HUMAN_ROGUE_universal_21
+  - first:
+      213: 7129043399532342367
+    second: HUMAN_ROGUE_universal_22
+  - first:
+      213: 1471303917038319385
+    second: HUMAN_ROGUE_universal_23
+  - first:
+      213: -2568882945342883867
+    second: HUMAN_ROGUE_universal_24
+  - first:
+      213: 7039655094864583630
+    second: HUMAN_ROGUE_universal_25
+  - first:
+      213: -4456066238307773695
+    second: HUMAN_ROGUE_universal_26
+  - first:
+      213: -5967100180067608844
+    second: HUMAN_ROGUE_universal_27
+  - first:
+      213: 1146539492579100155
+    second: HUMAN_ROGUE_stab_back_0
+  - first:
+      213: 2101621041880095557
+    second: HUMAN_ROGUE_stab_back_1
+  - first:
+      213: 2599365096090543434
+    second: HUMAN_ROGUE_stab_back_2
+  - first:
+      213: -5402706695494178721
+    second: HUMAN_ROGUE_stab_back_3
+  - first:
+      213: 7971156644384165821
+    second: HUMAN_ROGUE_stab_back_4
+  - first:
+      213: -2100306239343413337
+    second: HUMAN_ROGUE_stab_back_5
+  - first:
+      213: 2519762954307179914
+    second: HUMAN_ROGUE_stab_back_6
+  - first:
+      213: 862077678888782799
+    second: HUMAN_ROGUE_stab_back_7
+  - first:
+      213: -8633765469844080865
+    second: HUMAN_ROGUE_stab_left_0
+  - first:
+      213: -7981674920492375534
+    second: HUMAN_ROGUE_stab_left_1
+  - first:
+      213: 6890415356209014503
+    second: HUMAN_ROGUE_stab_left_2
+  - first:
+      213: 8310140522816496971
+    second: HUMAN_ROGUE_stab_left_3
+  - first:
+      213: 5061463005503522608
+    second: HUMAN_ROGUE_stab_left_4
+  - first:
+      213: -4261406177851424475
+    second: HUMAN_ROGUE_stab_left_5
+  - first:
+      213: -4179510016242041111
+    second: HUMAN_ROGUE_stab_left_6
+  - first:
+      213: 2704987994338167356
+    second: HUMAN_ROGUE_stab_left_7
+  - first:
+      213: 9125316030709317994
+    second: HUMAN_ROGUE_stab_front_0
+  - first:
+      213: 4857566838872849581
+    second: HUMAN_ROGUE_stab_front_1
+  - first:
+      213: 8335051403617801621
+    second: HUMAN_ROGUE_stab_front_2
+  - first:
+      213: 5589907176733361303
+    second: HUMAN_ROGUE_stab_front_3
+  - first:
+      213: 7507658163528380878
+    second: HUMAN_ROGUE_stab_front_4
+  - first:
+      213: 1026573486649087700
+    second: HUMAN_ROGUE_stab_front_5
+  - first:
+      213: 7034517708465358985
+    second: HUMAN_ROGUE_stab_front_6
+  - first:
+      213: 6721535500842732281
+    second: HUMAN_ROGUE_stab_front_7
+  - first:
+      213: -2098416706192141973
+    second: HUMAN_ROGUE_stab_right_0
+  - first:
+      213: -4898105944747863023
+    second: HUMAN_ROGUE_stab_right_1
+  - first:
+      213: -7479433435153801161
+    second: HUMAN_ROGUE_stab_right_2
+  - first:
+      213: -6852576669665408604
+    second: HUMAN_ROGUE_stab_right_3
+  - first:
+      213: -7383856892345556469
+    second: HUMAN_ROGUE_stab_right_4
+  - first:
+      213: -7837804256094476513
+    second: HUMAN_ROGUE_stab_right_5
+  - first:
+      213: -7711593050414581367
+    second: HUMAN_ROGUE_stab_right_6
+  - first:
+      213: 3901209367634332070
+    second: HUMAN_ROGUE_stab_right_7
+  - first:
+      213: 7935006977644681650
+    second: HUMAN_ROGUE_walk_back_0
+  - first:
+      213: -8106945890334185652
+    second: HUMAN_ROGUE_walk_back_1
+  - first:
+      213: -216482862396811709
+    second: HUMAN_ROGUE_walk_back_2
+  - first:
+      213: 2435910388769522098
+    second: HUMAN_ROGUE_walk_back_3
+  - first:
+      213: -1537236349164646529
+    second: HUMAN_ROGUE_walk_back_4
+  - first:
+      213: 3585948466961167352
+    second: HUMAN_ROGUE_walk_back_5
+  - first:
+      213: -9001984599365097897
+    second: HUMAN_ROGUE_walk_back_6
+  - first:
+      213: -4777368202656677808
+    second: HUMAN_ROGUE_walk_back_7
+  - first:
+      213: 4568149056088295348
+    second: HUMAN_ROGUE_walk_back_8
+  - first:
+      213: -8610597639795796509
+    second: HUMAN_ROGUE_walk_back_9
+  - first:
+      213: -8078386777302355814
+    second: HUMAN_ROGUE_walk_back_10
+  - first:
+      213: 8430663919147882749
+    second: HUMAN_ROGUE_walk_left_0
+  - first:
+      213: -3650542490556568944
+    second: HUMAN_ROGUE_walk_left_1
+  - first:
+      213: 7317618226806522574
+    second: HUMAN_ROGUE_walk_left_2
+  - first:
+      213: -5400909636539676525
+    second: HUMAN_ROGUE_walk_left_3
+  - first:
+      213: -3162220882994897986
+    second: HUMAN_ROGUE_walk_left_4
+  - first:
+      213: 6766654720300903932
+    second: HUMAN_ROGUE_walk_left_5
+  - first:
+      213: 3319238723800993674
+    second: HUMAN_ROGUE_walk_left_6
+  - first:
+      213: -6853988817886248510
+    second: HUMAN_ROGUE_walk_left_7
+  - first:
+      213: 5046462286244255360
+    second: HUMAN_ROGUE_walk_left_8
+  - first:
+      213: 8780943355429028012
+    second: HUMAN_ROGUE_walk_left_9
+  - first:
+      213: -8536959069337073367
+    second: HUMAN_ROGUE_walk_left_10
+  - first:
+      213: 3296335947692504009
+    second: HUMAN_ROGUE_walk_front_0
+  - first:
+      213: 8386450680796169391
+    second: HUMAN_ROGUE_walk_front_1
+  - first:
+      213: -1169484640973881581
+    second: HUMAN_ROGUE_walk_front_2
+  - first:
+      213: 2391203633774737493
+    second: HUMAN_ROGUE_walk_front_3
+  - first:
+      213: 2827349998098150717
+    second: HUMAN_ROGUE_walk_front_4
+  - first:
+      213: -9136060695983884235
+    second: HUMAN_ROGUE_walk_front_5
+  - first:
+      213: -1674589217274379284
+    second: HUMAN_ROGUE_walk_front_6
+  - first:
+      213: -805583788918673268
+    second: HUMAN_ROGUE_walk_front_7
+  - first:
+      213: 7670229711644838050
+    second: HUMAN_ROGUE_walk_front_8
+  - first:
+      213: -5317919164443673038
+    second: HUMAN_ROGUE_walk_front_9
+  - first:
+      213: 1067091058653276981
+    second: HUMAN_ROGUE_walk_front_10
+  - first:
+      213: -1820886525774250508
+    second: HUMAN_ROGUE_walk_right_0
+  - first:
+      213: -7848036906044408445
+    second: HUMAN_ROGUE_walk_right_1
+  - first:
+      213: -2895870091372573745
+    second: HUMAN_ROGUE_walk_right_2
+  - first:
+      213: 4648250430221002742
+    second: HUMAN_ROGUE_walk_right_3
+  - first:
+      213: -5920079163704484406
+    second: HUMAN_ROGUE_walk_right_4
+  - first:
+      213: -4841723349567043790
+    second: HUMAN_ROGUE_walk_right_5
+  - first:
+      213: 4994556378511841579
+    second: HUMAN_ROGUE_walk_right_6
+  - first:
+      213: -1522608535799803590
+    second: HUMAN_ROGUE_walk_right_7
+  - first:
+      213: -1610748614544243885
+    second: HUMAN_ROGUE_walk_right_8
+  - first:
+      213: 708519408981416784
+    second: HUMAN_ROGUE_walk_right_9
+  - first:
+      213: 504946023662464723
+    second: HUMAN_ROGUE_walk_right_10
+  - first:
+      213: 75333846166275045
+    second: HUMAN_ROGUE_universal_104
+  - first:
+      213: 6063000497401602795
+    second: HUMAN_ROGUE_universal_105
+  - first:
+      213: 699544835888752113
+    second: HUMAN_ROGUE_universal_106
+  - first:
+      213: 2568360312540372744
+    second: HUMAN_ROGUE_universal_107
+  - first:
+      213: 8644890720328146164
+    second: HUMAN_ROGUE_universal_108
+  - first:
+      213: 8535458737048008194
+    second: HUMAN_ROGUE_universal_109
+  - first:
+      213: -7118992334423409212
+    second: HUMAN_ROGUE_universal_110
+  - first:
+      213: 7676434363504232598
+    second: HUMAN_ROGUE_universal_111
+  - first:
+      213: -2579416231758623845
+    second: HUMAN_ROGUE_universal_112
+  - first:
+      213: 5070545118666828493
+    second: HUMAN_ROGUE_universal_113
+  - first:
+      213: -1811859358257748623
+    second: HUMAN_ROGUE_universal_114
+  - first:
+      213: -6368682957142317256
+    second: HUMAN_ROGUE_universal_115
+  - first:
+      213: 5173752580197788388
+    second: HUMAN_ROGUE_universal_116
+  - first:
+      213: 4976647932240266016
+    second: HUMAN_ROGUE_universal_117
+  - first:
+      213: 737271356820832551
+    second: HUMAN_ROGUE_universal_118
+  - first:
+      213: -5853262706652057955
+    second: HUMAN_ROGUE_universal_119
+  - first:
+      213: 7280187950498898000
+    second: HUMAN_ROGUE_universal_120
+  - first:
+      213: -6061536289770555660
+    second: HUMAN_ROGUE_universal_121
+  - first:
+      213: -3872404583764915902
+    second: HUMAN_ROGUE_universal_122
+  - first:
+      213: 9111307000133071781
+    second: HUMAN_ROGUE_universal_123
+  - first:
+      213: -739152444944585503
+    second: HUMAN_ROGUE_universal_124
+  - first:
+      213: -8917362656582677614
+    second: HUMAN_ROGUE_universal_125
+  - first:
+      213: 8912060961452426408
+    second: HUMAN_ROGUE_universal_126
+  - first:
+      213: 9055620921391791858
+    second: HUMAN_ROGUE_universal_127
+  - first:
+      213: 4833277201244084161
+    second: HUMAN_ROGUE_universal_128
+  - first:
+      213: -8556965815897683873
+    second: HUMAN_ROGUE_universal_129
+  - first:
+      213: 8667371758485077779
+    second: HUMAN_ROGUE_universal_130
+  - first:
+      213: 4226127748098570496
+    second: HUMAN_ROGUE_universal_131
+  - first:
+      213: 8813313765280635037
+    second: HUMAN_ROGUE_universal_132
+  - first:
+      213: -2000599254106837069
+    second: HUMAN_ROGUE_universal_133
+  - first:
+      213: -4957141122793840791
+    second: HUMAN_ROGUE_universal_134
+  - first:
+      213: 3412195590988740430
+    second: HUMAN_ROGUE_universal_135
+  - first:
+      213: 5619758156841831104
+    second: HUMAN_ROGUE_universal_136
+  - first:
+      213: -324735492804276328
+    second: HUMAN_ROGUE_universal_137
+  - first:
+      213: 1644681002267484131
+    second: HUMAN_ROGUE_universal_138
+  - first:
+      213: 245765104550104630
+    second: HUMAN_ROGUE_universal_139
+  - first:
+      213: -1957227440010065960
+    second: HUMAN_ROGUE_universal_140
+  - first:
+      213: 1084847859122189306
+    second: HUMAN_ROGUE_universal_141
+  - first:
+      213: -8937142074735623593
+    second: HUMAN_ROGUE_universal_142
+  - first:
+      213: -5887719287199554765
+    second: HUMAN_ROGUE_universal_143
+  - first:
+      213: 9012317775980753179
+    second: HUMAN_ROGUE_universal_144
+  - first:
+      213: -5432367391271592761
+    second: HUMAN_ROGUE_universal_145
+  - first:
+      213: 6156505875686392032
+    second: HUMAN_ROGUE_universal_146
+  - first:
+      213: 1349451052945409893
+    second: HUMAN_ROGUE_universal_147
+  - first:
+      213: 4557917574388038673
+    second: HUMAN_ROGUE_universal_148
+  - first:
+      213: 802636791298505490
+    second: HUMAN_ROGUE_universal_149
+  - first:
+      213: -153843674744523608
+    second: HUMAN_ROGUE_universal_150
+  - first:
+      213: -1958534561347050855
+    second: HUMAN_ROGUE_universal_151
+  - first:
+      213: -3414583590815009016
+    second: HUMAN_ROGUE_universal_152
+  - first:
+      213: 1807884671395630778
+    second: HUMAN_ROGUE_universal_153
+  - first:
+      213: -5170450248553834705
+    second: HUMAN_ROGUE_universal_154
+  - first:
+      213: 5606500209242992018
+    second: HUMAN_ROGUE_universal_155
+  - first:
+      213: -3304620267658516496
+    second: HUMAN_ROGUE_universal_156
+  - first:
+      213: 1647465141449878211
+    second: HUMAN_ROGUE_universal_157
+  - first:
+      213: 401976014659499087
+    second: HUMAN_ROGUE_universal_158
+  - first:
+      213: -9190663930086907278
+    second: HUMAN_ROGUE_universal_159
+  - first:
+      213: 8249297949980699136
+    second: HUMAN_ROGUE_universal_160
+  - first:
+      213: -7534501694152216099
+    second: HUMAN_ROGUE_universal_161
+  - first:
+      213: -6524791689118955486
+    second: HUMAN_ROGUE_universal_162
+  - first:
+      213: -5098307017341746527
+    second: HUMAN_ROGUE_universal_163
+  - first:
+      213: -2994144184074414403
+    second: HUMAN_ROGUE_universal_164
+  - first:
+      213: -8265182890094339406
+    second: HUMAN_ROGUE_universal_165
+  - first:
+      213: 5214044688839828385
+    second: HUMAN_ROGUE_universal_166
+  - first:
+      213: 5500480905600325626
+    second: HUMAN_ROGUE_universal_167
+  - first:
+      213: 5866199742390779203
+    second: HUMAN_ROGUE_universal_168
+  - first:
+      213: -4907165731443379605
+    second: HUMAN_ROGUE_universal_169
+  - first:
+      213: -6368395935253037403
+    second: HUMAN_ROGUE_universal_170
+  - first:
+      213: -1573527741993666081
+    second: HUMAN_ROGUE_universal_171
+  - first:
+      213: 897336288849732534
+    second: HUMAN_ROGUE_universal_172
+  - first:
+      213: 8385181788628978967
+    second: HUMAN_ROGUE_universal_173
+  - first:
+      213: 6171083174588414107
+    second: HUMAN_ROGUE_universal_174
+  - first:
+      213: 7186784693038836054
+    second: HUMAN_ROGUE_universal_175
+  - first:
+      213: -7574388710456909732
+    second: HUMAN_ROGUE_universal_176
+  - first:
+      213: 849678109364339858
+    second: HUMAN_ROGUE_universal_177
+  - first:
+      213: 4079907187158427554
+    second: HUMAN_ROGUE_universal_178
+  - first:
+      213: 5985730063648333996
+    second: HUMAN_ROGUE_universal_179
+  - first:
+      213: -4148733753873339519
+    second: HUMAN_ROGUE_universal_180
+  - first:
+      213: 7752265867995665328
+    second: HUMAN_ROGUE_universal_181
+  - first:
+      213: 3117611138136063784
+    second: HUMAN_ROGUE_universal_182
+  - first:
+      213: 1917941649309930198
+    second: HUMAN_ROGUE_universal_183
+  - first:
+      213: -7435565163956838186
+    second: HUMAN_ROGUE_universal_184
+  - first:
+      213: 6670747815909094321
+    second: HUMAN_ROGUE_universal_185
+  - first:
+      213: -302432911570135503
+    second: HUMAN_ROGUE_universal_186
+  - first:
+      213: 5488522373585548772
+    second: HUMAN_ROGUE_universal_187
+  - first:
+      213: -8184193846550274978
+    second: HUMAN_ROGUE_universal_188
+  - first:
+      213: 6717901525976265318
+    second: HUMAN_ROGUE_universal_189
+  - first:
+      213: 7672800073993264791
+    second: HUMAN_ROGUE_universal_190
+  - first:
+      213: 3166691387735881183
+    second: HUMAN_ROGUE_universal_191
+  - first:
+      213: 712668395146762913
+    second: HUMAN_ROGUE_universal_192
+  - first:
+      213: 7272857753301741107
+    second: HUMAN_ROGUE_universal_193
+  - first:
+      213: -2158085359110766936
+    second: HUMAN_ROGUE_universal_194
+  - first:
+      213: 8122175244950105391
+    second: HUMAN_ROGUE_universal_195
+  - first:
+      213: 8660765340388314802
+    second: HUMAN_ROGUE_universal_196
+  - first:
+      213: 7111839749326569482
+    second: HUMAN_ROGUE_universal_197
+  - first:
+      213: -8924212600028488036
+    second: HUMAN_ROGUE_universal_198
+  - first:
+      213: 279136633430039116
+    second: HUMAN_ROGUE_universal_199
+  - first:
+      213: 5752962928076508854
+    second: HUMAN_ROGUE_universal_200
+  - first:
+      213: 7183898603791294099
+    second: HUMAN_ROGUE_universal_201
+  - first:
+      213: -812877238695306738
+    second: HUMAN_ROGUE_universal_202
+  - first:
+      213: 8010182796230797072
+    second: HUMAN_ROGUE_universal_203
+  - first:
+      213: -2567591925804388061
+    second: HUMAN_ROGUE_universal_204
+  - first:
+      213: 4865742082035394295
+    second: HUMAN_ROGUE_universal_205
+  - first:
+      213: -6759093040057245838
+    second: HUMAN_ROGUE_universal_206
+  - first:
+      213: -6808382656183531540
+    second: HUMAN_ROGUE_universal_207
+  - first:
+      213: -3767152231809483702
+    second: HUMAN_ROGUE_universal_208
+  - first:
+      213: -4308343726362180319
+    second: HUMAN_ROGUE_universal_209
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 1283
+        width: 31
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd1aae533764c8610800000000000000
+      internalID: 1624751026213659101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_1
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 1282
+        width: 30
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fb654f1eb060ec60800000000000000
+      internalID: 7845376920564100087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_2
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 1282
+        width: 30
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d29b37c93a95f220800000000000000
+      internalID: 2519089139530044114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_3
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 1282
+        width: 36
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 966134e49f3954c80800000000000000
+      internalID: -8339096436037446039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_4
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 1282
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbf674cbb847d5840800000000000000
+      internalID: 5214452087072976829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_5
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 1282
+        width: 48
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4a1ea6085bfce030800000000000000
+      internalID: 3525468963812022862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_6
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 1282
+        width: 36
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26e484846f37066a0800000000000000
+      internalID: -6458034364037443998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_7
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1218
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a52dac26d1a33ef0800000000000000
+      internalID: -129582023018994271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_8
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 1218
+        width: 23
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e66b7e228252a750800000000000000
+      internalID: 6314700346605922024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_9
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 1218
+        width: 21
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13d59ad176e17f6d0800000000000000
+      internalID: -2956861202117337807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_10
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 1218
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe387964b2de8b3a0800000000000000
+      internalID: -6649304079688825873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_11
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 1218
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cd6c41a136caa6c0800000000000000
+      internalID: -4131271791697171003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_12
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 1218
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12050aaddaab4e8c0800000000000000
+      internalID: -3970843715573886943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_13
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 1218
+        width: 28
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85e6fc33dac58f710800000000000000
+      internalID: 1727232356064915032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_14
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 1154
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a326ef8df1df81990800000000000000
+      internalID: -7414898473239158214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_15
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 1154
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03180fe561849d920800000000000000
+      internalID: 3015520686420558128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_16
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 1154
+        width: 28
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abc825e29e4cbfc00800000000000000
+      internalID: 935557853393095866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_17
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 1154
+        width: 36
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6902c3ebe8fb3b6a0800000000000000
+      internalID: -6434588822784434026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_18
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 1154
+        width: 50
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 585fc6a41e9ce4aa0800000000000000
+      internalID: -6174776069624892027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_19
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 1154
+        width: 48
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4875abe51c0943d30800000000000000
+      internalID: 4410309095294916484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_20
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 1154
+        width: 34
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2007e0111691d300800000000000000
+      internalID: 275166052288495661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_21
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1090
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e84be502daac635d0800000000000000
+      internalID: -3083054049967295346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_22
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 1090
+        width: 23
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5ce77953337fe260800000000000000
+      internalID: 7129043399532342367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_23
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 1090
+        width: 22
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 917b5b30e1f1b6410800000000000000
+      internalID: 1471303917038319385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_24
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 1090
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e7374d529e795cd0800000000000000
+      internalID: -2568882945342883867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_25
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 1090
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecb1ca6d201e1b160800000000000000
+      internalID: 7039655094864583630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_26
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 1090
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 103dd029d5fd822c0800000000000000
+      internalID: -4456066238307773695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_27
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1090
+        width: 28
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f696e3500a903da0800000000000000
+      internalID: -5967100180067608844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_back_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 1027
+        width: 31
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf54228089359ef00800000000000000
+      internalID: 1146539492579100155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_back_1
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 1024
+        width: 27
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54bdfb5e3357a2d10800000000000000
+      internalID: 2101621041880095557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_back_2
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 1024
+        width: 24
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a45a60a68ccc21420800000000000000
+      internalID: 2599365096090543434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_back_3
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 1024
+        width: 23
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f58e17d92eab505b0800000000000000
+      internalID: -5402706695494178721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_back_4
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 1024
+        width: 23
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbf438d2cbc3f9e60800000000000000
+      internalID: 7971156644384165821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_back_5
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 1024
+        width: 23
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a7366c6a963ad2e0800000000000000
+      internalID: -2100306239343413337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_back_6
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 1024
+        width: 23
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a851ba18e0ff7f220800000000000000
+      internalID: 2519762954307179914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_back_7
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 1024
+        width: 23
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcb85fad417b6fb00800000000000000
+      internalID: 862077678888782799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_left_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 962
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f17f8ef7c04be2880800000000000000
+      internalID: -8633765469844080865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_left_1
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 962
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2126863d2f46b3190800000000000000
+      internalID: -7981674920492375534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_left_2
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 962
+        width: 37
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e62cbd624caf9f50800000000000000
+      internalID: 6890415356209014503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_left_3
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 962
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b456e08c6cc835370800000000000000
+      internalID: 8310140522816496971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_left_4
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 962
+        width: 35
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03781d669cded3640800000000000000
+      internalID: 5061463005503522608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_left_5
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 962
+        width: 38
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 521c28db8a17cd4c0800000000000000
+      internalID: -4261406177851424475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_left_6
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 962
+        width: 35
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eeb4b2c8c56ff5c0800000000000000
+      internalID: -4179510016242041111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_left_7
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 962
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3a093ccf3c0a8520800000000000000
+      internalID: 2704987994338167356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_front_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 898
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a614b99f492a3ae70800000000000000
+      internalID: 9125316030709317994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_front_1
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 899
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dacbbbfad4b896340800000000000000
+      internalID: 4857566838872849581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_front_2
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 899
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5959241371d0ca370800000000000000
+      internalID: 8335051403617801621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_front_3
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 899
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 794499ce5f6539d40800000000000000
+      internalID: 5589907176733361303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_front_4
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 899
+        width: 24
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec1bb2c825f803860800000000000000
+      internalID: 7507658163528380878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_front_5
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 898
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d69d87a52f1f3e00800000000000000
+      internalID: 1026573486649087700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_front_6
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 899
+        width: 24
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 988c54bd590af9160800000000000000
+      internalID: 7034517708465358985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_front_7
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 899
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fa88e00de0b74d50800000000000000
+      internalID: 6721535500842732281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_right_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 834
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b611ca4af1de0e2e0800000000000000
+      internalID: -2098416706192141973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_right_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 834
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1141313389e660cb0800000000000000
+      internalID: -4898105944747863023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_right_2
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 834
+        width: 37
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7306a702be6b33890800000000000000
+      internalID: -7479433435153801161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_right_3
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 834
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a9c67053d1c6e0a0800000000000000
+      internalID: -6852576669665408604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_right_4
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 834
+        width: 35
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b026c6b1745478990800000000000000
+      internalID: -7383856892345556469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_right_5
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 834
+        width: 38
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f17a1783e868a3390800000000000000
+      internalID: -7837804256094476513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_right_6
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 834
+        width: 35
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 989faa97afaeaf490800000000000000
+      internalID: -7711593050414581367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_stab_right_7
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 834
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a945481041e32630800000000000000
+      internalID: 3901209367634332070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_back_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 771
+        width: 31
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b9d1c00ecece1e60800000000000000
+      internalID: 7935006977644681650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_back_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 771
+        width: 31
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4761594aa75e7f80800000000000000
+      internalID: -8106945890334185652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_back_2
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 770
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 346d0eecbf5eefcf0800000000000000
+      internalID: -216482862396811709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_back_3
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 769
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b18a43b7971ec120800000000000000
+      internalID: 2435910388769522098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_back_4
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 770
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7f09306fa3aaaae0800000000000000
+      internalID: -1537236349164646529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_back_5
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 771
+        width: 31
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f3b31ca129d3c130800000000000000
+      internalID: 3585948466961167352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_back_6
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 770
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7566e4193b6821380800000000000000
+      internalID: -9001984599365097897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_back_7
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 769
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05007676ee063bdb0800000000000000
+      internalID: -4777368202656677808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_back_8
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 770
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b7cd290d53556f30800000000000000
+      internalID: 4568149056088295348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_back_9
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 771
+        width: 31
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e597284113018880800000000000000
+      internalID: -8610597639795796509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_back_10
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 771
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a903ea4f60ec3ef80800000000000000
+      internalID: -8078386777302355814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_left_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 706
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df81389ba2cbff470800000000000000
+      internalID: 8430663919147882749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_left_1
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 706
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09ae7ec32faa65dc0800000000000000
+      internalID: -3650542490556568944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_left_2
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 707
+        width: 23
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec20ab2c1076d8560800000000000000
+      internalID: 7317618226806522574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_left_3
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 707
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39881120d4d1c05b0800000000000000
+      internalID: -5400909636539676525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_left_4
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 706
+        width: 27
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebb54cf6cd88d14d0800000000000000
+      internalID: -3162220882994897986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_left_5
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 706
+        width: 29
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfd6149ed9cf7ed50800000000000000
+      internalID: 6766654720300903932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_left_6
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 706
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8f01e0880e401e20800000000000000
+      internalID: 3319238723800993674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_left_7
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 706
+        width: 25
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c1046feb7db1e0a0800000000000000
+      internalID: -6853988817886248510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_left_8
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 706
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0869ef746b2a80640800000000000000
+      internalID: 5046462286244255360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_left_9
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 706
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca08c25557d2cd970800000000000000
+      internalID: 8780943355429028012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_left_10
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 706
+        width: 31
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9294d1a05f0a68980800000000000000
+      internalID: -8536959069337073367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_front_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 642
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c3ff866410febd20800000000000000
+      internalID: 3296335947692504009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_front_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 642
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa4403bf578a26470800000000000000
+      internalID: 8386450680796169391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_front_2
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 641
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31ff97c4ae725cfe0800000000000000
+      internalID: -1169484640973881581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_front_3
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 641
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55834c829034f2120800000000000000
+      internalID: 2391203633774737493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_front_4
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 641
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d357754e7d3cc3720800000000000000
+      internalID: 2827349998098150717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_front_5
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 642
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 538f871b331363180800000000000000
+      internalID: -9136060695983884235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_front_6
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 641
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce349afaaf9a2c8e0800000000000000
+      internalID: -1674589217274379284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_front_7
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 641
+        width: 29
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8070b8efcdf1d4f0800000000000000
+      internalID: -805583788918673268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_front_8
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 641
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a8cc3cb841227a60800000000000000
+      internalID: 7670229711644838050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_front_9
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 642
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23eb71b02b4f236b0800000000000000
+      internalID: -5317919164443673038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_front_10
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 642
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53b26060aa11fce00800000000000000
+      internalID: 1067091058653276981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_right_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 578
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fd3eee2a59eab6e0800000000000000
+      internalID: -1820886525774250508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_right_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 578
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38d311fb30c261390800000000000000
+      internalID: -7848036906044408445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_right_2
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 579
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcb4f00be7dcfc7d0800000000000000
+      internalID: -2895870091372573745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_right_3
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 579
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f721688327e18040800000000000000
+      internalID: 4648250430221002742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_right_4
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 578
+        width: 27
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acdd335dd57a7dda0800000000000000
+      internalID: -5920079163704484406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_right_5
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 578
+        width: 29
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2378750244ebeccb0800000000000000
+      internalID: -4841723349567043790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_right_6
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 578
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b291cdf509a305540800000000000000
+      internalID: 4994556378511841579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_right_7
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 578
+        width: 25
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a31dca39a9b9edae0800000000000000
+      internalID: -1522608535799803590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_right_8
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 578
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35343af4ba875a9e0800000000000000
+      internalID: -1610748614544243885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_right_9
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 578
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05b9ec806aa25d900800000000000000
+      internalID: 708519408981416784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_walk_right_10
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 578
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dea523bbbde10700800000000000000
+      internalID: 504946023662464723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_104
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 515
+        width: 31
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e30e44ebb3ab0100800000000000000
+      internalID: 75333846166275045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_105
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 513
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be2a3a844da142450800000000000000
+      internalID: 6063000497401602795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_106
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 513
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f5ab97625845b900800000000000000
+      internalID: 699544835888752113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_107
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 513
+        width: 28
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80f1e24b816a4a320800000000000000
+      internalID: 2568360312540372744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_108
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 513
+        width: 39
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fcda3bbe42d8f770800000000000000
+      internalID: 8644890720328146164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_109
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 513
+        width: 45
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20630c0af7a047670800000000000000
+      internalID: 8535458737048008194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_110
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 515
+        width: 31
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cdb6fb9032443d90800000000000000
+      internalID: -7118992334423409212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_111
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 513
+        width: 45
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6988542d16c288a60800000000000000
+      internalID: 7676434363504232598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_112
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 513
+        width: 37
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9b86228a92143cd0800000000000000
+      internalID: -2579416231758623845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_113
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 513
+        width: 38
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dca2ab7abe13e5640800000000000000
+      internalID: 5070545118666828493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_114
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 513
+        width: 30
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1756418638bfad6e0800000000000000
+      internalID: -1811859358257748623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_115
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 513
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 837a27cd794ed97a0800000000000000
+      internalID: -6368682957142317256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_116
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 450
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ea237a5f8cdcc740800000000000000
+      internalID: 5173752580197788388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_117
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 450
+        width: 31
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0230d5d4dea901540800000000000000
+      internalID: 4976647932240266016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_118
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 450
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 721406e84605b3a00800000000000000
+      internalID: 737271356820832551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_119
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 450
+        width: 38
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9e66f8849805cea0800000000000000
+      internalID: -5853262706652057955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_120
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 450
+        width: 44
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 050e09f6e5c680560800000000000000
+      internalID: 7280187950498898000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_121
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 450
+        width: 39
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f6361f1cd811eba0800000000000000
+      internalID: -6061536289770555660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_122
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 450
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24909164c84724ac0800000000000000
+      internalID: -3872404583764915902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_123
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 450
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a3367e517dd17e70800000000000000
+      internalID: 9111307000133071781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_124
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 450
+        width: 43
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ec673c74c00eb5f0800000000000000
+      internalID: -739152444944585503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_125
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 450
+        width: 45
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29b4e09f8e92f3480800000000000000
+      internalID: -8917362656582677614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_126
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 450
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a48fffe9300eab70800000000000000
+      internalID: 8912060961452426408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_127
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 450
+        width: 29
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fe3720df370cad70800000000000000
+      internalID: 9055620921391791858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_128
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 386
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c7d529b100431340800000000000000
+      internalID: 4833277201244084161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_129
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 386
+        width: 28
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f58024c5dec8f3980800000000000000
+      internalID: -8556965815897683873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_130
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 386
+        width: 28
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31f71c051b0b84870800000000000000
+      internalID: 8667371758485077779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_131
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 386
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00936d0cbc836aa30800000000000000
+      internalID: 4226127748098570496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_132
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 386
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d98dc91bc2e2f4a70800000000000000
+      internalID: 8813313765280635037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_133
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 386
+        width: 45
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bfec09f3917c34e0800000000000000
+      internalID: -2000599254106837069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_134
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 386
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96f5462b962b43bb0800000000000000
+      internalID: -4957141122793840791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_135
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 386
+        width: 42
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e47b909bfcd8a5f20800000000000000
+      internalID: 3412195590988740430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_136
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 386
+        width: 44
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ca4926d4446dfd40800000000000000
+      internalID: 5619758156841831104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_137
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 386
+        width: 37
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89f80713ace4e7bf0800000000000000
+      internalID: -324735492804276328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_138
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 386
+        width: 28
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ef9cfc58a413d610800000000000000
+      internalID: 1644681002267484131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_139
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 386
+        width: 28
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63e45ea7f02296300800000000000000
+      internalID: 245765104550104630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_140
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 322
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d78d8d530886d4e0800000000000000
+      internalID: -1957227440010065960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_141
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 322
+        width: 31
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af3325e41672e0f00800000000000000
+      internalID: 1084847859122189306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_142
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 322
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7528f2052a4e8f380800000000000000
+      internalID: -8937142074735623593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_143
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 322
+        width: 38
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3332145b08e9a4ea0800000000000000
+      internalID: -5887719287199554765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_144
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 322
+        width: 44
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b117548944f221d70800000000000000
+      internalID: 9012317775980753179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_145
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 322
+        width: 39
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cc57d9b3aa5c94b0800000000000000
+      internalID: -5432367391271592761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_146
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 322
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e084e1b97d407550800000000000000
+      internalID: 6156505875686392032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_147
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 322
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 567869c35963ab210800000000000000
+      internalID: 1349451052945409893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_148
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 322
+        width: 43
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11cb8e092e9f04f30800000000000000
+      internalID: 4557917574388038673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_149
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 322
+        width: 45
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21bb10db8e9832b00800000000000000
+      internalID: 802636791298505490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_150
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 322
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a479ef2eff6dddf0800000000000000
+      internalID: -153843674744523608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_151
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 322
+        width: 29
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99265967133e1d4e0800000000000000
+      internalID: -1958534561347050855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_152
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 259
+        width: 31
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 807f79db056fc90d0800000000000000
+      internalID: -3414583590815009016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_153
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 256
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abe0961b785e61910800000000000000
+      internalID: 1807884671395630778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_154
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 256
+        width: 23
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f275e16a4eede38b0800000000000000
+      internalID: -5170450248553834705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_155
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 256
+        width: 23
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29de41d5c3a4ecd40800000000000000
+      internalID: 5606500209242992018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_156
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 256
+        width: 27
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f768ac0061a322d0800000000000000
+      internalID: -3304620267658516496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_157
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 256
+        width: 25
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ca65f741d8fcd610800000000000000
+      internalID: 1647465141449878211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_158
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 256
+        width: 26
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f44b10a3e0b149500800000000000000
+      internalID: 401976014659499087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_159
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 256
+        width: 27
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 272ac2d89d3347080800000000000000
+      internalID: -9190663930086907278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_160
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 256
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00a25f267c46b7270800000000000000
+      internalID: 8249297949980699136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_161
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 256
+        width: 27
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd17a70f0a2107790800000000000000
+      internalID: -7534501694152216099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_162
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 256
+        width: 23
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 228c4a057884375a0800000000000000
+      internalID: -6524791689118955486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_163
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 256
+        width: 23
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a2c67b97cc2f39b0800000000000000
+      internalID: -5098307017341746527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_164
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 256
+        width: 23
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db651fd6ab9a276d0800000000000000
+      internalID: -2994144184074414403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_165
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 194
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ba5a48c3fb2c4d80800000000000000
+      internalID: -8265182890094339406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_166
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 194
+        width: 25
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a36f41f4020c5840800000000000000
+      internalID: 5214044688839828385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_167
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 194
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af75028ad32a55c40800000000000000
+      internalID: 5500480905600325626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_168
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 194
+        width: 35
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34db0b2d59de86150800000000000000
+      internalID: 5866199742390779203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_169
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 194
+        width: 35
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b62f85b34ce36ebb0800000000000000
+      internalID: -4907165731443379605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_170
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 194
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ae733a53a9ee97a0800000000000000
+      internalID: -6368395935253037403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_171
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 194
+        width: 34
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd9be360bd4b92ae0800000000000000
+      internalID: -1573527741993666081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_172
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 194
+        width: 36
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b3a4f4b99af37c00800000000000000
+      internalID: 897336288849732534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_173
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 194
+        width: 38
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71d0e4009662e5470800000000000000
+      internalID: 8385181788628978967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_174
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 194
+        width: 35
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b987bb4937714a550800000000000000
+      internalID: 6171083174588414107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_175
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 194
+        width: 34
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6596bc1e9969cb360800000000000000
+      internalID: 7186784693038836054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_176
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 194
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c50ac72499d52e690800000000000000
+      internalID: -7574388710456909732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_177
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 194
+        width: 34
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 294461a1db9aacb00800000000000000
+      internalID: 849678109364339858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_178
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 130
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a7242f68fdbe9830800000000000000
+      internalID: 4079907187158427554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_179
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 131
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca0a22577c5911350800000000000000
+      internalID: 5985730063648333996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_180
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 131
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18be4bcb1acbc66c0800000000000000
+      internalID: -4148733753873339519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_181
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 130
+        width: 25
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b35442dbb4959b60800000000000000
+      internalID: 7752265867995665328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_182
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 130
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82fb664ffcaf34b20800000000000000
+      internalID: 3117611138136063784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_183
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 130
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d29b03b4c5ed9a10800000000000000
+      internalID: 1917941649309930198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_184
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 130
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d06512f0e09fc890800000000000000
+      internalID: -7435565163956838186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_185
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 130
+        width: 25
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b37971abc1439c50800000000000000
+      internalID: 6670747815909094321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_186
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 130
+        width: 25
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13699798eda8dcbf0800000000000000
+      internalID: -302432911570135503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_187
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 130
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e5b953f4062b2c40800000000000000
+      internalID: 5488522373585548772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_188
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 130
+        width: 25
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5cde6bee07eb6e80800000000000000
+      internalID: -8184193846550274978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_189
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 130
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 662bedb48d7ca3d50800000000000000
+      internalID: 6717901525976265318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_190
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 130
+        width: 25
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79e95fad3034b7a60800000000000000
+      internalID: 7672800073993264791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_191
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 66
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd5394f0a0952fb20800000000000000
+      internalID: 3166691387735881183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_192
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 66
+        width: 25
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aade572128e3e900800000000000000
+      internalID: 712668395146762913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_193
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 66
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33eee77e7916ee460800000000000000
+      internalID: 7272857753301741107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_194
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 66
+        width: 35
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ae3b37ccc0fc02e0800000000000000
+      internalID: -2158085359110766936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_195
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 66
+        width: 35
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2de8b62a53c7b070800000000000000
+      internalID: 8122175244950105391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_196
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 66
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2be4cdcb038313870800000000000000
+      internalID: 8660765340388314802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_197
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 66
+        width: 34
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a000d16629452b260800000000000000
+      internalID: 7111839749326569482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_198
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 66
+        width: 36
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9e9c3b3ce3d62480800000000000000
+      internalID: -8924212600028488036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_199
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 66
+        width: 38
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4a55670a41bfd300800000000000000
+      internalID: 279136633430039116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_200
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 66
+        width: 35
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6becdf57d41a6df40800000000000000
+      internalID: 5752962928076508854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_201
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 66
+        width: 34
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39e976dd7b552b360800000000000000
+      internalID: 7183898603791294099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_202
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 66
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0ad09d457418b4f0800000000000000
+      internalID: -812877238695306738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_203
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 66
+        width: 34
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 017284b30d2e92f60800000000000000
+      internalID: 8010182796230797072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_204
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 2
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 321b4464fb41e5cd0800000000000000
+      internalID: -2567591925804388061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_205
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 2
+        width: 31
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f6a360d4a6968340800000000000000
+      internalID: 4865742082035394295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_206
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 0
+        width: 30
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27f9297f0b0e232a0800000000000000
+      internalID: -6759093040057245838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_207
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 0
+        width: 35
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce7004beb04c381a0800000000000000
+      internalID: -6808382656183531540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_208
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 0
+        width: 37
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4cfc20210368bbc0800000000000000
+      internalID: -3767152231809483702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUMAN_ROGUE_universal_209
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 0
+        width: 43
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12546eb1530b534c0800000000000000
+      internalID: -4308343726362180319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

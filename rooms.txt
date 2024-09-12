@@ -1,0 +1,11 @@
+Entrance: 1
+Chest Room: 2
+Party: 3
+Puzzle: 4
+Boss: 1 + 1
+Small: 6
+Medium: 5
+Large: 2
+
+== 1 + 2 + 3 + 4 + 1 + 6 + 5 + 2
+= 25

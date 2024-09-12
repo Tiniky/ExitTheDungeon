@@ -1,0 +1,11 @@
+{
+	"ATTACK": "A melee attack action that does * dmg.",
+	"DASH": "Doubles the movement for this round.",
+	"RANGED": "A ranged attack action that does * dmg.",
+	"SHOVE": "Pushes an enemy away.",
+	"Rage": "Gain temporary damage and STR advantage for 4 rounds.",
+	"Sneak Attack": "Additional 1D6 damage.",
+	"Double Strike": "Rolls the damage die an additional time.",
+	"Most Boring": "You're playing a human, what do you want.",
+	"Relentless Endurance": "When your health drops below 0, sets your HP to 1. Once each fight."
+}
