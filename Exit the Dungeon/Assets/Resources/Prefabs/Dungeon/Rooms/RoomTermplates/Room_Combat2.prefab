@@ -25727,6 +25727,8 @@ MonoBehaviour:
   ShouldDrawInteractableTiles: 0
   IsPartyMemberSpawnNeeded: 0
   AreEnemySpawnPointsNeeded: 0
+  TopLeftCorner: {x: -11, y: 5}
+  BottomRightCorner: {x: 18, y: -13}
   HasAtLeastOneDoor: 1
   WasPlayerSpawnSet: 0
   WasPartyMemberSpawnSet: 0

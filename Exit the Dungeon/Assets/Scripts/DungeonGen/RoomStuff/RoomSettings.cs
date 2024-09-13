@@ -15,6 +15,9 @@ public class RoomSettings : MonoBehaviour {
     public bool IsPartyMemberSpawnNeeded = false;
     public bool AreEnemySpawnPointsNeeded = false;
 
+    public Vector2 TopLeftCorner;
+    public Vector2 BottomRightCorner; 
+
     //validation bools
     public bool HasAtLeastOneDoor = false;
     public bool WasPlayerSpawnSet = false;

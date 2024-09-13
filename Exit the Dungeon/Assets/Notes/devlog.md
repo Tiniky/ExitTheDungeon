@@ -420,3 +420,6 @@ created 3-3 combat room and corridor templates
 created the rest of the templates
 created dev plan with deadlines
 fixed github issues
+created the Dungeon Generator class
+started updating the GameManager
+wrote DFS like algorithm for my custom graph

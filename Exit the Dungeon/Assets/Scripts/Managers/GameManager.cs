@@ -8,12 +8,16 @@ using Cinemachine;
 
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
-    public static GamePhase Phase;
     private static bool hasBeenInitialized = false;
     private static GameObject _cam;
 
+    //dungon things
+    public List<DungeonLevel> DungeonLevels;
+    private int currentLevel = 0;
+
     //global thing
     public static int Gem = 0;
+    public static GamePhase Phase;
 
     //living
     private static GameObject _player;
@@ -42,7 +46,7 @@ public class GameManager : MonoBehaviour {
         PrefabManager.Initialize();
         _cam = GameObject.FindGameObjectWithTag("MainCamera");
 
-        if(!hasBeenInitialized){
+        /*if(!hasBeenInitialized){
             InitializeRooms();
             InitializePlayer();
             InitializePartyMembers();
@@ -56,13 +60,12 @@ public class GameManager : MonoBehaviour {
         
         InitializeUI();
 
-        Cursor.visible = false;
-
-        Phase = GamePhase.ADVENTURE;
+        Cursor.visible = false;*/
     }
 
     private void Update(){
-        HandleInputs();
+        HandleState();
+        /*HandleInputs();
 
         foreach(GameObject ally in _partyMembers){
             CheckIfPlayerBehindCreature(ally);
@@ -87,7 +90,7 @@ public class GameManager : MonoBehaviour {
             if(!_playerBehaviour.CheckIfCreatureCanMove()){
                 StartCoroutine(RestartMovementCoroutine());
             }
-        }
+        }*/
     }
 
     private void InitializeRooms(){
@@ -378,5 +381,21 @@ public class GameManager : MonoBehaviour {
 
     public static void DestroyObj(GameObject obj){
         Destroy(obj);
+    }
+
+    public void HandleState(){
+        switch(Phase){
+            case GamePhase.INIT:
+                GenerateLevel(currentLevel);
+                Phase = GamePhase.ADVENTURE;
+                break;
+        }
+    }
+
+    private void GenerateLevel(int lvl){
+        Debug.Log("generate lvl");
+        DungeonLevel level = DungeonLevels[lvl];
+        bool success = DungeonGenerator.GenerateDungeon(level);
+        Debug.Log("success " + success);
     }
 }

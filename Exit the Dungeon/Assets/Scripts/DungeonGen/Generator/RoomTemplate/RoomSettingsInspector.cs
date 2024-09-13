@@ -22,12 +22,18 @@ public class RoomSettingsInspector : UnityEditor.Editor{
 
         SerializedProperty settingsType = serializedSettings.FindProperty("Type");
         EditorGUILayout.PropertyField(settingsType);
-        serializedSettings.ApplyModifiedProperties();
 
         EditorGUILayout.LabelField("ShouldDrawInteractableTiles (ReadOnly)", settings.ShouldDrawInteractableTiles.ToString());
         EditorGUILayout.LabelField("IsPartyMemberSpawnNeeded (ReadOnly)", settings.IsPartyMemberSpawnNeeded.ToString());
         EditorGUILayout.LabelField("AreEnemySpawnPointsNeeded (ReadOnly)", settings.AreEnemySpawnPointsNeeded.ToString());
         EditorGUILayout.LabelField("HasAtLeastOneDoor (ReadOnly)", settings.HasAtLeastOneDoor.ToString());
+
+        SerializedProperty topLeftProp = serializedSettings.FindProperty("TopLeftCorner");
+        EditorGUILayout.PropertyField(topLeftProp);
+        SerializedProperty bottomRightProp = serializedSettings.FindProperty("BottomRightCorner");
+        EditorGUILayout.PropertyField(bottomRightProp);
+
+        serializedSettings.ApplyModifiedProperties();
 
         if(GUILayout.Button("Generate Interactable Tiles")){
             GenerateInteractableTiles();

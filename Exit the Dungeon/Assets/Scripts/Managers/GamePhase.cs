@@ -2,5 +2,8 @@ public enum GamePhase{
     INIT,
     ADVENTURE,
     CUTSCENE,
-    COMBAT
+    COMBAT,
+    PAUSE,
+    WIN,
+    LOSE
 }
