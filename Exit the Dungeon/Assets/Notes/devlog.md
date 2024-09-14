@@ -423,3 +423,6 @@ fixed github issues
 created the Dungeon Generator class
 started updating the GameManager
 wrote DFS like algorithm for my custom graph
+updated the Dungeon Generator class with more variables
+handled template loading and template selection
+created new class for instantiated rooms and corridors

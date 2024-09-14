@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
     //dungon things
     public List<DungeonLevel> DungeonLevels;
     private int currentLevel = 0;
+    public static Room CurrentRoom;
 
     //global thing
     public static int Gem = 0;
@@ -397,5 +398,13 @@ public class GameManager : MonoBehaviour {
         DungeonLevel level = DungeonLevels[lvl];
         bool success = DungeonGenerator.GenerateDungeon(level);
         Debug.Log("success " + success);
+
+        if(success){
+            InstantiateEnvironment();
+        }
+    }
+
+    private void InstantiateEnvironment(){
+
     }
 }

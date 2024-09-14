@@ -6,8 +6,8 @@ public class Room : ScriptableObject {
     public string ID;
     public string Name;
     public RoomType Type;
-    public Vector2 Position;
-    public bool IsSelected, IsFocused;
+    public Vector2 Position; //editor
+    public bool IsSelected, IsFocused; //editor
     public List<GameObject> UniqueRoomTemplates;
 
     public void Initialize(RoomType roomType = RoomType.NONE){
