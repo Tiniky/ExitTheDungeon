@@ -987,14 +987,17 @@ MonoBehaviour:
     PossibleEndPosition: {x: 10, y: 8}
     Direction: 0
     DoorPrefab: {fileID: 0}
+    WasUsed: 0
   - PossibleStartPosition: {x: -4, y: -5}
     PossibleEndPosition: {x: 3, y: -5}
     Direction: 1
     DoorPrefab: {fileID: 0}
+    WasUsed: 0
   - PossibleStartPosition: {x: 14, y: 4}
     PossibleEndPosition: {x: 14, y: 2}
     Direction: 3
     DoorPrefab: {fileID: 0}
+    WasUsed: 0
 --- !u!114 &166249593318655247
 MonoBehaviour:
   m_ObjectHideFlags: 0

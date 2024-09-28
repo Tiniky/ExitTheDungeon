@@ -397,7 +397,7 @@ public class GameManager : MonoBehaviour {
         Debug.Log("generate lvl");
         DungeonLevel level = DungeonLevels[lvl];
         bool success = DungeonGenerator.GenerateDungeon(level);
-        Debug.Log("success " + success);
+        Debug.Log("success = " + success);
 
         if(success){
             InstantiateEnvironment();

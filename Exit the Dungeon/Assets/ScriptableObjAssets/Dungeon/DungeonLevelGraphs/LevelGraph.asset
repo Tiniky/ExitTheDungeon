@@ -322,7 +322,6 @@ MonoBehaviour:
   - {fileID: -6905239412985612793}
   - {fileID: 533098913410655240}
   - {fileID: -4530701224470530375}
-  - {fileID: 4407488152219812451}
   - {fileID: 8714758826964692815}
   - {fileID: -7779768648947104661}
   - {fileID: 357507770542262915}
@@ -489,21 +488,6 @@ MonoBehaviour:
   IsFocused: 0
   UniqueRoomTemplates:
   - {fileID: 4408418981419672978, guid: 5cd9ae1e2366f07448211738934eea97, type: 3}
---- !u!114 &4407488152219812451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a95c5eefd0755264398e848aa7538e89, type: 3}
-  m_Name: Connection
-  m_EditorClassIdentifier: 
-  From: {fileID: -933667904407113789}
-  To: {fileID: -5556818232329099721}
-  IsSelected: 0
 --- !u!114 &5966621436689446519
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -426,3 +426,9 @@ wrote DFS like algorithm for my custom graph
 updated the Dungeon Generator class with more variables
 handled template loading and template selection
 created new class for instantiated rooms and corridors
+created new class for Doorline
+created flow chart for the generator
+worked on the generator
+
+WEEK end of sept
+finally managed to generate correct maps with the generator

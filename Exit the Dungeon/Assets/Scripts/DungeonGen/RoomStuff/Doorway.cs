@@ -4,6 +4,4 @@ using UnityEngine;
 
 public class Doorway : MonoBehaviour {
     public List<Door> Doors = new List<Door>();
-
-    private bool _isConnected;
 }

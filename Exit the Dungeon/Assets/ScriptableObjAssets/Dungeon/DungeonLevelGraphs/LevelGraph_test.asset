@@ -39,21 +39,6 @@ MonoBehaviour:
   IsFocused: 0
   UniqueRoomTemplates:
   - {fileID: 1903841213624528365, guid: 146927f03ddd80c44846a9c38706b97c, type: 3}
---- !u!114 &-3347703676974485914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a95c5eefd0755264398e848aa7538e89, type: 3}
-  m_Name: Connection
-  m_EditorClassIdentifier: 
-  From: {fileID: -9084593327957427465}
-  To: {fileID: -1744356633657377569}
-  IsSelected: 0
 --- !u!114 &-2510151351740197902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,7 +119,6 @@ MonoBehaviour:
   - {fileID: 4465888952942106828}
   - {fileID: -2510151351740197902}
   - {fileID: 1023788680326651818}
-  - {fileID: -3347703676974485914}
   CorridorTemplates:
   - {fileID: 4894488429718327435, guid: 3845711cc7ee6554bbd05c62303b86cc, type: 3}
   - {fileID: 5060929361819489440, guid: d74eee83ef183854b99353aca20213ea, type: 3}

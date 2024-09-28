@@ -9,4 +9,5 @@ public class Door {
     public DoorDirection Direction;
     public GameObject DoorPrefab;
     private const int _doorLength = 3;
+    public bool WasUsed = false;
 }
