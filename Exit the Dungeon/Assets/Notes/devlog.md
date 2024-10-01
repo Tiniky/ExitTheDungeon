@@ -432,3 +432,22 @@ worked on the generator
 
 WEEK end of sept
 finally managed to generate correct maps with the generator
+reworked the room templates
+
+WEEK first week of oct
+made some optimalizations to the dungeon generator
+the dungeon level gets generated
+the doors are marked WasUsed upon being selected correctly
+the base dungeon also gets generated without Unity time out
+||TO-DO: 
+- figure out what's wrong with overlaps
+- check why dead ends are a thing
+- add roomID's to rooms
+- add collision
+- finish up templates
+- spawn the player in the spawn room
+- spawn the party members to the party member spawns
+- instantiate the rest of the environment
+- configure gem room gimmick 
+- spawn monsters
+- verify if everything works as in the DemoScene

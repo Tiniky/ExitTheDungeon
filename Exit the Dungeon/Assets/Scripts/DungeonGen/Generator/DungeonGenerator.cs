@@ -8,392 +8,414 @@ public static class DungeonGenerator {
     private static GameObject _dungeon;
     private static LevelGraph _currentGraph;
     private static List<InstantiatedRoom> _rooms = new List<InstantiatedRoom>();
-    private static List<InstantiatedCorridor> _corridors;
-    private static List<GameObject> _corridorTemplates;
-    private static List<GameObject> _defaultTemplates;
-    private static bool _successfulBuild, _noOverlaps, _wasCalledFromEditor;
+    private static List<InstantiatedCorridor> _corridors = new List<InstantiatedCorridor>();
+    private static List<GameObject> _corridorTemplates = new List<GameObject>();
+    private static List<GameObject> _defaultTemplates = new List<GameObject>();
+    private static bool _successfulBuild, _wasCalledFromEditor;
+    private const int MaxAttempts = 100;
+    private const int MaxGraphSelect = 10;
+    private static List<Door> _triedDoors = new List<Door>();
+    private static InstantiatedCorridor _lastCorridor;
 
     public static bool GenerateDungeon(DungeonLevel lvl, bool WasCalledFromEditor = false){
-        int buildAttempt = 0;
         _wasCalledFromEditor = WasCalledFromEditor;
+        int attempts = 0;
         ResetVariables();
 
-        while(!_successfulBuild && buildAttempt < 10){
-            buildAttempt++;
-            _currentGraph = SelectRandomGraph(lvl);
-            LoadTemplates();
-            int graphBuildAttempt = 0;
+        while(!_successfulBuild && attempts < MaxGraphSelect){
+            if(attempts == MaxGraphSelect - 1){
+                Debug.LogError("Dungeon Generation Failed: Too many attempts");
+                return false;
+            }
 
-            while(!_successfulBuild && graphBuildAttempt < 1000){
+            _currentGraph = GetRandom(lvl.LevelGraphOptions);
+            LoadTemplates();
+            attempts++;
+
+            int buildAttempts = 0;
+            while(!_successfulBuild && buildAttempts < MaxAttempts){
+                if(buildAttempts == MaxAttempts - 1){
+                    Debug.LogError("Dungeon Generation Failed: Too many build attempts");
+                    return false;
+                }
+
                 ClearDungeon();
-                graphBuildAttempt++;
                 _successfulBuild = AttemptToBuildDungeon();
+                buildAttempts++;
             }
         }
 
         return _successfulBuild;
     }
 
-    private static void ResetVariables(){
-        if (_dungeon != null){
-            if(_wasCalledFromEditor){
-                GameObject.DestroyImmediate(_dungeon);
-            } else {
-                GameObject.Destroy(_dungeon);
-            }
-            
-        }
-
-        _dungeon = new GameObject("DUNGEON");
-        _currentGraph = null;
-        _successfulBuild = false;
-        _noOverlaps = true;
-        _rooms = new List<InstantiatedRoom>();
-        _corridors = new List<InstantiatedCorridor>();
-        _corridorTemplates = new List<GameObject>();
-        _defaultTemplates = new List<GameObject>();
-        Debug.Log("PG setup done");
-    }
-
-    private static T GetRandom<T>(List<T> list){
-        int randomIndex = UnityEngine.Random.Range(0, list.Count);
-        return list[randomIndex];
-    }
-
-    private static LevelGraph SelectRandomGraph(DungeonLevel lvl){
-        return GetRandom<LevelGraph>(lvl.LevelGraphOptions);
-    }
-
-    private static void LoadTemplates(){
-        _corridorTemplates = _currentGraph.CorridorTemplates;
-        _defaultTemplates = _currentGraph.RoomTemplates;
-        Debug.Log("PG templates loaded");
-    }
-
-    private static void ClearDungeon(){
-        if (_dungeon != null){
-            if(_wasCalledFromEditor){
-                GameObject.DestroyImmediate(_dungeon);
-            } else {
-                GameObject.Destroy(_dungeon);
-            }
-            
-        }
-
-        _dungeon = new GameObject("DUNGEON");
-        _rooms.Clear();
-        _corridors.Clear();
-    }
-
     private static bool AttemptToBuildDungeon(){
         Queue<Room> roomQueue = new Queue<Room>();
-        Room startRoom = _currentGraph.Rooms[0];
         HashSet<Room> visitedRooms = new HashSet<Room>();
+        Room startRoom = _currentGraph.Rooms.First();
+        roomQueue.Enqueue(startRoom);
 
-        if(startRoom != null){
-            roomQueue.Enqueue(startRoom);
-        } else{
-            Debug.Log("PG no spawn room o.o");
-            return false;
-        }
+        bool NoOverlaps = ProcessQueue(roomQueue, visitedRooms);
 
-        _noOverlaps = ProcessQueue(roomQueue, visitedRooms);
-
-        if(roomQueue.Count == 0 && visitedRooms.Count == _currentGraph.Rooms.Count && _noOverlaps){
-            return true;
-        } else {
-            return false;
-        }
+        return roomQueue.Count == 0 && visitedRooms.Count == _currentGraph.Rooms.Count && NoOverlaps;
     }
 
     private static bool ProcessQueue(Queue<Room> roomQueue, HashSet<Room> visitedRooms){
-        bool noOverlap = true;
-
-        while(roomQueue.Count > 0 && noOverlap){
+        bool NoOverlaps = true;
+        while(roomQueue.Count > 0){
             Room currentRoom = roomQueue.Dequeue();
             visitedRooms.Add(currentRoom);
-            List<Room> neighbors = GetNeighborsOf(currentRoom, visitedRooms);
-            int neighborsNum = neighbors.Count;
-            
-            foreach(Room room in neighbors){
-                roomQueue.Enqueue(room);
+
+            List<Room> neighbors = _currentGraph.Connections
+            .Where(conn => conn.From == currentRoom || conn.To == currentRoom)
+            .Select(conn => conn.From == currentRoom ? conn.To : conn.From)
+            .ToList();
+            int neighborCount = neighbors.Count;
+
+            foreach(Room neighbor in neighbors){
+                if(!visitedRooms.Contains(neighbor)){
+                    roomQueue.Enqueue(neighbor);
+                }
             }
 
-            if(currentRoom.Type == RoomType.SPAWN){
+            if(currentRoom.IsSpawn()){
                 GameManager.CurrentRoom = currentRoom;
-                CreateRoomFromTemplate(currentRoom, neighborsNum);
-            } else {
-                InstantiatedRoom neighbor = FindNeighbor(currentRoom);
-                noOverlap = CanPlaceRoom(currentRoom, neighbor, neighborsNum);
-
-                if(!noOverlap){
+                CreateRoom(currentRoom, neighborCount);
+            } else{
+                InstantiatedRoom neighborRoom = FindNeighborRoom(neighbors, visitedRooms);
+                NoOverlaps = CanPlaceRoom(currentRoom, neighborRoom, neighborCount);
+            
+                if(!NoOverlaps){
                     break;
                 }
             }
         }
 
-        return noOverlap;
+        return NoOverlaps;
     }
 
-    private static List<Room> GetNeighborsOf(Room room, HashSet<Room> visitedRooms){
-        List<Room> rooms = new List<Room>();
+    private static bool CanPlaceRoom(Room currentRoom, InstantiatedRoom neighborRoom, int neighborCount){
+        if(neighborRoom == null){
+            Debug.Log("No neighbor room found");
+            return false;
+        }
 
-        foreach(Connection connection in _currentGraph.Connections){
-            Room next = null;
+        if(neighborRoom.NeighborsNum == neighborRoom.NeighborsInstantiated){
+            Debug.Log("All neighbors instantiated");
+            return false;
+        }
 
-            if(connection.From == room){
-                next = connection.To;
-            } else if(connection.To == room){
-                next = connection.From;
-            }
+        InstantiatedCorridor corridor = CreateCorridor(neighborRoom);
+        InstantiatedRoom newRoom = CreateRoom(currentRoom, neighborCount, corridor);
 
-            if(next != null && !visitedRooms.Contains(next)){
-                rooms.Add(next);
+        if(corridor == null || newRoom == null){
+            Debug.Log("Corridor or Room not created");
+
+            if(neighborRoom.GetFreeDoors().Where(d => !_triedDoors.Contains(d)).ToList().Count == 0){
+                Debug.Log("All doors tried");
+                return false;
+            } else{
+                return CanPlaceRoom(currentRoom, neighborRoom, neighborCount);
             }
         }
 
-        return rooms;
+        return true;
     }
 
-    private static GameObject GetTemplateOf(Room room){
-        GameObject template;
-
-        if(room.UniqueRoomTemplates.Count > 0){
-            template = GetRandom<GameObject>(room.UniqueRoomTemplates);
-        } else {
-            template = GetRandom<GameObject>(_defaultTemplates);
-        }
-
-        return template;
-    }
-
-    private static InstantiatedRoom CreateRoomFromTemplate(Room room, int neighbors, InstantiatedCorridor crd = null){
-        GameObject template = GetTemplateOf(room);
-        Vector3 position = CalculateRoomPosition(template, room, crd);
-
-        if(position == Vector3.zero && crd != null){
-            Debug.Log("PG wrong template selected");
+    private static InstantiatedRoom CreateRoom(Room room, int neighbors, InstantiatedCorridor corridor = null){
+        GameObject roomTemplate = SelectRoomTemplate(room);
+        Vector3 roomPos = CalculateRoomPosition(roomTemplate, room, corridor);
+        
+        if(roomPos == Vector3.zero && corridor != null){
+            Debug.Log("Room position could not be calculated");
             return null;
         }
-        
-        GameObject roomObj = GameObject.Instantiate(template, position, Quaternion.identity);
-        NameTheRoom(roomObj, room.Type);
-        roomObj.transform.SetParent(_dungeon.transform);
-        
+
+        GameObject roomObj = GameObject.Instantiate(roomTemplate, roomPos, Quaternion.identity, _dungeon.transform);
         InstantiatedRoom instantiatedRoom = new InstantiatedRoom(room, roomObj, neighbors);
+
+        if(IsOverlapping(instantiatedRoom)){
+            Debug.Log("Room is overlapping");
+
+            if(_wasCalledFromEditor){
+                GameObject.DestroyImmediate(roomObj);
+                GameObject.DestroyImmediate(_lastCorridor.CorridorObj);
+            } else {
+                GameObject.Destroy(roomObj);
+                GameObject.Destroy(_lastCorridor.CorridorObj);
+            }
+
+            return null;
+        }
+
+        NameTheRoom(instantiatedRoom);
         _rooms.Add(instantiatedRoom);
 
-        if(crd != null){
-            crd.CloseUpDoors(instantiatedRoom);
+        if(corridor != null){
+            corridor.CloseUpDoors(instantiatedRoom);
+            _corridors.Add(_lastCorridor);
         }
 
         return instantiatedRoom;
     }
 
-    private static Vector3 CalculateRoomPosition(GameObject template, Room room, InstantiatedCorridor crd){
-        Vector3 position = Vector3.zero;
+    private static Vector3 CalculateRoomPosition(GameObject roomTemplate, Room room, InstantiatedCorridor corridor){
+        Vector3 roomPos = Vector3.zero;
 
-        if(room.Type != RoomType.SPAWN && crd != null){
-            DoorDirection emptyEnd = crd.ToDirection;
-            DoorDirection roomExit = crd.FromDirection;
-            Doorway doorWay = template.GetComponent<Doorway>();
-            Door selectedDoor = doorWay.Doors.FirstOrDefault(door => door.Direction == roomExit && !door.WasUsed);
-            
-            if(selectedDoor == null){
-                Debug.Log("PG no door on room template");
-                return position;
-            } else {
-                Doorline3W doorPos = GetValidDoorPosition(selectedDoor);
-                Vector3 start = doorPos.DoorStart;
+        if(!room.IsSpawn() && corridor != null){
+            DoorDirection emptyEnd = corridor.ToDirection;
+            DoorDirection roomExit = corridor.FromDirection;
 
-                Vector3 shiftedPos = crd.ShiftedToDoorPos();
+            Doorway dw = roomTemplate.GetComponent<Doorway>();
+            Door corriDoor = dw.Doors.FirstOrDefault(d => d.Direction == roomExit && !d.WasUsed);
 
-                switch(emptyEnd){
-                    case DoorDirection.UP:
-                        position.x = shiftedPos.x + start.x * (-1);
-                        position.y = shiftedPos.y + 1 + Mathf.Abs(start.y);
-                        break;
-                    case DoorDirection.RIGHT:
-                        position.x = shiftedPos.x + 1 + Mathf.Abs(start.x);
-                        position.y = shiftedPos.y + start.y * (-1);
-                        break;
-                    case DoorDirection.DOWN:
-                        position.x = shiftedPos.x + start.x * (-1);
-                        position.y = shiftedPos.y - 1 - Mathf.Abs(start.y);
-                        break;
-                    case DoorDirection.LEFT:
-                        position.x = shiftedPos.x - 1 - Mathf.Abs(start.x);
-                        position.y = shiftedPos.y + start.y *(-1);
-                        break;
-                    default:
-                        break;
-                }
+            if(corriDoor == null){
+                Debug.Log("Corridor door not found, Can't place room");
+                return roomPos;
+            }
+
+            Doorline3W doorPos = GetValidDoorPosition(corriDoor);
+            Vector3 startPos = doorPos.DoorStart;
+            Vector3 shiftedPos = corridor.ShiftedToDoorPos();
+
+            switch(emptyEnd){
+                case DoorDirection.UP:
+                    roomPos = new Vector3(
+                        shiftedPos.x + startPos.x * (-1), 
+                        shiftedPos.y + 1 + Mathf.Abs(startPos.y), 
+                        0);
+                    break;
+                case DoorDirection.DOWN:
+                    roomPos = new Vector3(
+                        shiftedPos.x + startPos.x * (-1), 
+                        shiftedPos.y - 1 - Mathf.Abs(startPos.y), 
+                        0);
+                    break;
+                case DoorDirection.LEFT:
+                    roomPos = new Vector3(
+                        shiftedPos.x - 1 - Mathf.Abs(startPos.x), 
+                        shiftedPos.y + startPos.y * (-1), 
+                        0);
+                    break;
+                case DoorDirection.RIGHT:
+                    roomPos = new Vector3(
+                        shiftedPos.x + 1 + Mathf.Abs(startPos.x), 
+                        shiftedPos.y + startPos.y * (-1), 
+                        0);
+                    break;
             }
         }
 
-        return position;
-        
+        return roomPos;
     }
 
-    private static InstantiatedRoom FindNeighbor(Room room){
-        List<InstantiatedRoom> neighborOptions = new List<InstantiatedRoom>();
-        List<Connection> filteredConnections = _currentGraph.Connections.Where(conn => room == conn.From || room == conn.To).ToList();
-
-        foreach(Connection connection in filteredConnections){
-            Room possibleNeighbor = null;
-
-            if(connection.From == room){
-                possibleNeighbor = connection.To;
-            } else if(connection.To == room){
-                possibleNeighbor = connection.From;
-            }
-
-            InstantiatedRoom ir = _rooms.FirstOrDefault(r => r.Room == possibleNeighbor);
-            neighborOptions.Add(ir);
-        }
-
-        return GetRandom<InstantiatedRoom>(neighborOptions);
+    private static GameObject SelectRoomTemplate(Room room){
+        return room.UniqueRoomTemplates.Count > 0 ? GetRandom(room.UniqueRoomTemplates) : GetRandom(_defaultTemplates);
     }
 
-    private static bool CanPlaceRoom(Room room, InstantiatedRoom neighbor, int neighborsNum){
-        if(neighbor == null){
-            return false;
-        }
-        
-        if(neighbor.NeighborsNum == neighbor.NeighborsInstantiated){
-            Debug.Log("PG all the neighbors instantiated already");
-            return false;
-        }
+    private static InstantiatedCorridor CreateCorridor(InstantiatedRoom neighborRoom){
+        List<Door> freeDoors = neighborRoom.GetFreeDoors();
 
-        InstantiatedCorridor crd = CreateCorridor(neighbor);
-        InstantiatedRoom instRoom = CreateRoomFromTemplate(room, neighborsNum, crd);
-
-        if(crd == null || instRoom == null){
-            return false;
-        }
-
-        return IsNotOverlapping();
-    }
-
-    private static InstantiatedCorridor CreateCorridor(InstantiatedRoom room){
-        Doorway dw = room.RoomObj.GetComponent<Doorway>();
-        List<Door> doors = room.GetFreeDoors();
-        
-        if(doors.Count == 0){
-            Debug.Log("PG no door on roomObj o.o");
+        if(freeDoors.Count == 0){
+            Debug.Log("No free doors found");
             return null;
         }
 
-        Door door = GetRandom<Door>(doors);
+        Door door = GetRandom(freeDoors.Where(door => !_triedDoors.Contains(door)).ToList());
+        if(door == null){
+            Debug.Log("All doors tried");
+            return null;
+        }
+
         door.WasUsed = true;
-
+        _triedDoors.Add(door);
         DoorDirection dir = door.Direction;
-        GameObject corridorTemplate = SelectCorridorTemplate(dir);
-        Doorway corridorDoors = corridorTemplate.GetComponent<Doorway>();
-        Vector3 corridorPosition = CalculateCorridorPosition(room.RoomObj, door, corridorDoors);
 
-        GameObject corridorObj = GameObject.Instantiate(corridorTemplate, corridorPosition, Quaternion.identity);
-        NameTheCorridor(corridorObj,dir);
-        corridorObj.transform.SetParent(_dungeon.transform);
+        GameObject corridorTemplate = SelectCorridorTemplate(dir);
+        Doorway dw = corridorTemplate.GetComponent<Doorway>();
+        Vector3 corridorPos = CalculateCorridorPosition(neighborRoom.RoomObj, door, dw);
         
-        InstantiatedCorridor corridor = new InstantiatedCorridor(corridorObj, room, dir);
-        _corridors.Add(corridor);
+        GameObject corridorObj = GameObject.Instantiate(corridorTemplate, corridorPos, Quaternion.identity, _dungeon.transform);        
+        InstantiatedCorridor corridor = new InstantiatedCorridor(corridorObj, neighborRoom, dir);
+        _lastCorridor = corridor;
+        NameTheCorridor(corridor);
 
         return corridor;
     }
 
-    private static GameObject SelectCorridorTemplate(DoorDirection direction){
-        if(direction == DoorDirection.UP || direction == DoorDirection.DOWN){
-            return _corridorTemplates[0];
-        } else {
-            return _corridorTemplates[1];
-        }
-    }
-
-    private static Vector3 CalculateCorridorPosition(GameObject currentRoom, Door door, Doorway corridor){
+    private static Vector3 CalculateCorridorPosition(GameObject neighborRoomObj, Door door, Doorway dw){
         Doorline3W doorPos = GetValidDoorPosition(door);
-        Vector3 start = CalculateShiftedStartPos(currentRoom, doorPos.DoorStart);
-        Door corridorDoor = null;
-        Vector3 position = Vector3.zero;
+        Vector3 startPos = CalculateShiftedDoorPosition(neighborRoomObj.transform.position, doorPos.DoorStart);
+        Door corriDoor = null;
+        Vector3 corridorPos = Vector3.zero;
 
         switch(door.Direction){
             case DoorDirection.UP:
-                corridorDoor = corridor.Doors.Single(tempDoor => tempDoor.Direction == DoorDirection.DOWN);
-                if(corridorDoor != null){
-                    position.x = start.x + corridorDoor.PossibleStartPosition.x * (-1);
-                    position.y = start.y + 1 + Mathf.Abs(corridorDoor.PossibleStartPosition.y);
-                }
-                break;
-            case DoorDirection.RIGHT:
-                corridorDoor = corridor.Doors.Single(tempDoor => tempDoor.Direction == DoorDirection.LEFT);
-                if(corridorDoor != null){
-                    position.x = start.x + 1 + Mathf.Abs(corridorDoor.PossibleStartPosition.x);
-                    position.y = start.y + corridorDoor.PossibleStartPosition.y  * (-1);
+                corriDoor = dw.Doors.FirstOrDefault(d => d.Direction == DoorDirection.DOWN);
+                if(corriDoor == null){
+                    Debug.Log("Corridor door not found");
+                } else{
+                    corridorPos = new Vector3(
+                        startPos.x + corriDoor.PossibleStartPosition.x * (-1), 
+                        startPos.y + 1 + Mathf.Abs(corriDoor.PossibleStartPosition.y), 
+                        0);
                 }
                 break;
             case DoorDirection.DOWN:
-                corridorDoor = corridor.Doors.Single(tempDoor => tempDoor.Direction == DoorDirection.UP);
-                if(corridorDoor != null){
-                    position.x = start.x + corridorDoor.PossibleStartPosition.x * (-1);
-                    position.y = start.y - 1 - Mathf.Abs(corridorDoor.PossibleStartPosition.y);
+                corriDoor = dw.Doors.FirstOrDefault(d => d.Direction == DoorDirection.UP);
+                if(corriDoor == null){
+                    Debug.Log("Corridor door not found");
+                } else{
+                    corridorPos = new Vector3(
+                        startPos.x + corriDoor.PossibleStartPosition.x * (-1), 
+                        startPos.y - 1 - Mathf.Abs(corriDoor.PossibleStartPosition.y), 
+                        0);
                 }
                 break;
             case DoorDirection.LEFT:
-                corridorDoor = corridor.Doors.Single(tempDoor => tempDoor.Direction == DoorDirection.RIGHT);
-                if(corridorDoor != null){
-                    position.x = start.x - 1 - Mathf.Abs(corridorDoor.PossibleStartPosition.x);
-                    position.y = start.y + corridorDoor.PossibleStartPosition.y * (-1);
+                corriDoor = dw.Doors.FirstOrDefault(d => d.Direction == DoorDirection.RIGHT);
+                if(corriDoor == null){
+                    Debug.Log("Corridor door not found");
+                } else{
+                    corridorPos = new Vector3(
+                        startPos.x - 1 - Mathf.Abs(corriDoor.PossibleStartPosition.x), 
+                        startPos.y + corriDoor.PossibleStartPosition.y * (-1), 
+                        0);
+                }
+                break;
+            case DoorDirection.RIGHT:
+                corriDoor = dw.Doors.FirstOrDefault(d => d.Direction == DoorDirection.LEFT);
+                if(corriDoor == null){
+                    Debug.Log("Corridor door not found");
+                } else{
+                    corridorPos = new Vector3(
+                        startPos.x + 1 + Mathf.Abs(corriDoor.PossibleStartPosition.x), 
+                        startPos.y + corriDoor.PossibleStartPosition.y * (-1), 
+                        0);
                 }
                 break;
         }
 
-        return position;
+        return corridorPos;
+    }
+
+    private static Vector3 CalculateShiftedDoorPosition(Vector3 roomPos, Vector2 doorPos){
+        return new Vector3(roomPos.x + doorPos.x, roomPos.y + doorPos.y, roomPos.z);
     }
 
     private static Doorline3W GetValidDoorPosition(Door door){
         Vector2 vec = Vector2.zero;
 
         if(door == null){
-            Debug.Log("PG no door o.o");
+            Debug.Log("Door is null o.o");
         }
 
-        if(door.PossibleStartPosition.y == door.PossibleEndPosition.y){
+        if(door.Direction == DoorDirection.UP || door.Direction == DoorDirection.DOWN){
             int minX = (int)Mathf.Min(door.PossibleStartPosition.x, door.PossibleEndPosition.x);
             int maxX = (int)Mathf.Max(door.PossibleStartPosition.x, door.PossibleEndPosition.x) - 2;
             int randomX = UnityEngine.Random.Range(minX, maxX + 1);
-
             vec = new Vector2(randomX, door.PossibleStartPosition.y);
-
-        } else if(door.PossibleStartPosition.x == door.PossibleEndPosition.x){
+        } else if(door.Direction == DoorDirection.LEFT || door.Direction == DoorDirection.RIGHT){
             int minY = (int)Mathf.Min(door.PossibleStartPosition.y, door.PossibleEndPosition.y) + 2;
             int maxY = (int)Mathf.Max(door.PossibleStartPosition.y, door.PossibleEndPosition.y);
             int randomY = UnityEngine.Random.Range(minY, maxY + 1);
-            
             vec = new Vector2(door.PossibleStartPosition.x, randomY);
         }
-        
+
         return new Doorline3W(vec, door.Direction);
     }
 
-    private static Vector3 CalculateShiftedStartPos(GameObject obj, Vector3 pos){
-        Vector3 shiftedPosition = Vector3.zero;
-        shiftedPosition.x = obj.transform.position.x + pos.x;
-        shiftedPosition.y = obj.transform.position.y + pos.y;
-        return shiftedPosition;
+    private static GameObject SelectCorridorTemplate(DoorDirection dir){
+        if (_corridorTemplates == null || _corridorTemplates.Count < 2) {
+            Debug.LogError("Corridor templates list is not properly initialized or has insufficient elements.");
+            return null;
+        }
+        
+        return dir == DoorDirection.UP || dir == DoorDirection.DOWN ? _corridorTemplates[0] : _corridorTemplates[1];
     }
 
-    private static bool IsNotOverlapping(){
-        //needs implementation
-        return true;
+    private static InstantiatedRoom FindNeighborRoom(List<Room> neighbors, HashSet<Room> visitedRooms){
+        InstantiatedRoom neighborRoom = null;
+        
+        foreach(Room neighbor in neighbors){
+            neighborRoom = _rooms.FirstOrDefault(r => r.Room == neighbor && visitedRooms.Contains(neighbor));
+            if(neighborRoom != null){
+                break;
+            }
+        }
+
+        return neighborRoom;
     }
 
-    private static void NameTheRoom(GameObject obj, RoomType type){
-        Vector3 pos = obj.transform.position;
-        obj.name = type.ToString() + "(" + pos.x.ToString() + ", " + pos.y.ToString() + ")";
+    private static bool IsOverlapping(InstantiatedRoom newRoom) {
+        foreach (var room in _rooms) {
+            if (IsBoundingBoxOverlapping(room, newRoom)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static bool IsBoundingBoxOverlapping(InstantiatedRoom room1, InstantiatedRoom room2) {
+        Vector3 min1 = room1.TopLeftCorner;
+        Vector3 max1 = room1.BottomRightCorner;
+        Vector3 min2 = room2.TopLeftCorner;
+        Vector3 max2 = room2.BottomRightCorner;
+
+        bool overlapX = min1.x <= max2.x && max1.x >= min2.x;
+        bool overlapY = min1.y <= max2.y && max1.y >= min2.y;
+
+        return overlapX && overlapY;
+    }
+
+    private static T GetRandom<T>(List<T> list) {
+        return list[UnityEngine.Random.Range(0, list.Count)];
+    }
+
+    private static void LoadTemplates(){
+        _corridorTemplates = new List<GameObject>();
+        _corridorTemplates.AddRange(_currentGraph.CorridorTemplates);
+        _defaultTemplates = new List<GameObject>();
+        _defaultTemplates.AddRange(_currentGraph.RoomTemplates);
+        Debug.Log("Templates Loaded");
+    }
+
+    private static void ResetVariables(){
+        ClearDungeon();
+        _currentGraph = null;
+        _corridorTemplates.Clear();
+        _defaultTemplates.Clear();
+        _successfulBuild = false;
+    }
+
+    private static void ClearDungeon(){
+        if(_dungeon != null){
+            if(_wasCalledFromEditor){
+                GameObject.DestroyImmediate(_dungeon);
+            } else {
+                GameObject.Destroy(_dungeon);
+            }
+        }
+
+        _dungeon = new GameObject("DUNGEON");
+        _rooms.Clear();
+        _corridors.Clear();
+        _triedDoors.Clear();
+        _lastCorridor = null;
+    }
+
+    private static void NameTheRoom(InstantiatedRoom room){
+        Vector3 pos = room.RoomObj.transform.position;
+        room.RoomObj.name = room.Room.Type.ToString() 
+            + "(" + pos.x.ToString() + ", " + pos.y.ToString() + ")_"
+            + "(" + room.TopLeftCorner.x.ToString() + ", " + room.TopLeftCorner.y.ToString() + ")_"
+            + "(" + room.BottomRightCorner.x.ToString() + ", " + room.BottomRightCorner.y.ToString() + ")";
     }
     
-    private static void NameTheCorridor(GameObject obj, DoorDirection dir){
-        Vector3 pos = obj.transform.position;
-        obj.name = "CRD" + (dir == DoorDirection.UP || dir == DoorDirection.DOWN ? "_V_" : "_H_") + "(" + pos.x.ToString() + ", " + pos.y.ToString() + ")";
+    private static void NameTheCorridor(InstantiatedCorridor corridor){
+        Vector3 pos = corridor.CorridorObj.transform.position;
+        corridor.CorridorObj.name = "CRD" + (corridor.FromDirection == DoorDirection.UP || corridor.FromDirection == DoorDirection.DOWN ? "_V_" : "_H_")
+            + "(" + pos.x.ToString() + ", " + pos.y.ToString() + ")_"
+            + "(" + corridor.TopLeftCorner.x.ToString() + ", " + corridor.TopLeftCorner.y.ToString() + ")_"
+            + "(" + corridor.BottomRightCorner.x.ToString() + ", " + corridor.BottomRightCorner.y.ToString() + ")";
     }
 }

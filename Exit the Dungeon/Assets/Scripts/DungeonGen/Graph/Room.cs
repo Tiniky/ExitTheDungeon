@@ -37,4 +37,21 @@ public class Room : ScriptableObject {
     public string GetDisplayName() {
         return Name;
     }
+
+    public bool IsSpawn(){
+        return Type == RoomType.SPAWN;
+    }
+
+    public override bool Equals(object obj){
+        if(obj == null || GetType() != obj.GetType()){
+            return false;
+        }
+
+        Room room = (Room)obj;
+        return ID == room.ID;
+    }
+
+    public override int GetHashCode() {
+        return ID.GetHashCode();
+    }
 }

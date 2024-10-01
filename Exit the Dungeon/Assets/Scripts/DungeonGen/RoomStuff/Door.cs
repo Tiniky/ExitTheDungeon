@@ -4,6 +4,8 @@ using UnityEngine;
 
 [System.Serializable]
 public class Door {
+
+    //ID
     public Vector2 PossibleStartPosition;
     public Vector2 PossibleEndPosition;
     public DoorDirection Direction;

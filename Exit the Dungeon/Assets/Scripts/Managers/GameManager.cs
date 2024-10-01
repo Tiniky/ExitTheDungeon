@@ -47,8 +47,8 @@ public class GameManager : MonoBehaviour {
         PrefabManager.Initialize();
         _cam = GameObject.FindGameObjectWithTag("MainCamera");
 
-        /*if(!hasBeenInitialized){
-            InitializeRooms();
+        if(!hasBeenInitialized){
+            /*InitializeRooms();
             InitializePlayer();
             InitializePartyMembers();
             InitializeEnemies();
@@ -56,12 +56,12 @@ public class GameManager : MonoBehaviour {
             CinemachineVirtualCamera cvc = _cam.GetComponent<CinemachineVirtualCamera>();
             cvc.m_Follow = _player.transform;
 
-            hasBeenInitialized = true;
+            hasBeenInitialized = true;*/
         }
         
-        InitializeUI();
+        //InitializeUI();
 
-        Cursor.visible = false;*/
+        //Cursor.visible = false;
     }
 
     private void Update(){
