@@ -56,7 +56,8 @@ public static class DungeonGenerator {
 
         bool NoOverlaps = ProcessQueue(roomQueue, visitedRooms);
 
-        return roomQueue.Count == 0 && visitedRooms.Count == _currentGraph.Rooms.Count && NoOverlaps;
+        Debug.Log("Expected Rooms: " + _currentGraph.Rooms.Count + " Rooms: " + _rooms.Count + " Expected Corridors: " + _currentGraph.Connections.Count + " Corridors: " + _corridors.Count);
+        return roomQueue.Count == 0 && _rooms.Count == _currentGraph.Rooms.Count && NoOverlaps && _corridors.Count == _currentGraph.Connections.Count;
     }
 
     private static bool ProcessQueue(Queue<Room> roomQueue, HashSet<Room> visitedRooms){
@@ -127,6 +128,13 @@ public static class DungeonGenerator {
         
         if(roomPos == Vector3.zero && corridor != null){
             Debug.Log("Room position could not be calculated");
+
+            if(_wasCalledFromEditor){
+                GameObject.DestroyImmediate(_lastCorridor.CorridorObj);
+            } else {
+                GameObject.Destroy(_lastCorridor.CorridorObj);
+            }
+
             return null;
         }
 
@@ -356,13 +364,16 @@ public static class DungeonGenerator {
     }
 
     private static bool IsBoundingBoxOverlapping(InstantiatedRoom room1, InstantiatedRoom room2) {
+        //Debug.Log("Checking overlap between " + room1.RoomObj.name + " and " + room2.RoomObj.name);
         Vector3 min1 = room1.TopLeftCorner;
         Vector3 max1 = room1.BottomRightCorner;
         Vector3 min2 = room2.TopLeftCorner;
         Vector3 max2 = room2.BottomRightCorner;
 
         bool overlapX = min1.x <= max2.x && max1.x >= min2.x;
-        bool overlapY = min1.y <= max2.y && max1.y >= min2.y;
+        //Debug.Log("OverlapX: " + overlapX + " becasue " + min1.x + " <= " + max2.x + " && " + max1.x + " >= " + min2.x);
+        bool overlapY = max1.y <= min2.y && min1.y >= max2.y;
+        //Debug.Log("OverlapY: " + overlapY + " becasue " + max1.y + " <= " + min2.y + " && " + min1.y + " >= " + max2.y);
 
         return overlapX && overlapY;
     }
@@ -376,7 +387,6 @@ public static class DungeonGenerator {
         _corridorTemplates.AddRange(_currentGraph.CorridorTemplates);
         _defaultTemplates = new List<GameObject>();
         _defaultTemplates.AddRange(_currentGraph.RoomTemplates);
-        Debug.Log("Templates Loaded");
     }
 
     private static void ResetVariables(){

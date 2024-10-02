@@ -442,7 +442,7 @@ the base dungeon also gets generated without Unity time out
 ||TO-DO: 
 - figure out what's wrong with overlaps
 - check why dead ends are a thing
-- add roomID's to rooms
+- track which default templates are mostly used and select a lesser used one
 - add collision
 - finish up templates
 - spawn the player in the spawn room
@@ -451,3 +451,6 @@ the base dungeon also gets generated without Unity time out
 - configure gem room gimmick 
 - spawn monsters
 - verify if everything works as in the DemoScene
+
+fixed overlap
+fixed deadends
