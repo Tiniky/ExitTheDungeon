@@ -10,7 +10,7 @@ public static class DungeonGenerator {
     private static List<InstantiatedRoom> _rooms = new List<InstantiatedRoom>();
     private static List<InstantiatedCorridor> _corridors = new List<InstantiatedCorridor>();
     private static List<GameObject> _corridorTemplates = new List<GameObject>();
-    private static List<GameObject> _defaultTemplates = new List<GameObject>();
+    private static Dictionary<GameObject, int> _defaultTemplates = new Dictionary<GameObject, int>();
     private static bool _successfulBuild, _wasCalledFromEditor;
     private const int MaxAttempts = 100;
     private const int MaxGraphSelect = 10;
@@ -217,7 +217,13 @@ public static class DungeonGenerator {
     }
 
     private static GameObject SelectRoomTemplate(Room room){
-        return room.UniqueRoomTemplates.Count > 0 ? GetRandom(room.UniqueRoomTemplates) : GetRandom(_defaultTemplates);
+        return room.UniqueRoomTemplates.Count > 0 ? GetRandom(room.UniqueRoomTemplates) : GetLeastUsedTemplate();
+    }
+
+    private static GameObject GetLeastUsedTemplate() {
+        var leastUsedTemplate = _defaultTemplates.OrderBy(t => _defaultTemplates.ContainsKey(t.Key) ? _defaultTemplates[t.Key] : 0).First().Key;
+        _defaultTemplates[leastUsedTemplate]++;
+        return leastUsedTemplate;
     }
 
     private static InstantiatedCorridor CreateCorridor(InstantiatedRoom neighborRoom){
@@ -383,10 +389,10 @@ public static class DungeonGenerator {
     }
 
     private static void LoadTemplates(){
-        _corridorTemplates = new List<GameObject>();
         _corridorTemplates.AddRange(_currentGraph.CorridorTemplates);
-        _defaultTemplates = new List<GameObject>();
-        _defaultTemplates.AddRange(_currentGraph.RoomTemplates);
+        foreach(GameObject template in _currentGraph.RoomTemplates){
+            _defaultTemplates.Add(template, 0);
+        }
     }
 
     private static void ResetVariables(){

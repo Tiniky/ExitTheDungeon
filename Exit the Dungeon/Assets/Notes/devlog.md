@@ -444,7 +444,7 @@ the base dungeon also gets generated without Unity time out
 - check why dead ends are a thing
 - track which default templates are mostly used and select a lesser used one
 - add collision
-- finish up templates
+- finish up templates AND figure out walls
 - spawn the player in the spawn room
 - spawn the party members to the party member spawns
 - instantiate the rest of the environment
@@ -454,3 +454,5 @@ the base dungeon also gets generated without Unity time out
 
 fixed overlap
 fixed deadends
+fixed default template selection
+set up corridor and boss room templates

@@ -19,6 +19,25 @@ MonoBehaviour:
   IsSelected: 0
   IsFocused: 0
   UniqueRoomTemplates: []
+--- !u!114 &-9067022173826145998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 760493841d2ae5947ba947ee86d21283, type: 3}
+  m_Name: Room
+  m_EditorClassIdentifier: 
+  ID: bcd7d07c-0bee-46c4-93b0-db95898615d2
+  Name: COMBAT
+  Type: 2
+  Position: {x: 600, y: 500}
+  IsSelected: 0
+  IsFocused: 0
+  UniqueRoomTemplates: []
 --- !u!114 &-8541286711106537909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34,7 +53,7 @@ MonoBehaviour:
   ID: f6fdf553-9e24-4352-bb1b-3efb79836fea
   Name: COMBAT
   Type: 2
-  Position: {x: 400, y: 425}
+  Position: {x: 500, y: 425}
   IsSelected: 0
   IsFocused: 0
   UniqueRoomTemplates: []
@@ -118,7 +137,7 @@ MonoBehaviour:
   ID: a2e1013d-46d1-4b7d-b37a-af678121ca72
   Name: COMBAT
   Type: 2
-  Position: {x: 625, y: 425}
+  Position: {x: 675, y: 425}
   IsSelected: 0
   IsFocused: 0
   UniqueRoomTemplates: []
@@ -308,6 +327,7 @@ MonoBehaviour:
   - {fileID: 8609226343572668993}
   - {fileID: -5556818232329099721}
   - {fileID: -8541286711106537909}
+  - {fileID: -9067022173826145998}
   Connections:
   - {fileID: -3228722510897377714}
   - {fileID: 9088612713187763862}
@@ -326,6 +346,7 @@ MonoBehaviour:
   - {fileID: -7779768648947104661}
   - {fileID: 357507770542262915}
   - {fileID: -1878599981420891603}
+  - {fileID: 7812741535506748885}
   CorridorTemplates:
   - {fileID: 4894488429718327435, guid: 3845711cc7ee6554bbd05c62303b86cc, type: 3}
   - {fileID: 5060929361819489440, guid: d74eee83ef183854b99353aca20213ea, type: 3}
@@ -394,7 +415,7 @@ MonoBehaviour:
   ID: 20b98777-4d9e-412a-aa7a-37072e4a9982
   Name: TREASURE
   Type: 4
-  Position: {x: 400, y: 500}
+  Position: {x: 500, y: 500}
   IsSelected: 0
   IsFocused: 0
   UniqueRoomTemplates:
@@ -483,7 +504,7 @@ MonoBehaviour:
   ID: bd3a357b-dd55-4bd4-aaaa-211c6bf624a5
   Name: BOSS
   Type: 6
-  Position: {x: 625, y: 500}
+  Position: {x: 725, y: 500}
   IsSelected: 0
   IsFocused: 0
   UniqueRoomTemplates:
@@ -503,7 +524,7 @@ MonoBehaviour:
   ID: c66e723d-f888-4658-b537-c00ae45cd57b
   Name: GEM
   Type: 5
-  Position: {x: 750, y: 425}
+  Position: {x: 825, y: 425}
   IsSelected: 0
   IsFocused: 0
   UniqueRoomTemplates:
@@ -596,6 +617,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   From: {fileID: 1812902984823174757}
   To: {fileID: 6849147735189268414}
+  IsSelected: 0
+--- !u!114 &7812741535506748885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a95c5eefd0755264398e848aa7538e89, type: 3}
+  m_Name: Connection
+  m_EditorClassIdentifier: 
+  From: {fileID: -5556818232329099721}
+  To: {fileID: -9067022173826145998}
   IsSelected: 0
 --- !u!114 &8406664300509067565
 MonoBehaviour:
