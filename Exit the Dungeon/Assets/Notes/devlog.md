@@ -456,3 +456,4 @@ fixed overlap
 fixed deadends
 fixed default template selection
 set up corridor and boss room templates
+added collision for the rest of the templates
