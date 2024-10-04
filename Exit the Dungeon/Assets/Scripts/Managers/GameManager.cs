@@ -8,7 +8,6 @@ using Cinemachine;
 
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
-    private static bool hasBeenInitialized = false;
     private static GameObject _cam;
 
     //dungon things
@@ -44,24 +43,6 @@ public class GameManager : MonoBehaviour {
     private void Awake() {
         instance = this;
         Phase = GamePhase.INIT;
-        PrefabManager.Initialize();
-        _cam = GameObject.FindGameObjectWithTag("MainCamera");
-
-        if(!hasBeenInitialized){
-            /*InitializeRooms();
-            InitializePlayer();
-            InitializePartyMembers();
-            InitializeEnemies();
-
-            CinemachineVirtualCamera cvc = _cam.GetComponent<CinemachineVirtualCamera>();
-            cvc.m_Follow = _player.transform;
-
-            hasBeenInitialized = true;*/
-        }
-        
-        //InitializeUI();
-
-        //Cursor.visible = false;
     }
 
     private void Update(){
@@ -94,6 +75,53 @@ public class GameManager : MonoBehaviour {
         }*/
     }
 
+    public void HandleState(){
+        switch(Phase){
+            case GamePhase.INIT:
+                GenerateLevel(currentLevel);
+                InitializeGame();
+                Phase = GamePhase.ADVENTURE;
+                break;
+        }
+    }
+
+    private void GenerateLevel(int lvl){
+        Debug.Log("generate lvl");
+        DungeonLevel level = DungeonLevels[lvl];
+        bool success = DungeonGenerator.GenerateDungeon(level);
+        Debug.Log("success = " + success);
+    }
+
+    private void InitializeGame(){
+        PrefabManager.Initialize();
+        _cam = GameObject.FindGameObjectWithTag("MainCamera");
+        
+        InitializePlayer();
+        //InitializePartyMembers();
+        //InitializeRooms();
+        //InitializeEnemies();
+
+        CinemachineVirtualCamera cvc = _cam.GetComponent<CinemachineVirtualCamera>();
+        cvc.m_Follow = _player.transform;
+        
+        //InitializeUI();
+        //Cursor.visible = false;
+    }
+
+    private void InitializePlayer(){
+        Vector3 spawnPoint = DungeonGenerator.GetSpawnPointOfPlayer();
+        _player = Instantiate(PrefabManager.ORC_BARBARIAN, spawnPoint, Quaternion.identity);
+        PrefabManager.RemovePlayerFromAllies(PrefabManager.ORC_BARBARIAN);
+        _adventurer = _player.GetComponent<Adventurer>();
+        _playerBehaviour = _player.GetComponent<PlayerBehaviour>();
+        //starter char: orc barbarian
+        _adventurer.Initialize(RaceType.ORC, ClassType.BARBARIAN, "Végzetpöröly");
+        _player.name = _adventurer.EntityName;
+        _playerBehaviour.Initialize(_adventurer.HP.GetValue());
+        _adventurer.Behaviour = _playerBehaviour;
+        Debug.Log("Adventurer's health: " + _adventurer.HP.GetValue());
+    }
+
     private void InitializeRooms(){
         _allySpawnPoints = new List<Vector3>();
         _enemySpawnPoints = new List<Vector3>();
@@ -115,20 +143,6 @@ public class GameManager : MonoBehaviour {
         tiles.Add(tileManager.GenerateInteractableGrid(room, 22, 15, -52.5f, -31.5f));
         room.SetActive(false);
         roomsWithTiles.Add(room);
-    }
-    
-    private void InitializePlayer(){
-        _player = Instantiate(PrefabManager.ORC_BARBARIAN, new Vector3(-10f, 0f, 0f), Quaternion.identity);
-        //_player = Instantiate(PrefabManager.ORC_BARBARIAN, new Vector3(-24f, -24f, 0f), Quaternion.identity);
-        PrefabManager.RemovePlayerFromAllies(PrefabManager.ORC_BARBARIAN);
-        _adventurer = _player.GetComponent<Adventurer>();
-        _playerBehaviour = _player.GetComponent<PlayerBehaviour>();
-        //demo: orc barbarian
-        _adventurer.Initialize(RaceType.ORC, ClassType.BARBARIAN, "Végzetpöröly");
-        _player.name = _adventurer.EntityName;
-        _playerBehaviour.Initialize(_adventurer.HP.GetValue());
-        _adventurer.Behaviour = _playerBehaviour;
-        Debug.Log("Adventurer's health: " + _adventurer.HP.GetValue());
     }
 
     private void InitializePartyMembers(){
@@ -382,29 +396,5 @@ public class GameManager : MonoBehaviour {
 
     public static void DestroyObj(GameObject obj){
         Destroy(obj);
-    }
-
-    public void HandleState(){
-        switch(Phase){
-            case GamePhase.INIT:
-                GenerateLevel(currentLevel);
-                Phase = GamePhase.ADVENTURE;
-                break;
-        }
-    }
-
-    private void GenerateLevel(int lvl){
-        Debug.Log("generate lvl");
-        DungeonLevel level = DungeonLevels[lvl];
-        bool success = DungeonGenerator.GenerateDungeon(level);
-        Debug.Log("success = " + success);
-
-        if(success){
-            InstantiateEnvironment();
-        }
-    }
-
-    private void InstantiateEnvironment(){
-
     }
 }

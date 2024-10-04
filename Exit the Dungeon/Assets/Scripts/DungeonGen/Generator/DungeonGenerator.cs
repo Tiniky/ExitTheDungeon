@@ -16,6 +16,9 @@ public static class DungeonGenerator {
     private const int MaxGraphSelect = 10;
     private static List<Door> _triedDoors = new List<Door>();
     private static InstantiatedCorridor _lastCorridor;
+    private static Door _lastDoor;
+    private static Doorline3W _lastFromDoorLine, _lastToDoorLine;
+    private static GameObject _wallLeft, _wallRight, _wallUp, _wallDown;
 
     public static bool GenerateDungeon(DungeonLevel lvl, bool WasCalledFromEditor = false){
         _wasCalledFromEditor = WasCalledFromEditor;
@@ -30,6 +33,7 @@ public static class DungeonGenerator {
 
             _currentGraph = GetRandom(lvl.LevelGraphOptions);
             LoadTemplates();
+            LoadWalls();
             attempts++;
 
             int buildAttempts = 0;
@@ -43,6 +47,10 @@ public static class DungeonGenerator {
                 _successfulBuild = AttemptToBuildDungeon();
                 buildAttempts++;
             }
+        }
+
+        if(_successfulBuild){
+            PutUpWalls();
         }
 
         return _successfulBuild;
@@ -161,6 +169,11 @@ public static class DungeonGenerator {
         if(corridor != null){
             corridor.CloseUpDoors(instantiatedRoom);
             _corridors.Add(_lastCorridor);
+            _lastDoor.WasUsed = true;
+            Debug.Log("Corridor FromDirection: " + corridor.FromDirection.ToString() + " ToDirection: " + corridor.ToDirection.ToString());
+
+            corridor.From.AnotherNeighborDone(corridor.ToDirection, _lastFromDoorLine);
+            instantiatedRoom.AnotherNeighborDone(corridor.FromDirection, _lastToDoorLine);
         }
 
         return instantiatedRoom;
@@ -182,6 +195,7 @@ public static class DungeonGenerator {
             }
 
             Doorline3W doorPos = GetValidDoorPosition(corriDoor);
+            _lastToDoorLine = doorPos;
             Vector3 startPos = doorPos.DoorStart;
             Vector3 shiftedPos = corridor.ShiftedToDoorPos();
 
@@ -234,13 +248,19 @@ public static class DungeonGenerator {
             return null;
         }
 
-        Door door = GetRandom(freeDoors.Where(door => !_triedDoors.Contains(door)).ToList());
+        List<Door> possibleDoors = freeDoors.Where(d => !_triedDoors.Contains(d)).ToList();
+        if(possibleDoors.Count == 0){
+            Debug.Log("No possible doors found");
+            return null;
+        }
+        Door door = GetRandom(possibleDoors);
+
         if(door == null){
             Debug.Log("All doors tried");
             return null;
         }
 
-        door.WasUsed = true;
+        _lastDoor = door;
         _triedDoors.Add(door);
         DoorDirection dir = door.Direction;
 
@@ -258,6 +278,7 @@ public static class DungeonGenerator {
 
     private static Vector3 CalculateCorridorPosition(GameObject neighborRoomObj, Door door, Doorway dw){
         Doorline3W doorPos = GetValidDoorPosition(door);
+        _lastFromDoorLine = doorPos;
         Vector3 startPos = CalculateShiftedDoorPosition(neighborRoomObj.transform.position, doorPos.DoorStart);
         Door corriDoor = null;
         Vector3 corridorPos = Vector3.zero;
@@ -338,6 +359,152 @@ public static class DungeonGenerator {
         return new Doorline3W(vec, door.Direction);
     }
 
+    private static void PutUpWalls(){
+        ValidateRooms();
+
+        foreach(var room in _rooms){
+            Doorway doorway = room.RoomObj.GetComponent<Doorway>();
+            foreach(var door in doorway.Doors){
+                if(!door.WasUsed){
+                    if(door.Direction == DoorDirection.UP || door.Direction == DoorDirection.DOWN){
+                        //the corridor goes vertically but the door is horizontal
+                        FillFromXtoX(room, door.PossibleStartPosition, door.PossibleEndPosition, door.Direction, true);
+                    } else{
+                        //the corridor goes horizontally but the door is vertical
+                        FillFromYtoY(room, door.PossibleStartPosition, door.PossibleEndPosition, door.Direction, true);
+                    }
+                } else {
+                    FillUpWalls(room, door, room.DoorPositionsUsed[door.Direction]);
+                }
+            }
+        }
+    }
+
+    private static void FillUpWalls(InstantiatedRoom room, Door door, Doorline3W roomDoorline){
+        if(door.Direction == DoorDirection.UP || door.Direction == DoorDirection.DOWN){
+            FillUpHorizontalWalls(room, door, roomDoorline);
+        } else{
+            FillUpVerticalWalls(room, door, roomDoorline);
+        }
+    }
+
+    private static void FillUpHorizontalWalls(InstantiatedRoom room, Door door, Doorline3W roomDoorline){
+        FillFromXtoX(room, door.PossibleStartPosition, new Vector2(roomDoorline.DoorStart.x - 1, roomDoorline.DoorStart.y), door.Direction);
+        FillFromXtoX(room, new Vector2(roomDoorline.DoorEnd.x + 1, roomDoorline.DoorEnd.y), door.PossibleEndPosition, door.Direction);
+    }
+
+    private static void FillUpVerticalWalls(InstantiatedRoom room, Door door, Doorline3W roomDoorline){
+        FillFromYtoY(room, door.PossibleStartPosition, new Vector2(roomDoorline.DoorStart.x, roomDoorline.DoorStart.y + 1), door.Direction);
+        FillFromYtoY(room, new Vector2(roomDoorline.DoorEnd.x, roomDoorline.DoorEnd.y - 1), door.PossibleEndPosition, door.Direction);
+    }
+
+    private static void FillFromXtoX(InstantiatedRoom room, Vector2 from, Vector2 to, DoorDirection dir, bool unusedDoor = false){
+        float start = from.x;
+        float end = to.x;
+
+        if(start >= end){
+            return;
+        }
+
+        GameObject wallHolder = room.RoomObj.transform.Find("Environment/WallObjects").gameObject;
+        GameObject wallPrefab = WhichWallToUse(dir);
+        Vector3 roomPos = room.CurrentPosition();
+
+        if(unusedDoor){
+            start -= 1;
+            end += 1;
+        }
+
+        for(float i = start; i <= end; i++){
+            Vector2 wallPos = new Vector2(i, from.y);
+            Vector3 shiftedWallPos = CalculateShiftedWallPos(roomPos, wallPos, dir);
+            GameObject wall = GameObject.Instantiate(wallPrefab, shiftedWallPos, Quaternion.identity, wallHolder.transform);
+            NameTheWall(wall);
+        }
+    }
+
+    private static void FillFromYtoY(InstantiatedRoom room, Vector2 from, Vector2 to, DoorDirection dir, bool unusedDoor = false){
+        float start = from.y;
+        float end = to.y;
+
+        if(start <= end || start +1 <= end){
+            return;
+        }
+
+        GameObject wallHolder = room.RoomObj.transform.Find("Environment/WallObjects").gameObject;
+        GameObject wallPrefab = WhichWallToUse(dir);
+        Vector3 roomPos = room.CurrentPosition();
+
+        if(unusedDoor){
+            start += 1;
+            end -= 1;
+        }
+
+        for(float i = start; i >= end; i--){
+            Vector2 wallPos = new Vector2(from.x, i);
+            Vector3 shiftedWallPos = CalculateShiftedWallPos(roomPos, wallPos, dir);
+            GameObject wall = GameObject.Instantiate(wallPrefab, shiftedWallPos, Quaternion.identity, wallHolder.transform);
+            NameTheWall(wall);
+        }
+    }
+
+    private static Vector3 CalculateShiftedWallPos(Vector3 roomPos, Vector2 wallPos, DoorDirection dir){
+        Vector3 shiftedWallPos = Vector3.zero;
+
+        switch(dir){
+            case DoorDirection.UP:
+                shiftedWallPos = new Vector3(roomPos.x + wallPos.x + 0.5f, roomPos.y + wallPos.y + 1.5f, 0);
+                break;
+            case DoorDirection.DOWN:
+                shiftedWallPos = new Vector3(roomPos.x + wallPos.x + 0.5f, roomPos.y + wallPos.y - 0.5f, 0);
+                break;
+            case DoorDirection.LEFT:
+                shiftedWallPos = new Vector3(roomPos.x + wallPos.x - 0.25f, roomPos.y + wallPos.y + 0.5f, 0);
+                break;
+            case DoorDirection.RIGHT:
+                shiftedWallPos = new Vector3(roomPos.x + wallPos.x + 1.25f, roomPos.y + wallPos.y + 0.5f, 0);
+                break;
+        }
+
+        return shiftedWallPos;
+    }
+
+    private static GameObject WhichWallToUse(DoorDirection dir){
+        switch(dir){
+            case DoorDirection.UP:
+                return _wallUp;
+            case DoorDirection.DOWN:
+                return _wallDown;
+            case DoorDirection.LEFT:
+                return _wallLeft;
+            case DoorDirection.RIGHT:
+                return _wallRight;
+        }
+
+        return null;
+    }
+
+    private static bool ValidateRooms(){
+        foreach(var room in _rooms){
+            Doorway dw = room.RoomObj.GetComponent<Doorway>();
+            List<Door> doors = dw.Doors.Where(d => d.WasUsed).ToList();
+
+            bool allRoomsValid = doors.Count == room.NeighborsInstantiated && room.NeighborsInstantiated == room.DoorPositionsUsed.Count;
+            if(!allRoomsValid){
+                return false;
+            }
+
+            foreach(var door in doors){
+                Doorline3W doorline = room.DoorPositionsUsed.ContainsKey(door.Direction) ? room.DoorPositionsUsed[door.Direction] : null;
+                if(doorline == null){
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
     private static GameObject SelectCorridorTemplate(DoorDirection dir){
         if (_corridorTemplates == null || _corridorTemplates.Count < 2) {
             Debug.LogError("Corridor templates list is not properly initialized or has insufficient elements.");
@@ -370,16 +537,13 @@ public static class DungeonGenerator {
     }
 
     private static bool IsBoundingBoxOverlapping(InstantiatedRoom room1, InstantiatedRoom room2) {
-        //Debug.Log("Checking overlap between " + room1.RoomObj.name + " and " + room2.RoomObj.name);
         Vector3 min1 = room1.TopLeftCorner;
         Vector3 max1 = room1.BottomRightCorner;
         Vector3 min2 = room2.TopLeftCorner;
         Vector3 max2 = room2.BottomRightCorner;
 
         bool overlapX = min1.x <= max2.x && max1.x >= min2.x;
-        //Debug.Log("OverlapX: " + overlapX + " becasue " + min1.x + " <= " + max2.x + " && " + max1.x + " >= " + min2.x);
         bool overlapY = max1.y <= min2.y && min1.y >= max2.y;
-        //Debug.Log("OverlapY: " + overlapY + " becasue " + max1.y + " <= " + min2.y + " && " + min1.y + " >= " + max2.y);
 
         return overlapX && overlapY;
     }
@@ -393,6 +557,15 @@ public static class DungeonGenerator {
         foreach(GameObject template in _currentGraph.RoomTemplates){
             _defaultTemplates.Add(template, 0);
         }
+    }
+
+    private static void LoadWalls(){
+        _wallLeft = Resources.Load<GameObject>("Prefabs/Dungeon/Rooms/WallTemplates/WALL_L");
+        _wallRight = Resources.Load<GameObject>("Prefabs/Dungeon/Rooms/WallTemplates/WALL_R");
+        _wallUp = Resources.Load<GameObject>("Prefabs/Dungeon/Rooms/WallTemplates/WALL_U");
+        _wallDown = Resources.Load<GameObject>("Prefabs/Dungeon/Rooms/WallTemplates/WALL_D");
+
+        Debug.Log("Wall templates loaded" + (_wallLeft == null).ToString() + (_wallRight == null).ToString() + (_wallUp == null).ToString() + (_wallDown == null).ToString());
     }
 
     private static void ResetVariables(){
@@ -433,5 +606,17 @@ public static class DungeonGenerator {
             + "(" + pos.x.ToString() + ", " + pos.y.ToString() + ")_"
             + "(" + corridor.TopLeftCorner.x.ToString() + ", " + corridor.TopLeftCorner.y.ToString() + ")_"
             + "(" + corridor.BottomRightCorner.x.ToString() + ", " + corridor.BottomRightCorner.y.ToString() + ")";
+    }
+
+    private static void NameTheWall(GameObject wall){
+        Vector3 pos = wall.transform.position;
+        wall.name = "WALL" + "(" + pos.x.ToString() + ", " + pos.y.ToString() + ")";
+    }
+
+    //ingame
+    public static Vector3 GetSpawnPointOfPlayer(){
+        GameObject RoomObj = _rooms.FirstOrDefault(r => r.Room.IsSpawn()).RoomObj;
+        SpawnPointHandler sph = RoomObj.GetComponent<SpawnPointHandler>();
+        return new Vector3(sph.PlayerSpawnpoint.x, sph.PlayerSpawnpoint.y, 0);
     }
 }

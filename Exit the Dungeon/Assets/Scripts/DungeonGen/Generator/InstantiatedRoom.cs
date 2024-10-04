@@ -10,6 +10,7 @@ public class InstantiatedRoom {
     public Vector3 BottomRightCorner { get; private set; }
     public int NeighborsNum { get; private set; }
     public int NeighborsInstantiated { get; private set; }
+    public Dictionary<DoorDirection, Doorline3W> DoorPositionsUsed = new Dictionary<DoorDirection, Doorline3W>();
 
     public InstantiatedRoom(Room room, GameObject template, int neighbors){
         Room = room;
@@ -19,7 +20,8 @@ public class InstantiatedRoom {
         CalculateCorners();
     }
 
-    public void AnotherNeighborDone(){
+    public void AnotherNeighborDone(DoorDirection dir, Doorline3W door){
+        DoorPositionsUsed.Add(dir, door);
         NeighborsInstantiated++;
     }
 

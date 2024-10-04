@@ -20,43 +20,45 @@ public class MoveToTile : MonoBehaviour {
     }
 
     void Update() {
-        if(BattleManager.IsTheirTurn(entity)){
-            BattleManager.MovementRangeOf(entity);
+        if(GameManager.Phase == GamePhase.COMBAT){
+            if(BattleManager.IsTheirTurn(entity)){
+                BattleManager.MovementRangeOf(entity);
 
-            if(Input.GetMouseButtonDown(1)){
-                mousePosition = mainCam.ScreenToWorldPoint(Input.mousePosition);
-                mousePosition.z = transform.position.z;
-                Debug.Log(mousePosition);
+                if(Input.GetMouseButtonDown(1)){
+                    mousePosition = mainCam.ScreenToWorldPoint(Input.mousePosition);
+                    mousePosition.z = transform.position.z;
+                    Debug.Log(mousePosition);
 
-                if(currentTile == null){
+                    if(currentTile == null){
+                        currentTile = TileManager.instance.GetClosestTile(transform.position);
+                        lastTile = TileManager.instance.GetClosestTile(transform.position);
+                    }
+
                     currentTile = TileManager.instance.GetClosestTile(transform.position);
-                    lastTile = TileManager.instance.GetClosestTile(transform.position);
+                    hoveredTile = TileManager.instance.GetClosestTile(mousePosition);
+                    Debug.Log(hoveredTile.transform.position);
+                    
+                    if(hoveredTile.IsTileInEntityRange(gameObject, entity.Speed.StepsLeft()) && hoveredTile.isEmpty){
+                        currentTile.TileOccupation();
+                        currentTile.ResetColor();
+                        TileManager.instance.shouldRepaint = false;
+
+                        hoveredTile.TileOccupation(gameObject);
+                        hoveredTile.IndicateTurn();
+                        targetPosition = hoveredTile.transform.position + new Vector3(0,0.5f,0);
+                        Debug.Log(targetPosition);
+                        FightUIManager.UpdateMovementFor(entity, hoveredTile.DistanceFromEntity(gameObject));
+                    }
+
                 }
 
-                currentTile = TileManager.instance.GetClosestTile(transform.position);
-                hoveredTile = TileManager.instance.GetClosestTile(mousePosition);
-                Debug.Log(hoveredTile.transform.position);
-                
-                if(hoveredTile.IsTileInEntityRange(gameObject, entity.Speed.StepsLeft()) && hoveredTile.isEmpty){
-                    currentTile.TileOccupation();
-                    currentTile.ResetColor();
-                    TileManager.instance.shouldRepaint = false;
-
-                    hoveredTile.TileOccupation(gameObject);
-                    hoveredTile.IndicateTurn();
-                    targetPosition = hoveredTile.transform.position + new Vector3(0,0.5f,0);
-                    Debug.Log(targetPosition);
-                    FightUIManager.UpdateMovementFor(entity, hoveredTile.DistanceFromEntity(gameObject));
+                if (transform.position != targetPosition) {
+                    transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+                    CheckIfOnFireTile();
+                } else {
+                    TileManager.instance.shouldRepaint = true;
                 }
-
             }
-        }
-
-        if (transform.position != targetPosition) {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
-            CheckIfOnFireTile();
-        } else {
-            TileManager.instance.shouldRepaint = true;
         }
     }
 

@@ -440,20 +440,27 @@ the dungeon level gets generated
 the doors are marked WasUsed upon being selected correctly
 the base dungeon also gets generated without Unity time out
 ||TO-DO: 
-- figure out what's wrong with overlaps
-- check why dead ends are a thing
-- track which default templates are mostly used and select a lesser used one
-- add collision
-- finish up templates AND figure out walls
-- spawn the player in the spawn room
+- figure out what's wrong with overlaps - DONE
+- check why dead ends are a thing - DONE
+- track which default templates are mostly used and select a lesser used one - DONE
+- add collision to templates - DONE
+- finish up templates - DONE
+- figure out walls - DONE
+- spawn the player in the spawn room - DONE
 - spawn the party members to the party member spawns
 - instantiate the rest of the environment
 - configure gem room gimmick 
 - spawn monsters
 - verify if everything works as in the DemoScene
+- add triggers before doors that update where the player is
+- make the interactable tile invisible out of combat
 
 fixed overlap
 fixed deadends
 fixed default template selection
 set up corridor and boss room templates
 added collision for the rest of the templates
+added things for the rest of the layers
+modified the corner coordinates (they changed because of the walls)
+made algorithm that instantiates a wall object where the door wasn't used and to fill next to corridors as well
+spawned the player

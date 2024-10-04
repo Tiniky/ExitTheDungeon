@@ -10,7 +10,7 @@ public class Doorline3W {
         DoorStart = start;
         if(dir == DoorDirection.LEFT || dir == DoorDirection.RIGHT){
             DoorMiddle = new Vector3(start.x, start.y + 1, 0);
-            DoorEnd = new Vector3(start.x, start.y + 2, 0);
+            DoorEnd = new Vector3(start.x, start.y - 2, 0);
         } else if(dir == DoorDirection.UP || dir == DoorDirection.DOWN){
             DoorMiddle = new Vector3(start.x + 1, start.y, 0);
             DoorEnd = new Vector3(start.x + 2, start.y, 0);
