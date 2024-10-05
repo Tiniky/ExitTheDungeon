@@ -58,32 +58,6 @@ public class RoomSettings : MonoBehaviour {
         }
     }
 
-    public void CheckIfSpawnPointsWereUpdated(){
-        SpawnPointHandler spawnPoint = gameObject.GetComponent<SpawnPointHandler>();
-
-        if(spawnPoint == null){
-            Debug.Log("null");
-        }
-
-        if(spawnPoint.PlayerSpawnpoint != Vector2.zero){
-            WasPlayerSpawnSet = true;
-        } else {
-            WasPlayerSpawnSet = false;
-        }
-
-        if(spawnPoint.PartyMemeberSpawnpoint != Vector2.zero){
-            WasPartyMemberSpawnSet = true;
-        } else {
-            WasPartyMemberSpawnSet = false;
-        }
-
-        if(spawnPoint.EnemySpawnpoints.Count > 0){
-            WereEnemySpanwsSet = true;
-        } else {
-            WereEnemySpanwsSet = false;
-        }
-    }
-
     public Tilemap GetTilemap(){
         return Tilemap;
     }

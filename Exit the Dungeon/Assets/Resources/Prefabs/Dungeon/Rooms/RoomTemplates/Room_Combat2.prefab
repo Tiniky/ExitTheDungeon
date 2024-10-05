@@ -29704,11 +29704,11 @@ GameObject:
   - component: {fileID: 1668241076102903969}
   - component: {fileID: 8972950167539668181}
   - component: {fileID: 6502984840118994071}
-  - component: {fileID: 3555110966455631125}
   - component: {fileID: 1774855859688068808}
   - component: {fileID: 1837205817677092481}
   - component: {fileID: 6590951130804637440}
   - component: {fileID: 8115319006480525967}
+  - component: {fileID: 7177591153747461727}
   m_Layer: 0
   m_Name: Room_Combat2
   m_TagString: room
@@ -29790,21 +29790,6 @@ MonoBehaviour:
     Direction: 1
     DoorPrefab: {fileID: 0}
     WasUsed: 0
---- !u!114 &3555110966455631125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4352896481668256532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8065a471e75487f45865f3d330497635, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerSpawnpoint: {x: 0, y: 0}
-  PartyMemeberSpawnpoint: {x: 0, y: 0}
-  EnemySpawnpoints: []
 --- !u!61 &1774855859688068808
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29909,6 +29894,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 18.880428, y: 0.8337767}
   m_EdgeRadius: 0
+--- !u!114 &7177591153747461727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4352896481668256532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab940a52c80549e43a69a649f2bb6ec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnPoints:
+  - {x: -1, y: -2}
+  - {x: 0, y: -4}
+  - {x: 3, y: -5}
+  - {x: 5, y: -4}
+  - {x: 8, y: -3}
+  - {x: 8, y: -5}
+  - {x: -3, y: -9}
+  - {x: -6, y: -9}
+  - {x: -5, y: 0}
+  - {x: 7, y: -8}
 --- !u!1 &4379290975968796666
 GameObject:
   m_ObjectHideFlags: 0

@@ -45645,11 +45645,12 @@ GameObject:
   - component: {fileID: 8844631708183992041}
   - component: {fileID: 5419183024030770546}
   - component: {fileID: 1807172443960136150}
-  - component: {fileID: 4554872727316520957}
   - component: {fileID: 5669595698173897538}
   - component: {fileID: 1494246839772857911}
   - component: {fileID: 8412296478426611773}
   - component: {fileID: 8483903016639406231}
+  - component: {fileID: 3324902695483419355}
+  - component: {fileID: 4741640488735893187}
   m_Layer: 0
   m_Name: Room_Prison
   m_TagString: room
@@ -45731,21 +45732,6 @@ MonoBehaviour:
     Direction: 0
     DoorPrefab: {fileID: 0}
     WasUsed: 0
---- !u!114 &4554872727316520957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7474402640158208984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8065a471e75487f45865f3d330497635, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerSpawnpoint: {x: 0, y: -1}
-  PartyMemeberSpawnpoint: {x: 0, y: 7}
-  EnemySpawnpoints: []
 --- !u!61 &5669595698173897538
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45850,6 +45836,40 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8202095, y: 6.9265666}
   m_EdgeRadius: 0
+--- !u!114 &3324902695483419355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7474402640158208984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcdd9e03b3805ff439564038896e0740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnPoint: {x: 0, y: -1}
+--- !u!114 &4741640488735893187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7474402640158208984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab940a52c80549e43a69a649f2bb6ec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnPoints:
+  - {x: -7, y: -7}
+  - {x: 0, y: -6}
+  - {x: 7, y: -7}
+  - {x: 7, y: 0}
+  - {x: 7, y: 7}
+  - {x: 0, y: 6}
+  - {x: -6, y: 7}
+  - {x: -6, y: 0}
 --- !u!1 &7537016044019365915
 GameObject:
   m_ObjectHideFlags: 0

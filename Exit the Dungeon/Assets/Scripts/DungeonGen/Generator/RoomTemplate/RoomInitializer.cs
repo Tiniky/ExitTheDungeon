@@ -44,10 +44,6 @@ public class RoomInitializer : MonoBehaviour {
         if(gameObject.GetComponent<Doorway>() == null){
             gameObject.AddComponent<Doorway>();
         }
-
-        if(gameObject.GetComponent<SpawnPointHandler>() == null){
-            gameObject.AddComponent<SpawnPointHandler>();
-        }
     }
 
     #if UNITY_EDITOR

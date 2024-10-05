@@ -24,8 +24,8 @@ public class Dungeon {
 
     public Vector3 GetSpawnPointOfPlayer(){
         GameObject RoomObj = Rooms.FirstOrDefault(r => r.Room.IsSpawn()).RoomObj;
-        SpawnPointHandler sph = RoomObj.GetComponent<SpawnPointHandler>();
-        return new Vector3(sph.PlayerSpawnpoint.x, sph.PlayerSpawnpoint.y, 0);
+        PlayerSpawnPoint psp = RoomObj.GetComponent<PlayerSpawnPoint>();
+        return new Vector3(psp.SpawnPoint.x, psp.SpawnPoint.y, 0);
     }
 
     public InstantiatedRoom GetRoom(GameObject roomObj){
@@ -42,5 +42,37 @@ public class Dungeon {
             tileHolder.SetActive(false);
             RoomTiles.Add(room, tileHolder);
         }
+    }
+
+    public List<Vector2> GetSpawnPointsOfPartyMember(){
+        List<Vector2> spawnPoints = new List<Vector2>();
+
+        foreach(InstantiatedRoom room in Rooms){
+            if(room.Room.Type == RoomType.PRISON){
+                PartyMemberSpawnPoint pmsp = room.RoomObj.GetComponent<PartyMemberSpawnPoint>();
+                spawnPoints.Add(pmsp.SpawnPoint);
+            }
+        }
+
+        return spawnPoints;
+    }
+
+    public Dictionary<InstantiatedRoom, List<Vector2>> GetSpawnPointsOfEnemies(){
+        Dictionary<InstantiatedRoom, List<Vector2>> spawnPoints = new Dictionary<InstantiatedRoom, List<Vector2>>();
+
+        foreach(InstantiatedRoom room in Rooms){
+            if(room.Room.Type == RoomType.COMBAT || room.Room.Type == RoomType.PRISON){
+                List<Vector2> points = new List<Vector2>();
+                EnemySpawnPoint esp = room.RoomObj.GetComponent<EnemySpawnPoint>();
+                
+                foreach(Vector2 sp in esp.SpawnPoints){
+                    points.Add(sp);
+                }
+
+                spawnPoints.Add(room, points);
+            }
+        }
+
+        return spawnPoints;
     }
 }

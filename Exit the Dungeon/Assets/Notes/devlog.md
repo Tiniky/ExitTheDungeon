@@ -463,11 +463,13 @@ add triggers before doors that update where the player is - DONE
 make the interactable tile invisible out of combat - DONE
 spawn the party members to the party member spawns
 instantiate the rest of the environment
-create door wall prefabs
+create door wall prefabs - DONE
 lock the door of the boss room and add gem check before it
 configure gem room gimmick
 spawn the min amount of monsters <= when party member rescued go through combat rooms and spawn more monsters
 on combat triggers doors close
+rework spanwpointhandler into smaller classes - DONE
+set up spawns on the templates - DONE
 verify if everything works as in the DemoScene
 
 ||BEHAVIOR TREE TODO
@@ -529,6 +531,8 @@ figure out why the walls are brighter - DONE
 hover on monsters should show their HP and skill tree + any additional info + icon
 on R rebuild dungeon
 2-3 additional dungeon graph
+the last 2 remaining party member prefabs
+rework spawnpointhandler
 
 WEEK first week of oct part2
 created Dungeon class
@@ -537,3 +541,6 @@ added triggers to each entrance
 added spotlight for player prefab and dimmed the global light
 hid interactable tiles on load
 fixed column collision bug
+created the door prefabs
+reworked spawn system
+added spawns to the rooms

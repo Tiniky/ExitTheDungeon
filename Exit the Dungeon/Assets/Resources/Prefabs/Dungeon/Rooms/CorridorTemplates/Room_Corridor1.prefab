@@ -624,7 +624,6 @@ GameObject:
   - component: {fileID: 5223816043099155604}
   - component: {fileID: 151365013524141037}
   - component: {fileID: 4290897590426145462}
-  - component: {fileID: 1744781121881806335}
   - component: {fileID: 414600078293654097}
   - component: {fileID: 6869517240463921968}
   m_Layer: 0
@@ -698,21 +697,6 @@ MonoBehaviour:
     Direction: 1
     DoorPrefab: {fileID: 0}
     WasUsed: 0
---- !u!114 &1744781121881806335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4894488429718327435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8065a471e75487f45865f3d330497635, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerSpawnpoint: {x: 0, y: 0}
-  PartyMemeberSpawnpoint: {x: 0, y: 0}
-  EnemySpawnpoints: []
 --- !u!61 &414600078293654097
 BoxCollider2D:
   m_ObjectHideFlags: 0
