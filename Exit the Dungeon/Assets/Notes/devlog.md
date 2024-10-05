@@ -447,14 +447,6 @@ the base dungeon also gets generated without Unity time out
 - finish up templates - DONE
 - figure out walls - DONE
 - spawn the player in the spawn room - DONE
-- spawn the party members to the party member spawns
-- instantiate the rest of the environment
-- configure gem room gimmick 
-- spawn monsters
-- verify if everything works as in the DemoScene
-- add triggers before doors that update where the player is
-- make the interactable tile invisible out of combat
-
 fixed overlap
 fixed deadends
 fixed default template selection
@@ -464,3 +456,84 @@ added things for the rest of the layers
 modified the corner coordinates (they changed because of the walls)
 made algorithm that instantiates a wall object where the door wasn't used and to fill next to corridors as well
 spawned the player
+
+made some planning:
+||PROC GEN TODO
+add triggers before doors that update where the player is - DONE
+make the interactable tile invisible out of combat - DONE
+spawn the party members to the party member spawns
+instantiate the rest of the environment
+create door wall prefabs
+lock the door of the boss room and add gem check before it
+configure gem room gimmick
+spawn the min amount of monsters <= when party member rescued go through combat rooms and spawn more monsters
+on combat triggers doors close
+verify if everything works as in the DemoScene
+
+||BEHAVIOR TREE TODO
+editor based on the level graph
+possible actions: 
+when idle walk around the spawn point
+if combat on their turn
+slecet target based on logic
+decide which attack to use
+check if target in reach
+close gap if needed
+attack
+upon low health decide to run or continue to fight
+!enemies can't leave room
+
+||PRE SAVE SYTEM TODO
+each level should have an item chest and a skill chest
+common items could be: bonus vision, faster movement, 
+fix movement speed issues
+in inventory a bag for the items unlocked
+
+||SAVE SYSTEM TODO
+Main Menu: Continue (continues save file), New Game (confirmation + deletes save file), Exit
+new scene showing the 4 characters <- only the first is selectable
+unlocks for characters: hit the killing blow on 10 enemies with the given char
+unlock for lvl up: hit the killing blow on 10 enemies with the given unlocked char
+item pool showing all the items
+the unavailable items are gray
+on hover the available items show what they do
+on hover the unavailable items show how to unlock them
+at the bottom map selection
+unlock maps: beat prev map boss
+unlock infinite mode: unlock all characters
+(infinite mode: no boss rooms, gem rooms and prison rooms, shorter maps, only one party member room, one tp room, boss on 6th 12th 18th... iterations) !NOTE: only the name and icon will be in the thesis version
+secret character unlock: beat 5 bosses in a row in endless mode !NOTE: only the name and icon will be in the thesis version
+item unlocks:
+	- burn 10 times and die by fire at least once: fire immunity
+	- use the orc passive 10 times: Stone of ressurection <- revives dead party members
+item ideas: redistributes health among all party members, a magical shield reducing incoming damage, increases the accuracy and critical hit chance, something luck based !NOTE doesn't need to be implemented the name, icon and unlock is enough for the thesis version
+
+||LOG SYTEM TODO
+log when:
+changing rooms
+party member joins party
+someone steps on fire
+a lever is pulled
+a chest is opened
+a gem is picked up
+the boss room unlocks
+the boss room door was interacted without the needed gem amount
+someone dies
+someone gets revived
+a passive triggers
+a monster initiated combat
+
+||ELSE TODO
+add spotlight to characters - DONE
+figure out why the walls are brighter - DONE
+hover on monsters should show their HP and skill tree + any additional info + icon
+on R rebuild dungeon
+2-3 additional dungeon graph
+
+WEEK first week of oct part2
+created Dungeon class
+added tracker for CurrentRoom and CurrentCorridor
+added triggers to each entrance
+added spotlight for player prefab and dimmed the global light
+hid interactable tiles on load
+fixed column collision bug

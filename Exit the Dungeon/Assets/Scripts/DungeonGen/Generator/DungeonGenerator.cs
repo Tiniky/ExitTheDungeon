@@ -19,6 +19,7 @@ public static class DungeonGenerator {
     private static Door _lastDoor;
     private static Doorline3W _lastFromDoorLine, _lastToDoorLine;
     private static GameObject _wallLeft, _wallRight, _wallUp, _wallDown;
+    private static Dungeon dungeon;
 
     public static bool GenerateDungeon(DungeonLevel lvl, bool WasCalledFromEditor = false){
         _wasCalledFromEditor = WasCalledFromEditor;
@@ -51,9 +52,14 @@ public static class DungeonGenerator {
 
         if(_successfulBuild){
             PutUpWalls();
+            dungeon = new Dungeon(_rooms, _corridors);
         }
 
         return _successfulBuild;
+    }
+
+    public static Dungeon GetDungeon(){
+        return dungeon;
     }
 
     private static bool AttemptToBuildDungeon(){
@@ -87,7 +93,6 @@ public static class DungeonGenerator {
             }
 
             if(currentRoom.IsSpawn()){
-                GameManager.CurrentRoom = currentRoom;
                 CreateRoom(currentRoom, neighborCount);
             } else{
                 InstantiatedRoom neighborRoom = FindNeighborRoom(neighbors, visitedRooms);
@@ -174,6 +179,8 @@ public static class DungeonGenerator {
 
             corridor.From.AnotherNeighborDone(corridor.ToDirection, _lastFromDoorLine);
             instantiatedRoom.AnotherNeighborDone(corridor.FromDirection, _lastToDoorLine);
+        } else {
+            GameManager.CurrentRoom = instantiatedRoom;
         }
 
         return instantiatedRoom;
@@ -574,6 +581,7 @@ public static class DungeonGenerator {
         _corridorTemplates.Clear();
         _defaultTemplates.Clear();
         _successfulBuild = false;
+        _dungeon = null;
     }
 
     private static void ClearDungeon(){
@@ -586,6 +594,7 @@ public static class DungeonGenerator {
         }
 
         _dungeon = new GameObject("DUNGEON");
+        Debug.Log("Dungeon created");
         _rooms.Clear();
         _corridors.Clear();
         _triedDoors.Clear();
@@ -611,12 +620,5 @@ public static class DungeonGenerator {
     private static void NameTheWall(GameObject wall){
         Vector3 pos = wall.transform.position;
         wall.name = "WALL" + "(" + pos.x.ToString() + ", " + pos.y.ToString() + ")";
-    }
-
-    //ingame
-    public static Vector3 GetSpawnPointOfPlayer(){
-        GameObject RoomObj = _rooms.FirstOrDefault(r => r.Room.IsSpawn()).RoomObj;
-        SpawnPointHandler sph = RoomObj.GetComponent<SpawnPointHandler>();
-        return new Vector3(sph.PlayerSpawnpoint.x, sph.PlayerSpawnpoint.y, 0);
     }
 }

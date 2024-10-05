@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Adventurer : Entity {
+    public bool IsPlayer { get; private set; }
     private RaceType _race;
     private ClassType _class;
     private PartyRole _role;
@@ -58,7 +59,8 @@ public class Adventurer : Entity {
         set{_armorType = value;}
     }
 
-    public void Initialize(RaceType race, ClassType cast, string name){
+    public void Initialize(RaceType race, ClassType cast, string name, bool isPlayer = false){
+        IsPlayer = isPlayer;
         _passives = new List<Ability>();
         _actives = new List<Ability>();
         _advantageRolls = new Dictionary<Ability, Advantage>();
@@ -195,5 +197,13 @@ public class Adventurer : Entity {
 
     public void ModifyTemporaryDamage(int bonus){
         this.temporaryAttackBonus += bonus;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision){
+        if(IsPlayer && collision.gameObject.CompareTag("room")){
+            GameManager.EnterRoom(collision.gameObject);
+        } else if(IsPlayer && collision.gameObject.CompareTag("corridor")){
+            GameManager.LeftRoom(collision.gameObject);
+        }
     }
 }

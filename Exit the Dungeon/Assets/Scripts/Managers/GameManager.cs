@@ -13,7 +13,9 @@ public class GameManager : MonoBehaviour {
     //dungon things
     public List<DungeonLevel> DungeonLevels;
     private int currentLevel = 0;
-    public static Room CurrentRoom;
+    public static InstantiatedRoom CurrentRoom;
+    public static InstantiatedCorridor CurrentCorridor;
+    public static Dungeon Dungeon;
 
     //global thing
     public static int Gem = 0;
@@ -90,6 +92,9 @@ public class GameManager : MonoBehaviour {
         DungeonLevel level = DungeonLevels[lvl];
         bool success = DungeonGenerator.GenerateDungeon(level);
         Debug.Log("success = " + success);
+        if(success){
+            Dungeon = DungeonGenerator.GetDungeon();
+        }
     }
 
     private void InitializeGame(){
@@ -98,7 +103,7 @@ public class GameManager : MonoBehaviour {
         
         InitializePlayer();
         //InitializePartyMembers();
-        //InitializeRooms();
+        InitializeRooms();
         //InitializeEnemies();
 
         CinemachineVirtualCamera cvc = _cam.GetComponent<CinemachineVirtualCamera>();
@@ -109,13 +114,13 @@ public class GameManager : MonoBehaviour {
     }
 
     private void InitializePlayer(){
-        Vector3 spawnPoint = DungeonGenerator.GetSpawnPointOfPlayer();
+        Vector3 spawnPoint = Dungeon.GetSpawnPointOfPlayer();
         _player = Instantiate(PrefabManager.ORC_BARBARIAN, spawnPoint, Quaternion.identity);
         PrefabManager.RemovePlayerFromAllies(PrefabManager.ORC_BARBARIAN);
         _adventurer = _player.GetComponent<Adventurer>();
         _playerBehaviour = _player.GetComponent<PlayerBehaviour>();
         //starter char: orc barbarian
-        _adventurer.Initialize(RaceType.ORC, ClassType.BARBARIAN, "Végzetpöröly");
+        _adventurer.Initialize(RaceType.ORC, ClassType.BARBARIAN, "Végzetpöröly", true);
         _player.name = _adventurer.EntityName;
         _playerBehaviour.Initialize(_adventurer.HP.GetValue());
         _adventurer.Behaviour = _playerBehaviour;
@@ -123,7 +128,8 @@ public class GameManager : MonoBehaviour {
     }
 
     private void InitializeRooms(){
-        _allySpawnPoints = new List<Vector3>();
+        Dungeon.TurnOffInteractableTiles();
+        /*_allySpawnPoints = new List<Vector3>();
         _enemySpawnPoints = new List<Vector3>();
 
         //for demo purposes
@@ -143,6 +149,7 @@ public class GameManager : MonoBehaviour {
         tiles.Add(tileManager.GenerateInteractableGrid(room, 22, 15, -52.5f, -31.5f));
         room.SetActive(false);
         roomsWithTiles.Add(room);
+        */
     }
 
     private void InitializePartyMembers(){
@@ -197,6 +204,28 @@ public class GameManager : MonoBehaviour {
 
     private void InitializeUI(){
         UIManager.Initialize();
+    }
+
+    public static void EnterRoom(GameObject roomobj){
+        InstantiatedRoom room = Dungeon.GetRoom(roomobj);
+        if(room == null || room == CurrentRoom){
+            return;
+        }
+
+        CurrentRoom = room;
+        CurrentCorridor = null;
+        Debug.Log("Entered room: " + CurrentRoom.RoomObj.name);
+    }
+    
+    public static void LeftRoom(GameObject corrobj){
+        InstantiatedCorridor crd = Dungeon.GetCorridor(corrobj);
+        if(crd == null || crd == CurrentCorridor){
+            return;
+        }
+        
+        CurrentCorridor = crd;
+        CurrentRoom = null;
+        Debug.Log("Entered corridor: " + CurrentCorridor.CorridorObj.name);
     }
 
     public static GameObject PlayerObj(){

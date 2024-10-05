@@ -28,6 +28,8 @@ TagManager:
   - inqueue
   - minimap
   - cell
+  - room
+  - corridor
   layers:
   - Default
   - TransparentFX
