@@ -471,6 +471,7 @@ on combat triggers doors close
 rework spanwpointhandler into smaller classes - DONE
 set up spawns on the templates - DONE
 verify if everything works as in the DemoScene
+spawn the selected character as player
 
 ||BEHAVIOR TREE TODO
 editor based on the level graph
@@ -487,12 +488,11 @@ upon low health decide to run or continue to fight
 
 ||PRE SAVE SYTEM TODO
 each level should have an item chest and a skill chest
-common items could be: bonus vision, faster movement, 
-fix movement speed issues
-in inventory a bag for the items unlocked
+common items could be: bonus vision, faster movement
+in inventory a bag for the items collected during the run (~6 slots)
 
 ||SAVE SYSTEM TODO
-Main Menu: Continue (continues save file), New Game (confirmation + deletes save file), Exit
+Main Menu: Continue (continues save file), New Game (confirmation + deletes save file), Exit - DONE* (still needs existing save file validation)
 new scene showing the 4 characters <- only the first is selectable
 unlocks for characters: hit the killing blow on 10 enemies with the given char
 unlock for lvl up: hit the killing blow on 10 enemies with the given unlocked char
@@ -531,8 +531,9 @@ figure out why the walls are brighter - DONE
 hover on monsters should show their HP and skill tree + any additional info + icon
 on R rebuild dungeon
 2-3 additional dungeon graph
-the last 2 remaining party member prefabs
-rework spawnpointhandler
+the last 2 remaining party member prefabs - DONE
+fix movement speed issues - DONE
+update partymember pathing with navmesh
 
 WEEK first week of oct part2
 created Dungeon class
@@ -544,3 +545,15 @@ fixed column collision bug
 created the door prefabs
 reworked spawn system
 added spawns to the rooms
+added sprites for the last 2 characters
+added death and idle animations for the orc and human characters
+reworked the initiaize characters part so the selected character will gain the PlayerBehaviour and PlayerMovement classes dynamically
+fixed the multiple appearing DUNGEON gameobject
+made tokens for the elf and dwarf characters
+fixed the movement speed issue
+created the prefabs for the elf and dwarf characters
+created the idle and walk animations for the elf and dwarf characters
+each character walks and behaves with environment as intended
+modified the main menu scene and the scenesmanager
+created the new scene for the pregame unlocks
+started setting up the UI

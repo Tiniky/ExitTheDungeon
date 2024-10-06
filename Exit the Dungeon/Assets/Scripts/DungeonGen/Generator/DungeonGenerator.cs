@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 
 public static class DungeonGenerator {
-    private static GameObject _dungeon;
+    private static GameObject _dungeon = null;
     private static LevelGraph _currentGraph;
     private static List<InstantiatedRoom> _rooms = new List<InstantiatedRoom>();
     private static List<InstantiatedCorridor> _corridors = new List<InstantiatedCorridor>();
@@ -40,11 +40,12 @@ public static class DungeonGenerator {
             int buildAttempts = 0;
             while(!_successfulBuild && buildAttempts < MaxAttempts){
                 if(buildAttempts == MaxAttempts - 1){
-                    Debug.LogError("Dungeon Generation Failed: Too many build attempts");
+                    Debug.Log("Dungeon Generation Failed: Too many build attempts");
                     return false;
                 }
 
                 ClearDungeon();
+                
                 _successfulBuild = AttemptToBuildDungeon();
                 buildAttempts++;
             }
@@ -70,7 +71,7 @@ public static class DungeonGenerator {
 
         bool NoOverlaps = ProcessQueue(roomQueue, visitedRooms);
 
-        Debug.Log("Expected Rooms: " + _currentGraph.Rooms.Count + " Rooms: " + _rooms.Count + " Expected Corridors: " + _currentGraph.Connections.Count + " Corridors: " + _corridors.Count);
+        //Debug.Log("Expected Rooms: " + _currentGraph.Rooms.Count + " Rooms: " + _rooms.Count + " Expected Corridors: " + _currentGraph.Connections.Count + " Corridors: " + _corridors.Count);
         return roomQueue.Count == 0 && _rooms.Count == _currentGraph.Rooms.Count && NoOverlaps && _corridors.Count == _currentGraph.Connections.Count;
     }
 
@@ -109,12 +110,12 @@ public static class DungeonGenerator {
 
     private static bool CanPlaceRoom(Room currentRoom, InstantiatedRoom neighborRoom, int neighborCount){
         if(neighborRoom == null){
-            Debug.Log("No neighbor room found");
+            //Debug.Log("No neighbor room found");
             return false;
         }
 
         if(neighborRoom.NeighborsNum == neighborRoom.NeighborsInstantiated){
-            Debug.Log("All neighbors instantiated");
+            //Debug.Log("All neighbors instantiated");
             return false;
         }
 
@@ -122,10 +123,10 @@ public static class DungeonGenerator {
         InstantiatedRoom newRoom = CreateRoom(currentRoom, neighborCount, corridor);
 
         if(corridor == null || newRoom == null){
-            Debug.Log("Corridor or Room not created");
+            //Debug.Log("Corridor or Room not created");
 
             if(neighborRoom.GetFreeDoors().Where(d => !_triedDoors.Contains(d)).ToList().Count == 0){
-                Debug.Log("All doors tried");
+                //Debug.Log("All doors tried");
                 return false;
             } else{
                 return CanPlaceRoom(currentRoom, neighborRoom, neighborCount);
@@ -140,7 +141,7 @@ public static class DungeonGenerator {
         Vector3 roomPos = CalculateRoomPosition(roomTemplate, room, corridor);
         
         if(roomPos == Vector3.zero && corridor != null){
-            Debug.Log("Room position could not be calculated");
+            //Debug.Log("Room position could not be calculated");
 
             if(_wasCalledFromEditor){
                 GameObject.DestroyImmediate(_lastCorridor.CorridorObj);
@@ -155,7 +156,7 @@ public static class DungeonGenerator {
         InstantiatedRoom instantiatedRoom = new InstantiatedRoom(room, roomObj, neighbors);
 
         if(IsOverlapping(instantiatedRoom)){
-            Debug.Log("Room is overlapping");
+            //Debug.Log("Room is overlapping");
 
             if(_wasCalledFromEditor){
                 GameObject.DestroyImmediate(roomObj);
@@ -175,7 +176,7 @@ public static class DungeonGenerator {
             corridor.CloseUpDoors(instantiatedRoom);
             _corridors.Add(_lastCorridor);
             _lastDoor.WasUsed = true;
-            Debug.Log("Corridor FromDirection: " + corridor.FromDirection.ToString() + " ToDirection: " + corridor.ToDirection.ToString());
+            //Debug.Log("Corridor FromDirection: " + corridor.FromDirection.ToString() + " ToDirection: " + corridor.ToDirection.ToString());
 
             corridor.From.AnotherNeighborDone(corridor.ToDirection, _lastFromDoorLine);
             instantiatedRoom.AnotherNeighborDone(corridor.FromDirection, _lastToDoorLine);
@@ -197,7 +198,7 @@ public static class DungeonGenerator {
             Door corriDoor = dw.Doors.FirstOrDefault(d => d.Direction == roomExit && !d.WasUsed);
 
             if(corriDoor == null){
-                Debug.Log("Corridor door not found, Can't place room");
+                //Debug.Log("Corridor door not found, Can't place room");
                 return roomPos;
             }
 
@@ -251,19 +252,19 @@ public static class DungeonGenerator {
         List<Door> freeDoors = neighborRoom.GetFreeDoors();
 
         if(freeDoors.Count == 0){
-            Debug.Log("No free doors found");
+            //Debug.Log("No free doors found");
             return null;
         }
 
         List<Door> possibleDoors = freeDoors.Where(d => !_triedDoors.Contains(d)).ToList();
         if(possibleDoors.Count == 0){
-            Debug.Log("No possible doors found");
+            //Debug.Log("No possible doors found");
             return null;
         }
         Door door = GetRandom(possibleDoors);
 
         if(door == null){
-            Debug.Log("All doors tried");
+            //Debug.Log("All doors tried");
             return null;
         }
 
@@ -294,7 +295,7 @@ public static class DungeonGenerator {
             case DoorDirection.UP:
                 corriDoor = dw.Doors.FirstOrDefault(d => d.Direction == DoorDirection.DOWN);
                 if(corriDoor == null){
-                    Debug.Log("Corridor door not found");
+                    //Debug.Log("Corridor door not found");
                 } else{
                     corridorPos = new Vector3(
                         startPos.x + corriDoor.PossibleStartPosition.x * (-1), 
@@ -305,7 +306,7 @@ public static class DungeonGenerator {
             case DoorDirection.DOWN:
                 corriDoor = dw.Doors.FirstOrDefault(d => d.Direction == DoorDirection.UP);
                 if(corriDoor == null){
-                    Debug.Log("Corridor door not found");
+                    //Debug.Log("Corridor door not found");
                 } else{
                     corridorPos = new Vector3(
                         startPos.x + corriDoor.PossibleStartPosition.x * (-1), 
@@ -316,7 +317,7 @@ public static class DungeonGenerator {
             case DoorDirection.LEFT:
                 corriDoor = dw.Doors.FirstOrDefault(d => d.Direction == DoorDirection.RIGHT);
                 if(corriDoor == null){
-                    Debug.Log("Corridor door not found");
+                    //Debug.Log("Corridor door not found");
                 } else{
                     corridorPos = new Vector3(
                         startPos.x - 1 - Mathf.Abs(corriDoor.PossibleStartPosition.x), 
@@ -327,7 +328,7 @@ public static class DungeonGenerator {
             case DoorDirection.RIGHT:
                 corriDoor = dw.Doors.FirstOrDefault(d => d.Direction == DoorDirection.LEFT);
                 if(corriDoor == null){
-                    Debug.Log("Corridor door not found");
+                    //Debug.Log("Corridor door not found");
                 } else{
                     corridorPos = new Vector3(
                         startPos.x + 1 + Mathf.Abs(corriDoor.PossibleStartPosition.x), 
@@ -348,7 +349,7 @@ public static class DungeonGenerator {
         Vector2 vec = Vector2.zero;
 
         if(door == null){
-            Debug.Log("Door is null o.o");
+            //Debug.Log("Door is null o.o");
         }
 
         if(door.Direction == DoorDirection.UP || door.Direction == DoorDirection.DOWN){
@@ -514,7 +515,7 @@ public static class DungeonGenerator {
 
     private static GameObject SelectCorridorTemplate(DoorDirection dir){
         if (_corridorTemplates == null || _corridorTemplates.Count < 2) {
-            Debug.LogError("Corridor templates list is not properly initialized or has insufficient elements.");
+            //Debug.LogError("Corridor templates list is not properly initialized or has insufficient elements.");
             return null;
         }
         
@@ -571,12 +572,10 @@ public static class DungeonGenerator {
         _wallRight = Resources.Load<GameObject>("Prefabs/Dungeon/Rooms/WallTemplates/WALL_R");
         _wallUp = Resources.Load<GameObject>("Prefabs/Dungeon/Rooms/WallTemplates/WALL_U");
         _wallDown = Resources.Load<GameObject>("Prefabs/Dungeon/Rooms/WallTemplates/WALL_D");
-
-        Debug.Log("Wall templates loaded" + (_wallLeft == null).ToString() + (_wallRight == null).ToString() + (_wallUp == null).ToString() + (_wallDown == null).ToString());
     }
 
     private static void ResetVariables(){
-        ClearDungeon();
+        ClearDungeon(true);
         _currentGraph = null;
         _corridorTemplates.Clear();
         _defaultTemplates.Clear();
@@ -584,17 +583,18 @@ public static class DungeonGenerator {
         _dungeon = null;
     }
 
-    private static void ClearDungeon(){
-        if(_dungeon != null){
-            if(_wasCalledFromEditor){
-                GameObject.DestroyImmediate(_dungeon);
-            } else {
-                GameObject.Destroy(_dungeon);
+    private static void ClearDungeon(bool calledFromReset = false){
+        if(!calledFromReset){
+            if(_dungeon != null){
+                if(_wasCalledFromEditor){
+                    GameObject.DestroyImmediate(_dungeon);
+                } else {
+                    GameObject.Destroy(_dungeon);
+                }
             }
-        }
 
-        _dungeon = new GameObject("DUNGEON");
-        Debug.Log("Dungeon created");
+            _dungeon = new GameObject("DUNGEON");
+        }
         _rooms.Clear();
         _corridors.Clear();
         _triedDoors.Clear();

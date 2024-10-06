@@ -34,6 +34,8 @@ public static class PrefabManager {
     // UI Images
     public static Image IMG_ORC_TOKEN;
     public static Image IMG_HUMAN_TOKEN;
+    public static Image IMG_ELF_TOKEN;
+    public static Image IMG_DWARF_TOKEN;
     public static Image IMG_OGRE_TOKEN;
     public static Image IMG_ATTACK;
     public static Image IMG_BORING;
@@ -57,6 +59,8 @@ public static class PrefabManager {
     // Creature Prefabs
     public static GameObject ORC_BARBARIAN;
     public static GameObject HUMAN_ROGUE;
+    public static GameObject ELF_SORCERER;
+    public static GameObject DWARF_CLERIC;
     public static List<GameObject> ALLIES;
     public static GameObject OGRE;
     public static GameObject GOBLIN;
@@ -107,6 +111,8 @@ public static class PrefabManager {
 
         IMG_HUMAN_TOKEN = Resources.Load<Image>("Images/HumanToken");
         IMG_ORC_TOKEN = Resources.Load<Image>("Images/OrcToken");
+        IMG_ELF_TOKEN = Resources.Load<Image>("Images/ElfToken");
+        IMG_DWARF_TOKEN = Resources.Load<Image>("Images/DwarfToken");
         IMG_OGRE_TOKEN = Resources.Load<Image>("Images/OgreToken");
         IMG_ATTACK = Resources.Load<Image>("Prefabs/UI/Images/attack");
         IMG_BORING = Resources.Load<Image>("Prefabs/UI/Images/boring");
@@ -128,10 +134,14 @@ public static class PrefabManager {
         IMG_SHORTBOW = Resources.Load<Image>("Prefabs/UI/Images/short_bow");
  
         ALLIES = new List<GameObject>();
-        ORC_BARBARIAN = Resources.Load<GameObject>("Prefabs/Playable/Player");
+        ORC_BARBARIAN = Resources.Load<GameObject>("Prefabs/Playable/Character_OrcBarbarian");
         ALLIES.Add(ORC_BARBARIAN);
-        HUMAN_ROGUE = Resources.Load<GameObject>("Prefabs/Playable/PartyMember");
+        HUMAN_ROGUE = Resources.Load<GameObject>("Prefabs/Playable/Character_HumanRogue");
         ALLIES.Add(HUMAN_ROGUE);
+        ELF_SORCERER = Resources.Load<GameObject>("Prefabs/Playable/Character_ElfSorcerer");
+        ALLIES.Add(ELF_SORCERER);
+        DWARF_CLERIC = Resources.Load<GameObject>("Prefabs/Playable/Character_DwarfCleric");
+        ALLIES.Add(DWARF_CLERIC);
 
         OGRE = Resources.Load<GameObject>("Prefabs/Creatures/monster_ogre");
         GOBLIN = Resources.Load<GameObject>("Prefabs/Creatures/monster_goblin");
@@ -143,6 +153,7 @@ public static class PrefabManager {
         SWITCH = Resources.Load<GameObject>("Prefabs/Dungeon/Objects/switch");
 
         TILE = Resources.Load<GameObject>("Prefabs/GameResources/Tile");
+        Debug.Log("PrefabManager - initialized");
 
         EXPLANATIONS = new Dictionary<string, string>();
         FillExplanations();
@@ -189,6 +200,34 @@ public static class PrefabManager {
         return clone;
     }
 
+    public static GameObject GetCharacterPrefab(string selected, bool isPlayer = false){
+        GameObject prefab = null;
+        switch(selected){
+            case "OrcBarbarian":
+                prefab = ORC_BARBARIAN;
+                break;
+            case "HumanRogue":
+                prefab = HUMAN_ROGUE;
+                break;
+            case "ElfSorcerer":
+                prefab = ELF_SORCERER;
+                break;
+            case "DwarfCleric":
+                prefab = DWARF_CLERIC;
+                break;
+        }
+
+        Debug.Log("PrefabManager - selected: " + selected);
+        Debug.Log("PrefabManager - prefab is null: " + (prefab == null ? "yes" : "no"));
+        Debug.Log("PrefabManager - prefab: " + prefab);
+
+        if(isPlayer){
+            RemovePlayerFromAllies(prefab);
+        }
+        
+        return prefab;
+    }
+
     public static void RemovePlayerFromAllies(GameObject playerObj){
         ALLIES.Remove(playerObj);
     }
@@ -227,10 +266,9 @@ public static class PrefabManager {
 
     private static void FillExplanations(){
         TextAsset jsonTextAsset = Resources.Load<TextAsset>("JSONs/explanatorytext");
-        Debug.Log("filling desc");
+        Debug.Log("PrefabManager - filling descriptions");
 
         if(jsonTextAsset != null){
-            Debug.Log("not null");
             string content = jsonTextAsset.text;
             EXPLANATIONS = JsonConvert.DeserializeObject<Dictionary<string, string>>(content);
         }
@@ -238,10 +276,9 @@ public static class PrefabManager {
 
     private static void FillAbilities(){
         TextAsset jsonTextAsset = Resources.Load<TextAsset>("JSONs/abilities");
-        Debug.Log("filling abil");
+        Debug.Log("PrefabManager - filling abilities");
 
         if(jsonTextAsset != null){
-            Debug.Log("not null");
             string content = jsonTextAsset.text;
             var abilities = JsonConvert.DeserializeObject<Dictionary<string, List<string>>>(content);
 
@@ -251,7 +288,11 @@ public static class PrefabManager {
             ROGUE_ABILITIES = abilities["rogue"];
             SORCERER_ABILITIES = abilities["sorcerer"];
 
-            Debug.Log("general: " + string.Join(", ", GENERAL_ABILITIES));
+            Debug.Log("PrefabManager - general: " + string.Join(", ", GENERAL_ABILITIES));
+            Debug.Log("PrefabManager - barbarian: " + string.Join(", ", BARBARIAN_ABILITIES));
+            Debug.Log("PrefabManager - cleric: " + string.Join(", ", CLERIC_ABILITIES));
+            Debug.Log("PrefabManager - rogue: " + string.Join(", ", ROGUE_ABILITIES));
+            Debug.Log("PrefabManager - sorcerer: " + string.Join(", ", SORCERER_ABILITIES));
         }
     }
 }

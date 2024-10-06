@@ -5,10 +5,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Tilemaps;
 using Cinemachine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
     private static GameObject _cam;
+
+    //Menu things
+    public static string SelectedCharacter;
 
     //dungon things
     public List<DungeonLevel> DungeonLevels;
@@ -22,6 +26,7 @@ public class GameManager : MonoBehaviour {
     public static GamePhase Phase;
 
     //living
+    private static GameObject _partyHolder;
     private static GameObject _player;
     private static Adventurer _adventurer;
     private static CreatureBehaviour _playerBehaviour;
@@ -45,6 +50,10 @@ public class GameManager : MonoBehaviour {
     private void Awake() {
         instance = this;
         Phase = GamePhase.INIT;
+        
+        GenerateLevel(currentLevel);
+        InitializeGame();
+        Phase = GamePhase.ADVENTURE;
     }
 
     private void Update(){
@@ -79,19 +88,16 @@ public class GameManager : MonoBehaviour {
 
     public void HandleState(){
         switch(Phase){
-            case GamePhase.INIT:
-                GenerateLevel(currentLevel);
-                InitializeGame();
-                Phase = GamePhase.ADVENTURE;
+            case GamePhase.ADVENTURE:
                 break;
         }
     }
 
     private void GenerateLevel(int lvl){
-        Debug.Log("generate lvl");
+        Debug.Log("GameManager - generate lvl");
         DungeonLevel level = DungeonLevels[lvl];
         bool success = DungeonGenerator.GenerateDungeon(level);
-        Debug.Log("success = " + success);
+        Debug.Log("GameManager - generation is success = " + success);
         if(success){
             Dungeon = DungeonGenerator.GetDungeon();
         }
@@ -100,6 +106,7 @@ public class GameManager : MonoBehaviour {
     private void InitializeGame(){
         PrefabManager.Initialize();
         _cam = GameObject.FindGameObjectWithTag("MainCamera");
+        _partyHolder = new GameObject("PARTY");
         
         InitializePlayer();
         InitializeRooms();
@@ -115,17 +122,25 @@ public class GameManager : MonoBehaviour {
     }
 
     private void InitializePlayer(){
+        Debug.Log("GameManager - initializing player");
         Vector3 spawnPoint = Dungeon.GetSpawnPointOfPlayer();
-        _player = Instantiate(PrefabManager.ORC_BARBARIAN, spawnPoint, Quaternion.identity);
-        PrefabManager.RemovePlayerFromAllies(PrefabManager.ORC_BARBARIAN);
+        GameObject charPrefab = PrefabManager.GetCharacterPrefab(SelectedCharacter, true);
+
+        _player = Instantiate(charPrefab, spawnPoint, Quaternion.identity, _partyHolder.transform);
+        
         _adventurer = _player.GetComponent<Adventurer>();
-        _playerBehaviour = _player.GetComponent<PlayerBehaviour>();
+        _playerBehaviour = _player.AddComponent<PlayerBehaviour>();
+        _player.AddComponent<PlayerMovement>();
+        _player.AddComponent<AnimationController>();
+        Light2D light = _player.GetComponent<Light2D>();
+        light.enabled = true;
+        
         //starter char: orc barbarian
-        _adventurer.Initialize(RaceType.ORC, ClassType.BARBARIAN, "Végzetpöröly", true);
+        _adventurer.Initialize(true);
         _player.name = _adventurer.EntityName;
         _playerBehaviour.Initialize(_adventurer.HP.GetValue());
         _adventurer.Behaviour = _playerBehaviour;
-        Debug.Log("Adventurer's health: " + _adventurer.HP.GetValue());
+        Debug.Log("GameManager - Adventurer's health: " + _adventurer.HP.GetValue());
     }
 
     private void InitializeRooms(){
@@ -167,12 +182,12 @@ public class GameManager : MonoBehaviour {
             GameObject allyObj = Instantiate(_allyOptions[0], _allySpawnPoints[i], Quaternion.identity);
             _partyMembers.Add(allyObj); 
             Adventurer allyAdventurer = allyObj.GetComponent<Adventurer>();
-            allyAdventurer.Initialize(RaceType.HUMAN, ClassType.ROGUE, "Gibor_" + i);
+            allyAdventurer.Initialize();
             allyObj.name = allyAdventurer.EntityName;
-            PartyMemberBehaviour partyMember = allyObj.GetComponent<PartyMemberBehaviour>();
+            PartyMemberBehaviour partyMember = allyObj.AddComponent<PartyMemberBehaviour>();
             partyMember.Initialize(allyAdventurer.HP.GetValue());
             allyAdventurer.Behaviour = partyMember;
-            Debug.Log("Ally's health: " + allyAdventurer.HP.GetValue());
+            Debug.Log("GameManager - Ally's health: " + allyAdventurer.HP.GetValue());
         }
 
         //for demo
@@ -220,7 +235,7 @@ public class GameManager : MonoBehaviour {
 
         CurrentRoom = room;
         CurrentCorridor = null;
-        Debug.Log("Entered room: " + CurrentRoom.RoomObj.name);
+        Debug.Log("GameManager - Entered room: " + CurrentRoom.RoomObj.name);
     }
     
     public static void LeftRoom(GameObject corrobj){
@@ -231,7 +246,7 @@ public class GameManager : MonoBehaviour {
         
         CurrentCorridor = crd;
         CurrentRoom = null;
-        Debug.Log("Entered corridor: " + CurrentCorridor.CorridorObj.name);
+        Debug.Log("GameManager - Entered corridor: " + CurrentCorridor.CorridorObj.name);
     }
 
     public static GameObject PlayerObj(){
@@ -274,7 +289,7 @@ public class GameManager : MonoBehaviour {
 
         if(Input.GetKeyDown(Settings.INVENTORY)){
             InventoryManager.InventoryVisibility();
-            Debug.Log("tab was pressed");
+            Debug.Log("GameManager - tab was pressed");
         }
 
         //needs cleanup big time
@@ -417,7 +432,7 @@ public class GameManager : MonoBehaviour {
                 fighter.GetComponent<CapsuleCollider2D>().enabled = false;
             }
             tileManager.SnapToClosestTile(fighter);
-            Debug.Log("snapped");
+            Debug.Log("GameManager - snapped");
         }
     }
 

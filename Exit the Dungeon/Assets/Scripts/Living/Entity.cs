@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public abstract class Entity : MonoBehaviour {
-    private string _name;
+    public string EntityName;
     private HitPoints _hp;
     private ArmorClass _ac;
     private Type _type;
@@ -19,11 +19,6 @@ public abstract class Entity : MonoBehaviour {
     public bool isAlive;
 
     protected virtual void Awake(){}
-
-    public string EntityName {
-        get{return _name;} 
-        set{_name = value;}
-    }
 
     public HitPoints HP {
         get{return _hp;} 

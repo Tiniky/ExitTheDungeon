@@ -1,0 +1,876 @@
+fileFormatVersion: 2
+guid: 90277e2471f464f418d11868b709676a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7149954782667964746
+    second: DWARF_CLERIC_walk_up_0
+  - first:
+      213: -4648647103304567799
+    second: DWARF_CLERIC_walk_up_1
+  - first:
+      213: 5825472389353782940
+    second: DWARF_CLERIC_walk_up_2
+  - first:
+      213: 2204804296072130482
+    second: DWARF_CLERIC_walk_up_3
+  - first:
+      213: 6728889560022686948
+    second: DWARF_CLERIC_walk_up_4
+  - first:
+      213: 1058449896994151178
+    second: DWARF_CLERIC_walk_up_5
+  - first:
+      213: 1261002346040499269
+    second: DWARF_CLERIC_walk_up_6
+  - first:
+      213: -7642718745442148510
+    second: DWARF_CLERIC_walk_up_7
+  - first:
+      213: -6183804694086645499
+    second: DWARF_CLERIC_walk_left_0
+  - first:
+      213: 4813998640662883492
+    second: DWARF_CLERIC_walk_left_1
+  - first:
+      213: -141045732332737176
+    second: DWARF_CLERIC_walk_left_2
+  - first:
+      213: -779668699692449183
+    second: DWARF_CLERIC_walk_left_3
+  - first:
+      213: -2367625249022555126
+    second: DWARF_CLERIC_walk_left_4
+  - first:
+      213: 6520325880425198957
+    second: DWARF_CLERIC_walk_left_5
+  - first:
+      213: -5730207557494946661
+    second: DWARF_CLERIC_walk_left_6
+  - first:
+      213: -4664176615268664627
+    second: DWARF_CLERIC_walk_left_7
+  - first:
+      213: 6649056390602955744
+    second: DWARF_CLERIC_walk_down_0
+  - first:
+      213: 4863644718172686223
+    second: DWARF_CLERIC_walk_down_1
+  - first:
+      213: -1552794364348986994
+    second: DWARF_CLERIC_walk_down_2
+  - first:
+      213: -236979359934780347
+    second: DWARF_CLERIC_walk_down_3
+  - first:
+      213: -6402014467587788370
+    second: DWARF_CLERIC_walk_down_4
+  - first:
+      213: -4501319233191866561
+    second: DWARF_CLERIC_walk_down_5
+  - first:
+      213: -4838815918950492912
+    second: DWARF_CLERIC_walk_down_6
+  - first:
+      213: 2645059761153277593
+    second: DWARF_CLERIC_walk_down_7
+  - first:
+      213: -6885912362061948351
+    second: DWARF_CLERIC_walk_right_0
+  - first:
+      213: 1329548849949508774
+    second: DWARF_CLERIC_walk_right_1
+  - first:
+      213: -2304582116154167095
+    second: DWARF_CLERIC_walk_right_2
+  - first:
+      213: -3157314646825124336
+    second: DWARF_CLERIC_walk_right_3
+  - first:
+      213: -5535980714880509180
+    second: DWARF_CLERIC_walk_right_4
+  - first:
+      213: 894084845531619994
+    second: DWARF_CLERIC_walk_right_5
+  - first:
+      213: -52573679305858662
+    second: DWARF_CLERIC_walk_right_6
+  - first:
+      213: -1672492491737835419
+    second: DWARF_CLERIC_walk_right_7
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_up_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 194
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6be78fad10246cc90800000000000000
+      internalID: -7149954782667964746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_up_1
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 194
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 904f161d610bc7fb0800000000000000
+      internalID: -4648647103304567799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_up_2
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 193
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9e3740064c38d050800000000000000
+      internalID: 5825472389353782940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_up_3
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 194
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bf62a263d9099e10800000000000000
+      internalID: 2204804296072130482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_up_4
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 195
+        width: 41
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ec9cf55761d16d50800000000000000
+      internalID: 6728889560022686948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_up_5
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 194
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0b92eac29e50be00800000000000000
+      internalID: 1058449896994151178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_up_6
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 193
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54c9da0e3faff7110800000000000000
+      internalID: 1261002346040499269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_up_7
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 194
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26f93bb3bcb9fe590800000000000000
+      internalID: -7642718745442148510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_left_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 128
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5098298d466be2aa0800000000000000
+      internalID: -6183804694086645499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_left_1
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 128
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4acaced0242cec240800000000000000
+      internalID: 4813998640662883492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_left_2
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 128
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86de83b57a7ea0ef0800000000000000
+      internalID: -141045732332737176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_left_3
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 128
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1624750d27f0e25f0800000000000000
+      internalID: -779668699692449183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_left_4
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 128
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0cc3c65161842fd0800000000000000
+      internalID: -2367625249022555126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_left_5
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 128
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d65b78297d9dc7a50800000000000000
+      internalID: 6520325880425198957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_left_6
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 128
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b94414e16963a70b0800000000000000
+      internalID: -5730207557494946661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_left_7
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 128
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dca3a3d8414854fb0800000000000000
+      internalID: -4664176615268664627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_down_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 65
+        width: 42
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eb1e6d1f81364c50800000000000000
+      internalID: 6649056390602955744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_down_1
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 65
+        width: 42
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f87436c3a132f7340800000000000000
+      internalID: 4863644718172686223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_down_2
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 65
+        width: 42
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8900cfa0cd537ae0800000000000000
+      internalID: -1552794364348986994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_down_3
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 65
+        width: 42
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54cecf7178416bcf0800000000000000
+      internalID: -236979359934780347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_down_4
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 65
+        width: 42
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea1b484d2c97727a0800000000000000
+      internalID: -6402014467587788370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_down_5
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 65
+        width: 42
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3f07f4a10a1881c0800000000000000
+      internalID: -4501319233191866561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_down_6
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 65
+        width: 42
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01553711f8219dcb0800000000000000
+      internalID: -4838815918950492912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_down_7
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 65
+        width: 42
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99e7831b6d325b420800000000000000
+      internalID: 2645059761153277593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_right_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14a93d890335070a0800000000000000
+      internalID: -6885912362061948351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_right_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a405c082a1837210800000000000000
+      internalID: 1329548849949508774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_right_2
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 0
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c0b9ea86ca7400e0800000000000000
+      internalID: -2304582116154167095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_right_3
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 0
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01eb9df8e07fe24d0800000000000000
+      internalID: -3157314646825124336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_right_4
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 0
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40b5226eede3c23b0800000000000000
+      internalID: -5535980714880509180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_right_5
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 0
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a92e8f01e6d686c00800000000000000
+      internalID: 894084845531619994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_right_6
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 0
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9160786488354ff0800000000000000
+      internalID: -52573679305858662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DWARF_CLERIC_walk_right_7
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 0
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5685574a0fc1ac8e0800000000000000
+      internalID: -1672492491737835419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -9,16 +9,25 @@ public static class ScenesManager {
         SceneManager.LoadScene(scene.ToString());
     }
 
-    public static void LoadNewDemoGame(){
-        LoadScene(Scene.DemoScene);
+    public static void LoadGame(){
+        LoadScene(Scene.GameScene);
     }
 
     public static void LoadMainMenu(){
         LoadScene(Scene.MainMenu);
     }
+
+    public static void LoadPreGame(bool isNew = false){
+        if(isNew){
+            //clear save file
+        }
+
+        LoadScene(Scene.PreGameScene);
+    }
 }
 
 public enum Scene{
     MainMenu,
-    DemoScene
+    GameScene,
+    PreGameScene
 }

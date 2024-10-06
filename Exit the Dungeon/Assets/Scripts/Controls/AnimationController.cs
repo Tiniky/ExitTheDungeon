@@ -11,6 +11,7 @@ public class AnimationController : MonoBehaviour {
     void Start(){
         movement = GetComponent<PlayerMovement>();
         mtm = GetComponent<MoveToTile>();
+        animator = GetComponent<Animator>();
         _wasFightInitialized = false;
     } 
 
@@ -38,10 +39,13 @@ public class AnimationController : MonoBehaviour {
                 move = movement.move;
             }
 
+            if (move != Vector2.zero) {
+                move.Normalize();
+            }
 
             animator.SetFloat("Horizontal", move.x);
             animator.SetFloat("Vertical", move.y);
-            animator.SetFloat("MovementSpeed", move.sqrMagnitude);
+            animator.SetFloat("MovementSpeed", move.magnitude);
         }
     }
 

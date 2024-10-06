@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Adventurer : Entity {
     public bool IsPlayer { get; private set; }
-    private RaceType _race;
-    private ClassType _class;
+    public RaceType Race;
+    public ClassType Class;
     private PartyRole _role;
     private MainSkill _primary;
     private DieType _hitDie;
@@ -29,16 +29,6 @@ public class Adventurer : Entity {
         collided = false;
     }
 
-    public RaceType Race {
-        get{return _race;}
-        set{_race = value;}
-    }
-
-    public ClassType Class {
-        get{return _class;} 
-        set{_class = value;}
-    }
-
     public PartyRole Role {
         get{return _role;} 
         set{_role = value;}
@@ -59,19 +49,15 @@ public class Adventurer : Entity {
         set{_armorType = value;}
     }
 
-    public void Initialize(RaceType race, ClassType cast, string name, bool isPlayer = false){
+    public void Initialize(bool isPlayer = false){
         IsPlayer = isPlayer;
         _passives = new List<Ability>();
         _actives = new List<Ability>();
         _advantageRolls = new Dictionary<Ability, Advantage>();
         _disatvantageRolls = new Dictionary<Ability, Disadvantage>();
 
-        EntityName = name;
         this.SkillTree = new SkillTree();
         Debug.Log("new " + this.SkillTree.ToStringSP());
-
-        this.Class = cast;
-        this.Race = race;
 
         InitializeRace();
         Debug.Log("race " + this.SkillTree.ToStringSP());
