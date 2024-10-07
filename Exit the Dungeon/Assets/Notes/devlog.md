@@ -461,7 +461,7 @@ made some planning:
 ||PROC GEN TODO
 add triggers before doors that update where the player is - DONE
 make the interactable tile invisible out of combat - DONE
-spawn the party members to the party member spawns
+spawn the party members to the party member spawns - DONE
 instantiate the rest of the environment
 create door wall prefabs - DONE
 lock the door of the boss room and add gem check before it
@@ -471,7 +471,7 @@ on combat triggers doors close
 rework spanwpointhandler into smaller classes - DONE
 set up spawns on the templates - DONE
 verify if everything works as in the DemoScene
-spawn the selected character as player
+spawn the selected character as player - DONE
 
 ||BEHAVIOR TREE TODO
 editor based on the level graph
@@ -530,11 +530,13 @@ a monster initiated combat
 add spotlight to characters - DONE
 figure out why the walls are brighter - DONE
 hover on monsters should show their HP and skill tree + any additional info + icon
-on R rebuild dungeon - WIP
+on R rebuild dungeon - DONE
 2-3 additional dungeon graph
 the last 2 remaining party member prefabs - DONE
 fix movement speed issues - DONE
 update partymember pathing with navmesh
+add escape menu
+configure light via vision of character
 
 WEEK first week of oct part2
 created Dungeon class
@@ -558,4 +560,10 @@ each character walks and behaves with environment as intended
 modified the main menu scene and the scenesmanager
 created the new scene for the pregame unlocks
 started setting up the UI
+
+WEEK second week of oct
 pregame scene shows the 4 characters
+the selected character spawns as player
+pressing the R 3 times reloads the game setup
+party members instantiated to their related spawnpoint
+cleaned up the GameManager

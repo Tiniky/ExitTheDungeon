@@ -218,12 +218,12 @@ public static class PrefabManager {
         }
 
         Debug.Log("PrefabManager - selected: " + selected);
-        Debug.Log("PrefabManager - prefab is null: " + (prefab == null ? "yes" : "no"));
-        Debug.Log("PrefabManager - prefab: " + prefab);
 
         if(isPlayer){
             RemovePlayerFromAllies(prefab);
         }
+
+        Debug.Log("PrefabManager - alliesNumber: " + ALLIES.Count);
         
         return prefab;
     }

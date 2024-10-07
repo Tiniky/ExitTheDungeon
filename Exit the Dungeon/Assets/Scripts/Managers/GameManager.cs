@@ -11,12 +11,14 @@ public class GameManager : MonoBehaviour {
     public static GameManager instance;
     private static GameObject _cam;
 
-    //Menu things
-    public static string SelectedCharacter;
+    //menu things
+    //public static string SelectedCharacter; <- will be used
+    public static string SelectedCharacter = "OrcBarbarian";
+    
+    private static int CurrentLevel = 0;
 
-    //dungon things
+    //dungeon things
     public List<DungeonLevel> DungeonLevels;
-    private int currentLevel = 0;
     public static InstantiatedRoom CurrentRoom;
     public static InstantiatedCorridor CurrentCorridor;
     public static Dungeon Dungeon;
@@ -24,27 +26,23 @@ public class GameManager : MonoBehaviour {
     //global thing
     public static int Gem = 0;
     public static GamePhase Phase;
+    public static bool IsPaused = false;
+    private static bool WasSceneChange = false;
+    public delegate void KeyAction(KeyCode key);
+    private static Dictionary<KeyCode, KeyAction> ActionKeys;
 
     //living
     private static GameObject _partyHolder;
     private static GameObject _player;
     private static Adventurer _adventurer;
     private static CreatureBehaviour _playerBehaviour;
-    // private static Dictionary<GameObject, Dictionary<Entity, CreatureBehaviour>>()
     private static GameObject[] _allyOptions;
     private static List<GameObject> _partyMembers;
     private static List<GameObject> _rescued;
-    private static List<GameObject> _enemies;
-    // private static Dictionary<DungeonRoom, GameObjec>
+    private static Dictionary<InstantiatedRoom, List<GameObject>> _enemies;
     
     //room related
-    //private static List<DungeonRoom> rooms;
-    private static GameObject tileHolder;
-    private static TileManager tileManager;
-    //private static Dictionary<GameObject, DungeonRoom> roomsWithTiles;
-    private static List<GameObject> roomsWithTiles;
-    private static List<Dictionary<Vector2, InteractableTile>> tiles;
-    private static List<Vector2> _allySpawnPoints;
+    private static Dictionary<InstantiatedRoom, Vector2> _allySpawnPoints;
     private static Dictionary<InstantiatedRoom, List<Vector2>> _enemySpawnPoints;
 
     //other
@@ -54,46 +52,72 @@ public class GameManager : MonoBehaviour {
 
     private void Awake() {
         instance = this;
-        Phase = GamePhase.INIT;
-        
-        GenerateLevel(currentLevel);
-        InitializeGame();
-        Phase = GamePhase.ADVENTURE;
+        SetUpGame();
     }
 
     private void Update(){
         HandleState();
         HandleInputs();
         
-        /*foreach(GameObject ally in _partyMembers){
+        foreach(GameObject ally in _partyMembers){
             CheckIfPlayerBehindCreature(ally);
         }
 
-        foreach(GameObject enemy in _enemies){
+        /*foreach(GameObject enemy in _enemies){
             CheckIfPlayerBehindCreature(enemy);
-        }
-
-        if(Phase == GamePhase.COMBAT){
-            FreezePlayerMovement();
-            TurnOnOffMTM(true);
-
-            if(Input.GetKeyDown(Settings.PASSTURN) && BattleManager.WasButtonPressed()){
-                BattleManager.GoNext();
-                Debug.Log("turn passed");
-            }
-
-        } else {
-            TurnOnOffMTM(false);
-
-            if(!_playerBehaviour.CheckIfCreatureCanMove()){
-                StartCoroutine(RestartMovementCoroutine());
-            }
         }*/
+    }
+
+    private void SetUpGame(){
+        Phase = GamePhase.INIT;
+        GenerateLevel(CurrentLevel);
+        InitializeGame();
+        Phase = GamePhase.ADVENTURE;
+        WasSceneChange = true;
     }
 
     public void HandleState(){
         switch(Phase){
             case GamePhase.ADVENTURE:
+                if(WasSceneChange){
+                    TurnOnOffMTM(false);
+                    WasSceneChange = false;
+                }
+
+                CheckForRestart();
+
+                if(!_playerBehaviour.CheckIfCreatureCanMove()){
+                    StartCoroutine(RestartMovementCoroutine());
+                }
+                break;
+            case GamePhase.COMBAT:
+                if(WasSceneChange){
+                    FreezePlayerMovement();
+                    TurnOnOffMTM(true);
+                    WasSceneChange = false;
+                }
+
+                //need to check if works properly
+                foreach(var actionKey in ActionKeys){
+                    if(Input.GetKeyDown(actionKey.Key)){
+                        actionKey.Value(actionKey.Key);
+                    }
+                }
+
+                if(Input.GetKeyDown(Settings.PASSTURN) && BattleManager.WasButtonPressed()){
+                    BattleManager.GoNext();
+                    Debug.Log("turn passed");
+                }
+                break;
+            case GamePhase.CUTSCENE:
+                break;
+            case GamePhase.PAUSE:
+                break;
+            case GamePhase.WIN:
+                break;
+            case GamePhase.LOSE:
+                break;
+            default:
                 break;
         }
     }
@@ -115,15 +139,26 @@ public class GameManager : MonoBehaviour {
         
         InitializePlayer();
         InitializeRooms();
-        //InitializePartyMembers();
-        //InitializeEnemies();
-        //InitializeEnvironment();
+        InitializePartyMembers();
+        InitializeEnemies();
+        InitializeEnvironment();
+
+        ActionKeys = new Dictionary<KeyCode, KeyAction> {
+            {Settings.ATTACK, ActionUIManager.ActivateActionWithKey},
+            {Settings.DASH, ActionUIManager.ActivateActionWithKey},
+            {Settings.RANGED, ActionUIManager.ActivateActionWithKey},
+            {Settings.SHOVE, ActionUIManager.ActivateActionWithKey},
+            {Settings.ABILITY1, AbilityUIManager.ActivateAbilityWithKey},
+            {Settings.ABILITY2, AbilityUIManager.ActivateAbilityWithKey},
+            {Settings.ABILITY3, AbilityUIManager.ActivateAbilityWithKey},
+            {Settings.ABILITY4, AbilityUIManager.ActivateAbilityWithKey}
+        };
 
         CinemachineVirtualCamera cvc = _cam.GetComponent<CinemachineVirtualCamera>();
         cvc.m_Follow = _player.transform;
         
-        //InitializeUI();
-        //Cursor.visible = false;
+        InitializeUI();
+        Cursor.visible = false;
     }
 
     private void InitializePlayer(){
@@ -139,8 +174,8 @@ public class GameManager : MonoBehaviour {
         _player.AddComponent<AnimationController>();
         Light2D light = _player.GetComponent<Light2D>();
         light.enabled = true;
+        //light needs to be proportionate to the character's vision
         
-        //starter char: orc barbarian
         _adventurer.Initialize(true);
         _player.name = _adventurer.EntityName;
         _playerBehaviour.Initialize(_adventurer.HP.GetValue());
@@ -150,41 +185,34 @@ public class GameManager : MonoBehaviour {
 
     private void InitializeRooms(){
         Dungeon.TurnOffInteractableTiles();
-        _allySpawnPoints = new List<Vector2>();
+        _allySpawnPoints = new Dictionary<InstantiatedRoom, Vector2>();
         _enemySpawnPoints = new Dictionary<InstantiatedRoom, List<Vector2>>();
 
-        List<Vector2> partyMemberSpawnPoints = Dungeon.GetSpawnPointsOfPartyMember();
-        foreach(Vector2 point in partyMemberSpawnPoints){
-           _allySpawnPoints.Add(point);
+        Dictionary<InstantiatedRoom, Vector2> partyMemberSpawnPoints = Dungeon.GetSpawnPointsOfPartyMember();
+        foreach(KeyValuePair<InstantiatedRoom, Vector2> entry in partyMemberSpawnPoints){
+           _allySpawnPoints.Add(entry.Key, entry.Value);
         }
+        Debug.Log("GameManager - ally spawn points: " + _allySpawnPoints.Count);
 
         Dictionary<InstantiatedRoom, List<Vector2>> enemySpawnPoints = Dungeon.GetSpawnPointsOfEnemies();
         foreach(KeyValuePair<InstantiatedRoom, List<Vector2>> entry in enemySpawnPoints){
             _enemySpawnPoints.Add(entry.Key, entry.Value);
         }
-
-        /*tileHolder = GameObject.Find("SceneExtras/InteractableFloorManager");
-        tileManager = tileHolder.GetComponent<TileManager>();
-        tiles = new List<Dictionary<Vector2, InteractableTile>>();
-        roomsWithTiles = new List<GameObject>();
-
-        //iterate through the rooms list and check for enemy rooms
-        GameObject room = new GameObject("Room_1");
-        room.transform.parent = tileHolder.transform;
-        tiles.Add(tileManager.GenerateInteractableGrid(room, 22, 15, -52.5f, -31.5f));
-        room.SetActive(false);
-        roomsWithTiles.Add(room);
-        */
+        Debug.Log("GameManager - enemy spawn points: " + _enemySpawnPoints.Count);
     }
 
     private void InitializePartyMembers(){
         _partyMembers = new List<GameObject>();
         _rescued = new List<GameObject>();
         _allyOptions = PrefabManager.ALLIES.ToArray();
+        Debug.Log("GameManager - ally options: " + _allyOptions.Length);
+        int option = 0;
 
-        for(int i = 0; i < _allySpawnPoints.Count; i++){
-            //GameObject allyObj = Instantiate(_allyOptions[i], _allySpawnPoints[i], Quaternion.identity);
-            GameObject allyObj = Instantiate(_allyOptions[0], _allySpawnPoints[i], Quaternion.identity);
+        foreach(KeyValuePair<InstantiatedRoom, Vector2> entry in _allySpawnPoints){
+            Vector3 spawnPoint = new Vector3(entry.Value.x + entry.Key.CurrentPosition().x, entry.Value.y + entry.Key.CurrentPosition().y, 0);
+            GameObject allyObj = Instantiate(_allyOptions[option], spawnPoint, Quaternion.identity, _partyHolder.transform);
+            Debug.Log("GameManager - ally spawning at: " + spawnPoint.ToString());
+            
             _partyMembers.Add(allyObj); 
             Adventurer allyAdventurer = allyObj.GetComponent<Adventurer>();
             allyAdventurer.Initialize();
@@ -192,41 +220,35 @@ public class GameManager : MonoBehaviour {
             PartyMemberBehaviour partyMember = allyObj.AddComponent<PartyMemberBehaviour>();
             partyMember.Initialize(allyAdventurer.HP.GetValue());
             allyAdventurer.Behaviour = partyMember;
-            Debug.Log("GameManager - Ally's health: " + allyAdventurer.HP.GetValue());
+            Debug.Log("GameManager - " +allyAdventurer.EntityName + "'s health: " + allyAdventurer.HP.GetValue());
+            option++;
         }
-
-        //for demo
-        //DoorController cell = GameObject.FindGameObjectWithTag("cell").GetComponent<DoorController>();
-        //cell.hostage = _partyMembers[0].GetComponent<PartyMemberBehaviour>();
     }
 
-    /*private void InitializeEnemies(){
-        _enemies = new List<GameObject>();
-        //for demo purpose
-        GameObject enemy = Instantiate(PrefabManager.OGRE, _enemySpawnPoints[0], Quaternion.identity);
+    private void InitializeEnemies(){
+        _enemies = new Dictionary<InstantiatedRoom, List<GameObject>>();
+
+        //logic to weigh enemies
+        //logic to spawn enemies according to how many characters are rescued (maybe add thier levels together)
+
+        
+        /*GameObject enemy = Instantiate(PrefabManager.OGRE, _enemySpawnPoints[0], Quaternion.identity);
         enemy.name = "Enemy";
         _enemies.Add(enemy);
         Creature enemyCreature = enemy.GetComponent<Creature>();
         EnemyBehaviour creature = enemy.GetComponent<EnemyBehaviour>();
         enemyCreature.Behaviour = creature;
-        Debug.Log("Ogre's health: " + enemyCreature.HP.GetValue());
+        Debug.Log("Ogre's health: " + enemyCreature.HP.GetValue());*/
+    }
 
-        GameObject goblin1 = Instantiate(PrefabManager.GOBLIN, _enemySpawnPoints[1], Quaternion.identity);
-        goblin1.name = "Enemy";
-        _enemies.Add(goblin1);
-        Creature goblin1Creature = goblin1.GetComponent<Creature>();
-        EnemyBehaviour goblin1creature = goblin1.GetComponent<EnemyBehaviour>();
-        goblin1Creature.Behaviour = goblin1creature;
-        Debug.Log("goblin1's health: " + goblin1Creature.HP.GetValue());
-
-        GameObject goblin2 = Instantiate(PrefabManager.GOBLIN, _enemySpawnPoints[2], Quaternion.identity);
-        goblin2.name = "Enemy";
-        _enemies.Add(goblin2);
-        Creature goblin2Creature = goblin2.GetComponent<Creature>();
-        EnemyBehaviour goblin2creature = goblin2.GetComponent<EnemyBehaviour>();
-        goblin2Creature.Behaviour = goblin2creature;
-        Debug.Log("goblin2's health: " + goblin2Creature.HP.GetValue());
-    }*/
+    private void InitializeEnvironment(){
+        //handle doors
+        //handle interactables: chests, gems, swtiches, cellDoors, scrolls
+        //handle fire
+        
+        //DoorController cell = GameObject.FindGameObjectWithTag("cell").GetComponent<DoorController>();
+        //cell.hostage = _partyMembers[0].GetComponent<PartyMemberBehaviour>();
+    }
 
     private void InitializeUI(){
         UIManager.Initialize();
@@ -280,7 +302,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public static List<GameObject> Enemies(){
-        return _enemies;
+        return _enemies[CurrentRoom];
     }
 
     private static void HandleInputs(){
@@ -296,8 +318,10 @@ public class GameManager : MonoBehaviour {
             InventoryManager.InventoryVisibility();
             Debug.Log("GameManager - tab was pressed");
         }
+    }
 
-        if(Input.GetKeyDown(KeyCode.R) && Phase == GamePhase.ADVENTURE){
+    private void CheckForRestart(){
+        if(Input.GetKeyDown(KeyCode.R)){
             if(_keyPressCount == 0){
                 _firstKeyPressTime = Time.time;
             }
@@ -306,46 +330,15 @@ public class GameManager : MonoBehaviour {
 
             if(_keyPressCount == 3 && (Time.time - _firstKeyPressTime <= _keyPressInterval)){
                 Debug.Log("GameManager - Restarting level");
-                //GenerateLevel(currentLevel);
+                
+                Destroy(_partyHolder);
+                DungeonGenerator.DestroyDungeon();
+                instance.SetUpGame();
+
                 _keyPressCount = 0;
             } else if(Time.time - _firstKeyPressTime > _keyPressInterval){
                 _keyPressCount = 1;
                 _firstKeyPressTime = Time.time;
-            }
-        }
-
-        //needs cleanup big time
-        if(Phase == GamePhase.COMBAT){
-            if(Input.GetKeyDown(Settings.ATTACK)){
-                ActionUIManager.ActivateActionWithKey(Settings.ATTACK);
-            }
-
-            if(Input.GetKeyDown(Settings.DASH)){
-                ActionUIManager.ActivateActionWithKey(Settings.DASH);
-            }
-
-            if(Input.GetKeyDown(Settings.RANGED)){
-                ActionUIManager.ActivateActionWithKey(Settings.RANGED);
-            }
-
-            if(Input.GetKeyDown(Settings.SHOVE)){
-                ActionUIManager.ActivateActionWithKey(Settings.SHOVE);
-            }
-
-            if(Input.GetKeyDown(Settings.ABILITY1)){
-                AbilityUIManager.ActivateAbilityWithKey(Settings.ABILITY1);
-            }
-
-            if(Input.GetKeyDown(Settings.ABILITY2)){
-                AbilityUIManager.ActivateAbilityWithKey(Settings.ABILITY2);
-            }
-
-            if(Input.GetKeyDown(Settings.ABILITY3)){
-                AbilityUIManager.ActivateAbilityWithKey(Settings.ABILITY3);
-            }
-
-            if(Input.GetKeyDown(Settings.ABILITY4)){
-                AbilityUIManager.ActivateAbilityWithKey(Settings.ABILITY4);
             }
         }
     }
@@ -356,13 +349,15 @@ public class GameManager : MonoBehaviour {
 
     public static void FightStarted(List<EntityRoll> rolls){
         Phase = GamePhase.COMBAT;
+        WasSceneChange = true;
         FightUIManager.InitiativeRollSetup(rolls);
         SwapTilesVisibility(true);
         Cursor.visible = true; 
     }
 
     public static void FightEnded(){
-         Phase = GamePhase.ADVENTURE;
+        Phase = GamePhase.ADVENTURE;
+        WasSceneChange = true;
         SwapTilesVisibility(false);
         _player.GetComponent<CapsuleCollider2D>().enabled = true;
         Cursor.visible = false; 
@@ -400,8 +395,10 @@ public class GameManager : MonoBehaviour {
     }
 
     public static void FreezePlayerMovement(){
-        _playerBehaviour.DenyMovement();
-        _player.GetComponent<PlayerMovement>().enabled = false;
+        if(_playerBehaviour.CheckIfCreatureCanMove()){
+            _playerBehaviour.DenyMovement();
+            _player.GetComponent<PlayerMovement>().enabled = false;
+        }
     }
 
     private IEnumerator RestartMovementCoroutine() {
@@ -425,7 +422,7 @@ public class GameManager : MonoBehaviour {
         FightUIManager.InitVisibility(false);
         List<GameObject> fighters = FightUIManager.GetParticipantClones();
 
-        foreach (GameObject clone in fighters){
+        foreach(GameObject clone in fighters){
             Destroy(clone);
         }
 
@@ -433,13 +430,8 @@ public class GameManager : MonoBehaviour {
         FightUIManager.FightVisibility(true);
     }
 
-    public static GameObject TileHolder(){
-        return tileHolder;
-    }
-
     private static void SwapTilesVisibility(bool state){
-        //iterate throught roomWithTiles and search for dungeonroom.isPlayerInit()
-        roomsWithTiles[0].SetActive(state);
+        Dungeon.SetVisibilityOfTiles(state);
     }
 
     public static void FightPositionSetup(List<GameObject> participants){
@@ -453,7 +445,9 @@ public class GameManager : MonoBehaviour {
             } else {
                 fighter.GetComponent<CapsuleCollider2D>().enabled = false;
             }
-            tileManager.SnapToClosestTile(fighter);
+
+            //need to figure out new TileManager system
+            //tileManager.SnapToClosestTile(fighter);
             Debug.Log("GameManager - snapped");
         }
     }

@@ -621,4 +621,10 @@ public static class DungeonGenerator {
         Vector3 pos = wall.transform.position;
         wall.name = "WALL" + "(" + pos.x.ToString() + ", " + pos.y.ToString() + ")";
     }
+
+    public static void DestroyDungeon(){
+        if(_dungeon != null){
+            GameObject.Destroy(_dungeon);
+        }
+    }
 }

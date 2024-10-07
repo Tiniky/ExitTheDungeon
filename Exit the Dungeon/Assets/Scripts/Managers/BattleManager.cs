@@ -14,7 +14,7 @@ public static class BattleManager {
     private static Ability _chosenAbility;
     private static bool _ongoingFight, _isFirst, _wasButtonPressed;
 
-    public static void Initialize() {
+    public static void Initialize(){
         _ongoingFight = true;
         _isFirst = true;
         _wasButtonPressed = false;
@@ -28,14 +28,14 @@ public static class BattleManager {
         allObj.Add(GameManager.PlayerObj());
         _killCount[player] = 0;
 
-        foreach (GameObject ally in GameManager.Allies()) {
+        foreach(GameObject ally in GameManager.Allies()){
             Adventurer partyMember = ally.GetComponent<Adventurer>();
             all.Add(partyMember);
             allObj.Add(ally);
             _killCount[partyMember] = 0;
         }
 
-        foreach (GameObject enemy in GameManager.Enemies()) {
+        foreach(GameObject enemy in GameManager.Enemies()){
             all.Add(enemy.GetComponent<Creature>());
             allObj.Add(enemy);
             _killCount[enemy.GetComponent<Creature>()] = 0;

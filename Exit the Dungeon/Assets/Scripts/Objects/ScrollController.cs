@@ -22,6 +22,8 @@ public class ScrollController : MonoBehaviour {
         //check
         Debug.Log("orc: " + string.Join(", ", GameManager.Player().GetActives()));
         Debug.Log("human: " + string.Join(", ", GameManager.AllyAdventurers()[0].GetActives()));
+        Debug.Log("elf: " + string.Join(", ", GameManager.AllyAdventurers()[1].GetActives()));
+        Debug.Log("dwarf: " + string.Join(", ", GameManager.AllyAdventurers()[2].GetActives()));
     }
 
     public void AwakenCutscene() {

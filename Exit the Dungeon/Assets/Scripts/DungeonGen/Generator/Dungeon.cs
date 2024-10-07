@@ -37,6 +37,7 @@ public class Dungeon {
     }
 
     public void TurnOffInteractableTiles(){
+        //might need to add TileManager to them
         foreach(InstantiatedRoom room in Rooms){
             GameObject tileHolder = room.RoomObj.transform.Find("Environment/InteractableTiles").gameObject;
             tileHolder.SetActive(false);
@@ -44,13 +45,18 @@ public class Dungeon {
         }
     }
 
-    public List<Vector2> GetSpawnPointsOfPartyMember(){
-        List<Vector2> spawnPoints = new List<Vector2>();
+    public void SetVisibilityOfTiles(bool visible){
+        GameObject tileHolder = RoomTiles[GameManager.CurrentRoom];
+        tileHolder.SetActive(visible);
+    }
+
+    public Dictionary<InstantiatedRoom, Vector2> GetSpawnPointsOfPartyMember(){
+        Dictionary<InstantiatedRoom, Vector2> spawnPoints = new Dictionary<InstantiatedRoom, Vector2>();
 
         foreach(InstantiatedRoom room in Rooms){
             if(room.Room.Type == RoomType.PRISON){
                 PartyMemberSpawnPoint pmsp = room.RoomObj.GetComponent<PartyMemberSpawnPoint>();
-                spawnPoints.Add(pmsp.SpawnPoint);
+                spawnPoints.Add(room, pmsp.SpawnPoint);
             }
         }
 
