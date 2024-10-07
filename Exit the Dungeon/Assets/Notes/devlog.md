@@ -493,7 +493,8 @@ in inventory a bag for the items collected during the run (~6 slots)
 
 ||SAVE SYSTEM TODO
 Main Menu: Continue (continues save file), New Game (confirmation + deletes save file), Exit - DONE* (still needs existing save file validation)
-new scene showing the 4 characters <- only the first is selectable
+new scene showing the 4 characters - DONE
+only the first char is selectable
 unlocks for characters: hit the killing blow on 10 enemies with the given char
 unlock for lvl up: hit the killing blow on 10 enemies with the given unlocked char
 item pool showing all the items
@@ -529,7 +530,7 @@ a monster initiated combat
 add spotlight to characters - DONE
 figure out why the walls are brighter - DONE
 hover on monsters should show their HP and skill tree + any additional info + icon
-on R rebuild dungeon
+on R rebuild dungeon - WIP
 2-3 additional dungeon graph
 the last 2 remaining party member prefabs - DONE
 fix movement speed issues - DONE
@@ -557,3 +558,4 @@ each character walks and behaves with environment as intended
 modified the main menu scene and the scenesmanager
 created the new scene for the pregame unlocks
 started setting up the UI
+pregame scene shows the 4 characters

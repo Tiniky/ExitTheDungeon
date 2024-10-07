@@ -47,6 +47,11 @@ public class GameManager : MonoBehaviour {
     private static List<Vector2> _allySpawnPoints;
     private static Dictionary<InstantiatedRoom, List<Vector2>> _enemySpawnPoints;
 
+    //other
+    private static int _keyPressCount = 0;
+    private static float _firstKeyPressTime = 0f;
+    private static readonly float _keyPressInterval = 2f;
+
     private void Awake() {
         instance = this;
         Phase = GamePhase.INIT;
@@ -58,9 +63,9 @@ public class GameManager : MonoBehaviour {
 
     private void Update(){
         HandleState();
-        /*HandleInputs();
-
-        foreach(GameObject ally in _partyMembers){
+        HandleInputs();
+        
+        /*foreach(GameObject ally in _partyMembers){
             CheckIfPlayerBehindCreature(ally);
         }
 
@@ -290,6 +295,23 @@ public class GameManager : MonoBehaviour {
         if(Input.GetKeyDown(Settings.INVENTORY)){
             InventoryManager.InventoryVisibility();
             Debug.Log("GameManager - tab was pressed");
+        }
+
+        if(Input.GetKeyDown(KeyCode.R) && Phase == GamePhase.ADVENTURE){
+            if(_keyPressCount == 0){
+                _firstKeyPressTime = Time.time;
+            }
+
+            _keyPressCount++;
+
+            if(_keyPressCount == 3 && (Time.time - _firstKeyPressTime <= _keyPressInterval)){
+                Debug.Log("GameManager - Restarting level");
+                //GenerateLevel(currentLevel);
+                _keyPressCount = 0;
+            } else if(Time.time - _firstKeyPressTime > _keyPressInterval){
+                _keyPressCount = 1;
+                _firstKeyPressTime = Time.time;
+            }
         }
 
         //needs cleanup big time

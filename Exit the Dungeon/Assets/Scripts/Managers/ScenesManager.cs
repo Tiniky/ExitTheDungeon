@@ -10,7 +10,7 @@ public static class ScenesManager {
     }
 
     public static void LoadGame(){
-        LoadScene(Scene.GameScene);
+        LoadScene(Scene.DemoScene);
     }
 
     public static void LoadMainMenu(){
@@ -28,6 +28,6 @@ public static class ScenesManager {
 
 public enum Scene{
     MainMenu,
-    GameScene,
+    DemoScene,
     PreGameScene
 }
