@@ -10,6 +10,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
     private static GameObject _cam;
+    private static CinemachineVirtualCamera _cvc;
 
     //menu things
     //public static string SelectedCharacter; <- will be used
@@ -39,11 +40,14 @@ public class GameManager : MonoBehaviour {
     private static GameObject[] _allyOptions;
     private static List<GameObject> _partyMembers;
     private static List<GameObject> _rescued;
+    private static Dictionary<InstantiatedRoom, GameObject> _memberHostageLocation;
     private static Dictionary<InstantiatedRoom, List<GameObject>> _enemies;
     
     //room related
     private static Dictionary<InstantiatedRoom, Vector2> _allySpawnPoints;
     private static Dictionary<InstantiatedRoom, List<Vector2>> _enemySpawnPoints;
+    private static Dictionary<InstantiatedRoom, List<GameObject>> _doors;
+    private static Dictionary<InstantiatedRoom, List<InteractableObj>> _interactables;
 
     //other
     private static int _keyPressCount = 0;
@@ -154,8 +158,8 @@ public class GameManager : MonoBehaviour {
             {Settings.ABILITY4, AbilityUIManager.ActivateAbilityWithKey}
         };
 
-        CinemachineVirtualCamera cvc = _cam.GetComponent<CinemachineVirtualCamera>();
-        cvc.m_Follow = _player.transform;
+        _cvc = _cam.GetComponent<CinemachineVirtualCamera>();
+        _cvc.m_Follow = _player.transform;
         
         InitializeUI();
         Cursor.visible = false;
@@ -202,6 +206,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private void InitializePartyMembers(){
+        _memberHostageLocation = new Dictionary<InstantiatedRoom, GameObject>();
         _partyMembers = new List<GameObject>();
         _rescued = new List<GameObject>();
         _allyOptions = PrefabManager.ALLIES.ToArray();
@@ -213,6 +218,7 @@ public class GameManager : MonoBehaviour {
             GameObject allyObj = Instantiate(_allyOptions[option], spawnPoint, Quaternion.identity, _partyHolder.transform);
             Debug.Log("GameManager - ally spawning at: " + spawnPoint.ToString());
             
+            _memberHostageLocation.Add(entry.Key, allyObj);
             _partyMembers.Add(allyObj); 
             Adventurer allyAdventurer = allyObj.GetComponent<Adventurer>();
             allyAdventurer.Initialize();
@@ -242,12 +248,122 @@ public class GameManager : MonoBehaviour {
     }
 
     private void InitializeEnvironment(){
-        //handle doors
+        _doors = new Dictionary<InstantiatedRoom, List<GameObject>>();
+        List<InstantiatedRoom> roomsWithDoors = Dungeon.DoorNeeded();
+
+        foreach(InstantiatedRoom room in roomsWithDoors){
+            GameObject doorHolder = room.RoomObj.transform.Find("Environment/DoorObjects").gameObject;
+            Doorway dw = room.RoomObj.GetComponent<Doorway>();
+            List<Door> doors = dw.Doors.Where(d => d.WasUsed).ToList();
+            List<GameObject> doorObjs = new List<GameObject>();
+
+            if(doors.Count > 0){
+                foreach(Door door in doors){
+                    Vector3 doorPos = room.DoorPositionsUsed.FirstOrDefault(d => d.Direction == door.Direction).UpdatedMiddleDoor;
+                    GameObject prefab = door.DoorPrefab;
+                    GameObject doorObj = Instantiate(prefab, doorPos, Quaternion.identity, doorHolder.transform);
+                    AdjustDoorObjPosition(doorObj, door.Direction);
+                    doorObjs.Add(doorObj);
+                }
+            }
+            
+            if(room.Room.Type != RoomType.BOSS){
+                doorHolder.SetActive(false);
+            } else{
+                doorObjs[0].AddComponent<BossDoorController>();
+            }
+
+            _doors.Add(room, doorObjs);
+        }
+
+        _interactables = new Dictionary<InstantiatedRoom, List<InteractableObj>>();
+        List<InstantiatedRoom> roomsWithInteractables = Dungeon.InteractableNeeded();
+
+        foreach(InstantiatedRoom room in roomsWithInteractables){
+            Transform interactableHolderTransform = room.RoomObj.transform.Find("Environment/InteractableObj");
+            
+            if(interactableHolderTransform != null){
+                GameObject interactableHolder = interactableHolderTransform.gameObject;
+                InteractableHandler ih = room.RoomObj.GetComponent<InteractableHandler>();
+                
+                if(ih != null){
+                    List<InteractableObj> interactables = new List<InteractableObj>();
+                    DoorController dc = null;
+                    bool roomHasSwitch = false;
+                    List<Vector2> possibleSwitchPos = new List<Vector2>();
+                    InteractableObj interactable = null;
+
+                    for(int i = 0; i < ih.Types.Count; i++){
+                        InteractableType type = ih.Types[i];
+                        Vector3 pos = new Vector3(ih.Positions[i].x + room.CurrentPosition().x, ih.Positions[i].y + room.CurrentPosition().y, 0);
+
+                        switch(type){
+                            case InteractableType.CHEST:
+                                Vector3 chestPos = new Vector3(pos.x - 0.5f, pos.y - 0.4f, 0);
+                                GameObject chest = Instantiate(PrefabManager.CHEST, chestPos, Quaternion.identity, interactableHolder.transform);
+                                interactable = new InteractableObj(InteractableType.CHEST, pos, chest);
+                                break;
+                            case InteractableType.GEM:
+                                interactableHolder.transform.position = new Vector3(pos.x + 0.5f, pos.y + 2.35f, 0);
+                                GameObject gem = Instantiate(PrefabManager.GEM, ih.Positions[i], Quaternion.identity, interactableHolder.transform);
+                                interactable = new InteractableObj(InteractableType.GEM, pos, gem);
+                                break;
+                            case InteractableType.CELLDOOR:
+                                GameObject DoorHolder = new GameObject("DoorHolder");
+                                DoorHolder.transform.parent = interactableHolder.transform;
+                                DoorHolder.transform.position = new Vector3(pos.x + 0.93f, pos.y - 1.32f, pos.z);
+                                GameObject cellDoor = Instantiate(PrefabManager.DOOR, ih.Positions[i], Quaternion.identity, DoorHolder.transform);
+                                interactable = new InteractableObj(InteractableType.CELLDOOR, pos, cellDoor);
+                                dc = cellDoor.GetComponent<DoorController>();
+                                dc.hostage = _memberHostageLocation[room].GetComponent<PartyMemberBehaviour>();
+                                break;
+                            case InteractableType.SWITCH:
+                                roomHasSwitch = true;
+                                possibleSwitchPos.Add(pos);
+                                break;
+                        }
+                    }
+
+                    if(roomHasSwitch){
+                        Vector2 chosenPos = possibleSwitchPos[UnityEngine.Random.Range(0, possibleSwitchPos.Count)];
+                        Vector3 switchPos = new Vector3(chosenPos.x + 0.5f, chosenPos.y + 0.5f, 0);
+                        GameObject switchObj = Instantiate(PrefabManager.SWITCH, switchPos, Quaternion.identity, interactableHolder.transform);
+                        interactable = new InteractableObj(InteractableType.SWITCH, switchPos, switchObj);
+                        SwitchController sc = switchObj.GetComponent<SwitchController>();
+                        sc.connectedDoor = dc;
+                    }
+
+                    if(interactable != null){
+                        interactables.Add(interactable);
+                    }
+                
+                    _interactables.Add(room, interactables);
+                }
+            }
+        }
+
         //handle interactables: chests, gems, swtiches, cellDoors, scrolls
         //handle fire
         
         //DoorController cell = GameObject.FindGameObjectWithTag("cell").GetComponent<DoorController>();
         //cell.hostage = _partyMembers[0].GetComponent<PartyMemberBehaviour>();
+    }
+
+    private static void AdjustDoorObjPosition(GameObject doorObj, DoorDirection dir){
+        switch(dir){
+            case DoorDirection.UP:
+                doorObj.transform.position = new Vector3(doorObj.transform.position.x + 0.5f, doorObj.transform.position.y + 1.5f, doorObj.transform.position.z);
+                break;
+            case DoorDirection.DOWN:
+                doorObj.transform.position = new Vector3(doorObj.transform.position.x + 0.5f, doorObj.transform.position.y - 0.5f, doorObj.transform.position.z);
+                break;
+            case DoorDirection.RIGHT:
+                doorObj.transform.position = new Vector3(doorObj.transform.position.x + 1.25f, doorObj.transform.position.y - 1.5f, doorObj.transform.position.z);
+                break;
+            case DoorDirection.LEFT:
+                doorObj.transform.position = new Vector3(doorObj.transform.position.x - 0.25f, doorObj.transform.position.y - 1.5f, doorObj.transform.position.z);
+                break;
+        }
     }
 
     private void InitializeUI(){
@@ -390,8 +506,9 @@ public class GameManager : MonoBehaviour {
         return distance <= 2f;
     }
 
-    public static void CutSceneTrigger(){
+    public static void CutSceneTrigger(Transform target){
         FreezePlayerMovement();
+        _cvc.m_Follow = target;
     }
 
     public static void FreezePlayerMovement(){
@@ -405,6 +522,7 @@ public class GameManager : MonoBehaviour {
         yield return new WaitForSeconds(2.5f);
         _playerBehaviour.AllowMovement();
         _player.GetComponent<PlayerMovement>().enabled = true;
+        _cvc.m_Follow = _player.transform;
     }
 
     public static void Rescue(GameObject hostage){

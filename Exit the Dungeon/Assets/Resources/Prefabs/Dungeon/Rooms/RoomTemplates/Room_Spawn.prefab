@@ -4899,7 +4899,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5150071431458183640}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5067702834527624428
 GameObject:
@@ -9057,7 +9057,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1124974204723168038}
   - {fileID: 9180174942877916584}
   m_Father: {fileID: 1959687559011042594}
   m_RootOrder: 1
@@ -13044,36 +13043,6 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
---- !u!1 &8327158822933348566
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1124974204723168038}
-  m_Layer: 0
-  m_Name: InteractableTiles
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1124974204723168038
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8327158822933348566}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5150071431458183640}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8754018504211150016
 GameObject:
   m_ObjectHideFlags: 0
@@ -13128,7 +13097,7 @@ MonoBehaviour:
   Type: 1
   TilePrefab: {fileID: 5485313680903883263, guid: 7403b36891cef1640999ef2fe1a6e3e2, type: 3}
   Tilemap: {fileID: 7706936446041328655}
-  InteractableHolder: {fileID: 8327158822933348566}
+  InteractableHolder: {fileID: 0}
   ShouldDrawInteractableTiles: 0
   IsPartyMemberSpawnNeeded: 0
   AreEnemySpawnPointsNeeded: 0
@@ -13154,22 +13123,22 @@ MonoBehaviour:
   - PossibleStartPosition: {x: -3, y: 7}
     PossibleEndPosition: {x: -1, y: 7}
     Direction: 0
-    DoorPrefab: {fileID: 0}
+    DoorPrefab: {fileID: 6021983153380368985, guid: c36e000da1bac654b9232367e7359105, type: 3}
     WasUsed: 0
   - PossibleStartPosition: {x: -12, y: 1}
     PossibleEndPosition: {x: -12, y: -1}
     Direction: 2
-    DoorPrefab: {fileID: 0}
+    DoorPrefab: {fileID: 504783797862884840, guid: 71b02d3ed14ff30498c4b30f3e70aecc, type: 3}
     WasUsed: 0
   - PossibleStartPosition: {x: -3, y: -7}
     PossibleEndPosition: {x: -1, y: -7}
     Direction: 1
-    DoorPrefab: {fileID: 0}
+    DoorPrefab: {fileID: 7469733665878121952, guid: 8d953797e1c7be04caf58ab81b14bcee, type: 3}
     WasUsed: 0
   - PossibleStartPosition: {x: 8, y: 1}
     PossibleEndPosition: {x: 8, y: -1}
     Direction: 3
-    DoorPrefab: {fileID: 0}
+    DoorPrefab: {fileID: 8165656058396723795, guid: 28d5faf292f8fce4b992544feeb341f0, type: 3}
     WasUsed: 0
 --- !u!61 &8422487630777425366
 BoxCollider2D:
@@ -13287,4 +13256,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a2dd3390b1769f4b9d995e8152a90fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnPoint: {x: -2, y: 0}
+  SpawnPoint: {x: -1.5, y: 1}

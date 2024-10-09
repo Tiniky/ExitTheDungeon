@@ -20,7 +20,7 @@ public class Interactable : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision){
         if(isStillInteractable){
-            if(collision.gameObject.CompareTag("Player")){
+            if(collision.gameObject == GameManager.PlayerObj()){
                 isInRange = true;
                 TextUIManager.UpdateInteractableText(isInRange);
             }
@@ -29,7 +29,7 @@ public class Interactable : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision){
         if(isStillInteractable){
-            if(collision.gameObject.CompareTag("Player")){
+            if(collision.gameObject == GameManager.PlayerObj()){
                 isInRange = false;
                 TextUIManager.UpdateInteractableText(isInRange);
             }

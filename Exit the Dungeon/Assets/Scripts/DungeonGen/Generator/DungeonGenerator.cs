@@ -178,8 +178,8 @@ public static class DungeonGenerator {
             _lastDoor.WasUsed = true;
             //Debug.Log("Corridor FromDirection: " + corridor.FromDirection.ToString() + " ToDirection: " + corridor.ToDirection.ToString());
 
-            corridor.From.AnotherNeighborDone(corridor.ToDirection, _lastFromDoorLine);
-            instantiatedRoom.AnotherNeighborDone(corridor.FromDirection, _lastToDoorLine);
+            corridor.From.AnotherNeighborDone(_lastFromDoorLine);
+            instantiatedRoom.AnotherNeighborDone(_lastToDoorLine);
         } else {
             GameManager.CurrentRoom = instantiatedRoom;
         }
@@ -233,6 +233,8 @@ public static class DungeonGenerator {
                         0);
                     break;
             }
+
+            _lastToDoorLine.UpdateDoorPosition(roomPos);
         }
 
         return roomPos;
@@ -288,6 +290,7 @@ public static class DungeonGenerator {
         Doorline3W doorPos = GetValidDoorPosition(door);
         _lastFromDoorLine = doorPos;
         Vector3 startPos = CalculateShiftedDoorPosition(neighborRoomObj.transform.position, doorPos.DoorStart);
+        _lastFromDoorLine.UpdateDoorPosition(neighborRoomObj.transform.position);
         Door corriDoor = null;
         Vector3 corridorPos = Vector3.zero;
 
@@ -382,7 +385,8 @@ public static class DungeonGenerator {
                         FillFromYtoY(room, door.PossibleStartPosition, door.PossibleEndPosition, door.Direction, true);
                     }
                 } else {
-                    FillUpWalls(room, door, room.DoorPositionsUsed[door.Direction]);
+                    Doorline3W roomDoorline = room.DoorPositionsUsed.FirstOrDefault(d => d.Direction == door.Direction);
+                    FillUpWalls(room, door, roomDoorline);
                 }
             }
         }
@@ -503,7 +507,7 @@ public static class DungeonGenerator {
             }
 
             foreach(var door in doors){
-                Doorline3W doorline = room.DoorPositionsUsed.ContainsKey(door.Direction) ? room.DoorPositionsUsed[door.Direction] : null;
+                Doorline3W doorline = room.DoorPositionsUsed.FirstOrDefault(d => d.Direction == door.Direction);
                 if(doorline == null){
                     return false;
                 }

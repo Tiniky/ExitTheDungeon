@@ -587,12 +587,12 @@ MonoBehaviour:
   - PossibleStartPosition: {x: -4, y: 0}
     PossibleEndPosition: {x: -4, y: -2}
     Direction: 2
-    DoorPrefab: {fileID: 0}
+    DoorPrefab: {fileID: 504783797862884840, guid: 71b02d3ed14ff30498c4b30f3e70aecc, type: 3}
     WasUsed: 0
   - PossibleStartPosition: {x: 4, y: 0}
     PossibleEndPosition: {x: 4, y: -2}
     Direction: 3
-    DoorPrefab: {fileID: 0}
+    DoorPrefab: {fileID: 8165656058396723795, guid: 28d5faf292f8fce4b992544feeb341f0, type: 3}
     WasUsed: 0
 --- !u!61 &2257123314549535409
 BoxCollider2D:

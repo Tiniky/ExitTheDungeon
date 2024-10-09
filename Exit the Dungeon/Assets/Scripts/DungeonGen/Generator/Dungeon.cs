@@ -39,9 +39,12 @@ public class Dungeon {
     public void TurnOffInteractableTiles(){
         //might need to add TileManager to them
         foreach(InstantiatedRoom room in Rooms){
-            GameObject tileHolder = room.RoomObj.transform.Find("Environment/InteractableTiles").gameObject;
-            tileHolder.SetActive(false);
-            RoomTiles.Add(room, tileHolder);
+            Transform tileHolderTransform = room.RoomObj.transform.Find("Environment/InteractableTiles");
+            if(tileHolderTransform != null){
+                GameObject tileHolder = tileHolderTransform.gameObject;
+                tileHolder.SetActive(false);
+                RoomTiles.Add(room, tileHolder);
+            }
         }
     }
 
@@ -80,5 +83,29 @@ public class Dungeon {
         }
 
         return spawnPoints;
+    }
+
+    public List<InstantiatedRoom> DoorNeeded(){
+        List<InstantiatedRoom> rooms = new List<InstantiatedRoom>();
+
+        foreach(InstantiatedRoom room in Rooms){
+            if(room.Room.Type == RoomType.COMBAT || room.Room.Type == RoomType.GEM || room.Room.Type == RoomType.PRISON || room.Room.Type == RoomType.BOSS){
+                rooms.Add(room);
+            }
+        }
+
+        return rooms;
+    }
+
+    public List<InstantiatedRoom> InteractableNeeded(){
+        List<InstantiatedRoom> rooms = new List<InstantiatedRoom>();
+
+        foreach(InstantiatedRoom room in Rooms){
+            if(room.Room.Type == RoomType.COMBAT || room.Room.Type == RoomType.GEM || room.Room.Type == RoomType.PRISON || room.Room.Type == RoomType.TREASURE){
+                rooms.Add(room);
+            }
+        }
+
+        return rooms;
     }
 }

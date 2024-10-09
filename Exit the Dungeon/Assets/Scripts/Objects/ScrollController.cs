@@ -27,7 +27,8 @@ public class ScrollController : MonoBehaviour {
     }
 
     public void AwakenCutscene() {
-        GameManager.CutSceneTrigger();
+        //target maybe chest??
+        //GameManager.CutSceneTrigger();
         CutsceneManager.StartUp();
 
         abilityName = SelectAbility();

@@ -1078,6 +1078,7 @@ GameObject:
   - component: {fileID: 8775476365622535940}
   - component: {fileID: 7978240823578606076}
   - component: {fileID: 1163037637694302627}
+  - component: {fileID: 964642651341764226}
   m_Layer: 0
   m_Name: Room_Gem
   m_TagString: room
@@ -1116,7 +1117,7 @@ MonoBehaviour:
   Type: 5
   TilePrefab: {fileID: 5485313680903883263, guid: 7403b36891cef1640999ef2fe1a6e3e2, type: 3}
   Tilemap: {fileID: 2207466709028705408}
-  InteractableHolder: {fileID: 8612168465437620568}
+  InteractableHolder: {fileID: 0}
   ShouldDrawInteractableTiles: 0
   IsPartyMemberSpawnNeeded: 0
   AreEnemySpawnPointsNeeded: 0
@@ -1142,22 +1143,22 @@ MonoBehaviour:
   - PossibleStartPosition: {x: -1, y: 4}
     PossibleEndPosition: {x: 1, y: 4}
     Direction: 0
-    DoorPrefab: {fileID: 0}
+    DoorPrefab: {fileID: 6021983153380368985, guid: c36e000da1bac654b9232367e7359105, type: 3}
     WasUsed: 0
   - PossibleStartPosition: {x: -5, y: 1}
     PossibleEndPosition: {x: -5, y: -1}
     Direction: 2
-    DoorPrefab: {fileID: 0}
+    DoorPrefab: {fileID: 504783797862884840, guid: 71b02d3ed14ff30498c4b30f3e70aecc, type: 3}
     WasUsed: 0
   - PossibleStartPosition: {x: 5, y: 1}
     PossibleEndPosition: {x: 5, y: -1}
     Direction: 3
-    DoorPrefab: {fileID: 0}
+    DoorPrefab: {fileID: 8165656058396723795, guid: 28d5faf292f8fce4b992544feeb341f0, type: 3}
     WasUsed: 0
   - PossibleStartPosition: {x: -1, y: -4}
     PossibleEndPosition: {x: 1, y: -4}
     Direction: 1
-    DoorPrefab: {fileID: 0}
+    DoorPrefab: {fileID: 7469733665878121952, guid: 8d953797e1c7be04caf58ab81b14bcee, type: 3}
     WasUsed: 0
 --- !u!61 &1329006319419049796
 BoxCollider2D:
@@ -1263,6 +1264,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.80021095, y: 2.933007}
   m_EdgeRadius: 0
+--- !u!114 &964642651341764226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903841213624528365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a71ad1e5b6a5f954c990e9a87ebbffa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Types: 01000000
+  Positions:
+  - {x: 0, y: 0}
 --- !u!1 &3270970432963590715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1493,8 +1509,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8170720285833441103}
   - {fileID: 7992665330391143855}
+  - {fileID: 7393812861363125650}
+  - {fileID: 486970855097936578}
   m_Father: {fileID: 5012981331571052178}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3517,7 +3534,37 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 381836675750896840}
-  m_RootOrder: 1
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6716661446756980866
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 486970855097936578}
+  m_Layer: 0
+  m_Name: InteractableObj
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &486970855097936578
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6716661446756980866}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 381836675750896840}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8292111066941128988
 GameObject:
@@ -4689,7 +4736,7 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
---- !u!1 &8612168465437620568
+--- !u!1 &8554905330090693848
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4697,25 +4744,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8170720285833441103}
+  - component: {fileID: 7393812861363125650}
   m_Layer: 0
-  m_Name: InteractableTiles
+  m_Name: DoorObjects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8170720285833441103
+--- !u!4 &7393812861363125650
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8612168465437620568}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_GameObject: {fileID: 8554905330090693848}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 381836675750896840}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -152,7 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9fad0b3086c89b46afdc7dea1d1545a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedCharacter: 
   DungeonLevels:
   - {fileID: 11400000, guid: 50c2c475587b3b3419c839c98d4a9442, type: 2}
 --- !u!4 &178027148

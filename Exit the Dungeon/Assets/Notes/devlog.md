@@ -462,10 +462,28 @@ made some planning:
 add triggers before doors that update where the player is - DONE
 make the interactable tile invisible out of combat - DONE
 spawn the party members to the party member spawns - DONE
-instantiate the rest of the environment
+instantiate the rest of the environment:
+all interactables spawn in the dungeon - DONE
+the gem can be picked up and the counting works correctly - DONE
+switch holds reference to connected celldoor - DONE
+add collision to switch, void and chest - DONE
+add cam follow to the partymember for the duration of the cutscene - DONE
+pulling the switch opens the celldoor - DONE
+pulling the switch triggers the cutscene - DONE
+the celldoor holds the hostage as reference - DONE
+when the celldoor opens the player can walk in the prison - DONE
+the light should be turned on for this
+figure out why the text isn't appearing
+figure out why the switch teleports away
+the party member is interactable and starts following upon interact
+the party member data is handeled correctly for the full party
+the chests open upon interact
+the chest opening triggers cutscene
+the scroll and ability learn works correctly
+remove everything fire related (was only ment to test revival of orc) - DONE
 create door wall prefabs - DONE
-lock the door of the boss room and add gem check before it
-configure gem room gimmick
+lock the door of the boss room - DONE
+add boss room door controller that checks for gems - DONE
 spawn the min amount of monsters <= when party member rescued go through combat rooms and spawn more monsters
 on combat triggers doors close
 rework spanwpointhandler into smaller classes - DONE
@@ -485,6 +503,8 @@ close gap if needed
 attack
 upon low health decide to run or continue to fight
 !enemies can't leave room
+add boss enemy
+boss actions: summon enemies => channel spell => kill all
 
 ||PRE SAVE SYTEM TODO
 each level should have an item chest and a skill chest
@@ -537,6 +557,8 @@ fix movement speed issues - DONE
 update partymember pathing with navmesh
 add escape menu
 configure light via vision of character
+maybe make corridors one longer and make all template corners +1 tile
+fix the minimap to work with procgen
 
 WEEK first week of oct part2
 created Dungeon class
@@ -567,3 +589,15 @@ the selected character spawns as player
 pressing the R 3 times reloads the game setup
 party members instantiated to their related spawnpoint
 cleaned up the GameManager
+instantiated all the necessary door objects
+only the boss room door is closed at start
+created BossDoorController for checking the gems, opens the door when gem num is 4
+instantiated all the interactables (chest, gem, celldoor, switch)
+deleted the fire related things
+the gem works fine: upon picking up the counter grows and the gameobject gets destroyed
+celldoor holds the hostage as reference
+switch holds reference to celldoor
+the switch opens the door and triggers the cutscene
+when the door is opened the player can walk in
+added collision for switch, chest and void
+the virtual cam jumps at the hostage during the cutscene
