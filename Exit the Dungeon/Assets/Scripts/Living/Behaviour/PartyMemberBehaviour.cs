@@ -7,8 +7,6 @@ public class PartyMemberBehaviour : CreatureBehaviour {
     public bool isInRange, isTextVisible, isInteractable, isFollowing, isInFollowingRange;
     private GameObject _UIElement;
     public KeyCode interactKey;
-    public FloatingTextController thanksText;
-    private float _delayBeforeShowingText;
     private GameObject _player;
     private float _followSpeed;
     public Animator animator;
@@ -23,11 +21,12 @@ public class PartyMemberBehaviour : CreatureBehaviour {
         isFollowing = false;
         wasSaved = false;
         isTextVisible = false;
-        _delayBeforeShowingText = 1.3f;
+        interactKey = KeyCode.F;
         _player = GameManager.PlayerObj();
         _followSpeed = 6.5f;
         _movement = _player.GetComponent<PlayerMovement>();
         mtm = GetComponent<MoveToTile>();
+        animator = GetComponent<Animator>();
     }
 
     public override void UpdateBehaviour() {
@@ -57,6 +56,7 @@ public class PartyMemberBehaviour : CreatureBehaviour {
 
             } else if(_movement.move.sqrMagnitude < 0.1){
                 if(isInFollowingRange){
+                    ResolveOverlaps();
                     StopMovement();
                 } else {
                     FollowPlayer();
@@ -77,16 +77,23 @@ public class PartyMemberBehaviour : CreatureBehaviour {
         }
     }
 
-    private IEnumerator ShowThanksTextCoroutine() {
-        yield return new WaitForSeconds(_delayBeforeShowingText);
-        SayThanks();
-
+    private void ResolveOverlaps() {
+        List<GameObject> partyMembers = GameManager.Allies();
+        foreach(GameObject ally in partyMembers){
+            PartyMemberBehaviour pmb = ally.GetComponent<PartyMemberBehaviour>();
+            if(pmb != null && pmb != this){
+                float distance = Vector3.Distance(transform.position, pmb.transform.position);
+                if(distance < 1.5f){
+                    Vector3 direction = (transform.position - pmb.transform.position).normalized;
+                    transform.position += direction * Time.deltaTime; // Adjust the speed as necessary
+                }
+            }
+        }
     }
 
     public void Escaped() {
         isInteractable = true;
-        Debug.Log("ally escaped");
-        StartCoroutine(ShowThanksTextCoroutine());
+        Debug.Log("PMB - ally escaped");
     }
 
     private void SetUpHealthBar(){
@@ -100,16 +107,6 @@ public class PartyMemberBehaviour : CreatureBehaviour {
         GameManager.Rescue(gameObject);
         SetUpHealthBar();
         Debug.Log("following started");
-    }
-
-    private void SayThanks(){
-        thanksText = TextUIManager.GetFTC();
-        Vector3 textPos = transform.position;
-        textPos.x *= 25f;
-        textPos.y *= 60f;
-        Debug.Log(textPos);
-        thanksText.Activate(textPos);
-        thanksText.ShowText("Oh.. Thanks");
     }
 
     private void FollowPlayer() {

@@ -38,11 +38,11 @@ public class Attack : Action {
 
     private void ExecuteAttack() {
         if(_target != null && BattleManager.IsTargetInActionRange(_target)) {
-            int attackBonus = 0;
+            float attackBonus = 0;
             if (_attacker is Adventurer adventurer) {
                 attackBonus = adventurer.temporaryAttackBonus;
             }
-            _target.Behaviour.TakeDmg(Die.Roll(_attacker.Melee.DMG, _attacker.Melee.DMGmult) + attackBonus);
+            _target.Behaviour.TakeDmg(Die.Roll(_attacker.Melee.DMG, _attacker.Melee.DMGmult) + (int)attackBonus);
             FightUIManager.UpdateHPFor(_target);
         }
 

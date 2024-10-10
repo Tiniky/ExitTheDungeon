@@ -17,7 +17,8 @@ public class Adventurer : Entity {
     private Dictionary<Ability, Disadvantage> _disatvantageRolls;
     
     //other
-    public int temporaryAttackBonus;
+    public float temporaryAttackBonus;
+    public int temporaryHealBonus;
 
     //test
     public bool collided;
@@ -67,10 +68,11 @@ public class Adventurer : Entity {
         Debug.Log("after as " + this.SkillTree.ToStringAS());
 
         HP = new HitPoints(this.ClassHitDie, this.SkillTree.GetCONModif());
-        AC = new ArmorClass(this.SkillTree.GetDEXModif(), this.Armor, this.SkillTree.GetCONModif());
+        AC = new ArmorClass(this.SkillTree.GetDEXModif(), this.Armor, this.HasShield, this.SkillTree.GetCONModif());
         PP = new PassivePerception(this.SkillTree.GetINTModif(), this.SkillTree.GetLuckModif());
 
         this.temporaryAttackBonus = 0;
+        this.temporaryHealBonus = 0;
     }
 
     private void InitializeRace(){
@@ -181,8 +183,16 @@ public class Adventurer : Entity {
         }
     }
 
-    public void ModifyTemporaryDamage(int bonus){
-        this.temporaryAttackBonus += bonus;
+    public void ModifyTemporaryDamage(float bonus, bool reset = true){
+        if(reset){
+            this.temporaryAttackBonus = bonus;
+        } else {
+            this.temporaryAttackBonus += bonus;
+        }
+    }
+
+    public void ModifyTemporaryHeal(int bonus){
+        this.temporaryHealBonus = bonus;
     }
 
     private void OnTriggerEnter2D(Collider2D collision){

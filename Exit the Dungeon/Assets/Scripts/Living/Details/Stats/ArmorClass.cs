@@ -5,7 +5,7 @@ public class ArmorClass {
     private int _ac;
 
     //for player and party member AI
-    public ArmorClass(int DexModif, ArmorType Armor, int ConstModif = 0){
+    public ArmorClass(int DexModif, ArmorType Armor, bool HasShield, int ConstModif = 0){
         switch(Armor){
             case ArmorType.UNARMORED:
                 this._ac = 10 + DexModif + ConstModif;
@@ -19,6 +19,10 @@ public class ArmorClass {
             case ArmorType.HEAVY:
                 this._ac = 18;
                 break;
+        }
+
+        if(HasShield){
+            this._ac += 2;
         }
     }
 

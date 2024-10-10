@@ -13,6 +13,7 @@ public abstract class Entity : MonoBehaviour {
     private Speed _speed;
     private Weapon _melee, _ranged;
     private bool _hasDarkVision;
+    private bool _hasShield;
     private SkillTree _skillTree;
     private CreatureBehaviour _behaviour;
     public Image entityIcon;
@@ -73,6 +74,11 @@ public abstract class Entity : MonoBehaviour {
     public Weapon Ranged {
         get{return _ranged;}
         set{_ranged = value;}
+    }
+
+    public bool HasShield {
+        get{return _hasShield;}
+        set{_hasShield = value;}
     }
 
     public void Death() {

@@ -48,11 +48,11 @@ public class SneakAttack : Ability {
 
     private void ExecuteAttack() {
         if(_target != null && BattleManager.IsTargetInAbilityRange(_target)) {
-            int attackBonus = 0;
+            float attackBonus = 0;
             if (_holder is Adventurer adventurer) {
                 attackBonus = adventurer.temporaryAttackBonus;
             }
-            _target.Behaviour.TakeDmg(Die.Roll(_holder.Melee.DMG, _holder.Melee.DMGmult) + attackBonus + Die.Roll(DieType.D6));
+            _target.Behaviour.TakeDmg(Die.Roll(_holder.Melee.DMG, _holder.Melee.DMGmult) + (int)attackBonus + Die.Roll(DieType.D6));
             
             FightUIManager.UpdateHPFor(_target);
         }

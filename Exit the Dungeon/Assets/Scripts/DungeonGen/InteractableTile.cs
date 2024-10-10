@@ -6,12 +6,11 @@ public class InteractableTile : MonoBehaviour {
     public Color baseColor, offsetColor, approveColor, rejectColor, turnindicatorColor;
     private SpriteRenderer _renderer;
     private GameObject _onTheTile;
-    public bool isEmpty, isFire;
+    public bool isEmpty;
     private bool _isOffset;
 
     public void Initialize(bool isOffset){
         isEmpty = true;
-        isFire = false;
         _renderer = GetComponent<SpriteRenderer>();
         _isOffset = isOffset;
         ResetColor();
@@ -62,12 +61,6 @@ public class InteractableTile : MonoBehaviour {
             IndicateTurn();
         } else {
             _renderer.color = rejectColor;
-        }
-    }
-
-    public void HandleEntity(Entity entity){
-        if(isFire){
-            entity.Behaviour.TakeDmg(500);
         }
     }
 }

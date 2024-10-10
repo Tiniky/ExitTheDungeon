@@ -48,11 +48,11 @@ public class DoubleStrike : Ability {
 
     private void ExecuteAttack() {
         if(_target != null && BattleManager.IsTargetInAbilityRange(_target)) {
-            int attackBonus = 0;
+            float attackBonus = 0;
             if (_holder is Adventurer adventurer) {
                 attackBonus = adventurer.temporaryAttackBonus;
             }
-            _target.Behaviour.TakeDmg(Die.Roll(_holder.Melee.DMG, _holder.Melee.DMGmult + 1) + attackBonus);
+            _target.Behaviour.TakeDmg(Die.Roll(_holder.Melee.DMG, _holder.Melee.DMGmult + 1) + (int)attackBonus);
             
             FightUIManager.UpdateHPFor(_target);
         }

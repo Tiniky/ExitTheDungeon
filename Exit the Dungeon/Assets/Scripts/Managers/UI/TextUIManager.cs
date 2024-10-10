@@ -19,8 +19,8 @@ public static class TextUIManager {
     
     }
 
-    public static GameObject CreateThanksText(Vector3 pos){
-        return PrefabManager.InstantiatePrefabV2(_thanksTextPrefab, _textHolder, false, pos, "ThanksText");
+    public static GameObject CreateFloatingText(Vector3 pos){
+        return PrefabManager.InstantiatePrefabV2(_thanksTextPrefab, _textHolder, false, pos, "FloatingText");
     }
 
     public static void UpdateInteractableText(bool isInRange){

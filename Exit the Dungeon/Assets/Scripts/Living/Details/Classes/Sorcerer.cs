@@ -5,6 +5,7 @@ public class Sorcerer : MainClass{
         this.Primary = MainSkill.INT;
         this.ClassHitDie = DieType.D6;
         this.Armor = ArmorType.UNARMORED;
+        this.Melee = new Staff();
     }
 
     //Celestial Shield(A)

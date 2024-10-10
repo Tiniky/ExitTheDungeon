@@ -153,7 +153,6 @@ public class TileManager : MonoBehaviour {
 
     public void IgniteTile(Vector3 position){
         InteractableTile tile = GetClosestTile(position);
-        tile.isFire = true;
     }
 
     public void FreeTiles(Entity entity){

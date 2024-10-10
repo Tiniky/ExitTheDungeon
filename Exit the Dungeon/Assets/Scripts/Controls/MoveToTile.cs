@@ -54,24 +54,10 @@ public class MoveToTile : MonoBehaviour {
 
                 if (transform.position != targetPosition) {
                     transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
-                    CheckIfOnFireTile();
                 } else {
                     TileManager.instance.shouldRepaint = true;
                 }
             }
-        }
-    }
-
-    private void CheckIfOnFireTile() {
-        if(GameManager.Phase != GamePhase.COMBAT){
-            return;
-        }
-
-        InteractableTile tileUnderPlayer = TileManager.instance.GetClosestTile(transform.position);
-
-        if(tileUnderPlayer != lastTile) {
-            lastTile = tileUnderPlayer;
-            tileUnderPlayer.HandleEntity(entity);
         }
     }
 }

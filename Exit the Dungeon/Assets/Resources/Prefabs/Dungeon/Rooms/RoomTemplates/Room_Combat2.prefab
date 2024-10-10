@@ -29710,7 +29710,6 @@ GameObject:
   - component: {fileID: 6590951130804637440}
   - component: {fileID: 8115319006480525967}
   - component: {fileID: 7177591153747461727}
-  - component: {fileID: 1656734915473452820}
   m_Layer: 0
   m_Name: Room_Combat2
   m_TagString: room
@@ -29919,25 +29918,6 @@ MonoBehaviour:
   - {x: -6, y: -9}
   - {x: -5, y: 0}
   - {x: 7, y: -8}
---- !u!114 &1656734915473452820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4352896481668256532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a71ad1e5b6a5f954c990e9a87ebbffa9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Types: 0400000004000000040000000400000004000000
-  Positions:
-  - {x: 6, y: -4}
-  - {x: -1, y: -8}
-  - {x: -3, y: -1}
-  - {x: -3, y: -1}
-  - {x: 13, y: -1}
 --- !u!1 &4379290975968796666
 GameObject:
   m_ObjectHideFlags: 0

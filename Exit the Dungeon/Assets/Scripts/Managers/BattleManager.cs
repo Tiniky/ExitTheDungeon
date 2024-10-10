@@ -206,6 +206,15 @@ public static class BattleManager {
         Debug.Log("all enemy lighted up");
     }
 
+    public static void LightUpAllAlly(){
+        foreach(Entity entity in all){
+            if(entity is Adventurer){
+                Adventurer adventurer = (Adventurer)entity;
+                //adventurer.LightUp();
+            }
+        }
+    }
+
     private static async void AnnounceNextUp(){
         if(_isFirst){
             await WaitForButtonPress();

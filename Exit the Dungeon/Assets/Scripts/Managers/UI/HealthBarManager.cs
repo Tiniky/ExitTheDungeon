@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public static class HealthBarManager {
-    private static GameObject _playerHBPrefab, _allyHBPrefab;
+    private static GameObject _playerHBPrefab, _allyHBPrefabv1, _allyHBPrefabv2;
     private static Dictionary <Entity, GameObject> _entityHPBars;
     private static GameObject _HPHolder;
 
     public static void Initialize(){
         _playerHBPrefab = PrefabManager.PLAYER_HP;
-        _allyHBPrefab = PrefabManager.ALLY_HP;
+        _allyHBPrefabv1 = PrefabManager.ALLY_HPv1;
+        _allyHBPrefabv2 = PrefabManager.ALLY_HPv2;
         _entityHPBars = new Dictionary<Entity, GameObject>();
 
         _HPHolder = UIManager._CreateEmptyUIGameObject("HealthBarHolder", new Vector3(-600f, 425f, 0f));
@@ -45,8 +46,13 @@ public static class HealthBarManager {
 
     public static GameObject CreateHealthBar(GameObject go){
         int index = GameManager.Allies().Count;
-        Entity entity = go.GetComponent<Adventurer>();
-        InstantiateHealthBar(_allyHBPrefab, entity, index);
+        Adventurer entity = go.GetComponent<Adventurer>();
+        if(entity.Race == RaceType.DWARF || entity.Race == RaceType.ELF){
+            InstantiateHealthBar(_allyHBPrefabv2, entity, index);
+        } else{
+            InstantiateHealthBar(_allyHBPrefabv1, entity, index);
+        }
+        
 
         return _entityHPBars[entity];
     }

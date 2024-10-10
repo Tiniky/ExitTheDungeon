@@ -20,21 +20,8 @@ public class MostBoring : Ability {
         entity.LearnAbility(this);
     }
 
-    public override void Activate() {
-        //if(GameManager.InFight() && BattleManager.GetKillCountOf(_holder) > 1)
-        _holder.AdvantageAdd(RollType.CHECK, MainSkill.LUK, this);
-        this.State = AbilityState.ACTIVE;
-    }
-
-    public override void Deactivate() {
-        _holder.AdvantageExpired(this);
-        this.State = AbilityState.COOLDOWN;
-    }
-
-    public void Reset() {
-        this.State = AbilityState.READY;
-        PassiveUIManager.ResetCD(this);
+    public override void Activate(){
+        Debug.Log(DisplayName + " activated");
+        _holder.ModifyTemporaryDamage(0.05f, false);
     }
 }
-
-//maybe rework dmg up by 0.2, resets on hit

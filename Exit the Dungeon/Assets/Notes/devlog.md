@@ -472,10 +472,23 @@ pulling the switch opens the celldoor - DONE
 pulling the switch triggers the cutscene - DONE
 the celldoor holds the hostage as reference - DONE
 when the celldoor opens the player can walk in the prison - DONE
-the light should be turned on for this
-figure out why the text isn't appearing
-figure out why the switch teleports away
-the party member is interactable and starts following upon interact
+the partymember light should be turned on for the cutscene - DONE
+remove thanks text it's unnecessary for the thesis
+figure out why the switch teleports away - DONE
+the party member is interactable and starts following upon interact - DONE
+weapons needed for new characters:
+cleric: HasShield, Melee: Hammer, Ranged: Crossbow
+sorcerer: Melee: Staff
+fix AC calculation
+racial passive for new characters:
+dwarf: Mark of Warding <- 1D4 to Int check/heal
+elf: Elven Training <- Advantage on initiative
+class active for new characters
+dwarf: Cure Wounds <- heal 2D8 + Int
+elf: Fire Bolt <- 1D10
+figure out a way so party members don't collide with each other - DONE
+icon reconfigure - DONE
+skills for the second row are off
 the party member data is handeled correctly for the full party
 the chests open upon interact
 the chest opening triggers cutscene
@@ -557,6 +570,7 @@ fix movement speed issues - DONE
 update partymember pathing with navmesh
 add escape menu
 configure light via vision of character
+configure the speed via speed of character
 maybe make corridors one longer and make all template corners +1 tile
 fix the minimap to work with procgen
 
@@ -601,3 +615,12 @@ the switch opens the door and triggers the cutscene
 when the door is opened the player can walk in
 added collision for switch, chest and void
 the virtual cam jumps at the hostage during the cutscene
+fixed the teleporting switch
+configured light for partymember
+cutscene works fine
+removed everything thankstext related
+the party member is interactable and starts following the player after interact
+added weapons and icons for all the necessary UI elements
+modified AC calculation to check for shield
+reconfigured the HealthBarManager so tokens appear the SAME
+configured party members so they won't stand in eachother

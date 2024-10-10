@@ -101,7 +101,7 @@ public class Dungeon {
         List<InstantiatedRoom> rooms = new List<InstantiatedRoom>();
 
         foreach(InstantiatedRoom room in Rooms){
-            if(room.Room.Type == RoomType.COMBAT || room.Room.Type == RoomType.GEM || room.Room.Type == RoomType.PRISON || room.Room.Type == RoomType.TREASURE){
+            if(room.Room.Type == RoomType.GEM || room.Room.Type == RoomType.PRISON || room.Room.Type == RoomType.TREASURE){
                 rooms.Add(room);
             }
         }

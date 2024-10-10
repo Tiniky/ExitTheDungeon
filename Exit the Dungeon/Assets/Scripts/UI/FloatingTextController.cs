@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class FloatingTextController : MonoBehaviour {
-    private GameObject _thankstxt;
+    private GameObject _floattxt;
     private FloatingText floatTXT;
     private bool _isVisible;
 
@@ -17,13 +17,13 @@ public class FloatingTextController : MonoBehaviour {
     }
 
     public void Activate(Vector3 targetPos){
-        _thankstxt = TextUIManager.CreateThanksText(targetPos);
-        floatTXT = _thankstxt.GetComponent<FloatingText>();
+        _floattxt = TextUIManager.CreateFloatingText(targetPos);
+        floatTXT = _floattxt.GetComponent<FloatingText>();
         _isVisible = false;
     }
 
     public void ShowText(string msg){
-        if (_thankstxt == null || floatTXT.GetText() == null) {
+        if (_floattxt == null || floatTXT.GetText() == null) {
             Debug.LogError("Floating text parent or text component is null.");
             return;
         }

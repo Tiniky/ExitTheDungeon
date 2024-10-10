@@ -14,7 +14,7 @@ public class SwitchController : Interactable {
         pullCount = 0;
         isInRange = false;
         isStillInteractable = true;
-        CutsceneManager.SetUpHeights(700, 900);
+        CutsceneManager.SetUpHeights(950, 850);
     }
 
     void Update() {

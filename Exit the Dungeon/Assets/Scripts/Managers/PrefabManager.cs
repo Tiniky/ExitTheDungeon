@@ -7,7 +7,8 @@ using Newtonsoft.Json;
 public static class PrefabManager {
     // UI Prefabs
     public static GameObject PLAYER_HP;
-    public static GameObject ALLY_HP;
+    public static GameObject ALLY_HPv1;
+    public static GameObject ALLY_HPv2;
     public static GameObject SKILL;
     public static GameObject BASIC_ACTION;
     public static GameObject ABILITY;
@@ -55,6 +56,13 @@ public static class PrefabManager {
     public static Image IMG_MEDIUM_ARMOR;
     public static Image IMG_HEAVY_ARMOR;
     public static Image IMG_SHORTBOW;
+    public static Image IMG_HAMMER;
+    public static Image IMG_STAFF;
+    public static Image IMG_CROSSBOW;
+    public static Image IMG_CURE_WOUNDS;
+    public static Image IMG_FIRE_BOLT;
+    public static Image IMG_MARK_OF_WARDING;
+    public static Image IMG_ELVEN_TRAINING;
 
     // Creature Prefabs
     public static GameObject ORC_BARBARIAN;
@@ -85,7 +93,8 @@ public static class PrefabManager {
 
     public static void Initialize(){
         PLAYER_HP = Resources.Load<GameObject>("Prefabs/UI/HealthBar_Player");
-        ALLY_HP = Resources.Load<GameObject>("Prefabs/UI/HealthBar_Ally");
+        ALLY_HPv1 = Resources.Load<GameObject>("Prefabs/UI/HealthBar_Ally");
+        ALLY_HPv2 = Resources.Load<GameObject>("Prefabs/UI/HealthBar_Allyv2");
         SKILL = Resources.Load<GameObject>("Prefabs/UI/Skill");
         BASIC_ACTION = Resources.Load<GameObject>("Prefabs/UI/BasicAction");
         ABILITY = Resources.Load<GameObject>("Prefabs/UI/Ability");
@@ -132,7 +141,14 @@ public static class PrefabManager {
         IMG_LIGHT_ARMOR = Resources.Load<Image>("Prefabs/UI/Images/light_armor");
         IMG_HEAVY_ARMOR = Resources.Load<Image>("Prefabs/UI/Images/heavy_armor");
         IMG_SHORTBOW = Resources.Load<Image>("Prefabs/UI/Images/short_bow");
- 
+        IMG_HAMMER = Resources.Load<Image>("Prefabs/UI/Images/hammer");
+        IMG_STAFF = Resources.Load<Image>("Prefabs/UI/Images/staff");
+        IMG_CROSSBOW = Resources.Load<Image>("Prefabs/UI/Images/crossbow");
+        IMG_CURE_WOUNDS = Resources.Load<Image>("Prefabs/UI/Images/cure_wounds");
+        IMG_FIRE_BOLT = Resources.Load<Image>("Prefabs/UI/Images/fire_bolt");
+        IMG_MARK_OF_WARDING = Resources.Load<Image>("Prefabs/UI/Images/mark_of_warding");
+        IMG_ELVEN_TRAINING = Resources.Load<Image>("Prefabs/UI/Images/elven_training");
+
         ALLIES = new List<GameObject>();
         ORC_BARBARIAN = Resources.Load<GameObject>("Prefabs/Playable/Character_OrcBarbarian");
         ALLIES.Add(ORC_BARBARIAN);

@@ -327,7 +327,10 @@ public class GameManager : MonoBehaviour {
                     if(roomHasSwitch){
                         Vector2 chosenPos = possibleSwitchPos[UnityEngine.Random.Range(0, possibleSwitchPos.Count)];
                         Vector3 switchPos = new Vector3(chosenPos.x + 0.5f, chosenPos.y + 0.5f, 0);
-                        GameObject switchObj = Instantiate(PrefabManager.SWITCH, switchPos, Quaternion.identity, interactableHolder.transform);
+                        GameObject SwitchHolder = new GameObject("SwitchHolder");
+                        SwitchHolder.transform.parent = interactableHolder.transform;
+                        SwitchHolder.transform.position = switchPos;
+                        GameObject switchObj = Instantiate(PrefabManager.SWITCH, chosenPos, Quaternion.identity, SwitchHolder.transform);
                         interactable = new InteractableObj(InteractableType.SWITCH, switchPos, switchObj);
                         SwitchController sc = switchObj.GetComponent<SwitchController>();
                         sc.connectedDoor = dc;
@@ -341,12 +344,6 @@ public class GameManager : MonoBehaviour {
                 }
             }
         }
-
-        //handle interactables: chests, gems, swtiches, cellDoors, scrolls
-        //handle fire
-        
-        //DoorController cell = GameObject.FindGameObjectWithTag("cell").GetComponent<DoorController>();
-        //cell.hostage = _partyMembers[0].GetComponent<PartyMemberBehaviour>();
     }
 
     private static void AdjustDoorObjPosition(GameObject doorObj, DoorDirection dir){
@@ -475,7 +472,7 @@ public class GameManager : MonoBehaviour {
         Phase = GamePhase.ADVENTURE;
         WasSceneChange = true;
         SwapTilesVisibility(false);
-        _player.GetComponent<CapsuleCollider2D>().enabled = true;
+        _player.GetComponent<BoxCollider2D>().enabled = true;
         Cursor.visible = false; 
     }
 
@@ -560,8 +557,6 @@ public class GameManager : MonoBehaviour {
                 }
 
                 fighter.GetComponent<BoxCollider2D>().enabled = false;
-            } else {
-                fighter.GetComponent<CapsuleCollider2D>().enabled = false;
             }
 
             //need to figure out new TileManager system
