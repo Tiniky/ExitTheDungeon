@@ -20,8 +20,8 @@ public static class SkillUIManager {
         _positions = new Dictionary<int, Vector3>{
             {0, new Vector3(-630f, 475f, 0f)},
             {1, new Vector3(630f, 475f, 0f)},
-            {2, new Vector3(-630f, -475f, 0f)},
-            {3, new Vector3(630f, -475f, 0f)}
+            {2, new Vector3(-630f, -75f, 0f)},
+            {3, new Vector3(630f, -75f, 0f)}
         };
         
         _skillHolder = UIManager._CreateEmptyUIGameObject("SkillHolder", new Vector3(0f, 0f, 0f));

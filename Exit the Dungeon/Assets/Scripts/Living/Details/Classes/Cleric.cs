@@ -9,7 +9,7 @@ public class Cleric : MainClass{
         this.Ranged = new Crossbow();
     }
 
-    //Disiple of Life(P)
-    //Cure Wounds(A)
-    //Bless(A)
+    public override void SetUpClassActive(Adventurer entity){
+        this.active = AbilityManager.InitializeAbility("Cure Wounds", entity);
+    }
 }

@@ -170,9 +170,13 @@ MonoBehaviour:
   EntityName: Gibor
   entityIcon: {fileID: 1228485427078734720, guid: 3eb630a37cd74374ab381da17dae10e4, type: 3}
   isAlive: 0
+  highlight: {r: 1, g: 1, b: 1, a: 0.5882353}
+  inRange: {r: 0.6156863, g: 0.98039216, b: 0.6627451, a: 0.78431374}
+  outOfRange: {r: 0.9607843, g: 0.5568628, b: 0.38431373, a: 0.78431374}
   Race: 2
   Class: 2
   temporaryAttackBonus: 0
+  temporaryHealBonus: 0
   collided: 0
 --- !u!114 &8154378348091970845
 MonoBehaviour:

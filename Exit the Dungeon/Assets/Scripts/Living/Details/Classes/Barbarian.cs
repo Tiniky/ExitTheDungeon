@@ -8,7 +8,7 @@ public class Barbarian : MainClass{
         this.Melee = new BattleAxe();
     }
 
-    public override void SetUpClassActive(Adventurer entity) {
+    public override void SetUpClassActive(Adventurer entity){
         this.active = AbilityManager.InitializeAbility("Rage", entity);
     }
 }

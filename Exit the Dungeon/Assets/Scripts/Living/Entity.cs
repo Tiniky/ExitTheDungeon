@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using System.Threading.Tasks;
 
 public abstract class Entity : MonoBehaviour {
     public string EntityName;
@@ -18,8 +21,14 @@ public abstract class Entity : MonoBehaviour {
     private CreatureBehaviour _behaviour;
     public Image entityIcon;
     public bool isAlive;
+    private SpriteRenderer _renderer;
+    private Color _basic;
+    public Color highlight, inRange, outOfRange;
 
-    protected virtual void Awake(){}
+    protected virtual void Awake(){
+        _renderer = GetComponent<SpriteRenderer>();
+        _basic = _renderer.color;
+    }
 
     public HitPoints HP {
         get{return _hp;} 
@@ -94,5 +103,33 @@ public abstract class Entity : MonoBehaviour {
             //DEATH SCREEN
             Debug.Log("you're ded");
         }
+    }
+
+    private void OnMouseEnter(){
+        if ((BattleManager.IsTargetInActionRange(this) || BattleManager.IsTargetInAbilityRange(this)) && BattleState.IsCurrentlyAttacking()) {
+            _renderer.color = inRange;
+        } else {
+            _renderer.color = outOfRange;
+        }
+
+        Debug.Log("hovered in");
+    }
+
+    private void OnMouseExit(){
+        _renderer.color = _basic;
+
+        Debug.Log("hovered out");
+    }
+
+    private void OnMouseDown() {
+        if((BattleManager.IsTargetInActionRange(this) || BattleManager.IsTargetInAbilityRange(this)) && Input.GetMouseButtonDown(0)){
+            BattleManager.SetTargetOfAction(this);
+        }
+    }
+
+    public async void LightUp() {
+        _renderer.color = highlight;
+        await Task.Delay(300);
+        _renderer.color = _basic;
     }
 }

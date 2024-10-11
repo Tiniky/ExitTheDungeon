@@ -170,9 +170,13 @@ MonoBehaviour:
   EntityName: Pablo
   entityIcon: {fileID: 188709754465894692, guid: 2c57c33118a5e184a90a2c84c8326aec, type: 3}
   isAlive: 0
+  highlight: {r: 1, g: 1, b: 1, a: 0.5882353}
+  inRange: {r: 0.6156863, g: 0.98039216, b: 0.6627451, a: 0.78431374}
+  outOfRange: {r: 0.9607843, g: 0.5568628, b: 0.38431373, a: 0.78431374}
   Race: 1
   Class: 3
   temporaryAttackBonus: 0
+  temporaryHealBonus: 0
   collided: 0
 --- !u!114 &1328681407750196572
 MonoBehaviour:

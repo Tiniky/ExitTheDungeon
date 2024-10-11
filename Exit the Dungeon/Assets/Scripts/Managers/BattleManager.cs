@@ -210,7 +210,7 @@ public static class BattleManager {
         foreach(Entity entity in all){
             if(entity is Adventurer){
                 Adventurer adventurer = (Adventurer)entity;
-                //adventurer.LightUp();
+                adventurer.LightUp();
             }
         }
     }

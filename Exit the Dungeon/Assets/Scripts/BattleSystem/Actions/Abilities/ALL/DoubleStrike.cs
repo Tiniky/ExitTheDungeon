@@ -23,18 +23,18 @@ public class DoubleStrike : Ability {
         entity.LearnAbility(this);
     }
 
-    public override void Activate() {
+    public override void Activate(){
         if(BattleState.CanUseAction()){
             BattleState.ActionUsed();
             BattleManager.AbilityChosen(this);
-            BattleState.DeclareAttack(true);
+            BattleState.DeclareTarget(true);
             BattleManager.LightUpAllEnemy();
         }
     }
 
-    public override void SetTarget(Entity entity) {
+    public override void SetTarget(Entity entity){
         _target = entity;
-        BattleState.DeclareAttack(false);
+        BattleState.DeclareTarget(false);
 
         int attackRoll = Die.AttackRoll(_holder, true);
         int enemyAC = _target.AC.GetValue();
@@ -46,7 +46,7 @@ public class DoubleStrike : Ability {
         }
     }
 
-    private void ExecuteAttack() {
+    private void ExecuteAttack(){
         if(_target != null && BattleManager.IsTargetInAbilityRange(_target)) {
             float attackBonus = 0;
             if (_holder is Adventurer adventurer) {
@@ -64,7 +64,7 @@ public class DoubleStrike : Ability {
         return BattleState.IsCurrentlyAttacking();
     }
 
-    public override void Deactivate() {
+    public override void Deactivate(){
         BattleState.Reset();
     }
 

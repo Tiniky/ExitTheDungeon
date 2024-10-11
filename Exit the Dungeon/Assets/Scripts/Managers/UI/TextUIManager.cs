@@ -33,6 +33,12 @@ public static class TextUIManager {
         return scrollText;
     }
 
+    public static GameObject CreateItemText(string itemName){
+        GameObject itemText = PrefabManager.InstantiatePrefabV2(_scrollTextPrefab, _textHolder, false, new Vector3(50f, 75f, 0f), "Item");
+        itemText.GetComponent<Text>().text = itemName;
+        return itemText;
+    }
+
     public static FloatingTextController GetFTC(){
         return _ftc;
     }

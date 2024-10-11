@@ -39,7 +39,7 @@ public static class PassiveUIManager {
     }
 
     public static void CreateUIForPassive(Ability ability){
-        Debug.Log(ability.DisplayName);
+        Debug.Log("PassiveUIManager - " + ability.DisplayName);
         int distance = _abilities.Count;
 
         GameObject passive = PrefabManager.InstantiatePrefabV2(_passivePrefab, _passiveHolder, false, new Vector3(distance * (-85f), 0f, 0f), ability.DisplayName);

@@ -22,7 +22,7 @@ public class Ranged : Action {
             if(BattleState.CanUseAction()){
                 BattleState.ActionUsed();
                 BattleManager.ActionChosen(this);
-                BattleState.DeclareAttack(true);
+                BattleState.DeclareTarget(true);
                 BattleManager.LightUpAllEnemy();
             }
         }
@@ -30,7 +30,7 @@ public class Ranged : Action {
 
     public override void SetTarget(Entity entity) {
         _target = entity;
-        BattleState.DeclareAttack(false);
+        BattleState.DeclareTarget(false);
 
         int attackRoll = Die.AttackRoll(_attacker, false);
         int enemyAC = _target.AC.GetValue();

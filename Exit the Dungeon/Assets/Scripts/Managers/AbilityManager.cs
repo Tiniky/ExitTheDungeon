@@ -5,8 +5,16 @@ using UnityEngine;
 public static class AbilityManager {
     public static Ability InitializeAbility(string AbilityName, Adventurer entity){
         switch(AbilityName){
+            case "Cure Wounds":
+                return new CureWounds(entity);
             case "Double Strike":
                 return new DoubleStrike(entity);
+            case "Elven Training":
+                return new ElvenTraining(entity);
+            case "Fire Bolt":
+                return new FireBolt(entity);
+            case "Mark of Warding":
+                return new MarkOfWarding(entity);
             case "Most Boring":
                 return new MostBoring(entity);
             case "Rage":
@@ -15,6 +23,7 @@ public static class AbilityManager {
                 return new RelentlessEndurance(entity);
             case "Sneak Attack":
                 return new SneakAttack(entity);
+            
             default:
                 return null;
         }

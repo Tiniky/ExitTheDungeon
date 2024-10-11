@@ -18,14 +18,14 @@ public class Shove : Action {
         if(BattleState.CanUseAction()){
             BattleState.ActionUsed();
             BattleManager.ActionChosen(this);
-            BattleState.DeclareAttack(true);
+            BattleState.DeclareTarget(true);
             BattleManager.LightUpAllEnemy();
         }
     }
 
     public override void SetTarget(Entity entity) {
         _target = entity;
-        BattleState.DeclareAttack(false);
+        BattleState.DeclareTarget(false);
 
         int attackerSTR = Die.AbilityCheck(_attacker, MainSkill.STR);
         int enemySTR = Die.AbilityCheck(_target, MainSkill.STR);

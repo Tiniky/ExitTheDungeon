@@ -488,11 +488,8 @@ dwarf: Cure Wounds <- heal 2D8 + Int
 elf: Fire Bolt <- 1D10
 figure out a way so party members don't collide with each other - DONE
 icon reconfigure - DONE
-skills for the second row are off
-the party member data is handeled correctly for the full party
-the chests open upon interact
-the chest opening triggers cutscene
-the scroll and ability learn works correctly
+skills for the second row are off - DONE
+the party member data is handeled correctly for the full party - DONE
 remove everything fire related (was only ment to test revival of orc) - DONE
 create door wall prefabs - DONE
 lock the door of the boss room - DONE
@@ -540,7 +537,6 @@ unlock infinite mode: unlock all characters
 (infinite mode: no boss rooms, gem rooms and prison rooms, shorter maps, only one party member room, one tp room, boss on 6th 12th 18th... iterations) !NOTE: only the name and icon will be in the thesis version
 secret character unlock: beat 5 bosses in a row in endless mode !NOTE: only the name and icon will be in the thesis version
 item unlocks:
-	- burn 10 times and die by fire at least once: fire immunity
 	- use the orc passive 10 times: Stone of ressurection <- revives dead party members
 item ideas: redistributes health among all party members, a magical shield reducing incoming damage, increases the accuracy and critical hit chance, something luck based !NOTE doesn't need to be implemented the name, icon and unlock is enough for the thesis version
 
@@ -573,6 +569,7 @@ configure light via vision of character
 configure the speed via speed of character
 maybe make corridors one longer and make all template corners +1 tile
 fix the minimap to work with procgen
+check advantage for needed situations: initiative
 
 WEEK first week of oct part2
 created Dungeon class
@@ -624,3 +621,9 @@ added weapons and icons for all the necessary UI elements
 modified AC calculation to check for shield
 reconfigured the HealthBarManager so tokens appear the SAME
 configured party members so they won't stand in eachother
+created the racial passives
+created the class abilities
+set up the triggers
+configured the inventory, repositioned the second row for skills
+started configuring the item chests but left them locked for now
+started configuring the enemy spawn manager

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MarkOfWarding : Ability{
+public class MarkOfWarding : Ability {
     private Adventurer _holder;
 
     public MarkOfWarding(Adventurer entity){
@@ -18,6 +18,8 @@ public class MarkOfWarding : Ability{
         this.Icon = PrefabManager.IMG_MARK_OF_WARDING;
         _holder = entity;
         entity.LearnAbility(this);
+        
+        AbilityManager.Notify(TriggerType.LOAD_GAME, (Adventurer)entity);
     }
 
     public override void Activate(){

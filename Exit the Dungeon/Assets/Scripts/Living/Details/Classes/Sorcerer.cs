@@ -8,6 +8,7 @@ public class Sorcerer : MainClass{
         this.Melee = new Staff();
     }
 
-    //Celestial Shield(A)
-    //TYPE
+    public override void SetUpClassActive(Adventurer entity){
+        this.active = AbilityManager.InitializeAbility("Fire Bolt", entity);
+    }
 }

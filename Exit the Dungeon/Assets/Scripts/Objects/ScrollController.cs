@@ -9,12 +9,12 @@ public class ScrollController : MonoBehaviour {
     private GameObject _txt;
     private Adventurer _adventurer;
     
-    void Start() {
+    void Start(){
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         _adventurer = GameManager.Player();
     }
 
-    private void AbsorbScroll() {
+    private void AbsorbScroll(){
         Destroy(_txt);
         Destroy(gameObject);
         Ability ability = AbilityManager.InitializeAbility(abilityName, _adventurer);
@@ -26,9 +26,9 @@ public class ScrollController : MonoBehaviour {
         Debug.Log("dwarf: " + string.Join(", ", GameManager.AllyAdventurers()[2].GetActives()));
     }
 
-    public void AwakenCutscene() {
+    public void AwakenCutscene(GameObject target){
         //target maybe chest??
-        //GameManager.CutSceneTrigger();
+        GameManager.CutSceneTrigger(target.transform);
         CutsceneManager.StartUp();
 
         abilityName = SelectAbility();
@@ -36,7 +36,7 @@ public class ScrollController : MonoBehaviour {
         StartCoroutine(SignalEndOfCutscene());
     }
 
-    private IEnumerator SignalEndOfCutscene() {
+    private IEnumerator SignalEndOfCutscene(){
         yield return new WaitForSeconds(2.5f);
         AbsorbScroll();
         CutsceneManager.WrapUp();

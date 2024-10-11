@@ -15,11 +15,11 @@ public class HitPoints {
     * @param ClassHitDie - the DieType of the Adventurer's MainClass
     * @param ConstModif - a number based on the Adventurer's Constitution skill
     **/
-    public HitPoints(DieType ClassHitDie, int ConstModif){
+    public HitPoints(DieType ClassHitDie, int ConstModif, int Level){
         int baseHP = Die.Roll(ClassHitDie, 1, true) + ConstModif;
         int lvl = 1;
 
-        while(lvl < 20){
+        while(lvl < Level){
             baseHP += (Die.Roll(ClassHitDie) + ConstModif);
             lvl++;
         }

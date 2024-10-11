@@ -22,7 +22,6 @@ public class Rage : Ability {
 
     public override void Activate() {
         _holder.ModifyTemporaryDamage(2);
-        _holder.AdvantageAdd(RollType.CHECK, MainSkill.STR, this);
         this.State = AbilityState.ACTIVE;
         AbilityUIManager.OnCA(this);
         Debug.Log("Rage active");
@@ -30,7 +29,6 @@ public class Rage : Ability {
 
     public override void Deactivate() {
         _holder.ModifyTemporaryDamage(0);
-        _holder.AdvantageExpired(this);
         this.State = AbilityState.COOLDOWN;
         AbilityUIManager.ResetCA(this);
         AbilityUIManager.OnCD(this);

@@ -10,6 +10,7 @@ public class Adventurer : Entity {
     private MainSkill _primary;
     private DieType _hitDie;
     private ArmorType _armorType;
+    public int Level { get; private set; }
 
     private List<Ability> _passives;
     private List<Ability> _actives;
@@ -50,12 +51,13 @@ public class Adventurer : Entity {
         set{_armorType = value;}
     }
 
-    public void Initialize(bool isPlayer = false){
+    public void Initialize(int lvl, bool isPlayer = false){
         IsPlayer = isPlayer;
         _passives = new List<Ability>();
         _actives = new List<Ability>();
         _advantageRolls = new Dictionary<Ability, Advantage>();
         _disatvantageRolls = new Dictionary<Ability, Disadvantage>();
+        this.Level = lvl;
 
         this.SkillTree = new SkillTree();
         Debug.Log("new " + this.SkillTree.ToStringSP());
@@ -67,7 +69,7 @@ public class Adventurer : Entity {
         Debug.Log("after sp " + this.SkillTree.ToStringSP());
         Debug.Log("after as " + this.SkillTree.ToStringAS());
 
-        HP = new HitPoints(this.ClassHitDie, this.SkillTree.GetCONModif());
+        HP = new HitPoints(this.ClassHitDie, this.SkillTree.GetCONModif(), this.Level);
         AC = new ArmorClass(this.SkillTree.GetDEXModif(), this.Armor, this.HasShield, this.SkillTree.GetCONModif());
         PP = new PassivePerception(this.SkillTree.GetINTModif(), this.SkillTree.GetLuckModif());
 
@@ -161,8 +163,12 @@ public class Adventurer : Entity {
         return _actives;
     }
 
-    public void AdvantageAdd(RollType rollType, MainSkill skillType, Ability ability){
+    public void AdvantageAdd(RollType rollType, Ability ability, MainSkill skillType){
         _advantageRolls[ability] = new Advantage(rollType, skillType);
+    }
+
+    public void AdvantageAdd(RollType rollType, Ability ability){
+        _advantageRolls[ability] = new Advantage(rollType);
     }
 
     public void AdvantageExpired(Ability ability){

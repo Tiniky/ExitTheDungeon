@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
     private static CinemachineVirtualCamera _cvc;
 
     //menu things
-    //public static string SelectedCharacter; <- will be used
+    //public static string SelectedCharacter; //<- will be used
     public static string SelectedCharacter = "OrcBarbarian";
     
     private static int CurrentLevel = 0;
@@ -180,7 +180,8 @@ public class GameManager : MonoBehaviour {
         light.enabled = true;
         //light needs to be proportionate to the character's vision
         
-        _adventurer.Initialize(true);
+        //todo: store character lvl somewhere
+        _adventurer.Initialize(5, true);
         _player.name = _adventurer.EntityName;
         _playerBehaviour.Initialize(_adventurer.HP.GetValue());
         _adventurer.Behaviour = _playerBehaviour;
@@ -221,7 +222,7 @@ public class GameManager : MonoBehaviour {
             _memberHostageLocation.Add(entry.Key, allyObj);
             _partyMembers.Add(allyObj); 
             Adventurer allyAdventurer = allyObj.GetComponent<Adventurer>();
-            allyAdventurer.Initialize();
+            allyAdventurer.Initialize(5);
             allyObj.name = allyAdventurer.EntityName;
             PartyMemberBehaviour partyMember = allyObj.AddComponent<PartyMemberBehaviour>();
             partyMember.Initialize(allyAdventurer.HP.GetValue());
@@ -278,6 +279,8 @@ public class GameManager : MonoBehaviour {
 
         _interactables = new Dictionary<InstantiatedRoom, List<InteractableObj>>();
         List<InstantiatedRoom> roomsWithInteractables = Dungeon.InteractableNeeded();
+        List<ChestType> chestTypes = new List<ChestType> {ChestType.ITEM, ChestType.SCROLL};
+        int index = 0;
 
         foreach(InstantiatedRoom room in roomsWithInteractables){
             Transform interactableHolderTransform = room.RoomObj.transform.Find("Environment/InteractableObj");
@@ -302,6 +305,13 @@ public class GameManager : MonoBehaviour {
                                 Vector3 chestPos = new Vector3(pos.x - 0.5f, pos.y - 0.4f, 0);
                                 GameObject chest = Instantiate(PrefabManager.CHEST, chestPos, Quaternion.identity, interactableHolder.transform);
                                 interactable = new InteractableObj(InteractableType.CHEST, pos, chest);
+                                
+                                ChestType chosen = chestTypes[index];
+                                index++;
+                                ChestController cc = chest.GetComponent<ChestController>();
+                                cc.Type = chosen;
+                                cc.Content = PrefabManager.GetContent(chosen);
+
                                 break;
                             case InteractableType.GEM:
                                 interactableHolder.transform.position = new Vector3(pos.x + 0.5f, pos.y + 2.35f, 0);
@@ -500,7 +510,7 @@ public class GameManager : MonoBehaviour {
 
     public static bool IsInFollowingRange(Vector3 creaturePosition){
         float distance = Vector3.Distance(_player.transform.position, creaturePosition);
-        return distance <= 2f;
+        return distance <= 2.5f;
     }
 
     public static void CutSceneTrigger(Transform target){

@@ -7,5 +7,9 @@
 	"Sneak Attack": "Additional 1D6 damage.",
 	"Double Strike": "Rolls the damage die an additional time.",
 	"Most Boring": "You're playing a human, what do you want.",
-	"Relentless Endurance": "When your health drops below 0, sets your HP to 1. Once each fight."
+	"Relentless Endurance": "When your health drops below 0, sets your HP to 1. Once each fight.",
+	"Cure Wounds": "Heals an ally 2D8 HP.",
+	"Fire Bolt": "A long range attack that does 1D10 dmg.",
+	"Mark of Warding": "Gain +4 bonus to all healing done by character.",
+	"Elven Training": "Gain advantage on Initiative rolls."
 }

@@ -6,7 +6,8 @@ using Newtonsoft.Json;
 
 public static class PrefabManager {
     // UI Prefabs
-    public static GameObject PLAYER_HP;
+    public static GameObject PLAYER_HPv1;
+    public static GameObject PLAYER_HPv2;
     public static GameObject ALLY_HPv1;
     public static GameObject ALLY_HPv2;
     public static GameObject SKILL;
@@ -77,8 +78,13 @@ public static class PrefabManager {
     public static GameObject CHEST;
     public static GameObject DOOR;
     public static GameObject GEM;
-    public static GameObject SCROLL;
     public static GameObject SWITCH;
+    public static GameObject SCROLL;
+    public static GameObject ITEM;
+
+    // Item images
+    public static Image IMG_NECKLACE_OF_DAMAGE;
+    public static Image IMG_NECKLACE_OF_MOVEMENT;
 
     // Dungeon Prefabs
     public static GameObject TILE;
@@ -92,7 +98,8 @@ public static class PrefabManager {
     public static List<string> SORCERER_ABILITIES;
 
     public static void Initialize(){
-        PLAYER_HP = Resources.Load<GameObject>("Prefabs/UI/HealthBar_Player");
+        PLAYER_HPv1 = Resources.Load<GameObject>("Prefabs/UI/HealthBar_Player");
+        PLAYER_HPv2 = Resources.Load<GameObject>("Prefabs/UI/HealthBar_Playerv2");
         ALLY_HPv1 = Resources.Load<GameObject>("Prefabs/UI/HealthBar_Ally");
         ALLY_HPv2 = Resources.Load<GameObject>("Prefabs/UI/HealthBar_Allyv2");
         SKILL = Resources.Load<GameObject>("Prefabs/UI/Skill");
@@ -165,8 +172,12 @@ public static class PrefabManager {
         CHEST = Resources.Load<GameObject>("Prefabs/Dungeon/Objects/chest");
         DOOR = Resources.Load<GameObject>("Prefabs/Dungeon/Objects/door");
         GEM = Resources.Load<GameObject>("Prefabs/Dungeon/Objects/gem");
-        SCROLL = Resources.Load<GameObject>("Prefabs/Dungeon/Objects/scroll");
         SWITCH = Resources.Load<GameObject>("Prefabs/Dungeon/Objects/switch");
+        SCROLL = Resources.Load<GameObject>("Prefabs/Dungeon/Objects/scroll");
+        ITEM = Resources.Load<GameObject>("Prefabs/Dungeon/Objects/item");
+
+        IMG_NECKLACE_OF_DAMAGE = Resources.Load<Image>("Prefabs/UI/Images/necklace_of_damage");
+        IMG_NECKLACE_OF_MOVEMENT = Resources.Load<Image>("Prefabs/UI/Images/necklace_of_movement");
 
         TILE = Resources.Load<GameObject>("Prefabs/GameResources/Tile");
         Debug.Log("PrefabManager - initialized");
@@ -275,6 +286,14 @@ public static class PrefabManager {
                 return IMG_BORING;
             case "Sneak Attack":
                 return IMG_SNEAK_ATTACK;
+            case "Cure Wounds":
+                return IMG_CURE_WOUNDS;
+            case "Fire Bolt":
+                return IMG_FIRE_BOLT;
+            case "Mark of Warding":
+                return IMG_MARK_OF_WARDING;
+            case "Elven Training":
+                return IMG_ELVEN_TRAINING;
             default:
                 return null;
         }
@@ -310,5 +329,21 @@ public static class PrefabManager {
             Debug.Log("PrefabManager - rogue: " + string.Join(", ", ROGUE_ABILITIES));
             Debug.Log("PrefabManager - sorcerer: " + string.Join(", ", SORCERER_ABILITIES));
         }
+    }
+
+    public static GameObject GetContent(ChestType type){
+        if(type == ChestType.SCROLL){
+            return SCROLL;
+        } else {
+            return ITEM;
+        }
+    }
+
+    public static List<string> GetUnlockedItems(){
+        List<string> unlockedItems = new List<string>();
+        unlockedItems.Add("Necklace of Damage");
+        unlockedItems.Add("Necklace of Movement");
+
+        return unlockedItems;
     }
 }

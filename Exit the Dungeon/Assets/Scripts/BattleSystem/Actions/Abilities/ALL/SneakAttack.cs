@@ -27,14 +27,14 @@ public class SneakAttack : Ability {
         if(BattleState.CanUseAction()){
             BattleState.ActionUsed();
             BattleManager.AbilityChosen(this);
-            BattleState.DeclareAttack(true);
+            BattleState.DeclareTarget(true);
             BattleManager.LightUpAllEnemy();
         }
     }
 
     public override void SetTarget(Entity entity) {
         _target = entity;
-        BattleState.DeclareAttack(false);
+        BattleState.DeclareTarget(false);
 
         int attackRoll = Die.AttackRoll(_holder, true);
         int enemyAC = _target.AC.GetValue();

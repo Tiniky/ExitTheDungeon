@@ -144,9 +144,13 @@ MonoBehaviour:
   EntityName: "V\xE9gzetp\xF6r\xF6ly"
   entityIcon: {fileID: 3136540329859960747, guid: 3b3b0acb65fd94b43b5b391dfdd2690d, type: 3}
   isAlive: 0
+  highlight: {r: 1, g: 1, b: 1, a: 0.5882353}
+  inRange: {r: 0.6156863, g: 0.98039216, b: 0.6627451, a: 0.78431374}
+  outOfRange: {r: 0.9607843, g: 0.5568628, b: 0.38431373, a: 0.78431374}
   Race: 3
   Class: 0
   temporaryAttackBonus: 0
+  temporaryHealBonus: 0
   collided: 0
 --- !u!114 &731378056028858231
 MonoBehaviour:

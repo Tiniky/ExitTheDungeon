@@ -39,16 +39,28 @@ public static class InventoryManager {
         }
 
         
-        FillSectionWithData(_inventoryParts[0], GameManager.Player(), false);
+        FillSectionWithData(_inventoryParts[0], GameManager.Player());
     }
 
-    private static void FillSectionWithData(GameObject section, Adventurer adventurer, bool shouldResize){
+    private static void FillSectionWithData(GameObject section, Adventurer adventurer){
         Text name = section.transform.Find("CharName").GetComponent<Text>();
         name.text = adventurer.EntityName;
         Image character = section.transform.Find("Character").GetComponent<Image>();
         character.sprite = adventurer.gameObject.GetComponent<SpriteRenderer>().sprite;
-        if(shouldResize){
-            character.transform.localScale = new Vector3(1.45f,2.1f,1f);
+        
+        switch(adventurer.Race){
+            case RaceType.HUMAN:
+                character.transform.localScale = new Vector3(1.45f,2.1f,1f);
+                break;
+            case RaceType.ELF:
+                character.transform.localScale = new Vector3(3f,3f,1f);
+                break;
+            case RaceType.DWARF:
+                character.transform.localScale = new Vector3(3f,2.5f,1f);
+                break;
+            case RaceType.ORC:
+                character.transform.localScale = new Vector3(3f,3f,1f);
+                break;
         }
 
         Transform ac = section.transform.Find("ArmorClass/Value");
@@ -136,7 +148,7 @@ public static class InventoryManager {
     public static void AddAllyToInventory(int index){
         ChangeBackground(index, true);
         List<GameObject> allies = GameManager.Allies();
-        FillSectionWithData(_inventoryParts[index].gameObject, allies[index-1].GetComponent<Adventurer>(), true);
+        FillSectionWithData(_inventoryParts[index].gameObject, allies[index-1].GetComponent<Adventurer>());
     }
 
     public static void InventoryVisibility(){

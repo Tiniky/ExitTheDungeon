@@ -28,7 +28,7 @@ public static class BattleState {
         return _isAttacking;
     }
 
-    public static void DeclareAttack(bool _waitingForTarget){
+    public static void DeclareTarget(bool _waitingForTarget){
         _isAttacking = _waitingForTarget;
     }
 

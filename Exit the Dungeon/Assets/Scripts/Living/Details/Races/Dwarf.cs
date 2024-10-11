@@ -8,6 +8,7 @@ public class Dwarf : Race {
         this.RaceSkills = new SkillTree(2, 0, 0, 0);
     }
 
-    //Dwarven Resilience(P)
-    //??
+    public override void SetUpRacialPassive(Adventurer entity){
+        this.passive = AbilityManager.InitializeAbility("Mark of Warding", entity);
+    } 
 }

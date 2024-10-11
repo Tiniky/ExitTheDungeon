@@ -85,7 +85,7 @@ public class PartyMemberBehaviour : CreatureBehaviour {
                 float distance = Vector3.Distance(transform.position, pmb.transform.position);
                 if(distance < 1.5f){
                     Vector3 direction = (transform.position - pmb.transform.position).normalized;
-                    transform.position += direction * Time.deltaTime; // Adjust the speed as necessary
+                    transform.position += direction * Time.deltaTime;
                 }
             }
         }

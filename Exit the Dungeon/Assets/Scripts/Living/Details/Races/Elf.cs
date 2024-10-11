@@ -8,6 +8,7 @@ public class Elf : Race {
         this.RaceSkills = new SkillTree(0, 2, 0, 0);
     }
 
-    //Fey Ancestry(P)
-    //??
+    public override void SetUpRacialPassive(Adventurer entity){
+        this.passive = AbilityManager.InitializeAbility("Elven Training", entity);
+    }
 }
