@@ -501,77 +501,6 @@ set up spawns on the templates - DONE
 verify if everything works as in the DemoScene
 spawn the selected character as player - DONE
 
-||BEHAVIOR TREE TODO
-editor based on the level graph
-possible actions: 
-when idle walk around the spawn point
-if combat on their turn
-slecet target based on logic
-decide which attack to use
-check if target in reach
-close gap if needed
-attack
-upon low health decide to run or continue to fight
-!enemies can't leave room
-add boss enemy
-boss actions: summon enemies => channel spell => kill all
-
-||PRE SAVE SYTEM TODO
-each level should have an item chest and a skill chest
-common items could be: bonus vision, faster movement
-in inventory a bag for the items collected during the run (~6 slots)
-
-||SAVE SYSTEM TODO
-Main Menu: Continue (continues save file), New Game (confirmation + deletes save file), Exit - DONE* (still needs existing save file validation)
-new scene showing the 4 characters - DONE
-only the first char is selectable
-unlocks for characters: hit the killing blow on 10 enemies with the given char
-unlock for lvl up: hit the killing blow on 10 enemies with the given unlocked char
-item pool showing all the items
-the unavailable items are gray
-on hover the available items show what they do
-on hover the unavailable items show how to unlock them
-at the bottom map selection
-unlock maps: beat prev map boss
-unlock infinite mode: unlock all characters
-(infinite mode: no boss rooms, gem rooms and prison rooms, shorter maps, only one party member room, one tp room, boss on 6th 12th 18th... iterations) !NOTE: only the name and icon will be in the thesis version
-secret character unlock: beat 5 bosses in a row in endless mode !NOTE: only the name and icon will be in the thesis version
-item unlocks:
-	- use the orc passive 10 times: Stone of ressurection <- revives dead party members
-item ideas: redistributes health among all party members, a magical shield reducing incoming damage, increases the accuracy and critical hit chance, something luck based !NOTE doesn't need to be implemented the name, icon and unlock is enough for the thesis version
-key to open treasure chests - unlock get 777 kills
-
-||LOG SYTEM TODO
-log when:
-changing rooms
-party member joins party
-someone steps on fire
-a lever is pulled
-a chest is opened
-a gem is picked up
-the boss room unlocks
-the boss room door was interacted without the needed gem amount
-someone dies
-someone gets revived
-a passive triggers
-a monster initiated combat
-
-||ELSE TODO
-add spotlight to characters - DONE
-figure out why the walls are brighter - DONE
-hover on monsters should show their HP and skill tree + any additional info + icon
-on R rebuild dungeon - DONE
-2-3 additional dungeon graph
-the last 2 remaining party member prefabs - DONE
-fix movement speed issues - DONE
-update partymember pathing with navmesh
-add escape menu
-configure light via vision of character
-configure the speed via speed of character
-maybe make corridors one longer and make all template corners +1 tile
-fix the minimap to work with procgen
-check advantage for needed situations: initiative
-
 WEEK first week of oct part2
 created Dungeon class
 added tracker for CurrentRoom and CurrentCorridor
@@ -631,3 +560,60 @@ started configuring the enemy spawn manager
 managed to come up with a basic enemy spawner manager
 instanted enemies
 doors close on combat trigger
+
+reworked plan/TODO:
+||BEHAVIOR TREE TODO
+JSONs store the behavior trees (scrap the editor for now)
+possible actions: 
+when idle walk around the spawn point
+if combat on their turn
+select target based on logic
+decide which attack to use
+check if target in reach
+close gap if needed
+attack
+upon low health decide to run or continue to fight
+!enemies can't leave room
+add boss enemy
+boss actions: summon enemies => channel spell => kill all
+||SAVE SYSTEM TODO
+Main Menu: Continue (continues save file), New Game (confirmation + deletes save file), Exit 
+only the first char is selectable, on hover the rest show how they unlock
+unlocks for characters: hit the killing blow on 10 enemies with the given char
+unlock for lvl up: hit the killing blow on 100 enemies with the given unlocked char
+item pool showing a key and the 2 necklaces <- all items are unavailable
+the unavailable items are gray
+on hover the unavailable items show how to unlock them and progress
+at the bottom map selection
+unlock maps: beat prev map boss
+unlock infinite mode: unlock all characters
+secret character unlock: beat 5 bosses in a row in endless mode !NOTE: only the name and icon will be in the thesis version
+the secret items, maps, character has a question mark and a not yet discovered on hover
+key to open treasure chests - unlock get 777 kills
+||LOG SYTEM TODO
+log when:
+changing rooms
+party member joins party
+a lever is pulled
+a chest is opened
+a gem is picked up
+the boss room unlocks
+the boss room door was interacted without the needed gem amount
+someone dies
+someone gets revived
+a passive triggers
+a monster initiated combat
+||ELSE TODO
+hover on monsters should show their HP and skill tree + any additional info + icon
+2-3 additional dungeon graph
+update partymember pathing with navmesh
+add escape menu
+configure light via vision of character
+configure the speed via speed of character
+maybe make corridors one longer and make all template corners +1 tile
+fix the minimap to work with procgen
+check advantage for needed situations: initiative
+||UNIT TESTS
+
+~third week of october
+started working on the basics of the Behavior Tree system, created the needed node classes
