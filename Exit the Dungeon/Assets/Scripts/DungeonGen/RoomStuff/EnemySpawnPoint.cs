@@ -4,4 +4,5 @@ using UnityEngine;
 
 public class EnemySpawnPoint : MonoBehaviour {
     public List<Vector2> SpawnPoints;
+    public int OgreProbability, GoblinProbability;
 }

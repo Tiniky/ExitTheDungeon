@@ -23,25 +23,26 @@ public class ChestController : Interactable {
     }
 
     void OpenChest(){
-        //for now it can't be opened
         if(wasOpened == false){
-            Debug.Log("ChestController - chest is locked");
+            if(GameManager.HasKey){
+                wasOpened = true;
+                isStillInteractable = false;
+                TextUIManager.UpdateInteractableText(false);
+                animator.SetBool("isOpen", true);
+                Content.GetComponent<SpriteRenderer>().enabled = true;
 
-            /*wasOpened = true;
-            isStillInteractable = false;
-            TextUIManager.UpdateInteractableText(false);
-            animator.SetBool("isOpen", true);
-            Content.GetComponent<SpriteRenderer>().enabled = true;
-
-            if(Type == ChestType.ITEM){
-                Content.GetComponent<ItemController>().animator.SetBool("wasReleased", true);
-                Content.GetComponent<ItemController>().AwakenCutscene();
-                Debug.Log("open");
-            } else if(Type == ChestType.SCROLL){
-                Content.GetComponent<ScrollController>().animator.SetBool("wasReleased", true);
-                Content.GetComponent<ScrollController>().AwakenCutscene(gameObject);
-                Debug.Log("open");
-            }*/
+                if(Type == ChestType.ITEM){
+                    Content.GetComponent<ItemController>().animator.SetBool("wasReleased", true);
+                    Content.GetComponent<ItemController>().AwakenCutscene();
+                    Debug.Log("open");
+                } else if(Type == ChestType.SCROLL){
+                    Content.GetComponent<ScrollController>().animator.SetBool("wasReleased", true);
+                    Content.GetComponent<ScrollController>().AwakenCutscene(gameObject);
+                    Debug.Log("open");
+                }
+            } else { 
+                Debug.Log("ChestController - chest is locked");
+            }
         }
     }
 }

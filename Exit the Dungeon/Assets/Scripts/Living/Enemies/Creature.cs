@@ -19,11 +19,12 @@ public class Creature : Entity {
 
     private void OnTriggerEnter2D(Collider2D collision){
 
-        if(!_wasFightInitialized && collision.gameObject.CompareTag("Player")){
+        if(!_wasFightInitialized && collision.gameObject == GameManager.PlayerObj()){
             isInRange = true;
-            Debug.Log("Player is in range of Ogre");
+            Debug.Log("Player is in range of Enemy");
 
-            BattleManager.Initialize();
+            GameManager.HandleRoomDoors(true);
+            //BattleManager.Initialize();
             _wasFightInitialized = true;
         }
     }

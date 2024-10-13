@@ -46,8 +46,11 @@ public class GameManager : MonoBehaviour {
     //room related
     private static Dictionary<InstantiatedRoom, Vector2> _allySpawnPoints;
     private static Dictionary<InstantiatedRoom, List<Vector2>> _enemySpawnPoints;
-    private static Dictionary<InstantiatedRoom, List<GameObject>> _doors;
+    private static Dictionary<InstantiatedRoom, GameObject> _doors;
     private static Dictionary<InstantiatedRoom, List<InteractableObj>> _interactables;
+
+    //from save - needs to be implemented
+    public static bool HasKey = false;
 
     //other
     private static int _keyPressCount = 0;
@@ -235,46 +238,75 @@ public class GameManager : MonoBehaviour {
     private void InitializeEnemies(){
         _enemies = new Dictionary<InstantiatedRoom, List<GameObject>>();
 
-        //logic to weigh enemies
-        //logic to spawn enemies according to how many characters are rescued (maybe add thier levels together)
+        foreach(KeyValuePair<InstantiatedRoom, List<Vector2>> entry in _enemySpawnPoints){
+            InstantiatedRoom currentRoom = entry.Key;
+            Dictionary<Vector2, bool> spawnPoints = new Dictionary<Vector2, bool>();
+            foreach(Vector2 point in entry.Value){
+                spawnPoints.Add(point, false);
+            }
 
-        
-        /*GameObject enemy = Instantiate(PrefabManager.OGRE, _enemySpawnPoints[0], Quaternion.identity);
-        enemy.name = "Enemy";
-        _enemies.Add(enemy);
-        Creature enemyCreature = enemy.GetComponent<Creature>();
-        EnemyBehaviour creature = enemy.GetComponent<EnemyBehaviour>();
-        enemyCreature.Behaviour = creature;
-        Debug.Log("Ogre's health: " + enemyCreature.HP.GetValue());*/
+            List<string> monsters = EnemySpawnManager.SpawnEnemies(currentRoom.RoomObj.GetComponent<EnemySpawnPoint>());
+            GameObject enemyHolder = new GameObject("EnemyHolder");
+            enemyHolder.transform.parent = currentRoom.RoomObj.transform;
+            List<GameObject> enemies = new List<GameObject>();
+
+            foreach(string monster in monsters){
+                int index = UnityEngine.Random.Range(0, spawnPoints.Count);
+                KeyValuePair<Vector2, bool> randomEntry = spawnPoints.ElementAt(index);
+
+                while(randomEntry.Value){
+                    index = UnityEngine.Random.Range(0, spawnPoints.Count);
+                    randomEntry = spawnPoints.ElementAt(index);
+                }
+
+                spawnPoints[randomEntry.Key] = true;
+                Vector3 spawnPoint = new Vector3(randomEntry.Key.x + currentRoom.CurrentPosition().x, randomEntry.Key.y + currentRoom.CurrentPosition().y, 0);
+
+                GameObject enemy = null;
+                switch(monster){
+                    case "OGRE":
+                        enemy = Instantiate(PrefabManager.OGRE, spawnPoint, Quaternion.identity, enemyHolder.transform);
+                        break;
+                    case "GOBLIN":
+                        enemy = Instantiate(PrefabManager.GOBLIN, spawnPoint, Quaternion.identity, enemyHolder.transform);
+                        break;
+                }
+                Creature enemyCreature = enemy.GetComponent<Creature>();
+                EnemyBehaviour creature = enemy.GetComponent<EnemyBehaviour>();
+                enemyCreature.Behaviour = creature;
+                enemies.Add(enemy);
+                Debug.Log("GameManager - Enemy's health: " + enemyCreature.HP.GetValue());
+            }
+            _enemies.Add(currentRoom, enemies);
+        }
     }
 
     private void InitializeEnvironment(){
-        _doors = new Dictionary<InstantiatedRoom, List<GameObject>>();
+        _doors = new Dictionary<InstantiatedRoom, GameObject>();
         List<InstantiatedRoom> roomsWithDoors = Dungeon.DoorNeeded();
 
         foreach(InstantiatedRoom room in roomsWithDoors){
             GameObject doorHolder = room.RoomObj.transform.Find("Environment/DoorObjects").gameObject;
             Doorway dw = room.RoomObj.GetComponent<Doorway>();
             List<Door> doors = dw.Doors.Where(d => d.WasUsed).ToList();
-            List<GameObject> doorObjs = new List<GameObject>();
+             GameObject doorObj = null;
 
             if(doors.Count > 0){
                 foreach(Door door in doors){
                     Vector3 doorPos = room.DoorPositionsUsed.FirstOrDefault(d => d.Direction == door.Direction).UpdatedMiddleDoor;
                     GameObject prefab = door.DoorPrefab;
-                    GameObject doorObj = Instantiate(prefab, doorPos, Quaternion.identity, doorHolder.transform);
+                    doorObj = Instantiate(prefab, doorPos, Quaternion.identity, doorHolder.transform);
                     AdjustDoorObjPosition(doorObj, door.Direction);
-                    doorObjs.Add(doorObj);
                 }
             }
             
             if(room.Room.Type != RoomType.BOSS){
                 doorHolder.SetActive(false);
             } else{
-                doorObjs[0].AddComponent<BossDoorController>();
+                doorObj.AddComponent<BossDoorController>();
             }
 
-            _doors.Add(room, doorObjs);
+            _doors.Add(room, doorHolder);
         }
 
         _interactables = new Dictionary<InstantiatedRoom, List<InteractableObj>>();
@@ -585,5 +617,10 @@ public class GameManager : MonoBehaviour {
 
     public static void DestroyObj(GameObject obj){
         Destroy(obj);
+    }
+
+    public static void HandleRoomDoors(bool state){
+        GameObject doorHolder = _doors[CurrentRoom];
+        doorHolder.SetActive(state);
     }
 }

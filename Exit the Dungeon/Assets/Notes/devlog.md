@@ -494,8 +494,8 @@ remove everything fire related (was only ment to test revival of orc) - DONE
 create door wall prefabs - DONE
 lock the door of the boss room - DONE
 add boss room door controller that checks for gems - DONE
-spawn the min amount of monsters <= when party member rescued go through combat rooms and spawn more monsters
-on combat triggers doors close
+spawn the min amount of monsters <= when party member rescued go through combat rooms and spawn more monsters - DONE
+on combat triggers doors close - DONE
 rework spanwpointhandler into smaller classes - DONE
 set up spawns on the templates - DONE
 verify if everything works as in the DemoScene
@@ -539,6 +539,7 @@ secret character unlock: beat 5 bosses in a row in endless mode !NOTE: only the 
 item unlocks:
 	- use the orc passive 10 times: Stone of ressurection <- revives dead party members
 item ideas: redistributes health among all party members, a magical shield reducing incoming damage, increases the accuracy and critical hit chance, something luck based !NOTE doesn't need to be implemented the name, icon and unlock is enough for the thesis version
+key to open treasure chests - unlock get 777 kills
 
 ||LOG SYTEM TODO
 log when:
@@ -627,3 +628,6 @@ set up the triggers
 configured the inventory, repositioned the second row for skills
 started configuring the item chests but left them locked for now
 started configuring the enemy spawn manager
+managed to come up with a basic enemy spawner manager
+instanted enemies
+doors close on combat trigger

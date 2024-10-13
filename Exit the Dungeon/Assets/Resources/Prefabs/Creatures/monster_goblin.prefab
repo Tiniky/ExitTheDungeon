@@ -149,11 +149,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd8067dd53ccd44489d29fd82ae41537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EntityName: 
   entityIcon: {fileID: 4096938494736888266, guid: ccfd4353b44d7c74f9d4e813d72db360, type: 3}
-  isInRange: 0
+  isAlive: 0
   highlight: {r: 1, g: 1, b: 1, a: 0.5882353}
   inRange: {r: 0.6156863, g: 0.98039216, b: 0.6627451, a: 0.78431374}
   outOfRange: {r: 0.9607843, g: 0.5568628, b: 0.38431373, a: 0.78431374}
+  isInRange: 0
 --- !u!95 &147407923434839864
 Animator:
   serializedVersion: 3
@@ -185,7 +187,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955cc5c3f7a141f4f8694aa182453c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpControl: {fileID: 0}
   _current: {fileID: 0}
 --- !u!70 &8541573378083564387
 CapsuleCollider2D:
@@ -200,7 +201,7 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.9, y: -0.35}
+  m_Offset: {x: 1, y: -0.35}
   m_Size: {x: 2.25, y: 0.75}
   m_Direction: 1
 --- !u!70 &707643810206060784
