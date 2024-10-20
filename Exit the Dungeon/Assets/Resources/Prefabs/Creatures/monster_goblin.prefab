@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 386305017220510813}
   - component: {fileID: 8541573378083564387}
   - component: {fileID: 707643810206060784}
+  - component: {fileID: 401571521890915918}
+  - component: {fileID: 2230560577795437130}
   m_Layer: 0
   m_Name: monster_goblin
   m_TagString: Untagged
@@ -220,3 +222,29 @@ CapsuleCollider2D:
   m_Offset: {x: 0.1, y: -0.25}
   m_Size: {x: 0.7, y: 1}
   m_Direction: 0
+--- !u!114 &401571521890915918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147407923434839865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af6ed0ed47c94a4da7171de4fb24044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &2230560577795437130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147407923434839865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a27ffa689d399af4eb16663faf648ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tree: {fileID: 11400000, guid: 6ba5ee9acb854374aa90ecba5c4d6df3, type: 2}

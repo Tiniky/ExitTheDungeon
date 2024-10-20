@@ -563,7 +563,6 @@ doors close on combat trigger
 
 reworked plan/TODO:
 ||BEHAVIOR TREE TODO
-JSONs store the behavior trees (scrap the editor for now)
 possible actions: 
 when idle walk around the spawn point
 if combat on their turn
@@ -606,7 +605,7 @@ a monster initiated combat
 ||ELSE TODO
 hover on monsters should show their HP and skill tree + any additional info + icon
 2-3 additional dungeon graph
-update partymember pathing with navmesh
+update partymember pathing with ??
 add escape menu
 configure light via vision of character
 configure the speed via speed of character
@@ -617,3 +616,48 @@ check advantage for needed situations: initiative
 
 ~third week of october
 started working on the basics of the Behavior Tree system, created the needed node classes
+researched and navmesh is not compatible with this version (2021.1.7f1) => maybe use A* or Dijkstra
+||NEEDED for BT
+- Root Node (one SO)
+- Selector: Strategy Selector (one SO)
+- Random Selector: Select Attack (one SO)
+- Sequence: (one SO, instances needed)
+	- Combat Strategy
+	- IDLE Strategy
+	- Wait Strategy
+	- Fight Strategy
+	- Low Health Strategy
+	- Good Health Strategy
+	- Flee Strategy
+	- Keep Fighting Strategy
+	- Stop Fighting Strategy
+	- Action Strategy
+	- Check Range Strategy
+	- Close Gap Strategy
+	- Still out of Range Strategy
+	- Attack Strategy
+	- Handle Miss Strategy
+	- Handle Hit Strategy
+- Condition Leaf Node: (for each one SO, 1 true - 1 false instance)
+	- IsCombat
+	- IsTheirTurn
+	- ShouldFlee
+	- CanFlee
+	- ShouldKeepFighting
+	- IsInRange
+	- AttackResult
+- Action Leaf Node: (one SO for each ?)
+	- FindWaypoint
+	- GoToWaypoint
+	- DoNothing
+	- RollDie (1 for Int, 1 for Attack)
+	- FleeFromCombat
+	- ContinueFight
+	- Select Target
+	- TryCloseGap
+	- ExecuteAttack
+	- Pass Turn
+finished the flow chart of the small enemy BT
+created Blackboard class
+created all the necessary classes and scriptable objects of the Condition Leaf Nodes
+created some of the Action Leaf Node classes

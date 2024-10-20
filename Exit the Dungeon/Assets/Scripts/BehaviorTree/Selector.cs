@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "S_", menuName = "SZAKDOLGOZAT/Scriptable Objects/Behavior Tree/Selector Node")]
 public class Selector : BehaviorNode {
-    public Selector(string name) : base(name){}
+
+    private void Awake(){
+        NameOfNode = "Select Strategy";
+    }
 
     public override NodeStatus Execute(){
+        Debug.Log("Executing " + NameOfNode);
         NodeStatus childStatus = Children[CurrentChild].Execute();
     
         if(childStatus == NodeStatus.RUNNING){

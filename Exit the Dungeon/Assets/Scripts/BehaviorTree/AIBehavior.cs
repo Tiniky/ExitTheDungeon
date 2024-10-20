@@ -3,31 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AIBehavior : MonoBehaviour {
-    private RootNode _tree;
+    public RootNode Tree;
+    public NodeStatus Status {get; private set;}
     private ActionState _state = ActionState.IDLE;
-    private NodeStatus _status = NodeStatus.RUNNING;
     private WaitForSeconds _wait;
 
     void Start(){
-        _tree = new RootNode();
+        Tree.SetOwner(gameObject, this);
         _wait = new WaitForSeconds(Random.Range(0.1f, 1f));
         StartCoroutine("ExecuteTree");
-        //_tree.PrintTree();
+        //Tree.PrintTree();
     }
 
-    private NodeStatus DoAction(){
+    public ActionState GetState(){
+        return _state;
+    }
+
+    public void DoAction(){
         if(_state == ActionState.IDLE){
             Debug.Log("Working...");
             _state = ActionState.WORKING;
-            return NodeStatus.RUNNING;
         }
+    }
 
-        return NodeStatus.FAILURE;
+    public void FinishAction(){
+        if(_state == ActionState.WORKING){
+            Debug.Log("Finished!");
+            _state = ActionState.IDLE;
+        }
     }
 
     IEnumerator ExecuteTree(){
         while(true){
-            _status = _tree.Execute();
+            Status = Tree.Execute();
+            Debug.Log("Status: " + Status);
             yield return _wait;
         }
     }

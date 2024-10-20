@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "RS_", menuName = "SZAKDOLGOZAT/Scriptable Objects/Behavior Tree/Random Selector Node")]
 public class RandomSelector : Selector {
     private bool _isShuffled = false;
 
-    public RandomSelector(string name) : base(name){}
+    private void Awake(){
+        NameOfNode = "Select Attack";
+    }
 
     public override NodeStatus Execute(){
         if(!_isShuffled){

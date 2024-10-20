@@ -236,7 +236,12 @@ public class GameManager : MonoBehaviour {
     }
 
     private void InitializeEnemies(){
-        _enemies = new Dictionary<InstantiatedRoom, List<GameObject>>();
+        GameObject enemy = Instantiate(PrefabManager.GOBLIN, new Vector3(4f, 1f, 0f), Quaternion.identity);
+        Creature enemyCreature = enemy.GetComponent<Creature>();
+        EnemyBehaviour creature = enemy.GetComponent<EnemyBehaviour>();
+        enemyCreature.Behaviour = creature;
+        Debug.Log("GameManager - Enemy's health: " + enemyCreature.HP.GetValue());
+        /*_enemies = new Dictionary<InstantiatedRoom, List<GameObject>>();
 
         foreach(KeyValuePair<InstantiatedRoom, List<Vector2>> entry in _enemySpawnPoints){
             InstantiatedRoom currentRoom = entry.Key;
@@ -278,7 +283,7 @@ public class GameManager : MonoBehaviour {
                 Debug.Log("GameManager - Enemy's health: " + enemyCreature.HP.GetValue());
             }
             _enemies.Add(currentRoom, enemies);
-        }
+        }*/
     }
 
     private void InitializeEnvironment(){

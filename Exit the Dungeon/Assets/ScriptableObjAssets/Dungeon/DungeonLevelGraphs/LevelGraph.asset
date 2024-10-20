@@ -350,7 +350,6 @@ MonoBehaviour:
   CorridorTemplates:
   - {fileID: 4894488429718327435, guid: 3845711cc7ee6554bbd05c62303b86cc, type: 3}
   - {fileID: 5060929361819489440, guid: d74eee83ef183854b99353aca20213ea, type: 3}
-  - {fileID: 3160887385256451522, guid: 191faf8afd862aa48ac9d68f90daaf36, type: 3}
   RoomTemplates:
   - {fileID: 418259810615314364, guid: 62e22e0492efe384f9e6668e4cdba095, type: 3}
   - {fileID: 4352896481668256532, guid: c89be7b7b2ec5994aa1147d885aaabd7, type: 3}

@@ -159,6 +159,16 @@ public static class Die {
         return 0;
     }
 
+    //for monsters
+    public static int AttackRoll(Entity entity){
+        int roll = Roll(DieType.D20);
+        if(entity.Size == Size.LARGE){
+            return roll + entity.SkillTree.GetModifier(MainSkill.STR);
+        } else {
+            return roll + entity.SkillTree.GetModifier(MainSkill.DEX);
+        }
+    }
+
     public static int AbilityCheck(Entity entity, MainSkill skill){
         int roll = Roll(DieType.D20);
         return roll + entity.SkillTree.GetModifier(skill);

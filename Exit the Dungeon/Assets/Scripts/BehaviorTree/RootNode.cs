@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "BT_", menuName = "SZAKDOLGOZAT/Scriptable Objects/Behavior Tree/Behavior Tree Root Node")]
 public class RootNode : BehaviorNode {
-    public RootNode() : base("Root"){}
+    private Blackboard _blackboard;
+    private GameObject _owner;
 
     struct NodeLevel{
         public BehaviorNode Node;
@@ -11,11 +13,22 @@ public class RootNode : BehaviorNode {
     }
 
     public override NodeStatus Execute(){
+        Debug.Log("Executing " + NameOfNode);
+
         if(Children.Count == 0){
             return NodeStatus.SUCCESS;
         }
 
         return Children[CurrentChild].Execute();
+    }
+
+    public void SetOwner(GameObject owner, AIBehavior ai){
+        NameOfNode = "Root";
+        _blackboard = new Blackboard();
+        Initialize(_blackboard, ai);
+        _owner = owner;
+        _blackboard.SetValue("OwnerObj", _owner);
+        _blackboard.SetValue("SpawnPoint", _owner.transform.position);
     }
 
     public void PrintTree(){
