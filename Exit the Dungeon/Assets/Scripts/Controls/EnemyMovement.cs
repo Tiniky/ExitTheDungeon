@@ -3,27 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour{
-    public Vector3 targetPosition;
-    private float moveSpeed;
+    public Vector3 TargetPosition;
+    public float moveSpeed;
+    public int DB;
 
     void Start(){
-        moveSpeed = 3.5f;
-        targetPosition = Vector3.zero;
+        moveSpeed = 1.5f;
+        TargetPosition = Vector3.zero;
+        DB = 0;
     }
 
     void Update(){
-        if(targetPosition != Vector3.zero && transform.position != targetPosition){
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+        if(TargetPosition != Vector3.zero && transform.position != TargetPosition){
+            //if it goes left flip the sprite on the x axis
+            if(TargetPosition.x < transform.position.x){
+                transform.localScale = new Vector3(-1, 1, 1);
+            } else {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+            transform.position = Vector3.MoveTowards(transform.position, TargetPosition, moveSpeed * Time.deltaTime);
+            DB++;
         } else {
             ResetTarget();
         }
     }
 
-    public void MoveTo(Vector3 target){
-        targetPosition = target;
-    }
-
     private void ResetTarget(){
-        targetPosition = Vector3.zero;
+        TargetPosition = Vector3.zero;
     }
 }

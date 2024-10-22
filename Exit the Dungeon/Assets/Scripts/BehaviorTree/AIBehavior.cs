@@ -4,40 +4,34 @@ using UnityEngine;
 
 public class AIBehavior : MonoBehaviour {
     public RootNode Tree;
-    public NodeStatus Status {get; private set;}
-    private ActionState _state = ActionState.IDLE;
-    private WaitForSeconds _wait;
+    public NodeStatus Status;
+    public bool isTreeExecuting;
 
     void Start(){
-        Tree.SetOwner(gameObject, this);
-        _wait = new WaitForSeconds(Random.Range(0.1f, 1f));
-        StartCoroutine("ExecuteTree");
-        //Tree.PrintTree();
+        if (Tree == null) {
+            Debug.LogError("Behavior Tree is not assigned.");
+            return;
+        }
+
+        Status = NodeStatus.SUCCESS;
+        isTreeExecuting = false;
+
+        Debug.Log("agent's spawn: " + gameObject.transform.position);
+        Tree.SetAgent(gameObject);
+        Tree.PrintTree();
     }
 
-    public ActionState GetState(){
-        return _state;
-    }
-
-    public void DoAction(){
-        if(_state == ActionState.IDLE){
-            Debug.Log("Working...");
-            _state = ActionState.WORKING;
+    void Update(){
+        if(!isTreeExecuting){
+            isTreeExecuting = true;
+            StartCoroutine(ExecuteTree());
         }
     }
 
-    public void FinishAction(){
-        if(_state == ActionState.WORKING){
-            Debug.Log("Finished!");
-            _state = ActionState.IDLE;
-        }
-    }
-
-    IEnumerator ExecuteTree(){
-        while(true){
-            Status = Tree.Execute();
-            Debug.Log("Status: " + Status);
-            yield return _wait;
-        }
+    private IEnumerator ExecuteTree(){
+        Status = Tree.Execute();
+        Debug.Log("Tree execution completed with status: " + Status);
+        yield return new WaitForSeconds(Random.Range(2f, 5f));
+        isTreeExecuting = false;
     }
 }

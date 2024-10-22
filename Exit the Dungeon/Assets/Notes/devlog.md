@@ -661,3 +661,4 @@ finished the flow chart of the small enemy BT
 created Blackboard class
 created all the necessary classes and scriptable objects of the Condition Leaf Nodes
 created some of the Action Leaf Node classes
+deleted all the scriptableobjects and gonna do a different approach

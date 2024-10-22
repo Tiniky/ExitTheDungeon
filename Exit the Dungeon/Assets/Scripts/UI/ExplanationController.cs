@@ -29,8 +29,6 @@ public class ExplanationController : MonoBehaviour {
             adventurer = (Adventurer)BattleManager.CurrentFighter();
         }
 
-        Debug.Log(adventurer);
-
         if (action == BasicAction.ATTACK){
             weapon = adventurer.Melee;
             if (weapon == null) {

@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CL_IsCombat_", menuName = "SZAKDOLGOZAT/Scriptable Objects/Behavior Tree/Condition Leaf Nodes/IsCombat")]
 public class IsCombat : ConditionLeafNode {
-    
-    private void Awake(){
+    public override void Initialize(Blackboard blackboard){
+        base.Initialize(blackboard);
         NameOfNode = "CheckCombat";
         ExecuteMethod = CheckIsCombat;
     }
 
     private bool CheckIsCombat(){
+        Debug.Log("GamePhase: " + GameManager.Phase.ToString());
+        Debug.Log("CheckIsCombat returning: " + (GameManager.Phase == GamePhase.COMBAT).ToString());
         return GameManager.Phase == GamePhase.COMBAT;
     }
 }

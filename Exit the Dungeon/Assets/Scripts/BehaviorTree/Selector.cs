@@ -2,32 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "S_", menuName = "SZAKDOLGOZAT/Scriptable Objects/Behavior Tree/Selector Node")]
 public class Selector : BehaviorNode {
 
-    private void Awake(){
+    public override void Initialize(Blackboard blackboard){
+        base.Initialize(blackboard);
         NameOfNode = "Select Strategy";
     }
 
     public override NodeStatus Execute(){
-        Debug.Log("Executing " + NameOfNode);
-        NodeStatus childStatus = Children[CurrentChild].Execute();
-    
-        if(childStatus == NodeStatus.RUNNING){
-            return NodeStatus.RUNNING;
+        Debug.Log("Selector - Executing " + NameOfNode);
+
+        int childDB = Children.Count;
+        Debug.Log("Selector - Child of child count: " + childDB);
+
+        for(int i = CurrentChild; i < childDB; i++){
+            string non = Children[i].NameOfNode;
+            Debug.Log("Selector - Next up Child: " + non);
+            NodeStatus childStatus = Children[i].Execute();
+
+            if(childStatus == NodeStatus.SUCCESS){
+                Debug.Log(non + " status: " + childStatus);
+                return NodeStatus.SUCCESS;
+            }
+            
+            Debug.Log("need to check next child cause " + non + " status: " + childStatus);
         }
 
-        if(childStatus == NodeStatus.SUCCESS){
-            CurrentChild = 0;
-            return NodeStatus.SUCCESS;
-        }
-
-        CurrentChild++;
-        if(CurrentChild >= Children.Count){
-            CurrentChild = 0;
-            return NodeStatus.FAILURE;
-        }
-
-        return NodeStatus.RUNNING;
+        Debug.Log("all the children failed");
+        return NodeStatus.FAILURE;
     }
 }

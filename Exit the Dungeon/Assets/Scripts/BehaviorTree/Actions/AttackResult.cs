@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CL_WasAttackSuccessful_", menuName = "SZAKDOLGOZAT/Scriptable Objects/Behavior Tree/Condition Leaf Nodes/AttackResult")]
 public class AttackResult : ConditionLeafNode {
     
     private void Awake(){

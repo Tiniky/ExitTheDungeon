@@ -10,11 +10,12 @@ public class ConditionLeafNode : BehaviorNode {
     public override NodeStatus Execute(){
         Debug.Log("Executing " + NameOfNode);
         if(ExecuteMethod == null){
+            Debug.Log(NameOfNode + "' ExecuteMethod is null");
             return NodeStatus.FAILURE;
         }
 
         bool result = ExecuteMethod();
-        Debug.Log("Result of Condition Check: " + result);
+        Debug.Log("Result of " + NameOfNode + " " + result);
         Debug.Log("ShouldBeTrue: " + ShouldBeTrue);
 
         if(!ShouldBeTrue){

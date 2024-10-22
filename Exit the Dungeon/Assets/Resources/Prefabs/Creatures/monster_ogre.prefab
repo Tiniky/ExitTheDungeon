@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _current: {fileID: 0}
+  _movement: {fileID: 0}
 --- !u!70 &7432958100478796522
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

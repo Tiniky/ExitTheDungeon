@@ -190,6 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _current: {fileID: 0}
+  _movement: {fileID: 401571521890915918}
 --- !u!70 &8541573378083564387
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -234,7 +235,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af6ed0ed47c94a4da7171de4fb24044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPosition: {x: 0, y: 0, z: 0}
+  TargetPosition: {x: 0, y: 0, z: 0}
+  moveSpeed: 0
 --- !u!114 &2230560577795437130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,3 +250,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tree: {fileID: 11400000, guid: 6ba5ee9acb854374aa90ecba5c4d6df3, type: 2}
+  Status: 0
+  isTreeExecuting: 0

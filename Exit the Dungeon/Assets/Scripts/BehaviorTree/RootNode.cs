@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BT_", menuName = "SZAKDOLGOZAT/Scriptable Objects/Behavior Tree/Behavior Tree Root Node")]
 public class RootNode : BehaviorNode {
     private Blackboard _blackboard;
     private GameObject _owner;
@@ -13,38 +13,34 @@ public class RootNode : BehaviorNode {
     }
 
     public override NodeStatus Execute(){
-        Debug.Log("Executing " + NameOfNode);
-
-        if(Children.Count == 0){
-            return NodeStatus.SUCCESS;
-        }
-
+        Debug.Log("BTRoot - Executing " +  Children[CurrentChild].NameOfNode);
         return Children[CurrentChild].Execute();
     }
 
-    public void SetOwner(GameObject owner, AIBehavior ai){
+    public void SetAgent(GameObject owner){
         NameOfNode = "Root";
         _blackboard = new Blackboard();
-        Initialize(_blackboard, ai);
+        Initialize(_blackboard);
         _owner = owner;
+        Debug.Log("agent's spawn - tree: " + _owner.transform.position);
         _blackboard.SetValue("OwnerObj", _owner);
         _blackboard.SetValue("SpawnPoint", _owner.transform.position);
     }
 
     public void PrintTree(){
-        string tree = "";
+        StringBuilder tree = new StringBuilder();
         Stack<NodeLevel> stack = new Stack<NodeLevel>();
         BehaviorNode currentNode = this;
-        stack.Push(new NodeLevel{Node = currentNode, Level = 0});
+        stack.Push(new NodeLevel { Node = currentNode, Level = 0 });
 
         while(stack.Count > 0){
             NodeLevel next = stack.Pop();
-            tree += new string('-', next.Level) + next.Node.NameOfNode + "\n";
+            tree.AppendLine(new string('-', next.Level) + next.Node.NameOfNode);
             for(int i = next.Node.Children.Count - 1; i >= 0; i--){
-                stack.Push(new NodeLevel{Node = next.Node.Children[i], Level = next.Level + 1});
+                stack.Push(new NodeLevel { Node = next.Node.Children[i], Level = next.Level + 1 });
             }
         }
 
-        Debug.Log(tree);
+        Debug.Log(tree.ToString());
     }
 }

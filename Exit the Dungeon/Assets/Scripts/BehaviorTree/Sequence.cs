@@ -2,32 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SQ_", menuName = "SZAKDOLGOZAT/Scriptable Objects/Behavior Tree/Sequence Node")]
 public class Sequence : BehaviorNode {
     public string Name;
 
-    public override void Initialize(Blackboard blackboard, AIBehavior agent){
-        base.Initialize(blackboard, agent);
+    public override void Initialize(Blackboard blackboard){
+        base.Initialize(blackboard);
         NameOfNode = Name;
     }
 
     public override NodeStatus Execute(){
-        Debug.Log("Executing " + NameOfNode);
-        NodeStatus childStatus = Children[CurrentChild].Execute();
-        if(childStatus == NodeStatus.RUNNING){
-            return NodeStatus.RUNNING;
+        Debug.Log("Sequence - Executing " + NameOfNode);
+
+        int childDB = Children.Count;
+        Debug.Log("Sequence - Child of child count: " + childDB);
+
+        for(int i = CurrentChild; i < childDB; i++){
+            string non = Children[i].NameOfNode;
+            Debug.Log("Sequence - Next up Child: " + non);
+            NodeStatus childStatus = Children[i].Execute();
+
+            if(childStatus == NodeStatus.FAILURE){
+                Debug.Log(non + " status: " + childStatus);
+                return NodeStatus.FAILURE;
+            }
+            
+            Debug.Log("need to check next child cause " + non + " status: " + childStatus);
         }
 
-        if(childStatus == NodeStatus.FAILURE){
-            return NodeStatus.FAILURE;
-        }
-
-        CurrentChild++;
-        if(CurrentChild >= Children.Count){
-            CurrentChild = 0;
-            return NodeStatus.SUCCESS;
-        }
-
-        return NodeStatus.RUNNING;
+        Debug.Log("all the children was successful");
+        return NodeStatus.SUCCESS;
     }
 }

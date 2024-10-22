@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CL_ShouldFlee_", menuName = "SZAKDOLGOZAT/Scriptable Objects/Behavior Tree/Condition Leaf Nodes/ShouldFlee")]
 public class ShouldFlee : ConditionLeafNode {
     
     private void Awake(){
