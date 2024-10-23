@@ -612,53 +612,26 @@ configure the speed via speed of character
 maybe make corridors one longer and make all template corners +1 tile
 fix the minimap to work with procgen
 check advantage for needed situations: initiative
+spawnsystem should be reworked:
+only spawn enemies when entering a corridor
+if a room already has enemies when the player enters corridor check the room if it matches the needed monster weight/amount 
+if no then destroy all and do the enemy spawn again 
 ||UNIT TESTS
 
 ~third week of october
 started working on the basics of the Behavior Tree system, created the needed node classes
 researched and navmesh is not compatible with this version (2021.1.7f1) => maybe use A* or Dijkstra
-||NEEDED for BT
-- Root Node (one SO)
-- Selector: Strategy Selector (one SO)
-- Random Selector: Select Attack (one SO)
-- Sequence: (one SO, instances needed)
-	- Combat Strategy
-	- IDLE Strategy
-	- Wait Strategy
-	- Fight Strategy
-	- Low Health Strategy
-	- Good Health Strategy
-	- Flee Strategy
-	- Keep Fighting Strategy
-	- Stop Fighting Strategy
-	- Action Strategy
-	- Check Range Strategy
-	- Close Gap Strategy
-	- Still out of Range Strategy
-	- Attack Strategy
-	- Handle Miss Strategy
-	- Handle Hit Strategy
-- Condition Leaf Node: (for each one SO, 1 true - 1 false instance)
-	- IsCombat
-	- IsTheirTurn
-	- ShouldFlee
-	- CanFlee
-	- ShouldKeepFighting
-	- IsInRange
-	- AttackResult
-- Action Leaf Node: (one SO for each ?)
-	- FindWaypoint
-	- GoToWaypoint
-	- DoNothing
-	- RollDie (1 for Int, 1 for Attack)
-	- FleeFromCombat
-	- ContinueFight
-	- Select Target
-	- TryCloseGap
-	- ExecuteAttack
-	- Pass Turn
 finished the flow chart of the small enemy BT
 created Blackboard class
 created all the necessary classes and scriptable objects of the Condition Leaf Nodes
 created some of the Action Leaf Node classes
-deleted all the scriptableobjects and gonna do a different approach
+
+\\fourth week of october
+deleted all the scriptableobjects <= gonna do a different approach with storing the BT in JSON files and building a tree from the JSON
+created the JSON for the goblin BT (small)
+modified the AIBehavior to handle the tree building
+modified the BehaviorNode child classes
+created the BehaviorNodeMethods class to store the methods
+created test BT JSON
+deleted the rest of the unnecessary scripts
+added light to the enemies

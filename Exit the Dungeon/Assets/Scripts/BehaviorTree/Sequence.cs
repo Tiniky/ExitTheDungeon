@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Sequence : BehaviorNode {
-    public string Name;
-
-    public override void Initialize(Blackboard blackboard){
-        base.Initialize(blackboard);
-        NameOfNode = Name;
+    
+    public Sequence(string name){
+        NameOfNode = name;
     }
 
     public override NodeStatus Execute(){

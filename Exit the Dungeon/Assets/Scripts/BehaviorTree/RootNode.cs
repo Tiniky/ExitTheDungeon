@@ -12,6 +12,10 @@ public class RootNode : BehaviorNode {
         public int Level;
     }
 
+    public RootNode(string name){
+        NameOfNode = name;
+    }
+
     public override NodeStatus Execute(){
         Debug.Log("BTRoot - Executing " +  Children[CurrentChild].NameOfNode);
         return Children[CurrentChild].Execute();

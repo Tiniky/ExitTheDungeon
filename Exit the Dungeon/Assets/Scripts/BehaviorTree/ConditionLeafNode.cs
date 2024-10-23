@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class ConditionLeafNode : BehaviorNode {
     public bool ShouldBeTrue;
-    public delegate bool Func();
+    public delegate bool Func(Blackboard blackboard);
     public Func ExecuteMethod;
+
+    public ConditionLeafNode(string name, Func method, string shouldBeTrueString){
+        NameOfNode = name;
+        ExecuteMethod = method;
+        ShouldBeTrue = shouldBeTrueString == "true" ? true : false;
+    }
 
     public override NodeStatus Execute(){
         Debug.Log("Executing " + NameOfNode);
@@ -14,7 +20,7 @@ public class ConditionLeafNode : BehaviorNode {
             return NodeStatus.FAILURE;
         }
 
-        bool result = ExecuteMethod();
+        bool result = ExecuteMethod(Blackboard);
         Debug.Log("Result of " + NameOfNode + " " + result);
         Debug.Log("ShouldBeTrue: " + ShouldBeTrue);
 

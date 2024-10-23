@@ -1,0 +1,51 @@
+{
+  "nodeName": "ROOT",
+  "nodeType": "Root",
+  "children": [
+    {
+      "nodeName": "Select Strategy",
+      "nodeType": "Selector",
+      "children": [
+        {
+          "nodeName": "Combat Strategy",
+          "nodeType": "Sequence",
+          "children": [
+            {
+              "nodeName": "IsCombat",
+              "nodeType": "Condition",
+			  "shouldBeTrue": "true",
+              "methodName": "CheckIsCombat"
+            },
+            {
+              "nodeName": "DoNothing",
+              "nodeType": "Action",
+              "methodName": "DoNothing"
+            }
+          ]
+        },
+        {
+          "nodeName": "IDLE Strategy",
+          "nodeType": "Sequence",
+          "children": [
+            {
+              "nodeName": "IsCombat",
+              "nodeType": "Condition",
+			  "shouldBeTrue": "false",
+              "methodName": "CheckIsCombat"
+            },
+            {
+              "nodeName": "FindWaypoint",
+              "nodeType": "Action",
+              "methodName": "FindWaypoint"
+            },
+            {
+              "nodeName": "GoToWaypoint",
+              "nodeType": "Action",
+              "methodName": "GoToWaypoint"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

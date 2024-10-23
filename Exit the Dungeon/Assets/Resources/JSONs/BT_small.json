@@ -1,0 +1,289 @@
+{
+  "nodeName": "ROOT",
+  "nodeType": "Selector",
+  "children": [
+    {
+      "nodeName": "Select Strategy",
+      "nodeType": "Selector",
+      "children": [
+        {
+          "nodeName": "Combat Strategy",
+          "nodeType": "Sequence",
+          "children": [
+            {
+              "nodeName": "isCombat",
+              "nodeType": "Action",
+              "methodName": "isCombat"
+            },
+            {
+              "nodeName": "Select Strategy",
+              "nodeType": "Selector",
+              "children": [
+                {
+                  "nodeName": "Wait Strategy",
+                  "nodeType": "Sequence",
+                  "children": [
+                    {
+                      "nodeName": "isTheirTurn",
+                      "nodeType": "Action",
+                      "methodName": "isTheirTurn"
+                    },
+                    {
+                      "nodeName": "DoNothing",
+                      "nodeType": "Action",
+                      "methodName": "DoNothing"
+                    }
+                  ]
+                },
+                {
+                  "nodeName": "Fight Strategy",
+                  "nodeType": "Sequence",
+                  "children": [
+                    {
+                      "nodeName": "Select Strategy",
+                      "nodeType": "Selector",
+                      "children": [
+                        {
+                          "nodeName": "Low Health Strategy",
+                          "nodeType": "Sequence",
+                          "children": [
+                            {
+                              "nodeName": "isLowOnHealth",
+                              "nodeType": "Action",
+                              "methodName": "isLowOnHealth"
+                            },
+                            {
+                              "nodeName": "RollToDecideOnFlee",
+                              "nodeType": "Action",
+                              "methodName": "RollToDecideOnFlee"
+                            },
+                            {
+                              "nodeName": "Select Strategy",
+                              "nodeType": "Selector",
+                              "children": [
+                                {
+                                  "nodeName": "Flee Strategy",
+                                  "nodeType": "Sequence",
+                                  "children": [
+                                    {
+                                      "nodeName": "checkRoll",
+                                      "nodeType": "Action",
+                                      "methodName": "checkRoll"
+                                    },
+                                    {
+                                      "nodeName": "FleeFromCombat",
+                                      "nodeType": "Action",
+                                      "methodName": "FleeFromCombat"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "nodeName": "Keep Fighting Strategy",
+                                  "nodeType": "Sequence",
+                                  "children": [
+                                    {
+                                      "nodeName": "checkRoll",
+                                      "nodeType": "Action",
+                                      "methodName": "checkRoll"
+                                    },
+                                    {
+                                      "nodeName": "ContinueFight",
+                                      "nodeType": "Action",
+                                      "methodName": "ContinueFight"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "nodeName": "Good Health Strategy",
+                          "nodeType": "Sequence",
+                          "children": [
+                            {
+                              "nodeName": "isLowOnHealth",
+                              "nodeType": "Action",
+                              "methodName": "isLowOnHealth"
+                            },
+                            {
+                              "nodeName": "ContinueFight",
+                              "nodeType": "Action",
+                              "methodName": "ContinueFight"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "nodeName": "Select Strategy",
+                      "nodeType": "Selector",
+                      "children": [
+                        {
+                          "nodeName": "Stop Fight Strategy",
+                          "nodeType": "Sequence",
+                          "children": [
+                            {
+                              "nodeName": "shouldKeepFighting",
+                              "nodeType": "Action",
+                              "methodName": "shouldKeepFighting"
+                            },
+                            {
+                              "nodeName": "DoNothing",
+                              "nodeType": "Action",
+                              "methodName": "DoNothing"
+                            }
+                          ]
+                        },
+                        {
+                          "nodeName": "Action Strategy",
+                          "nodeType": "Sequence",
+                          "children": [
+                            {
+                              "nodeName": "shouldKeepFighting",
+                              "nodeType": "Action",
+                              "methodName": "shouldKeepFighting"
+                            },
+                            {
+                              "nodeName": "SelectTarget",
+                              "nodeType": "Action",
+                              "methodName": "SelectTarget"
+                            },
+                            {
+                              "nodeName": "SelectAttack",
+                              "nodeType": "Action",
+                              "methodName": "SelectAttack"
+                            },
+                            {
+                              "nodeName": "Check Range Strategy",
+                              "nodeType": "Selector",
+                              "children": [
+                                {
+                                  "nodeName": "Close Gap Strategy",
+                                  "nodeType": "Sequence",
+                                  "children": [
+                                    {
+                                      "nodeName": "isInRange",
+                                      "nodeType": "Action",
+                                      "methodName": "isInRange"
+                                    },
+                                    {
+                                      "nodeName": "TryCloseGap",
+                                      "nodeType": "Action",
+                                      "methodName": "TryCloseGap"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "nodeName": "Select Strategy",
+                                  "nodeType": "Selector",
+                                  "children": [
+                                    {
+                                      "nodeName": "Still out of Range Strategy",
+                                      "nodeType": "Sequence",
+                                      "children": [
+                                        {
+                                          "nodeName": "isInRange",
+                                          "nodeType": "Action",
+                                          "methodName": "isInRange"
+                                        },
+                                        {
+                                          "nodeName": "DoNothing",
+                                          "nodeType": "Action",
+                                          "methodName": "DoNothing"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "nodeName": "Attack Strategy",
+                                      "nodeType": "Sequence",
+                                      "children": [
+                                        {
+                                          "nodeName": "isInRange",
+                                          "nodeType": "Action",
+                                          "methodName": "isInRange"
+                                        },
+                                        {
+                                          "nodeName": "AttackRoll",
+                                          "nodeType": "Action",
+                                          "methodName": "AttackRoll"
+                                        },
+                                        {
+                                          "nodeName": "Select Strategy",
+                                          "nodeType": "Selector",
+                                          "children": [
+                                            {
+                                              "nodeName": "Handle Miss Strategy",
+                                              "nodeType": "Sequence",
+                                              "children": [
+                                                {
+                                                  "nodeName": "checkEnemyAC",
+                                                  "nodeType": "Action",
+                                                  "methodName": "checkEnemyAC"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "nodeName": "Handle Hit Strategy",
+                                              "nodeType": "Sequence",
+                                              "children": [
+                                                {
+                                                  "nodeName": "checkEnemyAC",
+                                                  "nodeType": "Action",
+                                                  "methodName": "checkEnemyAC"
+                                                },
+                                                {
+                                                  "nodeName": "Attack",
+                                                  "nodeType": "Action",
+                                                  "methodName": "Attack"
+                                                },
+                                                {
+                                                  "nodeName": "Pass Turn",
+                                                  "nodeType": "Action",
+                                                  "methodName": "PassTurn"
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nodeName": "IDLE Strategy",
+          "nodeType": "Sequence",
+          "children": [
+            {
+              "nodeName": "isCombat",
+              "nodeType": "Action",
+              "methodName": "isCombat"
+            },
+            {
+              "nodeName": "FindWaypoint",
+              "nodeType": "Action",
+              "methodName": "FindWaypoint"
+            },
+            {
+              "nodeName": "GoToWaypoint",
+              "nodeType": "Action",
+              "methodName": "GoToWaypoint"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

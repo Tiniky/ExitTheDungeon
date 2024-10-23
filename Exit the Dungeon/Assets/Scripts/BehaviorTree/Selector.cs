@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Selector : BehaviorNode {
 
-    public override void Initialize(Blackboard blackboard){
-        base.Initialize(blackboard);
-        NameOfNode = "Select Strategy";
+    public Selector(string name){
+        NameOfNode = name;
     }
 
     public override NodeStatus Execute(){
