@@ -42,7 +42,11 @@ public class InteractableTile : MonoBehaviour {
         isEmpty = fighter == null;
     }
 
-    public void IndicateTurn(){
+    public void IndicateTurn(){    
+        if(_renderer == null){
+            _renderer = GetComponent<SpriteRenderer>();
+        }
+
         _renderer.color = turnindicatorColor;
     }
 
@@ -51,6 +55,10 @@ public class InteractableTile : MonoBehaviour {
     }
 
     public void PaintTile(bool isWalkable){
+        if(_renderer == null){
+            _renderer = GetComponent<SpriteRenderer>();
+        }
+
         if(isEmpty){
             if(isWalkable){
                 _renderer.color = approveColor;

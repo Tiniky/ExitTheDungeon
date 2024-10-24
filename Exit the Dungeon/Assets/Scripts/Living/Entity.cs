@@ -92,12 +92,13 @@ public abstract class Entity : MonoBehaviour {
 
     public void Death() {
         isAlive = false;
+        LogManager.AddMessage(EntityName + " has died.");
         
         if(gameObject.GetComponent<PlayerBehaviour>() == null){
             gameObject.SetActive(false);
 
             if(GameManager.Phase == GamePhase.COMBAT){
-                TileManager.instance.FreeTiles(this);
+                TileManager.Instance.FreeTiles(this);
             }
         } else{
             //DEATH SCREEN

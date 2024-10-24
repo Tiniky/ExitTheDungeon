@@ -34,6 +34,7 @@ public class SwitchController : Interactable {
             connectedDoor.Open();
             GameManager.CutSceneTrigger(hostageObj.transform);
             CutsceneManager.StartUp();
+            LogManager.AddMessage("You hear a something open in the distance.");
             StartCoroutine(SignalEndOfCutscene());
         }
 

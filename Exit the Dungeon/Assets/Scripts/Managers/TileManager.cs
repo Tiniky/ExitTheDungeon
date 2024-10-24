@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class TileManager : MonoBehaviour {
-    public static TileManager instance;
+public class TileManager {
+    public static TileManager Instance { get; private set; }
 
     private int _width, _height;
     private float _startX, _startY;
@@ -14,31 +14,36 @@ public class TileManager : MonoBehaviour {
     private List<InteractableTile> _tilesInRange;
     public bool shouldRepaint;
 
-    void Awake(){
-        instance = this;
-        _tilesInRange = new List<InteractableTile>();
+    static TileManager(){
+        Instance = new TileManager();
     }
 
-    public Dictionary<Vector2, InteractableTile> GenerateInteractableGrid(GameObject holder, int _width, int _height, float _startX, float _startY) {
+    public void Initialize(){
+        Instance = this;
+        _tilesInRange = new List<InteractableTile>();
         _tiles = new Dictionary<Vector2, InteractableTile>();
+        Debug.Log("TileManager initialized.");
+    }
 
-        for(int x = 0; x < _width; x++){
-            for(int y = 0; y < _height; y++){
-                GameObject TileClone = Instantiate(TilePrefab, holder.transform);
-                TileClone.transform.position = new Vector3(_startX + x, _startY + y, 0);
-                TileClone.name = $"Tile {_startX + x} {_startY + y}";
-                InteractableTile Tile = TileClone.GetComponent<InteractableTile>();
-                var isOffset = (x + y) % 2 == 1;
-                Tile.Initialize(isOffset);
-
-                _tiles[new Vector2(_startX + x, _startY + y)] = Tile;
-            }
+    public void LoadCurrentRoom(InstantiatedRoom room){
+        if(room == null){
+            Debug.LogError("No room found.");
+            return;
         }
 
-        return _tiles;
+        Dictionary<Vector2, InteractableTile> tiles = room.GetInteractables();
+        
+        if(tiles == null) {
+            Debug.LogError("No interactable tiles found in CurrentRoom.");
+            return;
+        }
+    
+        foreach(var tile in tiles){
+            _tiles.Add(tile.Key, tile.Value);
+        }
     }
 
-    private InteractableTile GetTileAtPosition(Vector2 pos) {
+    private InteractableTile GetTileAtPosition(Vector2 pos){
         if(_tiles.TryGetValue(pos, out InteractableTile tile)){
             return tile;
         }
@@ -46,11 +51,13 @@ public class TileManager : MonoBehaviour {
         return null;
     }
 
-    public void SnapToClosestTile(GameObject fighter) {
+    public void SnapToClosestTile(GameObject fighter){
         Vector2 closestTile = GetClosestTilePosition(fighter.transform.position);
+        Debug.Log("TM - closest tile is " + closestTile);
         InteractableTile tile = GetTileAtPosition(closestTile);
+        Debug.Log("TM - tile is " + tile);
 
-        if (tile != null){
+        if(tile != null){
             if(fighter.GetComponent<Entity>().Size == Size.MEDIUM){
                 tile.TileOccupation(fighter);
                 if(fighter == GameManager.PlayerObj()){
@@ -70,14 +77,14 @@ public class TileManager : MonoBehaviour {
         }
     }
 
-    private Vector2 GetClosestTilePosition(Vector3 position) {
+    private Vector2 GetClosestTilePosition(Vector3 position){
         float smallestDistance = 10f;
         Vector2 closestTile = Vector2.zero;
 
-        foreach (var tilePos in _tiles.Keys){
+        foreach(var tilePos in _tiles.Keys){
             float distance = Vector3.Distance(position, tilePos);
 
-            if (distance < smallestDistance){
+            if(distance < smallestDistance){
                 smallestDistance = distance;
                 closestTile = new Vector2(tilePos.x, tilePos.y);
             }
@@ -106,7 +113,7 @@ public class TileManager : MonoBehaviour {
         return closestTile;
     }
 
-    public List<InteractableTile> StandsOn(GameObject entity, int count) {
+    public List<InteractableTile> StandsOn(GameObject entity, int count){
         return _tiles.Values.Where(e => !e.isEmpty && e.EntityOnTile() == entity).Take(count).ToList();
     }
 

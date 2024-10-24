@@ -12,7 +12,7 @@ public class ActionLeafNode : BehaviorNode {
     }
 
     public override NodeStatus Execute(){
-        Debug.Log("Executing " + NameOfNode);
+        //Debug.Log("Executing " + NameOfNode);
         if(ExecuteMethod != null){
             return ExecuteMethod(Blackboard);
         }

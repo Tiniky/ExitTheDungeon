@@ -33,7 +33,9 @@ public static class AbilityManager {
         List<Ability> passives = holder.GetPassives();
         foreach(Ability passive in passives){
             if(passive.Trigger == trigger && passive.State == AbilityState.READY){
-                Debug.Log("Activating passive");
+                if(trigger != TriggerType.LOAD_GAME){
+                    LogManager.AddMessage(passive.DisplayName + " from "+ holder.EntityName + " was activated.");
+                }
                 passive.Activate();
             }
         }

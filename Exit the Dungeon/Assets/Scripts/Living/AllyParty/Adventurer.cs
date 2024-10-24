@@ -203,7 +203,7 @@ public class Adventurer : Entity {
 
     private void OnTriggerEnter2D(Collider2D collision){
         if(IsPlayer && collision.gameObject.CompareTag("room")){
-            GameManager.EnterRoom(collision.gameObject);
+            GameManager.Instance.EnterRoom(collision.gameObject);
         } else if(IsPlayer && collision.gameObject.CompareTag("corridor")){
             GameManager.LeftRoom(collision.gameObject);
         }

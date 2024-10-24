@@ -29,7 +29,7 @@ public class EnemyBehaviour : CreatureBehaviour {
         //_movement = _current.GetComponent<EnemyMovement>();
 
         if(_movement != null){
-            Debug.Log("Moving to target: " + target);
+            //Debug.Log("Moving to target: " + target);
             _movement.TargetPosition = target;
         }
     }

@@ -37,7 +37,6 @@ public class Dungeon {
     }
 
     public void TurnOffInteractableTiles(){
-        //might need to add TileManager to them
         foreach(InstantiatedRoom room in Rooms){
             Transform tileHolderTransform = room.RoomObj.transform.Find("Environment/InteractableTiles");
             if(tileHolderTransform != null){

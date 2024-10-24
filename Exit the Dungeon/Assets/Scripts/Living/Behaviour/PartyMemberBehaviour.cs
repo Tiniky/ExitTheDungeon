@@ -106,7 +106,7 @@ public class PartyMemberBehaviour : CreatureBehaviour {
         wasSaved = true;
         GameManager.Rescue(gameObject);
         SetUpHealthBar();
-        Debug.Log("following started");
+        LogManager.AddMessage(gameObject.name + " joined the party!");
     }
 
     private void FollowPlayer() {

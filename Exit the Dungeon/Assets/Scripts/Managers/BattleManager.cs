@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 public static class BattleManager {
     private static List<Entity> all;
     private static List<GameObject> allObj;
-    private static Dictionary<Entity, int> _killCount;
     private static Battle battle;
     private static GameObject _arrow;
     private static int _current, _turnCounter;
@@ -15,30 +14,27 @@ public static class BattleManager {
     private static bool _ongoingFight, _isFirst, _wasButtonPressed;
 
     public static void Initialize(){
+        LogManager.AddMessage("Combat has been initiated.");
         _ongoingFight = true;
         _isFirst = true;
         _wasButtonPressed = false;
         all = new List<Entity>();
         allObj = new List<GameObject>();
-        _killCount = new Dictionary<Entity, int>();
         _turnCounter = 0;
 
         Adventurer player = GameManager.Player();
         all.Add(player);
         allObj.Add(GameManager.PlayerObj());
-        _killCount[player] = 0;
 
         foreach(GameObject ally in GameManager.Allies()){
             Adventurer partyMember = ally.GetComponent<Adventurer>();
             all.Add(partyMember);
             allObj.Add(ally);
-            _killCount[partyMember] = 0;
         }
 
         foreach(GameObject enemy in GameManager.Enemies()){
             all.Add(enemy.GetComponent<Creature>());
             allObj.Add(enemy);
-            _killCount[enemy.GetComponent<Creature>()] = 0;
         }
 
         GameManager.FightPositionSetup(allObj);
@@ -92,12 +88,12 @@ public static class BattleManager {
         List<InteractableTile> tiles = new List<InteractableTile>();
         
         if(nextUp.Size == Size.MEDIUM || nextUp.Size == Size.SMALL){
-            tiles = TileManager.instance.StandsOn(nextUp.gameObject, 1);
+            tiles = TileManager.Instance.StandsOn(nextUp.gameObject, 1);
         } else if(nextUp.Size == Size.LARGE) {
-            tiles = TileManager.instance.StandsOn(nextUp.gameObject, 2);
+            tiles = TileManager.Instance.StandsOn(nextUp.gameObject, 2);
         }
         
-        TileManager.instance.Reset();
+        TileManager.Instance.Reset();
 
         if(curr == -1){
             foreach(InteractableTile tile in tiles){
@@ -121,10 +117,6 @@ public static class BattleManager {
     public static Entity CurrentFighter(){
         return battle.GetCurrent(_current);
     }
-    
-    public static int GetKillCountOf(Entity entity){
-        return _killCount[entity];
-    }
 
     public static bool IsTargetInActionRange(Entity entity) {
         if(!_ongoingFight || _chosenAction == null){
@@ -144,7 +136,7 @@ public static class BattleManager {
             range = 0;
         }
 
-        return TileManager.instance.isTwoEntityInRange(CurrentFighter(), entity, range);
+        return TileManager.Instance.isTwoEntityInRange(CurrentFighter(), entity, range);
     }
 
     public static bool IsTargetInAbilityRange(Entity entity) {
@@ -164,14 +156,14 @@ public static class BattleManager {
             range = 0;
         }
 
-        return TileManager.instance.isTwoEntityInRange(CurrentFighter(), entity, range);
+        return TileManager.Instance.isTwoEntityInRange(CurrentFighter(), entity, range);
     }
 
     public static void MovementRangeOf(Entity entity){
-        TileManager.instance.Reset();
+        TileManager.Instance.Reset();
 
         if(entity is Adventurer){
-            TileManager.instance.ShowWalkRange(entity);
+            TileManager.Instance.ShowWalkRange(entity);
         }
     }
 

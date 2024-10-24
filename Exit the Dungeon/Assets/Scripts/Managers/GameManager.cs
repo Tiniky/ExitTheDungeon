@@ -8,7 +8,7 @@ using Cinemachine;
 using UnityEngine.Experimental.Rendering.Universal;
 
 public class GameManager : MonoBehaviour {
-    public static GameManager instance;
+    public static GameManager Instance {get; private set;}
     private static GameObject _cam;
     private static CinemachineVirtualCamera _cvc;
 
@@ -58,7 +58,12 @@ public class GameManager : MonoBehaviour {
     private static readonly float _keyPressInterval = 2f;
 
     private void Awake() {
-        instance = this;
+        if(Instance == null) {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        } else {
+            Destroy(gameObject);
+        }
         SetUpGame();
     }
 
@@ -70,9 +75,11 @@ public class GameManager : MonoBehaviour {
             CheckIfPlayerBehindCreature(ally);
         }
 
-        /*foreach(GameObject enemy in _enemies){
-            CheckIfPlayerBehindCreature(enemy);
-        }*/
+        if(Phase == GamePhase.COMBAT){
+            foreach(GameObject enemy in _enemies[CurrentRoom]){
+                CheckIfPlayerBehindCreature(enemy);
+            }
+        }
     }
 
     private void SetUpGame(){
@@ -141,6 +148,7 @@ public class GameManager : MonoBehaviour {
 
     private void InitializeGame(){
         PrefabManager.Initialize();
+        TileManager.Instance.Initialize();
         _cam = GameObject.FindGameObjectWithTag("MainCamera");
         _partyHolder = new GameObject("PARTY");
         
@@ -409,15 +417,30 @@ public class GameManager : MonoBehaviour {
         UIManager.Initialize();
     }
 
-    public static void EnterRoom(GameObject roomobj){
+    public void EnterRoom(GameObject roomobj){
         InstantiatedRoom room = Dungeon.GetRoom(roomobj);
         if(room == null || room == CurrentRoom){
             return;
         }
 
+        if(room != CurrentRoom){
+            Debug.Log("GameManager - Entered room: " + room.RoomObj.name);
+            LogManager.AddMessage(GetLogMessage(room));
+        }
+
+        if(room.Room.Type == RoomType.COMBAT || room.Room.Type == RoomType.BOSS || room.Room.Type == RoomType.PRISON){
+            TileManager.Instance.LoadCurrentRoom(room);
+            StartCoroutine(Instance.InitializeCombat());
+        }
+
         CurrentRoom = room;
         CurrentCorridor = null;
-        Debug.Log("GameManager - Entered room: " + CurrentRoom.RoomObj.name);
+    }
+
+    private IEnumerator InitializeCombat(){
+        yield return new WaitForSeconds(1.5f);
+        HandleRoomDoors(true);
+        BattleManager.Initialize();
     }
     
     public static void LeftRoom(GameObject corrobj){
@@ -426,6 +449,8 @@ public class GameManager : MonoBehaviour {
             return;
         }
         
+        //enemy spawn logic needed
+
         CurrentCorridor = crd;
         CurrentRoom = null;
         Debug.Log("GameManager - Entered corridor: " + CurrentCorridor.CorridorObj.name);
@@ -488,7 +513,7 @@ public class GameManager : MonoBehaviour {
                 
                 Destroy(_partyHolder);
                 DungeonGenerator.DestroyDungeon();
-                instance.SetUpGame();
+                Instance.SetUpGame();
 
                 _keyPressCount = 0;
             } else if(Time.time - _firstKeyPressTime > _keyPressInterval){
@@ -600,10 +625,10 @@ public class GameManager : MonoBehaviour {
 
                 fighter.GetComponent<BoxCollider2D>().enabled = false;
             }
-
-            //need to figure out new TileManager system
-            //tileManager.SnapToClosestTile(fighter);
-            Debug.Log("GameManager - snapped");
+            
+            Vector3 prevPop = fighter.transform.position;
+            TileManager.Instance.SnapToClosestTile(fighter);
+            Debug.Log("GameManager - snapped from " + prevPop + " to " + fighter.transform.position);
         }
     }
 
@@ -622,5 +647,38 @@ public class GameManager : MonoBehaviour {
     public static void HandleRoomDoors(bool state){
         GameObject doorHolder = _doors[CurrentRoom];
         doorHolder.SetActive(state);
+    }
+
+    private static string GetLogMessage(InstantiatedRoom room){
+        string type = room.Room.Type.ToString();
+        string info = "";
+
+        switch(type){
+            case "SPAWN":
+                info = "Entered the room where it all began.";
+                break;
+            case "COMBAT":
+                info = "Entered a room full of hostile creatures. Roll for initiative!";
+                break;
+            case "PRISON":
+                GameObject hostage = _memberHostageLocation[room];
+                if(_rescued.Contains(hostage)){
+                    info = "Entered an empty prison like room.";
+                } else{
+                    info = "Entered a prison like room. Wait is that " + hostage.name +  "?!";
+                }
+                break;
+            case "TREASURE":
+                info = "Entered a secret room. Uuuu what's in the chest?";
+                break;
+            case "GEM":
+                info = "Entered a room with a shiny.. floating.. gem. Nothing suspicious about it.";
+                break;
+            case "BOSS":
+                info = "Entered the point of no return. Wait you're here already?";
+                break;
+        }
+
+        return info;
     }
 }

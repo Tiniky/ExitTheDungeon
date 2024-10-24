@@ -17,7 +17,7 @@ public class RootNode : BehaviorNode {
     }
 
     public override NodeStatus Execute(){
-        Debug.Log("BTRoot - Executing " +  Children[CurrentChild].NameOfNode);
+        //Debug.Log("BTRoot - Executing " +  Children[CurrentChild].NameOfNode);
         return Children[CurrentChild].Execute();
     }
 
@@ -26,7 +26,7 @@ public class RootNode : BehaviorNode {
         _blackboard = new Blackboard();
         Initialize(_blackboard);
         _owner = owner;
-        Debug.Log("agent's spawn - tree: " + _owner.transform.position);
+        //Debug.Log("agent's spawn - tree: " + _owner.transform.position);
         _blackboard.SetValue("OwnerObj", _owner);
         _blackboard.SetValue("SpawnPoint", _owner.transform.position);
     }

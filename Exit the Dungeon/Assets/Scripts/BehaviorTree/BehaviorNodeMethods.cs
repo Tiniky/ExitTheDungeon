@@ -46,8 +46,8 @@ public static class BehaviorNodeMethods {
         
         Vector3 newWaypoint = new Vector3(pos.x + offsetX, pos.y ,0);
         
-        Debug.Log("Spawnpoint: " + pos);
-        Debug.Log("New waypoint: " + newWaypoint);
+        //Debug.Log("Spawnpoint: " + pos);
+        //Debug.Log("New waypoint: " + newWaypoint);
         Blackboard.SetValue("SelectedWaypoint", newWaypoint);
         
         return NodeStatus.SUCCESS;
@@ -56,8 +56,8 @@ public static class BehaviorNodeMethods {
     public static NodeStatus GoToWaypoint(Blackboard Blackboard){
         Vector3 targetPos = Blackboard.GetValue<Vector3>("SelectedWaypoint");
         GameObject current = Blackboard.GetValue<GameObject>("OwnerObj");
-        Debug.Log("Going to waypoint: " + targetPos);
-        Debug.Log("Current position: " + current.transform.position);
+        //Debug.Log("Going to waypoint: " + targetPos);
+        //Debug.Log("Current position: " + current.transform.position);
         EnemyBehaviour enemy = current.GetComponent<EnemyBehaviour>();
         enemy.GoToTarget(targetPos);
         return NodeStatus.SUCCESS;
@@ -124,8 +124,8 @@ public static class BehaviorNodeMethods {
     }
 
     public static bool CheckIsCombat(Blackboard Blackboard){
-        Debug.Log("GamePhase: " + GameManager.Phase.ToString());
-        Debug.Log("CheckIsCombat returning: " + (GameManager.Phase == GamePhase.COMBAT).ToString());
+        //Debug.Log("GamePhase: " + GameManager.Phase.ToString());
+        //Debug.Log("CheckIsCombat returning: " + (GameManager.Phase == GamePhase.COMBAT).ToString());
         return GameManager.Phase == GamePhase.COMBAT;
     }
 

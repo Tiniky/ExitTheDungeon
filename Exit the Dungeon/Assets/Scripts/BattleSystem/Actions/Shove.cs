@@ -38,7 +38,7 @@ public class Shove : Action {
 
     private void ExecuteShove() {
         if(_target != null && (_target.Size == Size.SMALL || _target.Size == Size.MEDIUM) && BattleManager.IsTargetInActionRange(_target)) {
-            List<InteractableTile> targetTile = TileManager.instance.StandsOn(_target.gameObject, 1);
+            List<InteractableTile> targetTile = TileManager.Instance.StandsOn(_target.gameObject, 1);
             Vector3 attackerPosition = _attacker.transform.position;
             Vector3 targetPosition = _target.transform.position;
 
@@ -54,7 +54,7 @@ public class Shove : Action {
 
             targetTile[0].TileOccupation();
             _target.transform.position = targetPosition;
-            TileManager.instance.SnapToClosestTile(_target.gameObject);
+            TileManager.Instance.SnapToClosestTile(_target.gameObject);
         }
 
         this.WasUsed = true;

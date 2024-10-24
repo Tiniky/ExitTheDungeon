@@ -26,6 +26,7 @@ public class ChestController : Interactable {
         if(wasOpened == false){
             if(GameManager.HasKey){
                 wasOpened = true;
+                LogManager.AddMessage("The chest is locked.. Never mind it seems like you got the key.");
                 isStillInteractable = false;
                 TextUIManager.UpdateInteractableText(false);
                 animator.SetBool("isOpen", true);
@@ -41,7 +42,7 @@ public class ChestController : Interactable {
                     Debug.Log("open");
                 }
             } else { 
-                Debug.Log("ChestController - chest is locked");
+                LogManager.AddMessage("The chest is locked. Seems like you need the key to open it.");
             }
         }
     }

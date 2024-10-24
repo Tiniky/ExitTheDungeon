@@ -599,7 +599,6 @@ a gem is picked up
 the boss room unlocks
 the boss room door was interacted without the needed gem amount
 someone dies
-someone gets revived
 a passive triggers
 a monster initiated combat
 ||ELSE TODO
@@ -635,3 +634,9 @@ created the BehaviorNodeMethods class to store the methods
 created test BT JSON
 deleted the rest of the unnecessary scripts
 added light to the enemies
+upon entering a COMBAT //PRISON or BOSS room the doors close after 1.5f seconds
+added log for entering room
+added light the gem
+added log for party members joining, lever pull, chest open, gem pick up, boss door interactions, entity death, passive and combat trigger
+finished up all the log related things
+started sorting out the combat and tilemanager related issues

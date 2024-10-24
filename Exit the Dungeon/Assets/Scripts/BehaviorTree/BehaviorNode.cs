@@ -17,8 +17,6 @@ public abstract class BehaviorNode{
         foreach(var child in Children){
             child.Initialize(blackboard);
         }
-
-        Debug.Log("Initialized " + NameOfNode);
     }
 
     public virtual NodeStatus Execute(){

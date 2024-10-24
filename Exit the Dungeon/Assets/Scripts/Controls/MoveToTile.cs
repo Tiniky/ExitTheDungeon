@@ -30,18 +30,18 @@ public class MoveToTile : MonoBehaviour {
                     Debug.Log(mousePosition);
 
                     if(currentTile == null){
-                        currentTile = TileManager.instance.GetClosestTile(transform.position);
-                        lastTile = TileManager.instance.GetClosestTile(transform.position);
+                        currentTile = TileManager.Instance.GetClosestTile(transform.position);
+                        lastTile = TileManager.Instance.GetClosestTile(transform.position);
                     }
 
-                    currentTile = TileManager.instance.GetClosestTile(transform.position);
-                    hoveredTile = TileManager.instance.GetClosestTile(mousePosition);
+                    currentTile = TileManager.Instance.GetClosestTile(transform.position);
+                    hoveredTile = TileManager.Instance.GetClosestTile(mousePosition);
                     Debug.Log(hoveredTile.transform.position);
                     
                     if(hoveredTile.IsTileInEntityRange(gameObject, entity.Speed.StepsLeft()) && hoveredTile.isEmpty){
                         currentTile.TileOccupation();
                         currentTile.ResetColor();
-                        TileManager.instance.shouldRepaint = false;
+                        TileManager.Instance.shouldRepaint = false;
 
                         hoveredTile.TileOccupation(gameObject);
                         hoveredTile.IndicateTurn();
@@ -55,7 +55,7 @@ public class MoveToTile : MonoBehaviour {
                 if (transform.position != targetPosition) {
                     transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
                 } else {
-                    TileManager.instance.shouldRepaint = true;
+                    TileManager.Instance.shouldRepaint = true;
                 }
             }
         }

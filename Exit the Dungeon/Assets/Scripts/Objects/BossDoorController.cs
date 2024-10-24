@@ -22,9 +22,9 @@ public class BossDoorController : Interactable {
         if(GameManager.Gem == 4){
             GameObject doorHolder = gameObject.transform.parent.gameObject;
             doorHolder.SetActive(false);
-            Debug.Log("BDC - Door opened");
+            LogManager.AddMessage("The door disappears. Go ahead, what can go wrong?");
+        } else{
+            LogManager.AddMessage("The door is sealed shut. You might need to collect all the gems to open it.");
         }
-
-        Debug.Log("BDC - Gem count is not enough, gems: " + GameManager.Gem);
     }
 }

@@ -67,4 +67,26 @@ public class InstantiatedRoom {
         Doorway dw = RoomObj.GetComponent<Doorway>();
         return dw.Doors.FirstOrDefault(door => door.Direction == dir);
     }
+
+    public Dictionary<Vector2, InteractableTile> GetInteractables(){
+        Dictionary<Vector2, InteractableTile> interactables = new Dictionary<Vector2, InteractableTile>();
+        Transform tileHolderTransform = RoomObj.transform.Find("Environment/InteractableTiles");
+
+        if(tileHolderTransform == null) {
+            Debug.LogWarning("InteractableTiles holder not found in the room.");
+            return interactables;
+        }
+
+        foreach(Transform tileTransform in tileHolderTransform){
+            InteractableTile interactableTile = tileTransform.GetComponent<InteractableTile>();
+            if(interactableTile != null){
+                Vector2 tilePosition = new Vector2(tileTransform.position.x, tileTransform.position.y);
+                interactables.Add(tilePosition, interactableTile);
+            } else {
+                Debug.LogWarning("InteractableTile component not found on GameObject: " + tileTransform.name);
+            }
+        }
+
+        return interactables;
+    }
 }

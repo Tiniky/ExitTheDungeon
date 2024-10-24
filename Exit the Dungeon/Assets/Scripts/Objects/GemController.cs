@@ -6,23 +6,24 @@ public class GemController : Interactable {
     public Animator animator;
     public bool wasPickedUp;
 
-    void Start() {
+    void Start(){
         wasPickedUp = false;
         isInRange = false;
         isStillInteractable = true;
     }
 
-    void Update() {
+    void Update(){
         UpdateTrigger();
     }
 
-    protected override void Interact() {
+    protected override void Interact(){
         if(!wasPickedUp){
             PickUpGem();
         }
     }
 
-    void PickUpGem() {
+    void PickUpGem(){
+        LogManager.AddMessage("You picked up the gem. Wonder what it's for.");
         wasPickedUp = true;
         isStillInteractable = false;
         TextUIManager.UpdateInteractableText(false);

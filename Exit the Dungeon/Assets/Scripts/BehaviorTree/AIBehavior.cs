@@ -46,7 +46,7 @@ public class AIBehavior : MonoBehaviour {
 
     private IEnumerator ExecuteTree(){
         Status = Tree.Execute();
-        Debug.Log("Tree execution completed with status: " + Status);
+        //Debug.Log("Tree execution completed with status: " + Status);
         yield return new WaitForSeconds(Random.Range(2f, 5f));
         isTreeExecuting = false;
     }
@@ -102,7 +102,7 @@ public class AIBehavior : MonoBehaviour {
 
         if(entity.Size == Size.SMALL || entity.Size == Size.MEDIUM){
             jsonFile = Resources.Load<TextAsset>("JSONs/BT_small");
-        } else if(entity.Size == Size.LARGE || entity.Size == Size.HUGE){
+        } else if(entity.Size == Size.LARGE){
             jsonFile = Resources.Load<TextAsset>("JSONs/BT_big");
         } else if(entity.Size == Size.HUMONGOUS){
             jsonFile = Resources.Load<TextAsset>("JSONs/BT_boss");
