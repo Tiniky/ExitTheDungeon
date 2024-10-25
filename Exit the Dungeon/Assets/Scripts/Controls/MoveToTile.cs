@@ -11,7 +11,7 @@ public class MoveToTile : MonoBehaviour {
     private InteractableTile currentTile, hoveredTile, lastTile;
     private Entity entity;
 
-    void OnEnable() {
+    void OnEnable(){
         currentTile = null;
         entity = gameObject.GetComponent<Adventurer>();
         targetPosition = transform.position;
@@ -19,7 +19,7 @@ public class MoveToTile : MonoBehaviour {
         moveSpeed = 7.5f;
     }
 
-    void Update() {
+    void Update(){
         if(GameManager.Phase == GamePhase.COMBAT){
             if(BattleManager.IsTheirTurn(entity)){
                 BattleManager.MovementRangeOf(entity);
@@ -52,7 +52,7 @@ public class MoveToTile : MonoBehaviour {
 
                 }
 
-                if (transform.position != targetPosition) {
+                if(transform.position != targetPosition){
                     transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
                 } else {
                     TileManager.Instance.shouldRepaint = true;

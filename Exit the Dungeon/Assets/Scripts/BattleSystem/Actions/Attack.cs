@@ -6,6 +6,7 @@ using System.Text;
 
 public class Attack : Action {
     private Entity _target, _attacker;
+    private bool IsGodModeOn;
     
     public Attack() {
         this.ActionType = BasicAction.ATTACK;
@@ -14,6 +15,7 @@ public class Attack : Action {
 
     public override void Activate() {
         _attacker = BattleManager.CurrentFighter();
+        IsGodModeOn = GameManager.IsGodModeOn;
 
         if(BattleState.CanUseAction()){
             BattleState.ActionUsed();
@@ -31,18 +33,24 @@ public class Attack : Action {
         int enemyAC = _target.AC.GetValue();
         string info = GetInfo(attackRoll, enemyAC);
         Announce(info);
-        if(attackRoll >= enemyAC){
+
+        if(IsGodModeOn || attackRoll >= enemyAC){
             ExecuteAttack();
         }
     }
 
     private void ExecuteAttack() {
         if(_target != null && BattleManager.IsTargetInActionRange(_target)) {
-            float attackBonus = 0;
-            if (_attacker is Adventurer adventurer) {
-                attackBonus = adventurer.temporaryAttackBonus;
+            if(IsGodModeOn){
+                _target.Behaviour.TakeDmg(1000);
+            } else {
+                float attackBonus = 0;
+                if(_attacker is Adventurer adventurer){
+                    attackBonus = adventurer.temporaryAttackBonus;
+                }
+                _target.Behaviour.TakeDmg(Die.Roll(_attacker.Melee.DMG, _attacker.Melee.DMGmult) + (int)attackBonus);
             }
-            _target.Behaviour.TakeDmg(Die.Roll(_attacker.Melee.DMG, _attacker.Melee.DMGmult) + (int)attackBonus);
+
             FightUIManager.UpdateHPFor(_target);
         }
 

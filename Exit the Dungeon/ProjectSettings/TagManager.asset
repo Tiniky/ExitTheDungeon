@@ -30,6 +30,7 @@ TagManager:
   - cell
   - room
   - corridor
+  - light
   layers:
   - Default
   - TransparentFX

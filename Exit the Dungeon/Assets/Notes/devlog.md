@@ -640,3 +640,10 @@ added light the gem
 added log for party members joining, lever pull, chest open, gem pick up, boss door interactions, entity death, passive and combat trigger
 finished up all the log related things
 started sorting out the combat and tilemanager related issues
+updated cam movement to not be able to sneak peak in other rooms and improved mouse controller
+added light switch off during combat
+updated the test BT
+updated and implemented the flee section 
+removed light on enemies
+corrected tilerepaint
+modified enemy spawn so it's only triggered when player enters a corridor

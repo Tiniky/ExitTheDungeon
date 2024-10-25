@@ -78,4 +78,8 @@ public class InstantiatedCorridor {
         CloseDoor(ToDirection);
         CloseDoor(FromDirection, To);
     }
+
+    public InstantiatedRoom GetOtherRoom(InstantiatedRoom room){
+        return room == From ? To : From;
+    }
 }

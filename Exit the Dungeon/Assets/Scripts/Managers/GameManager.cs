@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour {
     private static List<GameObject> _rescued;
     private static Dictionary<InstantiatedRoom, GameObject> _memberHostageLocation;
     private static Dictionary<InstantiatedRoom, List<GameObject>> _enemies;
+    private static List<GameObject> _enemiesList;
     
     //room related
     private static Dictionary<InstantiatedRoom, Vector2> _allySpawnPoints;
@@ -56,6 +57,9 @@ public class GameManager : MonoBehaviour {
     private static int _keyPressCount = 0;
     private static float _firstKeyPressTime = 0f;
     private static readonly float _keyPressInterval = 2f;
+    
+    //testing
+    public static bool IsGodModeOn = true;
 
     private void Awake() {
         if(Instance == null) {
@@ -75,11 +79,11 @@ public class GameManager : MonoBehaviour {
             CheckIfPlayerBehindCreature(ally);
         }
 
-        if(Phase == GamePhase.COMBAT){
+        /*if(Phase == GamePhase.COMBAT){
             foreach(GameObject enemy in _enemies[CurrentRoom]){
                 CheckIfPlayerBehindCreature(enemy);
             }
-        }
+        }*/
     }
 
     private void SetUpGame(){
@@ -155,7 +159,8 @@ public class GameManager : MonoBehaviour {
         InitializePlayer();
         InitializeRooms();
         InitializePartyMembers();
-        InitializeEnemies();
+        //InitializeEnemies();
+        _enemiesList = new List<GameObject>();
         InitializeEnvironment();
 
         ActionKeys = new Dictionary<KeyCode, KeyAction> {
@@ -448,10 +453,51 @@ public class GameManager : MonoBehaviour {
         if(crd == null || crd == CurrentCorridor){
             return;
         }
-        
-        //enemy spawn logic needed
 
         CurrentCorridor = crd;
+        
+        //enemy spawn logic needed
+        InstantiatedRoom nextRoom = crd.GetOtherRoom(CurrentRoom);
+        List<Vector2> spawnPoints = _enemySpawnPoints[nextRoom];
+        Dictionary<Vector2, bool> spawnPointsDict = new Dictionary<Vector2, bool>();
+        foreach(Vector2 point in spawnPoints){
+            spawnPointsDict.Add(point, false);
+        }
+
+        List<string> monsters = EnemySpawnManager.SpawnEnemies(nextRoom.RoomObj.GetComponent<EnemySpawnPoint>());
+        GameObject enemyHolder = new GameObject("EnemyHolder");
+        enemyHolder.transform.parent = nextRoom.RoomObj.transform;
+        _enemiesList.Clear();
+
+
+        foreach(string monster in monsters){
+            int index = UnityEngine.Random.Range(0, spawnPointsDict.Count);
+            KeyValuePair<Vector2, bool> randomEntry = spawnPointsDict.ElementAt(index);
+
+            while(randomEntry.Value){
+                index = UnityEngine.Random.Range(0, spawnPointsDict.Count);
+                randomEntry = spawnPointsDict.ElementAt(index);
+            }
+
+            spawnPointsDict[randomEntry.Key] = true;
+            Vector3 spawnPoint = new Vector3(randomEntry.Key.x + nextRoom.CurrentPosition().x, randomEntry.Key.y + nextRoom.CurrentPosition().y, 0);
+
+            GameObject enemy = null;
+            switch(monster){
+                case "OGRE":
+                    enemy = Instantiate(PrefabManager.OGRE, spawnPoint, Quaternion.identity, enemyHolder.transform);
+                    break;
+                case "GOBLIN":
+                    enemy = Instantiate(PrefabManager.GOBLIN, spawnPoint, Quaternion.identity, enemyHolder.transform);
+                    break;
+            }
+            Creature enemyCreature = enemy.GetComponent<Creature>();
+            EnemyBehaviour creature = enemy.GetComponent<EnemyBehaviour>();
+            enemyCreature.Behaviour = creature;
+            _enemiesList.Add(enemy);
+            Debug.Log("GameManager - Enemy's health: " + enemyCreature.HP.GetValue());
+        }
+
         CurrentRoom = null;
         Debug.Log("GameManager - Entered corridor: " + CurrentCorridor.CorridorObj.name);
     }
@@ -482,7 +528,8 @@ public class GameManager : MonoBehaviour {
     }
 
     public static List<GameObject> Enemies(){
-        return _enemies[CurrentRoom];
+        return _enemiesList;
+        //return _enemies[CurrentRoom];
     }
 
     private static void HandleInputs(){
@@ -680,5 +727,22 @@ public class GameManager : MonoBehaviour {
         }
 
         return info;
+    }
+
+    public static void TurnOffTheLigths(List<GameObject> allObj){
+        foreach(GameObject obj in allObj){
+            Light2D light = obj.GetComponent<Light2D>();
+            if(light != null){
+                light.enabled = false;
+            }
+        }
+
+        GameObject lightObj = GameObject.FindWithTag("light");
+        if(lightObj != null) {
+            Light2D mainLight = lightObj.GetComponent<Light2D>();
+            if(mainLight != null) {
+                mainLight.intensity = 1.25f;
+            }
+        }
     }
 }

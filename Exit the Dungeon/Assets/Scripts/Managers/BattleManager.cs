@@ -33,11 +33,18 @@ public static class BattleManager {
         }
 
         foreach(GameObject enemy in GameManager.Enemies()){
+            if(enemy.transform.position.x > player.transform.position.x){
+                enemy.transform.localScale = new Vector3(-1, 1, 1);
+            } else {
+                enemy.transform.localScale = new Vector3(1, 1, 1);
+            }
+
             all.Add(enemy.GetComponent<Creature>());
             allObj.Add(enemy);
         }
 
         GameManager.FightPositionSetup(allObj);
+        GameManager.TurnOffTheLigths(allObj);
         battle = new Battle(all);
         _current = 0;
         TurnIndicatorSetup(_current);

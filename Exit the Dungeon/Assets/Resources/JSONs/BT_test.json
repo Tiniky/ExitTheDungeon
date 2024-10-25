@@ -17,10 +17,170 @@
               "methodName": "CheckIsCombat"
             },
             {
-              "nodeName": "DoNothing",
-              "nodeType": "Action",
-              "methodName": "DoNothing"
-            }
+              "nodeName": "Select Strategy",
+              "nodeType": "Selector",
+              "children": [
+                {
+                  "nodeName": "Wait Strategy",
+                  "nodeType": "Sequence",
+                  "children": [
+                    {
+                      "nodeName": "IsTheirTurn",
+                      "nodeType": "Condition",
+					  "shouldBeTrue": "false",
+                      "methodName": "IsTheirTurn"
+                    },
+                    {
+                      "nodeName": "FaceThePlayer",
+                      "nodeType": "Action",
+                      "methodName": "FaceThePlayer"
+                    }
+                  ]
+                },
+				{
+                  "nodeName": "Fight Strategy",
+                  "nodeType": "Sequence",
+                  "children": [
+                    {
+                      "nodeName": "Select Strategy",
+                      "nodeType": "Selector",
+                      "children": [
+                        {
+                          "nodeName": "Low Health Strategy",
+                          "nodeType": "Sequence",
+                          "children": [
+                            {
+                              "nodeName": "ShouldFlee",
+                              "nodeType": "Condition",
+							  "shouldBeTrue": "true",
+                              "methodName": "ShouldFlee"
+                            },
+                            {
+                              "nodeName": "IntCheckRoll",
+                              "nodeType": "Action",
+                              "methodName": "IntCheckRoll"
+                            },
+                            {
+                              "nodeName": "Select Strategy",
+                              "nodeType": "Selector",
+                              "children": [
+                                {
+                                  "nodeName": "Flee Strategy",
+                                  "nodeType": "Sequence",
+                                  "children": [
+                                    {
+                                      "nodeName": "CanFlee",
+                                      "nodeType": "Condition",
+									  "shouldBeTrue": "true",
+                                      "methodName": "CanFlee"
+                                    },
+                                    {
+									  "nodeName": "Flee From Combat Strategy",
+									  "nodeType": "Sequence",
+									  "children": [
+										{
+										  "nodeName": "GetFleeDirection",
+										  "nodeType": "Action",
+										  "methodName": "GetFleeDirection"
+										},
+										{
+										  "nodeName": "FindFleeWaypoint",
+										  "nodeType": "Action",
+										  "methodName": "FindFleeWaypoint"
+										},
+										{
+										  "nodeName": "GoToFleeWaypoint",
+										  "nodeType": "Action",
+										  "methodName": "GoToFleeWaypoint"
+										}
+									  ]
+									}
+                                  ]
+                                },
+                                {
+                                  "nodeName": "Keep Fighting Strategy",
+                                  "nodeType": "Sequence",
+                                  "children": [
+                                    {
+                                      "nodeName": "CanFlee",
+                                      "nodeType": "Condition",
+									  "shouldBeTrue": "false",
+                                      "methodName": "CanFlee"
+                                    },
+                                    {
+                                      "nodeName": "ContinueFighting",
+                                      "nodeType": "Action",
+                                      "methodName": "ContinueFighting"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "nodeName": "Good Health Strategy",
+                          "nodeType": "Sequence",
+                          "children": [
+                            {
+                              "nodeName": "ShouldFlee",
+                              "nodeType": "Condition",
+							  "shouldBeTrue": "false",
+                              "methodName": "ShouldFlee"
+                            },
+                            {
+                              "nodeName": "ContinueFighting",
+                              "nodeType": "Action",
+                              "methodName": "ContinueFighting"
+                            }
+                          ]
+                        }
+					  ]
+					},
+					{
+                      "nodeName": "Select Strategy",
+                      "nodeType": "Selector",
+                      "children": [
+                        {
+                          "nodeName": "Stop Fight Strategy",
+                          "nodeType": "Sequence",
+                          "children": [
+                            {
+                              "nodeName": "ShouldKeepFighting",
+                              "nodeType": "Condition",
+							  "shouldBeTrue": "false",
+                              "methodName": "ShouldKeepFighting"
+                            },
+                            {
+                              "nodeName": "DoNothing",
+                              "nodeType": "Action",
+                              "methodName": "DoNothing"
+                            }
+                          ]
+                        },
+						{
+                          "nodeName": "Action Strategy",
+                          "nodeType": "Sequence",
+                          "children": [
+                            {
+                              "nodeName": "ShouldKeepFighting",
+                              "nodeType": "Condition",
+							  "shouldBeTrue": "true",
+                              "methodName": "ShouldKeepFighting"
+                            },
+                            {
+                              "nodeName": "DoNothing",
+                              "nodeType": "Action",
+                              "methodName": "DoNothing"
+                            }
+                          ]
+                        }
+					  ]
+					}
+				  ]
+				}
+			  ]
+			}
           ]
         },
         {

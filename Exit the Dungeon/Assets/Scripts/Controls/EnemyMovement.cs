@@ -15,7 +15,6 @@ public class EnemyMovement : MonoBehaviour{
 
     void Update(){
         if(TargetPosition != Vector3.zero && transform.position != TargetPosition){
-            //if it goes left flip the sprite on the x axis
             if(TargetPosition.x < transform.position.x){
                 transform.localScale = new Vector3(-1, 1, 1);
             } else {

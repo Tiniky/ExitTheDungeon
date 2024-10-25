@@ -29,9 +29,9 @@
                       "methodName": "isTheirTurn"
                     },
                     {
-                      "nodeName": "DoNothing",
+                      "nodeName": "FaceThePlayer",
                       "nodeType": "Action",
-                      "methodName": "DoNothing"
+                      "methodName": "FaceThePlayer"
                     }
                   ]
                 },

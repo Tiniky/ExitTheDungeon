@@ -6,13 +6,13 @@ public class InteractableTile : MonoBehaviour {
     public Color baseColor, offsetColor, approveColor, rejectColor, turnindicatorColor;
     private SpriteRenderer _renderer;
     private GameObject _onTheTile;
-    public bool isEmpty;
-    private bool _isOffset;
+    public bool isEmpty, isOffset;
+    //private bool _isOffset;
 
-    public void Initialize(bool isOffset){
+    public void Initialize(bool IsOffset){
         isEmpty = true;
         _renderer = GetComponent<SpriteRenderer>();
-        _isOffset = isOffset;
+        isOffset = IsOffset;
         ResetColor();
     }
 
@@ -34,7 +34,7 @@ public class InteractableTile : MonoBehaviour {
     }
 
     public void ResetColor(){
-        _renderer.color = _isOffset ? baseColor : offsetColor;
+        _renderer.color = isOffset ? baseColor : offsetColor;
     }
 
     public void TileOccupation(GameObject fighter = null){
@@ -45,6 +45,7 @@ public class InteractableTile : MonoBehaviour {
     public void IndicateTurn(){    
         if(_renderer == null){
             _renderer = GetComponent<SpriteRenderer>();
+            isOffset = _renderer.color == baseColor;
         }
 
         _renderer.color = turnindicatorColor;
@@ -57,6 +58,7 @@ public class InteractableTile : MonoBehaviour {
     public void PaintTile(bool isWalkable){
         if(_renderer == null){
             _renderer = GetComponent<SpriteRenderer>();
+            isOffset = _renderer.color == baseColor;
         }
 
         if(isEmpty){

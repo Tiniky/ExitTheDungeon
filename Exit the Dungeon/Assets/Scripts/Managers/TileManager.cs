@@ -51,11 +51,27 @@ public class TileManager {
         return null;
     }
 
-    public void SnapToClosestTile(GameObject fighter){
-        Vector2 closestTile = GetClosestTilePosition(fighter.transform.position);
-        Debug.Log("TM - closest tile is " + closestTile);
-        InteractableTile tile = GetTileAtPosition(closestTile);
-        Debug.Log("TM - tile is " + tile);
+    private Vector2 GetPosOfTile(InteractableTile tile){
+        foreach(var tilePos in _tiles){
+            if(tilePos.Value == tile){
+                return tilePos.Key;
+            }
+        }
+
+        return Vector2.zero;
+    }
+
+    public void SnapToClosestTile(GameObject fighter, InteractableTile tile = null){
+        Vector2 closestTile;
+        
+        if(tile == null){
+            closestTile = GetClosestTilePosition(fighter.transform.position);
+            Debug.Log("TM - closest tile is " + closestTile);
+            tile = GetTileAtPosition(closestTile);
+            Debug.Log("TM - tile is " + tile);
+        } else {
+            closestTile = GetPosOfTile(tile);
+        }
 
         if(tile != null){
             if(fighter.GetComponent<Entity>().Size == Size.MEDIUM){
@@ -98,6 +114,17 @@ public class TileManager {
         return GetTileAtPosition(closestDistance);
     }
 
+    public InteractableTile GetClosestEmptyTile(Vector3 position){
+        Vector2 closestDistance = GetClosestTilePosition(position);
+        InteractableTile tile = GetTileAtPosition(closestDistance);
+
+        if(tile.isEmpty){
+            return tile;
+        } else {
+            return GetClosestEmptyTile(position + new Vector3(0.5f, 0f, 0f));
+        }
+    }
+
     public InteractableTile GetClosestFrom(List<InteractableTile> tiles, GameObject from){
         float minDistance = Mathf.Infinity;
         InteractableTile closestTile = null;
@@ -137,7 +164,9 @@ public class TileManager {
         }
     }
 
-    public void Reset() {
+    public void Reset(){
+        Debug.Log("repainting tiles: " + _tilesInRange.Count);
+
         foreach(InteractableTile tile in _tilesInRange){
             tile.ResetColor();
         }
@@ -156,10 +185,6 @@ public class TileManager {
             InteractableTile closest = GetClosestFrom(tiles, from.gameObject);
             return closest.IsTileInEntityRange(from.gameObject, range);
         }
-    }
-
-    public void IgniteTile(Vector3 position){
-        InteractableTile tile = GetClosestTile(position);
     }
 
     public void FreeTiles(Entity entity){
