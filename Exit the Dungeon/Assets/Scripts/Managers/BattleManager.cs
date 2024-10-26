@@ -43,7 +43,6 @@ public static class BattleManager {
             allObj.Add(enemy);
         }
 
-        GameManager.FightPositionSetup(allObj);
         GameManager.TurnOffTheLigths(allObj);
         battle = new Battle(all);
         _current = 0;
@@ -143,7 +142,7 @@ public static class BattleManager {
             range = 0;
         }
 
-        return TileManager.Instance.isTwoEntityInRange(CurrentFighter(), entity, range);
+        return TileManager.Instance.IsTwoEntityInRange(CurrentFighter(), entity, range);
     }
 
     public static bool IsTargetInAbilityRange(Entity entity) {
@@ -163,7 +162,7 @@ public static class BattleManager {
             range = 0;
         }
 
-        return TileManager.Instance.isTwoEntityInRange(CurrentFighter(), entity, range);
+        return TileManager.Instance.IsTwoEntityInRange(CurrentFighter(), entity, range);
     }
 
     public static void MovementRangeOf(Entity entity){
@@ -257,5 +256,36 @@ public static class BattleManager {
         } else {
             BattleState.LockActions();
         }
+    }
+
+    public static void CheckForEndOfCombat(){
+        List<Entity> fighters = battle.GetQueue();
+        int living = 0;
+        foreach(Entity entity in fighters){
+            if(entity.isAlive){
+                living++;
+            }
+        }
+
+        if(living == GameManager.Allies().Count + 1){
+            GameManager.EndCombatPhase();
+        }
+    }
+
+    public static List<Entity> GetStillAlive(){
+        List<Entity> fighters = battle.GetQueue();
+        List<Entity> alive = new List<Entity>();
+
+        foreach(Entity entity in fighters){
+            if(entity.isAlive){
+                alive.Add(entity);
+            }
+        }
+
+        return alive;
+    }
+
+    public static List<GameObject> GetALL(){
+        return allObj;
     }
 }

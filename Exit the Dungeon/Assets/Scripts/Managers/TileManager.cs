@@ -26,6 +26,7 @@ public class TileManager {
     }
 
     public void LoadCurrentRoom(InstantiatedRoom room){
+        _tiles.Clear();
         if(room == null){
             Debug.LogError("No room found.");
             return;
@@ -68,24 +69,21 @@ public class TileManager {
             closestTile = GetClosestTilePosition(fighter.transform.position);
             Debug.Log("TM - closest tile is " + closestTile);
             tile = GetTileAtPosition(closestTile);
-            Debug.Log("TM - tile is " + tile);
+            Debug.Log("TM - tile is " + tile.gameObject.name);
         } else {
             closestTile = GetPosOfTile(tile);
+            Debug.Log("TM - tile is " + tile.gameObject.name);
         }
 
         if(tile != null){
             if(fighter.GetComponent<Entity>().Size == Size.MEDIUM){
                 tile.TileOccupation(fighter);
-                if(fighter == GameManager.PlayerObj()){
-                    fighter.transform.position = tile.transform.position + new Vector3(0f,0.5f,0f);
-                } else {
-                    fighter.transform.position = tile.transform.position + new Vector3(0f,0.3f,0f);
-                }
+                fighter.transform.position = tile.transform.position + new Vector3(0f,0.6f,0f);
             } else if(fighter.GetComponent<Entity>().Size == Size.LARGE){
                 InteractableTile tile2 = GetTileAtPosition(closestTile + new Vector2(-1f, 0f));
                 tile.TileOccupation(fighter);
                 tile2.TileOccupation(fighter);
-                fighter.transform.position = tile.transform.position + new Vector3(-0.5f, 1.3f, 0f);
+                fighter.transform.position = tile.transform.position + new Vector3(-0.5f, 1f, 0f);
             } else if(fighter.GetComponent<Entity>().Size == Size.SMALL){
                 tile.TileOccupation(fighter);
                 fighter.transform.position = tile.transform.position + new Vector3(0f,0.3f,0f);
@@ -174,7 +172,7 @@ public class TileManager {
         _tilesInRange.Clear();
     }
 
-    public bool isTwoEntityInRange(Entity from, Entity target, int range){
+    public bool IsTwoEntityInRange(Entity from, Entity target, int range){
         List<InteractableTile> tiles = new List<InteractableTile>();
 
         if(target.Size == Size.MEDIUM){
@@ -198,6 +196,15 @@ public class TileManager {
 
         foreach(InteractableTile tile in tiles){
             tile.TileOccupation();
+        }
+    }
+
+    public void ReleaseTiles(){
+        List<Entity> entities = new List<Entity>();
+        entities.AddRange(BattleManager.GetStillAlive());
+
+        foreach(Entity entity in entities){
+            FreeTiles(entity);
         }
     }
 }

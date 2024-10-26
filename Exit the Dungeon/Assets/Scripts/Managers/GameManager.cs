@@ -41,7 +41,6 @@ public class GameManager : MonoBehaviour {
     private static List<GameObject> _partyMembers;
     private static List<GameObject> _rescued;
     private static Dictionary<InstantiatedRoom, GameObject> _memberHostageLocation;
-    private static Dictionary<InstantiatedRoom, List<GameObject>> _enemies;
     private static List<GameObject> _enemiesList;
     
     //room related
@@ -49,6 +48,7 @@ public class GameManager : MonoBehaviour {
     private static Dictionary<InstantiatedRoom, List<Vector2>> _enemySpawnPoints;
     private static Dictionary<InstantiatedRoom, GameObject> _doors;
     private static Dictionary<InstantiatedRoom, List<InteractableObj>> _interactables;
+    private static Dictionary<InstantiatedRoom, bool> _wasCleared;
 
     //from save - needs to be implemented
     public static bool HasKey = false;
@@ -159,8 +159,6 @@ public class GameManager : MonoBehaviour {
         InitializePlayer();
         InitializeRooms();
         InitializePartyMembers();
-        //InitializeEnemies();
-        _enemiesList = new List<GameObject>();
         InitializeEnvironment();
 
         ActionKeys = new Dictionary<KeyCode, KeyAction> {
@@ -206,8 +204,17 @@ public class GameManager : MonoBehaviour {
 
     private void InitializeRooms(){
         Dungeon.TurnOffInteractableTiles();
+        _wasCleared = new Dictionary<InstantiatedRoom, bool>();
         _allySpawnPoints = new Dictionary<InstantiatedRoom, Vector2>();
         _enemySpawnPoints = new Dictionary<InstantiatedRoom, List<Vector2>>();
+
+        foreach(InstantiatedRoom room in Dungeon.Rooms){
+            if(room.Room.Type == RoomType.SPAWN){
+                _wasCleared.Add(room, true);
+            } else{
+                _wasCleared.Add(room, false);
+            }
+        }
 
         Dictionary<InstantiatedRoom, Vector2> partyMemberSpawnPoints = Dungeon.GetSpawnPointsOfPartyMember();
         foreach(KeyValuePair<InstantiatedRoom, Vector2> entry in partyMemberSpawnPoints){
@@ -248,49 +255,46 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    private void InitializeEnemies(){
-        _enemies = new Dictionary<InstantiatedRoom, List<GameObject>>();
+    private static void InitializeEnemies(InstantiatedRoom nextRoom){
+        _enemiesList = new List<GameObject>();
+        List<Vector2> spawnPoints = _enemySpawnPoints[nextRoom];
+        Dictionary<Vector2, bool> spawnPointsDict = new Dictionary<Vector2, bool>();
+        foreach(Vector2 point in spawnPoints){
+            spawnPointsDict.Add(point, false);
+        }
 
-        foreach(KeyValuePair<InstantiatedRoom, List<Vector2>> entry in _enemySpawnPoints){
-            InstantiatedRoom currentRoom = entry.Key;
-            Dictionary<Vector2, bool> spawnPoints = new Dictionary<Vector2, bool>();
-            foreach(Vector2 point in entry.Value){
-                spawnPoints.Add(point, false);
+        List<string> monsters = EnemySpawnManager.SpawnEnemies(nextRoom.RoomObj.GetComponent<EnemySpawnPoint>());
+        GameObject enemyHolder = new GameObject("EnemyHolder");
+        enemyHolder.transform.parent = nextRoom.RoomObj.transform;
+        _enemiesList.Clear();
+
+
+        foreach(string monster in monsters){
+            int index = UnityEngine.Random.Range(0, spawnPointsDict.Count);
+            KeyValuePair<Vector2, bool> randomEntry = spawnPointsDict.ElementAt(index);
+
+            while(randomEntry.Value){
+                index = UnityEngine.Random.Range(0, spawnPointsDict.Count);
+                randomEntry = spawnPointsDict.ElementAt(index);
             }
 
-            List<string> monsters = EnemySpawnManager.SpawnEnemies(currentRoom.RoomObj.GetComponent<EnemySpawnPoint>());
-            GameObject enemyHolder = new GameObject("EnemyHolder");
-            enemyHolder.transform.parent = currentRoom.RoomObj.transform;
-            List<GameObject> enemies = new List<GameObject>();
+            spawnPointsDict[randomEntry.Key] = true;
+            Vector3 spawnPoint = new Vector3(randomEntry.Key.x + nextRoom.CurrentPosition().x, randomEntry.Key.y + nextRoom.CurrentPosition().y, 0);
 
-            foreach(string monster in monsters){
-                int index = UnityEngine.Random.Range(0, spawnPoints.Count);
-                KeyValuePair<Vector2, bool> randomEntry = spawnPoints.ElementAt(index);
-
-                while(randomEntry.Value){
-                    index = UnityEngine.Random.Range(0, spawnPoints.Count);
-                    randomEntry = spawnPoints.ElementAt(index);
-                }
-
-                spawnPoints[randomEntry.Key] = true;
-                Vector3 spawnPoint = new Vector3(randomEntry.Key.x + currentRoom.CurrentPosition().x, randomEntry.Key.y + currentRoom.CurrentPosition().y, 0);
-
-                GameObject enemy = null;
-                switch(monster){
-                    case "OGRE":
-                        enemy = Instantiate(PrefabManager.OGRE, spawnPoint, Quaternion.identity, enemyHolder.transform);
-                        break;
-                    case "GOBLIN":
-                        enemy = Instantiate(PrefabManager.GOBLIN, spawnPoint, Quaternion.identity, enemyHolder.transform);
-                        break;
-                }
-                Creature enemyCreature = enemy.GetComponent<Creature>();
-                EnemyBehaviour creature = enemy.GetComponent<EnemyBehaviour>();
-                enemyCreature.Behaviour = creature;
-                enemies.Add(enemy);
-                Debug.Log("GameManager - Enemy's health: " + enemyCreature.HP.GetValue());
+            GameObject enemy = null;
+            switch(monster){
+                case "OGRE":
+                    enemy = Instantiate(PrefabManager.OGRE, spawnPoint, Quaternion.identity, enemyHolder.transform);
+                    break;
+                case "GOBLIN":
+                    enemy = Instantiate(PrefabManager.GOBLIN, spawnPoint, Quaternion.identity, enemyHolder.transform);
+                    break;
             }
-            _enemies.Add(currentRoom, enemies);
+            Creature enemyCreature = enemy.GetComponent<Creature>();
+            EnemyBehaviour creature = enemy.GetComponent<EnemyBehaviour>();
+            enemyCreature.Behaviour = creature;
+            _enemiesList.Add(enemy);
+            Debug.Log("GameManager - Enemy's health: " + enemyCreature.HP.GetValue());
         }
     }
 
@@ -433,18 +437,18 @@ public class GameManager : MonoBehaviour {
             LogManager.AddMessage(GetLogMessage(room));
         }
 
-        if(room.Room.Type == RoomType.COMBAT || room.Room.Type == RoomType.BOSS || room.Room.Type == RoomType.PRISON){
-            TileManager.Instance.LoadCurrentRoom(room);
-            StartCoroutine(Instance.InitializeCombat());
-        }
-
         CurrentRoom = room;
         CurrentCorridor = null;
+
+        if(room.Room.Type == RoomType.COMBAT || room.Room.Type == RoomType.BOSS || room.Room.Type == RoomType.PRISON){
+            TileManager.Instance.LoadCurrentRoom(room);
+            HandleRoomDoors(true);
+            StartCoroutine(Instance.InitializeCombat());
+        }
     }
 
     private IEnumerator InitializeCombat(){
         yield return new WaitForSeconds(1.5f);
-        HandleRoomDoors(true);
         BattleManager.Initialize();
     }
     
@@ -455,47 +459,10 @@ public class GameManager : MonoBehaviour {
         }
 
         CurrentCorridor = crd;
-        
-        //enemy spawn logic needed
         InstantiatedRoom nextRoom = crd.GetOtherRoom(CurrentRoom);
-        List<Vector2> spawnPoints = _enemySpawnPoints[nextRoom];
-        Dictionary<Vector2, bool> spawnPointsDict = new Dictionary<Vector2, bool>();
-        foreach(Vector2 point in spawnPoints){
-            spawnPointsDict.Add(point, false);
-        }
-
-        List<string> monsters = EnemySpawnManager.SpawnEnemies(nextRoom.RoomObj.GetComponent<EnemySpawnPoint>());
-        GameObject enemyHolder = new GameObject("EnemyHolder");
-        enemyHolder.transform.parent = nextRoom.RoomObj.transform;
-        _enemiesList.Clear();
-
-
-        foreach(string monster in monsters){
-            int index = UnityEngine.Random.Range(0, spawnPointsDict.Count);
-            KeyValuePair<Vector2, bool> randomEntry = spawnPointsDict.ElementAt(index);
-
-            while(randomEntry.Value){
-                index = UnityEngine.Random.Range(0, spawnPointsDict.Count);
-                randomEntry = spawnPointsDict.ElementAt(index);
-            }
-
-            spawnPointsDict[randomEntry.Key] = true;
-            Vector3 spawnPoint = new Vector3(randomEntry.Key.x + nextRoom.CurrentPosition().x, randomEntry.Key.y + nextRoom.CurrentPosition().y, 0);
-
-            GameObject enemy = null;
-            switch(monster){
-                case "OGRE":
-                    enemy = Instantiate(PrefabManager.OGRE, spawnPoint, Quaternion.identity, enemyHolder.transform);
-                    break;
-                case "GOBLIN":
-                    enemy = Instantiate(PrefabManager.GOBLIN, spawnPoint, Quaternion.identity, enemyHolder.transform);
-                    break;
-            }
-            Creature enemyCreature = enemy.GetComponent<Creature>();
-            EnemyBehaviour creature = enemy.GetComponent<EnemyBehaviour>();
-            enemyCreature.Behaviour = creature;
-            _enemiesList.Add(enemy);
-            Debug.Log("GameManager - Enemy's health: " + enemyCreature.HP.GetValue());
+        
+        if((nextRoom.Room.Type == RoomType.COMBAT || nextRoom.Room.Type == RoomType.BOSS || nextRoom.Room.Type == RoomType.PRISON) && !_wasCleared[nextRoom]){
+            InitializeEnemies(nextRoom);
         }
 
         CurrentRoom = null;
@@ -582,14 +549,6 @@ public class GameManager : MonoBehaviour {
         Cursor.visible = true; 
     }
 
-    public static void FightEnded(){
-        Phase = GamePhase.ADVENTURE;
-        WasSceneChange = true;
-        SwapTilesVisibility(false);
-        _player.GetComponent<BoxCollider2D>().enabled = true;
-        Cursor.visible = false; 
-    }
-
     public static HitPoints GetPlayerHP(){
         return _adventurer.HP;
     }
@@ -648,9 +607,9 @@ public class GameManager : MonoBehaviour {
 
     public static void StartCombatPhase(){
         Phase = GamePhase.COMBAT;
+        FightPositionSetup();
         FightUIManager.InitVisibility(false);
         List<GameObject> fighters = FightUIManager.GetParticipantClones();
-
         foreach(GameObject clone in fighters){
             Destroy(clone);
         }
@@ -659,23 +618,45 @@ public class GameManager : MonoBehaviour {
         FightUIManager.FightVisibility(true);
     }
 
+    public static void EndCombatPhase(){
+        Phase = GamePhase.ADVENTURE;
+        WasSceneChange = true;
+        FightUIManager.FightVisibility(false);
+        SwapTilesVisibility(false);
+        TileManager.Instance.ReleaseTiles();
+        HandleRoomDoors(false);
+        HandleFightAftermath();
+        _wasCleared[CurrentRoom] = true;
+        LogManager.AddMessage("Combat is over. The room has been cleared.");
+
+        foreach(GameObject enemy in _enemiesList){
+            Destroy(enemy);
+        }
+
+        List<GameObject> uiClones = FightUIManager.GetFightQueueClones();
+        foreach(GameObject clone in uiClones){
+            Destroy(clone);
+        }
+
+        Cursor.visible = false;
+    }
+
     private static void SwapTilesVisibility(bool state){
         Dungeon.SetVisibilityOfTiles(state);
     }
 
-    public static void FightPositionSetup(List<GameObject> participants){
+    public static void FightPositionSetup(){
+        List<GameObject> participants = new List<GameObject>();
+        participants.AddRange(BattleManager.GetALL());
+
         foreach(GameObject fighter in participants){
             if(fighter.GetComponent<BoxCollider2D>() != null){
-                if(fighter.GetComponent<Entity>() is Creature){
-                    fighter.GetComponent<CapsuleCollider2D>().enabled = false;
-                }
-
                 fighter.GetComponent<BoxCollider2D>().enabled = false;
             }
             
-            Vector3 prevPop = fighter.transform.position;
+            Vector3 prevPos = fighter.transform.position;
             TileManager.Instance.SnapToClosestTile(fighter);
-            Debug.Log("GameManager - snapped from " + prevPop + " to " + fighter.transform.position);
+            Debug.Log("GameManager - " + fighter.name + " snapped from " + prevPos + " to " + fighter.transform.position);
         }
     }
 
@@ -738,11 +719,31 @@ public class GameManager : MonoBehaviour {
         }
 
         GameObject lightObj = GameObject.FindWithTag("light");
-        if(lightObj != null) {
+        if(lightObj != null){
             Light2D mainLight = lightObj.GetComponent<Light2D>();
-            if(mainLight != null) {
+            if(mainLight != null){
                 mainLight.intensity = 1.25f;
             }
+        }
+    }
+
+    public static void HandleFightAftermath(){
+        GameObject lightObj = GameObject.FindWithTag("light");
+        if(lightObj != null){
+            Light2D mainLight = lightObj.GetComponent<Light2D>();
+            if(mainLight != null){
+                mainLight.intensity = 0.5f;
+            }
+        }
+
+        Light2D light = _player.GetComponent<Light2D>();
+        if(light != null){
+            light.enabled = true;
+            _player.GetComponent<BoxCollider2D>().enabled = true;
+        }
+
+        foreach(GameObject ally in _rescued){
+            ally.GetComponent<BoxCollider2D>().enabled = true;
         }
     }
 }

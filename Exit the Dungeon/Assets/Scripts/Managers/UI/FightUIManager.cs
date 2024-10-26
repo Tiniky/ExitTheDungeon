@@ -130,8 +130,12 @@ public static class FightUIManager {
         return _participantClones;
     }
 
-    public static Dictionary<Entity, GameObject> GetFightQueueClones() {
-        return _inqueueClones;
+    public static List<GameObject> GetFightQueueClones(){
+        List<GameObject> clones = new List<GameObject>();
+        foreach(Entity entity in _inqueueClones.Keys){
+            clones.Add(_inqueueClones[entity]);
+        }
+        return clones;
     }
 
     public static void InitVisibility(bool shouldBeVisible) {
@@ -157,5 +161,10 @@ public static class FightUIManager {
 
     public static void ClearFightInfo(){
         UpdateFightInfo("");
+    }
+
+    public static void ClearFightQueue(){
+        _inqueueClones.Clear();
+        _arrow.GetComponent<ArrowController>().Reset();
     }
 }

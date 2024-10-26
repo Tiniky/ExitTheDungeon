@@ -611,10 +611,14 @@ configure the speed via speed of character
 maybe make corridors one longer and make all template corners +1 tile
 fix the minimap to work with procgen
 check advantage for needed situations: initiative
-spawnsystem should be reworked:
-only spawn enemies when entering a corridor
-if a room already has enemies when the player enters corridor check the room if it matches the needed monster weight/amount 
-if no then destroy all and do the enemy spawn again 
+only spawn enemies when entering a corridor - DONE
+handle end of combat:
+check for end of combat
+destory enemy objects
+turn back the light and the boxcolliders
+clear the interactable tile's isEmpty
+delete the queue from the FightUIManager and reset the arrow
+handle enemy snap to tile <- add INITCOMBAT Phase
 ||UNIT TESTS
 
 ~third week of october
@@ -634,7 +638,7 @@ created the BehaviorNodeMethods class to store the methods
 created test BT JSON
 deleted the rest of the unnecessary scripts
 added light to the enemies
-upon entering a COMBAT //PRISON or BOSS room the doors close after 1.5f seconds
+upon entering a COMBAT, PRISON or BOSS room the doors close after 1.5f seconds
 added log for entering room
 added light the gem
 added log for party members joining, lever pull, chest open, gem pick up, boss door interactions, entity death, passive and combat trigger
@@ -647,3 +651,4 @@ updated and implemented the flee section
 removed light on enemies
 corrected tilerepaint
 modified enemy spawn so it's only triggered when player enters a corridor
+added ways to handle the end of combat

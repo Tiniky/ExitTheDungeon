@@ -100,6 +100,8 @@ public abstract class Entity : MonoBehaviour {
             if(GameManager.Phase == GamePhase.COMBAT){
                 TileManager.Instance.FreeTiles(this);
             }
+
+            BattleManager.CheckForEndOfCombat();
         } else{
             //DEATH SCREEN
             Debug.Log("you're ded");
