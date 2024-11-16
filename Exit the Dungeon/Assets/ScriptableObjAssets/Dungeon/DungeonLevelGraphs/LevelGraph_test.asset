@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9002059392986433442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 760493841d2ae5947ba947ee86d21283, type: 3}
+  m_Name: Room
+  m_EditorClassIdentifier: 
+  ID: 7aeb6785-d29f-412e-944c-c537e88a1171
+  Name: COMBAT
+  Type: 2
+  Position: {x: -225, y: 250}
+  IsSelected: 0
+  IsFocused: 0
+  UniqueRoomTemplates: []
+--- !u!114 &-7100216813328267536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a95c5eefd0755264398e848aa7538e89, type: 3}
+  m_Name: Connection
+  m_EditorClassIdentifier: 
+  From: {fileID: 4576555405946071662}
+  To: {fileID: -9002059392986433442}
+  IsSelected: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adee3d7d321c08b4b87c5ffcca508bf7, type: 3}
+  m_Name: LevelGraph_test
+  m_EditorClassIdentifier: 
+  Rooms:
+  - {fileID: 4576555405946071662}
+  - {fileID: -9002059392986433442}
+  Connections:
+  - {fileID: -7100216813328267536}
+  CorridorTemplates:
+  - {fileID: 4894488429718327435, guid: 3845711cc7ee6554bbd05c62303b86cc, type: 3}
+  - {fileID: 5060929361819489440, guid: d74eee83ef183854b99353aca20213ea, type: 3}
+  RoomTemplates:
+  - {fileID: 418259810615314364, guid: 62e22e0492efe384f9e6668e4cdba095, type: 3}
+  - {fileID: 4352896481668256532, guid: c89be7b7b2ec5994aa1147d885aaabd7, type: 3}
+  - {fileID: 7412769552797913580, guid: dbfd4525133d2a440b40b31e0a1a26a7, type: 3}
+--- !u!114 &4576555405946071662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 760493841d2ae5947ba947ee86d21283, type: 3}
+  m_Name: Room
+  m_EditorClassIdentifier: 
+  ID: 99f58651-f3ca-483a-84ca-da906d98d998
+  Name: SPAWN
+  Type: 1
+  Position: {x: -225, y: 175}
+  IsSelected: 0
+  IsFocused: 0
+  UniqueRoomTemplates:
+  - {fileID: 8754018504211150016, guid: 1a97331bb3dfb334c850aaaeaedcfb5e, type: 3}

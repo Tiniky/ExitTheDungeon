@@ -91,7 +91,7 @@ public class RoomSettingsInspector : UnityEditor.Editor{
                     
                     InteractableTile Tile = TileClone.GetComponent<InteractableTile>();
                     bool isOffset = (Mathf.Abs(cellPosition.x) + Mathf.Abs(cellPosition.y)) % 2 == 1;
-                    Tile.Initialize(isOffset);
+                    Tile.InitializeBackend(isOffset);
 
                     _tiles[new Vector2(cellPosition.x, cellPosition.y)] = Tile;
                 }

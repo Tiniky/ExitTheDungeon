@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using System.Threading.Tasks;
 
@@ -165,6 +166,10 @@ public static class BattleManager {
         return TileManager.Instance.IsTwoEntityInRange(CurrentFighter(), entity, range);
     }
 
+    public static bool IsTargetInRange(Entity target, int range){
+        return TileManager.Instance.IsTwoEntityInRange(CurrentFighter(), target, range);
+    }
+
     public static void MovementRangeOf(Entity entity){
         TileManager.Instance.Reset();
 
@@ -273,6 +278,11 @@ public static class BattleManager {
     }
 
     public static List<Entity> GetStillAlive(){
+        if(battle == null){
+            Debug.LogError("Battle is null.");
+            return new List<Entity>();
+        }
+
         List<Entity> fighters = battle.GetQueue();
         List<Entity> alive = new List<Entity>();
 
@@ -283,6 +293,14 @@ public static class BattleManager {
         }
 
         return alive;
+    }
+
+    public static List<Entity> GetStillAliveAdventurers(){
+        return GetStillAlive().Where(entity => entity != null && entity.Type == Type.ALLY).ToList();
+    }
+
+    public static List<Entity> GetStillAliveMonsters(){
+        return GetStillAlive().Where(entity => entity != null && entity.Type == Type.ENEMY).ToList();
     }
 
     public static List<GameObject> GetALL(){

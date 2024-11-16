@@ -103,6 +103,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1535011296256512106
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -232,6 +233,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8855504049866758147
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -361,6 +363,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5908818330341580140
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -490,6 +493,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4416565277151971013
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -619,6 +623,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3965078400308045585
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -748,6 +753,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2215919022323423758
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -877,6 +883,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6160829722720656046
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1006,6 +1013,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5143574296047249018
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1135,6 +1143,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4048135735117026410
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1264,6 +1273,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7574580414180886378
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1393,6 +1403,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5058486657848967347
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1522,6 +1533,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1341499711138146001
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1651,6 +1663,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4008420168251754982
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1780,6 +1793,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6998752939141090303
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1909,6 +1923,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5371881045912666144
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2038,6 +2053,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5217141840232789959
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2167,6 +2183,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7650486480566978793
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2296,6 +2313,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1355989242717792020
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2425,6 +2443,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6483196737442133396
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2554,6 +2573,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5780199803141054460
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2683,6 +2703,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1868011414075429554
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2812,6 +2833,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6761632557708967646
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2941,6 +2963,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2344780153627432123
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3070,6 +3093,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7940135376298987610
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3199,6 +3223,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5570043824415474971
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3328,6 +3353,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &9115220512061846436
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3457,6 +3483,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6187095351578463380
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3586,6 +3613,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8130591559287639194
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3715,6 +3743,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4280059393636030923
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3844,6 +3873,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8417055320586621703
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3973,6 +4003,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4168143905910440637
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4102,6 +4133,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8950645171381910124
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4231,6 +4263,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5853557657292793512
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4360,6 +4393,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4358155079276993534
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4489,6 +4523,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1077413496970181748
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4618,6 +4653,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3356068793190698516
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4747,6 +4783,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1140800863602644242
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4876,6 +4913,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1967552557413537198
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5005,6 +5043,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8012967820094412009
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5134,6 +5173,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &250414501496818667
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5263,6 +5303,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6980563004135558207
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5392,6 +5433,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2914011781647172004
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5521,6 +5563,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1887331596907460895
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5650,6 +5693,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &254084408775447451
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5779,6 +5823,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6212150010803253077
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5908,6 +5953,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2461707425383726671
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6037,6 +6083,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3062295695717867174
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7150,6 +7197,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7714461154480066354
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7279,6 +7327,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6578149261407197407
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7408,6 +7457,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4316086246813727479
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7537,6 +7587,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2001778523891679011
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7666,6 +7717,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1390363993554481405
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7795,6 +7847,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6848805433392907484
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7924,6 +7977,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &9010713524116676724
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8053,6 +8107,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3879702957736384451
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8182,6 +8237,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2951061410201114435
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8311,6 +8367,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1875201724524859226
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8440,6 +8497,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3258210137857637099
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8569,6 +8627,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6725399816738497888
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8698,6 +8757,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &386234747461099457
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8827,6 +8887,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5098712936039463495
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8956,6 +9017,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &673444763582111514
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9085,6 +9147,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4418536040050648024
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9214,6 +9277,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1811902986007362742
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9343,6 +9407,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7122067776952313678
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9472,6 +9537,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &755326524315330550
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9601,6 +9667,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7853452669128526566
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9730,6 +9797,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5123502048479698325
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9859,6 +9927,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5076866892881665718
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9988,6 +10057,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7145716310875196978
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10117,6 +10187,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6626558154936536574
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10246,6 +10317,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8608224787586282369
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10375,6 +10447,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7137968482535118889
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10504,6 +10577,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &9105074016791168523
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10633,6 +10707,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8800855709040276279
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10762,6 +10837,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6462563864867580020
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10891,6 +10967,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7494200186393783245
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11020,6 +11097,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6482371818190362595
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11149,6 +11227,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4762395088304078526
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12623,6 +12702,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6273416316440581306
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12752,6 +12832,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8026469134676389303
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12881,6 +12962,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8704847092284692350
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13010,6 +13092,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5810588225684477565
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13139,6 +13222,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1680865955762060107
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13268,6 +13352,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1786662737409837857
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13397,6 +13482,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3752184239392259567
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13526,6 +13612,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5852864033278757871
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13655,6 +13742,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1263628870707192357
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13784,6 +13872,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5643636707388760067
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13913,6 +14002,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5376472141046576988
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14042,6 +14132,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8293176610566126565
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14171,6 +14262,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6427720065911903287
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14300,6 +14392,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8491233996027828329
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14429,6 +14522,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2465002618289782089
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14558,6 +14652,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2122441913577849177
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14687,6 +14782,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1838072687313798036
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14816,6 +14912,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5747166279410349313
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14945,6 +15042,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8585940612287761984
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15074,6 +15172,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2684591328156303742
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15203,6 +15302,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5718043653682139707
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15332,6 +15432,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8617983435486355363
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15461,6 +15562,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4942182514977438389
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15590,6 +15692,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2183865856355642459
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15719,6 +15822,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5165689624003900243
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15848,6 +15952,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6503630296289711590
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15977,6 +16082,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1106507557425313943
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16106,6 +16212,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5608939894085090082
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16235,6 +16342,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3649083328050019573
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16364,6 +16472,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2467493204053802264
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16493,6 +16602,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3054696296993527046
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16622,6 +16732,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5823748037633422533
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16751,6 +16862,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2849506115162620296
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16880,6 +16992,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5500361399438856309
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17042,6 +17155,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4739123858688548993
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17171,6 +17285,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8012203737572839101
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17300,6 +17415,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2912624733331769486
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17429,6 +17545,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1994206208756765970
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17558,6 +17675,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &9087623183937036041
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17687,6 +17805,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &200269196023341940
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17816,6 +17935,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &562288030161500250
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17945,6 +18065,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4554243341632001294
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18074,6 +18195,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &485211793516713700
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18203,6 +18325,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8039797663063475076
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18332,6 +18455,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6603437045287201429
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18461,6 +18585,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6923505856588161141
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18590,6 +18715,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8346019127840482784
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18719,6 +18845,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &149035291592847346
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18848,6 +18975,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6790405981216490471
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18977,6 +19105,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &377864698445388322
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19106,6 +19235,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2260702477675602085
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19235,6 +19365,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8974541906888651423
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19364,6 +19495,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6495343709457255411
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19493,6 +19625,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1910437531650320978
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19622,6 +19755,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7019201884375454261
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19751,6 +19885,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &333462127117894497
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19880,6 +20015,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1693729990305861652
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20009,6 +20145,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8587964873602384391
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20138,6 +20275,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3106109604638847884
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20267,6 +20405,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &226243802203682291
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20396,6 +20535,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4789398274503894727
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20525,6 +20665,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &104361175921000573
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20654,6 +20795,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1890443713567106848
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20783,6 +20925,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7133446681928672930
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20912,6 +21055,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &642049725008335151
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21041,6 +21185,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4234684083592360471
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21170,6 +21315,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1835354703221288106
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21299,6 +21445,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3702765235976051998
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21428,6 +21575,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4512235994753813792
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21557,6 +21705,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8362494942668867588
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25698,6 +25847,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2091753797533760639
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25827,6 +25977,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4875358890304566940
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25956,6 +26107,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8766977986749463354
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26085,6 +26237,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4249581810487938291
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26214,6 +26367,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2600128351398726074
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26343,6 +26497,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5049060554073259647
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26472,6 +26627,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8011718638992188017
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26601,6 +26757,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5624602650149807013
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26730,6 +26887,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5761290419392391703
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26859,6 +27017,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1902607416618296862
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26988,6 +27147,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3640091863876676333
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27117,6 +27277,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3306568127333500105
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27246,6 +27407,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5229166894063660685
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27375,6 +27537,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &9175678027450340670
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27504,6 +27667,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4807422343251562743
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27633,6 +27797,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1130841935662173258
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27762,6 +27927,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3071140581094937468
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27941,6 +28107,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2079277403269644657
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28070,6 +28237,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &237091283411150464
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28199,6 +28367,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8228766139015453558
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28328,6 +28497,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2095959951476461858
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28457,6 +28627,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2259846267529869193
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28586,6 +28757,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7231008292028418031
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28715,6 +28887,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3825812333838779651
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28844,6 +29017,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1445221183013828658
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28980,7 +29154,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 18.278187, y: -4.003085}
+  m_Offset: {x: 17.281998, y: -3.9308977}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -28991,7 +29165,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6793289, y: 6.8022633}
+  m_Size: {x: 0.47720337, y: 10.007387}
   m_EdgeRadius: 0
 --- !u!61 &1837205817677092481
 BoxCollider2D:
@@ -29006,7 +29180,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 8.281212, y: -10.400425}
+  m_Offset: {x: 5.032775, y: -9.2743}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -29017,7 +29191,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.644314, y: 0.66033936}
+  m_Size: {x: 23.897936, y: 0.37158966}
   m_EdgeRadius: 0
 --- !u!61 &6590951130804637440
 BoxCollider2D:
@@ -29032,7 +29206,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -8.313967, y: -6.038689}
+  m_Offset: {x: -7.158967, y: -5.490064}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -29043,7 +29217,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5776253, y: 6.1006403}
+  m_Size: {x: 0.40437508, y: 13.030637}
   m_EdgeRadius: 0
 --- !u!61 &8115319006480525967
 BoxCollider2D:
@@ -29058,7 +29232,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 4.5213165, y: 2.5384336}
+  m_Offset: {x: 4.5213146, y: 1.2534966}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -29069,7 +29243,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 18.880428, y: 0.7027559}
+  m_Size: {x: 22.922932, y: 0.44288158}
   m_EdgeRadius: 0
 --- !u!114 &7177591153747461727
 MonoBehaviour:
@@ -29199,6 +29373,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3495041330034133897
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29328,6 +29503,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2793576350651134491
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29457,6 +29633,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2267294391597128032
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29586,6 +29763,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7726814917327855741
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29715,6 +29893,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3100418541813387572
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29844,6 +30023,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &9123581875856269382
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29973,6 +30153,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3652239918816884300
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30102,6 +30283,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5211795968853055513
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30231,6 +30413,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7738077923713486678
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30360,6 +30543,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3552107594395968792
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30489,6 +30673,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6847513063338297469
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30618,6 +30803,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2856116916222036903
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30747,6 +30933,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5125686396551946249
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30876,6 +31063,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8141280838095768892
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31005,6 +31193,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3030653359089918470
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31134,6 +31323,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1900620604475966442
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31263,6 +31453,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4881898550197938994
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31392,6 +31583,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4492368679704091717
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31521,6 +31713,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1078529743990246095
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31650,6 +31843,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3017748523608454804
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31779,6 +31973,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3286906850351502287
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32027,6 +32222,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6838002872267270613
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32156,6 +32352,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3899220430117991877
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32285,6 +32482,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &997456892185413231
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32414,6 +32612,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3145805787334230352
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32543,6 +32742,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1871637164989377171
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32672,6 +32872,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &143430670874866326
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32801,6 +33002,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1567360599261732546
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32930,6 +33132,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &418687519258158656
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33059,6 +33262,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1748388227570941409
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33188,6 +33392,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7223142118369062610
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33317,6 +33522,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &211613543780227084
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33446,6 +33652,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4350895528108625917
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33575,6 +33782,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8364667228173202810
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33704,6 +33912,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2217521570023374398
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33833,6 +34042,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4702708702980043296
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33962,6 +34172,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6975692431445714220
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34091,6 +34302,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8705752282632747771
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34220,6 +34432,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5585571861842641323
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34349,6 +34562,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8754859324633826586
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34478,6 +34692,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5097903564669023583
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34607,6 +34822,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4230901636898035330
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34736,6 +34952,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3689570335277623588
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34984,6 +35201,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2391570347566349532
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35113,6 +35331,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8864171790930046193
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35242,6 +35461,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1290197985755137695
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35371,6 +35591,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4321288098511344049
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35500,6 +35721,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &525399250416373477
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35629,6 +35851,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4322262944569215711
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35758,6 +35981,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6568800598638895819
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35887,6 +36111,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5744843583543753888
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36016,6 +36241,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5883730535124775231
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36145,6 +36371,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3020313654343382493
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36274,6 +36501,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5982107982722130636
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36403,6 +36631,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2067678062241255275
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36532,6 +36761,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7235675979433913322
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36661,6 +36891,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8583507804412721060
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40711,6 +40942,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8125878596425127280
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40840,6 +41072,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3909737294000411971
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40969,6 +41202,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1301505393099995396
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41098,6 +41332,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &702553751384639156
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41227,6 +41462,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &662624101892067444
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41356,6 +41592,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3627330609441808281
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41485,6 +41722,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7831179654469280090
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41614,6 +41852,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2510748110179157998
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41743,6 +41982,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3390642563881978720
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41872,6 +42112,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6158166374134172059
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42001,6 +42242,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8249143642196879071
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42130,6 +42372,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5336621347416420542
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42259,6 +42502,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1038114790995176377
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42388,6 +42632,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5542160171723900556
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42517,6 +42762,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5938544613594202843
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42646,6 +42892,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7626216919417907384
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42775,6 +43022,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4422484025046184403
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42904,6 +43152,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2599229388226958714
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43033,6 +43282,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2047872493530217810
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43162,6 +43412,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8832333420493742022
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43291,6 +43542,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5814658119880936314
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43420,6 +43672,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1551211883325319243
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43549,6 +43802,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4230093845186666775
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43678,6 +43932,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2456259872770291838
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43807,6 +44062,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7524258828458992737
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43936,6 +44192,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8085161588533639260
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44065,6 +44322,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1427130780652409000
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44194,6 +44452,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &9014342677573874838
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44323,6 +44582,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3168033824215838717
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44452,6 +44712,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7011876666029548428
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44581,6 +44842,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4573730917627546866
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44710,6 +44972,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4478439225244076857
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44839,6 +45102,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5455091188728022793
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44968,6 +45232,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5701775357842175448
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45097,6 +45362,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4873535028289175380
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45226,6 +45492,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3004338101627751637
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45355,6 +45622,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5804819916044026604
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45484,6 +45752,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5203159600428570666
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45613,6 +45882,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3382892260165763844
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45742,6 +46012,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8801154095847119942
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45871,6 +46142,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8279819650478668055
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46000,6 +46272,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3647071196782068480
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46129,6 +46402,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3163573477524478177
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46258,6 +46532,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1044725308864338746
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46387,6 +46662,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &23163836340528188
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46516,6 +46792,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7149929438890341356
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46645,6 +46922,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2576514464270969519
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46774,6 +47052,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3010822875526075967
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46903,6 +47182,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6322611096497473454
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47032,6 +47312,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &9105748720558809454
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47161,6 +47442,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3612965299754209240
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47290,6 +47572,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5011415271692969209
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47419,6 +47702,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3120821679264468380
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47548,6 +47832,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &945384130425857832
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47677,6 +47962,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4083678653935159884
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47806,6 +48092,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5624483499871878138
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47935,6 +48222,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8541624632978910228
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48064,6 +48352,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5307981221840634907
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48193,6 +48482,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1599746834486042606
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48322,6 +48612,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3200811520460833581
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48451,6 +48742,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4943155579388108044
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48580,6 +48872,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3920444643873791746
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48709,6 +49002,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2325612949276146390
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48838,6 +49132,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1130200412924483769
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48967,6 +49262,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1637533965597234910
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49096,6 +49392,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8923039646228842025
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49225,6 +49522,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5473965766441620664
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49354,6 +49652,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2497686003615305608
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49483,6 +49782,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8932109279037877152
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49612,6 +49912,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6426614956921603161
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49741,6 +50042,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2340961855361911679
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49870,6 +50172,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3482442052704982197
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49999,6 +50302,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4628116979254801313
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50128,6 +50432,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8964576147796983113
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50257,6 +50562,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3168969003680330190
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50416,6 +50722,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8051923780494642676
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50545,6 +50852,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5775316033586578132
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50674,6 +50982,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4052952775849468331
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50803,6 +51112,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5583560949601799608
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50932,6 +51242,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2976490016493137611
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51061,6 +51372,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8195380607087744199
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51190,6 +51502,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6465813500280774685
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51319,6 +51632,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2306084936371600888
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51853,6 +52167,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8307197043511541175
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51982,6 +52297,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5855560852974806503
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52111,6 +52427,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2533385535070009229
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52240,6 +52557,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1811893372075425767
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52369,6 +52687,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8011064804171993842
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52498,6 +52817,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7957611246683625639
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52627,6 +52947,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6649264534821992080
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52756,6 +53077,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &675244424774646953
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52885,6 +53207,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1012011338013954950
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53014,6 +53337,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &180480002414261046
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53143,6 +53467,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4028373125332206357
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53272,6 +53597,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1226054699458154938
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53401,6 +53727,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4551866659873862088
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53530,6 +53857,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3118205844818343115
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53659,6 +53987,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5825524413540286775
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53788,6 +54117,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6365812544288947827
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53917,6 +54247,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8738176960587216485
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54046,6 +54377,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1826313322192589439
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54175,6 +54507,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4217315986123706894
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54304,6 +54637,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2085294694801012146
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54433,6 +54767,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &383260032959501114
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54562,6 +54897,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1051177959791885291
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54691,6 +55027,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8327370279739457675
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54820,6 +55157,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8569447635865337142
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54949,6 +55287,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &15538716615704755
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55078,6 +55417,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1129666349896403029
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55207,6 +55547,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4839914100260749606
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55336,6 +55677,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5109195937599497561
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55465,6 +55807,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &499675990476483714
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55594,6 +55937,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5041255586884757020
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55723,6 +56067,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5377112092405869042
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55882,6 +56227,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5776410404496859972
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -56011,6 +56357,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4057851283292936562
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -56140,6 +56487,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7607305670848489540
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -56269,6 +56617,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &459547763424221010
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -56398,6 +56747,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8861855267167685874
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -56527,6 +56877,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3432141248682052383
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -56656,6 +57007,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5296969718642900270
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -56785,6 +57137,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1321909319981808302
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -56914,6 +57267,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &6228571629022421941
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57043,6 +57397,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1495717703653486006
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57172,6 +57527,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8622107664138573973
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57301,6 +57657,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7945785159828014476
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57430,6 +57787,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8580778983441928057
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57559,6 +57917,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8158718162765919214
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57688,6 +58047,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5072615412555916096
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57817,6 +58177,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &8701443414889833303
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57946,6 +58307,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4351430850473070252
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58075,6 +58437,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3956106531663735886
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58204,6 +58567,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7362067692446127391
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58333,6 +58697,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &3595215507031164215
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58462,6 +58827,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &5598214092099342369
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58591,6 +58957,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4708369508412497786
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58720,6 +59087,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &367604019751778857
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58849,6 +59217,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &299192645316360802
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58978,6 +59347,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &381382299222662913
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59107,6 +59477,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &1489727322771466397
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59236,6 +59607,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &4951140517380295283
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59365,6 +59737,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7335726961405847139
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59494,6 +59867,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &2799613374120231224
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59623,6 +59997,7 @@ MonoBehaviour:
   rejectColor: {r: 1, g: 0.0047169924, b: 0.03553151, a: 0.11764706}
   turnindicatorColor: {r: 0.40143287, g: 0.9150943, b: 0.87410015, a: 0.19607843}
   isEmpty: 1
+  isOffset: 0
 --- !u!61 &7890780178339220595
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -613,10 +613,10 @@ fix the minimap to work with procgen
 check advantage for needed situations: initiative
 only spawn enemies when entering a corridor - DONE
 handle end of combat:
-check for end of combat
-destory enemy objects
-turn back the light and the boxcolliders
-clear the interactable tile's isEmpty
+check for end of combat - DONE
+destory enemy objects - DONE
+turn back the light and the boxcolliders - DONE
+clear the interactable tile's isEmpty - DONE
 delete the queue from the FightUIManager and reset the arrow
 handle enemy snap to tile <- add INITCOMBAT Phase
 ||UNIT TESTS
@@ -652,3 +652,17 @@ removed light on enemies
 corrected tilerepaint
 modified enemy spawn so it's only triggered when player enters a corridor
 added ways to handle the end of combat
+
+\\first week of november
+_________________________
+
+\\second week of november
+modified combat triggers
+modified room tile initialization
+listed some issues with the current state of the combat system to fix in the future
+made some modifications with the small enemy BT
+created the missing functions for the BT
+added attackoptions for creatures (scimitar + shortbow for goblin, greatclub swing + smash for ogre)
+tested the BT and the trees are running and they pass the turn
+the gap closing and attack needs a fixing
+created trello to organize tasks better: https://trello.com/b/4FBinLML/etd-finish-up

@@ -11,5 +11,26 @@ public class Goblin : Creature {
         Speed = new Speed(30);
         Size = Size.SMALL;
         SkillTree = new SkillTree(10, 14, 10, 8);
+    
+        Attacks = new List<ActionFunc>(){};
+        AttackRange = new Dictionary<ActionFunc, int>();
+        Attacks.Add(UseScimitar);
+        AttackRange.Add(UseScimitar, 1);
+        Attacks.Add(UseShortbow);
+        AttackRange.Add(UseShortbow, 10);
+    }
+
+    private void UseScimitar(Entity target){
+        int damage = Die.Roll(DieType.D6) + 2;
+        target.Behaviour.TakeDmg(damage);
+        Debug.Log($"{EntityName} hits {target.EntityName} with a scimitar for {damage} damage.");
+        LogManager.AddMessage($"{EntityName} hits {target.EntityName} with a scimitar for {damage} damage.");
+    }
+
+    private void UseShortbow(Entity target){
+        int damage = Die.Roll(DieType.D6);
+        target.Behaviour.TakeDmg(damage);
+        Debug.Log($"{EntityName} hits {target.EntityName} with a shortbow for {damage} damage.");
+        LogManager.AddMessage($"{EntityName} hits {target.EntityName} with a shortbow for {damage} damage.");
     }
 }

@@ -42,7 +42,7 @@ public class Attack : Action {
     private void ExecuteAttack() {
         if(_target != null && BattleManager.IsTargetInActionRange(_target)) {
             if(IsGodModeOn){
-                _target.Behaviour.TakeDmg(1000);
+                _target.Behaviour.TakeDmg((int)(_target.HP.GetValue()*0.9f));
             } else {
                 float attackBonus = 0;
                 if(_attacker is Adventurer adventurer){

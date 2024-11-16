@@ -40,6 +40,7 @@ public class TileManager {
         }
     
         foreach(var tile in tiles){
+            tile.Value.Initialize();
             _tiles.Add(tile.Key, tile.Value);
         }
     }

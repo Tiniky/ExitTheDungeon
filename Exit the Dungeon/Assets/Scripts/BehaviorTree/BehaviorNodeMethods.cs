@@ -14,8 +14,8 @@ public static class BehaviorNodeMethods {
         {"FindFleeWaypoint", (blackboard) => FindFleeWaypoint(blackboard)},
         {"GoToFleeWaypoint", (blackboard) => GoToFleeWaypoint(blackboard)},
         {"SelectTarget", (blackboard) => SelectTarget(blackboard)},
+        {"SelectAttack", (blackboard) => SelectAttack(blackboard)},
         {"TryCloseGap", (blackboard) => TryCloseGap(blackboard)},
-        {"AttackRoll", (blackboard) => RollDieForAttack(blackboard)},
         {"ExecuteAttack", (blackboard) => ExecuteAttack(blackboard)},
         {"PassTurn", (blackboard) => PassTurn(blackboard)}
     };
@@ -26,8 +26,7 @@ public static class BehaviorNodeMethods {
         {"ShouldFlee", (blackboard) => CheckIfShouldFlee(blackboard)},
         {"CanFlee", (blackboard) => CheckIfCanFlee(blackboard)},
         {"ShouldKeepFighting", (blackboard) => CheckIfShouldKeepFighting(blackboard)},
-        {"IsInRange", (blackboard) => CheckIsInRange(blackboard)},
-        {"AttackResult", (blackboard) => CheckIfAttackWasSuccessful(blackboard)}
+        {"IsInRange", (blackboard) => CheckIsInRange(blackboard)}
     };
 
     private static readonly List<Vector3> OffsetList = new List<Vector3>(){
@@ -94,16 +93,6 @@ public static class BehaviorNodeMethods {
         return NodeStatus.SUCCESS;
     }
 
-    public static NodeStatus RollDieForAttack(Blackboard Blackboard){
-        GameObject current = Blackboard.GetValue<GameObject>("OwnerObj");
-        Entity entity = current.GetComponent<Entity>();
-        
-        int rolled = Die.AttackRoll(entity);
-        Blackboard.SetValue("Roll_ATTACK", rolled);
-
-        return NodeStatus.SUCCESS;
-    }
-
     public static NodeStatus ContinueFighting(Blackboard Blackboard){
         Blackboard.SetValue("ShouldKeepFighting", true);
         Debug.Log("Continuing to fight.");
@@ -148,25 +137,58 @@ public static class BehaviorNodeMethods {
     }
 
     public static NodeStatus SelectTarget(Blackboard Blackboard){
-        //needs implementation
-        
+        List<Entity> targets = BattleManager.GetStillAliveAdventurers();
+        Entity target = targets[Random.Range(0, targets.Count)];
+        Blackboard.SetValue("TargetObj", target.gameObject);
+
+        return NodeStatus.SUCCESS;
+    }
+
+    public static NodeStatus SelectAttack(Blackboard Blackboard){
+        GameObject current = Blackboard.GetValue<GameObject>("OwnerObj");
+        Creature creature = current.GetComponent<Creature>();
+        int attackIndex = Random.Range(0, creature.Attacks.Count);
+        Blackboard.SetValue("AttackIndex", attackIndex);
+
         return NodeStatus.SUCCESS;
     }
 
     public static NodeStatus TryCloseGap(Blackboard Blackboard){
-        //needs implementation
+        int range = Blackboard.GetValue<int>("Range");
+        GameObject current = Blackboard.GetValue<GameObject>("OwnerObj");
+        Creature creature = current.GetComponent<Creature>();
+        int maxStep = creature.Speed.StepsAll();
+        GameObject target = Blackboard.GetValue<GameObject>("TargetObj");
+        Entity entity = target.GetComponent<Entity>();
+        
+        Vector3 pos = current.transform.position;
+        Vector3 targetPos = target.transform.position;
+        int distance = (int)Mathf.Abs(pos.x - targetPos.x);
+        Debug.Log("Distance between them: " + distance);
+
+        if(distance > range){
+            int direction = pos.x > targetPos.x ? -1 : 1;
+            Vector3 newWaypoint = new Vector3(pos.x + (direction * maxStep), pos.y, 0);
+            Blackboard.SetValue("SelectedWaypoint", newWaypoint);
+            return NodeStatus.SUCCESS;
+        }
         
         return NodeStatus.SUCCESS;
     }
 
     public static NodeStatus ExecuteAttack(Blackboard Blackboard){
-        //needs implementation
-        
+        GameObject current = Blackboard.GetValue<GameObject>("OwnerObj");
+        Creature creature = current.GetComponent<Creature>();
+        GameObject target = Blackboard.GetValue<GameObject>("TargetObj");
+        Entity entity = target.GetComponent<Entity>();
+        int selectedAttack = Blackboard.GetValue<int>("AttackIndex");
+        creature.UseAttack(entity, selectedAttack);
+
         return NodeStatus.SUCCESS;
     }
 
     public static NodeStatus PassTurn(Blackboard Blackboard){
-        //needs implementation
+        BattleManager.GoNext();
         
         return NodeStatus.SUCCESS;
     }
@@ -181,8 +203,15 @@ public static class BehaviorNodeMethods {
         GameObject current = Blackboard.GetValue<GameObject>("OwnerObj");
         Entity entity = current.GetComponent<Entity>();
 
-        Debug.Log("Checking if it's their turn: " + BattleManager.IsTheirTurn(entity));
-        return BattleManager.IsTheirTurn(entity);
+        bool isCurrentlyTheirTurn = BattleManager.IsTheirTurn(entity);
+
+        if(isCurrentlyTheirTurn){
+            Debug.Log("Checking if it's their turn: True");
+        } else{
+            Debug.Log("Waiting for their turn.");
+        }
+
+        return isCurrentlyTheirTurn;
     }
 
     public static bool CheckIfShouldFlee(Blackboard Blackboard){
@@ -215,16 +244,12 @@ public static class BehaviorNodeMethods {
     public static bool CheckIsInRange(Blackboard Blackboard){
         GameObject target = Blackboard.GetValue<GameObject>("TargetObj");
         Entity entity = target.GetComponent<Entity>();
-        Debug.Log("Checking if target is in range: " + BattleManager.IsTargetInActionRange(entity));
+        GameObject current = Blackboard.GetValue<GameObject>("OwnerObj");
+        Creature creature = current.GetComponent<Creature>();
+        int selectedAttack = Blackboard.GetValue<int>("AttackIndex");
+        int range = creature.GetAttackRange(selectedAttack);
+        Blackboard.SetValue("Range", range);
+        Debug.Log("Checking if target (" + entity.EntityName + ") is in range: "+ range +" "+ BattleManager.IsTargetInRange(entity, range));
         return BattleManager.IsTargetInActionRange(entity);
-    }
-
-    public static bool CheckIfAttackWasSuccessful(Blackboard Blackboard){
-        int rolled = Blackboard.GetValue<int>("Roll_ATTACK");
-        GameObject target = Blackboard.GetValue<GameObject>("TargetObj");
-        Adventurer targetAdv = target.GetComponent<Adventurer>();
-        int targetAC = targetAdv.AC.GetValue();
-        Debug.Log("Attack roll: " + rolled + " vs. AC: " + targetAC);
-        return rolled >= targetAC;
     }
 }

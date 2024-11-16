@@ -9,10 +9,18 @@ public class InteractableTile : MonoBehaviour {
     public bool isEmpty, isOffset;
     //private bool _isOffset;
 
-    public void Initialize(bool IsOffset){
+    public void InitializeBackend(bool IsOffset){
         isEmpty = true;
         _renderer = GetComponent<SpriteRenderer>();
         isOffset = IsOffset;
+        ResetColor();
+    }
+
+    public void Initialize(){
+        Vector3 cellPosition = gameObject.transform.position;
+        isEmpty = true;
+        _renderer = GetComponent<SpriteRenderer>();
+        isOffset = (Mathf.Abs(cellPosition.x) + Mathf.Abs(cellPosition.y)) % 2 == 1;
         ResetColor();
     }
 
@@ -43,12 +51,8 @@ public class InteractableTile : MonoBehaviour {
     }
 
     public void IndicateTurn(){    
-        if(_renderer == null){
-            _renderer = GetComponent<SpriteRenderer>();
-            isOffset = _renderer.color == baseColor;
-        }
-
         _renderer.color = turnindicatorColor;
+        Debug.Log("tile " + gameObject.transform.position + " was set as turn indicator");
     }
 
     public GameObject EntityOnTile(){
@@ -56,11 +60,6 @@ public class InteractableTile : MonoBehaviour {
     }
 
     public void PaintTile(bool isWalkable){
-        if(_renderer == null){
-            _renderer = GetComponent<SpriteRenderer>();
-            isOffset = _renderer.color == baseColor;
-        }
-
         if(isEmpty){
             if(isWalkable){
                 _renderer.color = approveColor;

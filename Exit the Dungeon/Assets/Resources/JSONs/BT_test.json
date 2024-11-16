@@ -151,11 +151,11 @@
 							  "shouldBeTrue": "false",
                               "methodName": "ShouldKeepFighting"
                             },
-                            {
-                              "nodeName": "DoNothing",
-                              "nodeType": "Action",
-                              "methodName": "DoNothing"
-                            }
+							{
+							  "nodeName": "Pass Turn",
+							  "nodeType": "Action",
+							  "methodName": "PassTurn"
+							}
                           ]
                         },
 						{
@@ -169,9 +169,59 @@
                               "methodName": "ShouldKeepFighting"
                             },
                             {
-                              "nodeName": "DoNothing",
+                              "nodeName": "SelectTarget",
                               "nodeType": "Action",
-                              "methodName": "DoNothing"
+                              "methodName": "SelectTarget"
+                            },
+                            {
+                              "nodeName": "SelectAttack",
+                              "nodeType": "Action",
+                              "methodName": "SelectAttack"
+                            },
+                            {
+                              "nodeName": "Check Range Strategy",
+                              "nodeType": "Selector",
+                              "children": [
+                                {
+                                  "nodeName": "Close Gap Strategy",
+                                  "nodeType": "Sequence",
+                                  "children": [
+                                    {
+                                      "nodeName": "isInRange",
+									  "nodeType": "Condition",
+									  "shouldBeTrue": "false",
+                                      "methodName": "IsInRange"
+                                    },
+									{
+									  "nodeName": "Pass Turn",
+									  "nodeType": "Action",
+									  "methodName": "PassTurn"
+									}
+                                  ]
+                                },
+                                {
+								  "nodeName": "Attack Strategy",
+								  "nodeType": "Sequence",
+								  "children": [
+									{
+									  "nodeName": "isInRange",
+									  "nodeType": "Condition",
+									  "shouldBeTrue": "true",
+									  "methodName": "IsInRange"
+									},
+									{
+									  "nodeName": "AttemptAttack",
+									  "nodeType": "Action",
+									  "methodName": "ExecuteAttack"
+									},
+									{
+									  "nodeName": "Pass Turn",
+									  "nodeType": "Action",
+									  "methodName": "PassTurn"
+									}
+                                  ]
+                                }
+                              ]
                             }
                           ]
                         }

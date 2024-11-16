@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour {
     private static GameObject _player;
     private static Adventurer _adventurer;
     private static CreatureBehaviour _playerBehaviour;
-    private static GameObject[] _allyOptions;
+    private static List<GameObject> _allyOptions;
     private static List<GameObject> _partyMembers;
     private static List<GameObject> _rescued;
     private static Dictionary<InstantiatedRoom, GameObject> _memberHostageLocation;
@@ -116,11 +116,11 @@ public class GameManager : MonoBehaviour {
                 }
 
                 //need to check if works properly
-                foreach(var actionKey in ActionKeys){
+                /*foreach(var actionKey in ActionKeys){
                     if(Input.GetKeyDown(actionKey.Key)){
                         actionKey.Value(actionKey.Key);
                     }
-                }
+                }*/
 
                 if(Input.GetKeyDown(Settings.PASSTURN) && BattleManager.WasButtonPressed()){
                     BattleManager.GoNext();
@@ -158,7 +158,8 @@ public class GameManager : MonoBehaviour {
         
         InitializePlayer();
         InitializeRooms();
-        InitializePartyMembers();
+        //InitializePartyMembers();
+        InitializeTemporaryPartyMember();
         InitializeEnvironment();
 
         ActionKeys = new Dictionary<KeyCode, KeyAction> {
@@ -233,8 +234,8 @@ public class GameManager : MonoBehaviour {
         _memberHostageLocation = new Dictionary<InstantiatedRoom, GameObject>();
         _partyMembers = new List<GameObject>();
         _rescued = new List<GameObject>();
-        _allyOptions = PrefabManager.ALLIES.ToArray();
-        Debug.Log("GameManager - ally options: " + _allyOptions.Length);
+        _allyOptions = PrefabManager.ALLIES;
+        Debug.Log("GameManager - ally options: " + _allyOptions.Count);
         int option = 0;
 
         foreach(KeyValuePair<InstantiatedRoom, Vector2> entry in _allySpawnPoints){
@@ -253,6 +254,30 @@ public class GameManager : MonoBehaviour {
             Debug.Log("GameManager - " +allyAdventurer.EntityName + "'s health: " + allyAdventurer.HP.GetValue());
             option++;
         }
+    }
+
+    private void InitializeTemporaryPartyMember(){
+        _memberHostageLocation = new Dictionary<InstantiatedRoom, GameObject>();
+        _partyMembers = new List<GameObject>();
+        _rescued = new List<GameObject>();
+        _allyOptions = new List<GameObject>();
+        _allyOptions.Add(PrefabManager.GetRandomAlly());
+        Debug.Log("GameManager - ally options: " + _allyOptions.Count);
+        int option = 0;
+        Vector3 spawnPoint = new Vector3(-1.5f, 5.5f, 0);
+        GameObject allyObj = Instantiate(_allyOptions[option], spawnPoint, Quaternion.identity, _partyHolder.transform);
+        Debug.Log("GameManager - ally spawning at: " + spawnPoint.ToString());
+        
+        _memberHostageLocation.Add(CurrentRoom, allyObj);
+        _partyMembers.Add(allyObj); 
+        Adventurer allyAdventurer = allyObj.GetComponent<Adventurer>();
+        allyAdventurer.Initialize(5);
+        allyObj.name = allyAdventurer.EntityName;
+        PartyMemberBehaviour partyMember = allyObj.AddComponent<PartyMemberBehaviour>();
+        partyMember.Initialize(allyAdventurer.HP.GetValue());
+        partyMember.Escaped();
+        allyAdventurer.Behaviour = partyMember;
+        Debug.Log("GameManager - " +allyAdventurer.EntityName + "'s health: " + allyAdventurer.HP.GetValue());
     }
 
     private static void InitializeEnemies(InstantiatedRoom nextRoom){
@@ -440,7 +465,7 @@ public class GameManager : MonoBehaviour {
         CurrentRoom = room;
         CurrentCorridor = null;
 
-        if(room.Room.Type == RoomType.COMBAT || room.Room.Type == RoomType.BOSS || room.Room.Type == RoomType.PRISON){
+        if((room.Room.Type == RoomType.COMBAT || room.Room.Type == RoomType.BOSS || room.Room.Type == RoomType.PRISON) && !_wasCleared[CurrentRoom]){
             TileManager.Instance.LoadCurrentRoom(room);
             HandleRoomDoors(true);
             StartCoroutine(Instance.InitializeCombat());
@@ -448,7 +473,10 @@ public class GameManager : MonoBehaviour {
     }
 
     private IEnumerator InitializeCombat(){
-        yield return new WaitForSeconds(1.5f);
+        //FreezePlayerMovement();
+        Phase = GamePhase.COMBAT;
+        //WasSceneChange = true;
+        yield return new WaitForSeconds(0.5f);
         BattleManager.Initialize();
     }
     
@@ -543,7 +571,6 @@ public class GameManager : MonoBehaviour {
 
     public static void FightStarted(List<EntityRoll> rolls){
         Phase = GamePhase.COMBAT;
-        WasSceneChange = true;
         FightUIManager.InitiativeRollSetup(rolls);
         SwapTilesVisibility(true);
         Cursor.visible = true; 
@@ -584,14 +611,18 @@ public class GameManager : MonoBehaviour {
     public static void FreezePlayerMovement(){
         if(_playerBehaviour.CheckIfCreatureCanMove()){
             _playerBehaviour.DenyMovement();
-            _player.GetComponent<PlayerMovement>().enabled = false;
+            PlayerMovement mvm = _player.GetComponent<PlayerMovement>();
+            mvm.Stop();
+            mvm.enabled = false;
         }
     }
 
     private IEnumerator RestartMovementCoroutine() {
         yield return new WaitForSeconds(2.5f);
         _playerBehaviour.AllowMovement();
-        _player.GetComponent<PlayerMovement>().enabled = true;
+        PlayerMovement mvm = _player.GetComponent<PlayerMovement>();
+        mvm.Go();
+        mvm.enabled = true;
         _cvc.m_Follow = _player.transform;
     }
 
@@ -606,7 +637,6 @@ public class GameManager : MonoBehaviour {
     }
 
     public static void StartCombatPhase(){
-        Phase = GamePhase.COMBAT;
         FightPositionSetup();
         FightUIManager.InitVisibility(false);
         List<GameObject> fighters = FightUIManager.GetParticipantClones();
@@ -686,8 +716,13 @@ public class GameManager : MonoBehaviour {
                 info = "Entered the room where it all began.";
                 break;
             case "COMBAT":
-                info = "Entered a room full of hostile creatures. Roll for initiative!";
-                break;
+                if(_wasCleared[room]){
+                    info = "Entered the cleared room. No hostile creatures in sight.";
+                    break;
+                } else {
+                    info = "Entered a room full of hostile creatures. Roll for initiative!";
+                    break;
+                }
             case "PRISON":
                 GameObject hostage = _memberHostageLocation[room];
                 if(_rescued.Contains(hostage)){

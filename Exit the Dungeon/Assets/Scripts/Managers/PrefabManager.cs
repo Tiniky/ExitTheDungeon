@@ -193,6 +193,11 @@ public static class PrefabManager {
         FillAbilities();
     }
 
+    public static GameObject GetRandomAlly(){
+        int index = Random.Range (0, ALLIES.Count);
+        return ALLIES[index];
+    }
+
     public static GameObject InstantiatePrefabV1(GameObject prefab, GameObject parent, bool shouldAdd, Vector3 pos, string name){
         GameObject clone = GameObject.Instantiate(prefab, parent.transform);
 
