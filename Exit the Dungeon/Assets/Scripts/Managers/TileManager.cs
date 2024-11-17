@@ -178,11 +178,19 @@ public class TileManager {
 
         if(target.Size == Size.MEDIUM){
             tiles = StandsOn(target.gameObject, 1);
-            return tiles[0].IsTileInEntityRange(from.gameObject, range);
+            if(tiles.Count > 0){
+                return tiles[0].IsTileInEntityRange(from.gameObject, range);
+            } else {
+                return false;
+            }
         } else {
             tiles = StandsOn(target.gameObject, 2);
-            InteractableTile closest = GetClosestFrom(tiles, from.gameObject);
-            return closest.IsTileInEntityRange(from.gameObject, range);
+             if(tiles.Count > 0){
+                InteractableTile closest = GetClosestFrom(tiles, from.gameObject);
+                return closest.IsTileInEntityRange(from.gameObject, range);
+            } else {
+                return false;
+            }
         }
     }
 

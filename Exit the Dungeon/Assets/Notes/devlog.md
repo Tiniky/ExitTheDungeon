@@ -666,3 +666,5 @@ added attackoptions for creatures (scimitar + shortbow for goblin, greatclub swi
 tested the BT and the trees are running and they pass the turn
 the gap closing and attack needs a fixing
 created trello to organize tasks better: https://trello.com/b/4FBinLML/etd-finish-up
+started rebuilding the combat system, added precombat phase
+modified the BT again

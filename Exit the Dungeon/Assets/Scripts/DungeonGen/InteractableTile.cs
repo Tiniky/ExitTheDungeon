@@ -21,6 +21,7 @@ public class InteractableTile : MonoBehaviour {
         isEmpty = true;
         _renderer = GetComponent<SpriteRenderer>();
         isOffset = (Mathf.Abs(cellPosition.x) + Mathf.Abs(cellPosition.y)) % 2 == 1;
+        Debug.Log("cellPosition: " + cellPosition + " tile: " + gameObject.name + " isOffset: " + isOffset);
         ResetColor();
     }
 

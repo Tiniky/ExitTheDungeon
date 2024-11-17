@@ -143,7 +143,7 @@ public static class FightUIManager {
     }
 
     public static void FightVisibility(bool shouldBeVisible) {
-        if(shouldBeVisible && GameManager.Phase == GamePhase.COMBAT){
+        if(shouldBeVisible && (GameManager.Phase == GamePhase.COMBAT || GameManager.Phase == GamePhase.INITIATIVE)){
             _fightRelatedStuffHolder.SetActive(true);
         } else {
             _fightRelatedStuffHolder.SetActive(false);

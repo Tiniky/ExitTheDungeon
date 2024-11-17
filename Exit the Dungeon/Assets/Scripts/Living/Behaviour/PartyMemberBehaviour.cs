@@ -29,7 +29,7 @@ public class PartyMemberBehaviour : CreatureBehaviour {
         animator = GetComponent<Animator>();
     }
 
-    public override void UpdateBehaviour() {
+    public override void UpdateBehaviour(){
         isInRange = GameManager.IsNearby(transform.position);
 
         if(isInRange && !isFollowing && isInteractable){
@@ -51,10 +51,7 @@ public class PartyMemberBehaviour : CreatureBehaviour {
         if(isFollowing){
             isInFollowingRange = GameManager.IsInFollowingRange(transform.position);
 
-            if(GameManager.InFight()){
-                StopFollowing();
-
-            } else if(_movement.move.sqrMagnitude < 0.1){
+            if(!GameManager.InFight() && _movement.move.sqrMagnitude < 0.1){
                 if(isInFollowingRange){
                     ResolveOverlaps();
                     StopMovement();
@@ -77,7 +74,7 @@ public class PartyMemberBehaviour : CreatureBehaviour {
         }
     }
 
-    private void ResolveOverlaps() {
+    private void ResolveOverlaps(){
         List<GameObject> partyMembers = GameManager.Allies();
         foreach(GameObject ally in partyMembers){
             PartyMemberBehaviour pmb = ally.GetComponent<PartyMemberBehaviour>();
@@ -91,7 +88,7 @@ public class PartyMemberBehaviour : CreatureBehaviour {
         }
     }
 
-    public void Escaped() {
+    public void Escaped(){
         isInteractable = true;
         Debug.Log("PMB - ally escaped");
     }
@@ -109,7 +106,7 @@ public class PartyMemberBehaviour : CreatureBehaviour {
         LogManager.AddMessage(gameObject.name + " joined the party!");
     }
 
-    private void FollowPlayer() {
+    private void FollowPlayer(){
         Vector2 direction = _player.transform.position - transform.position;
         move = _movement.move;
         animator.SetFloat("Horizontal", move.x);
@@ -119,7 +116,7 @@ public class PartyMemberBehaviour : CreatureBehaviour {
         transform.position = Vector2.MoveTowards(this.transform.position, _player.transform.position, _followSpeed * Time.deltaTime);
     }
 
-    private void StopMovement() {
+    private void StopMovement(){
         move.x = 0;
         move.y = 0;
         animator.SetFloat("Horizontal", move.x);
@@ -127,7 +124,7 @@ public class PartyMemberBehaviour : CreatureBehaviour {
         animator.SetFloat("MovementSpeed", 0);
     }
 
-    private void StopFollowing() {
+    public void StopFollowing(){
         StopMovement();
         isFollowing = false;
     }

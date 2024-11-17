@@ -26,9 +26,7 @@ public class EnemyBehaviour : CreatureBehaviour {
     }
 
     public void GoToTarget(Vector3 target){
-        //_movement = _current.GetComponent<EnemyMovement>();
-
-        if(_movement != null){
+        if(_movement != null && canMove){
             //Debug.Log("Moving to target: " + target);
             _movement.TargetPosition = target;
         }
@@ -36,5 +34,12 @@ public class EnemyBehaviour : CreatureBehaviour {
 
     public Vector3 GetTarget(){
         return _movement.TargetPosition;
+    }
+
+    public void StopMovement(){
+        if(_movement != null){
+            _movement.TargetPosition = _current.transform.position;
+            canMove = false;
+        }
     }
 }

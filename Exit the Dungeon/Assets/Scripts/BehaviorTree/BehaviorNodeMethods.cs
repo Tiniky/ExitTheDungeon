@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class BehaviorNodeMethods {
     public static Dictionary<string, ActionLeafNode.Func> ActionMethods = new Dictionary<string, ActionLeafNode.Func>{
+        {"SnapToTile", (blackboard) => SnapToTile(blackboard)},
         {"FindWaypoint", (blackboard) => FindWaypoint(blackboard)},
         {"GoToWaypoint", (blackboard) => GoToWaypoint(blackboard)},
         {"FaceThePlayer", (blackboard) => FaceThePlayer(blackboard)},
@@ -22,6 +23,8 @@ public static class BehaviorNodeMethods {
 
     public static Dictionary<string, ConditionLeafNode.Func> ConditionMethods = new Dictionary<string, ConditionLeafNode.Func>{
         {"CheckIsCombat", (blackboard) => CheckIsCombat(blackboard)},
+        {"CheckIsPreCombat", (blackboard) => CheckIsPreCombat(blackboard)},
+        {"CheckIsNotCombat", (blackboard) => CheckIsNotCombat(blackboard)},
         {"IsTheirTurn", (blackboard) => CheckIsTheirTurn(blackboard)},
         {"ShouldFlee", (blackboard) => CheckIfShouldFlee(blackboard)},
         {"CanFlee", (blackboard) => CheckIfCanFlee(blackboard)},
@@ -39,6 +42,22 @@ public static class BehaviorNodeMethods {
     public enum RollType{
         FLEE,
         ATTACK
+    }
+
+    public static NodeStatus SnapToTile(Blackboard Blackboard){
+        //get closest tile
+        //verify the closest tile is empty is false
+        //verify that entity on closest tile == this entity
+
+        GameObject fighter = Blackboard.GetValue<GameObject>("OwnerObj");
+        Vector3 currentPos = fighter.transform.position;
+        InteractableTile tile = TileManager.Instance.GetClosestTile(currentPos);
+        if(tile.isEmpty){
+            TileManager.Instance.SnapToClosestTile(fighter, tile);
+            Debug.Log("GameManager - " + fighter.name + " snapped from " + currentPos + " to " + fighter.transform.position);
+        }
+
+        return NodeStatus.SUCCESS;
     }
 
     public static NodeStatus FindWaypoint(Blackboard Blackboard){
@@ -141,6 +160,8 @@ public static class BehaviorNodeMethods {
         Entity target = targets[Random.Range(0, targets.Count)];
         Blackboard.SetValue("TargetObj", target.gameObject);
 
+        Debug.Log("Selected target: " + target.EntityName);
+
         return NodeStatus.SUCCESS;
     }
 
@@ -149,6 +170,8 @@ public static class BehaviorNodeMethods {
         Creature creature = current.GetComponent<Creature>();
         int attackIndex = Random.Range(0, creature.Attacks.Count);
         Blackboard.SetValue("AttackIndex", attackIndex);
+
+        Debug.Log("Selected attackindex: " + attackIndex);
 
         return NodeStatus.SUCCESS;
     }
@@ -182,6 +205,8 @@ public static class BehaviorNodeMethods {
         GameObject target = Blackboard.GetValue<GameObject>("TargetObj");
         Entity entity = target.GetComponent<Entity>();
         int selectedAttack = Blackboard.GetValue<int>("AttackIndex");
+
+        Debug.Log("Executing attack: " + selectedAttack);
         creature.UseAttack(entity, selectedAttack);
 
         return NodeStatus.SUCCESS;
@@ -189,14 +214,22 @@ public static class BehaviorNodeMethods {
 
     public static NodeStatus PassTurn(Blackboard Blackboard){
         BattleManager.GoNext();
+
+        Debug.Log("Passing turn.");
         
         return NodeStatus.SUCCESS;
     }
 
     public static bool CheckIsCombat(Blackboard Blackboard){
-        //Debug.Log("GamePhase: " + GameManager.Phase.ToString());
-        //Debug.Log("CheckIsCombat returning: " + (GameManager.Phase == GamePhase.COMBAT).ToString());
         return GameManager.Phase == GamePhase.COMBAT;
+    }
+
+    public static bool CheckIsPreCombat(Blackboard Blackboard){
+        return GameManager.Phase == GamePhase.INITIATIVE;
+    }
+
+    public static bool CheckIsNotCombat(Blackboard Blackboard){
+        return GameManager.Phase != GamePhase.COMBAT && GameManager.Phase != GamePhase.INITIATIVE;
     }
 
     public static bool CheckIsTheirTurn(Blackboard Blackboard){

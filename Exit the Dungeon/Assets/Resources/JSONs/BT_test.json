@@ -233,15 +233,32 @@
 			}
           ]
         },
+		{
+          "nodeName": "Initiative Strategy",
+          "nodeType": "Sequence",
+          "children": [
+            {
+              "nodeName": "IsPrecombat",
+              "nodeType": "Condition",
+			  "shouldBeTrue": "true",
+              "methodName": "CheckIsPreCombat"
+            },
+            {
+              "nodeName": "SnapToTile",
+              "nodeType": "Action",
+              "methodName": "SnapToTile"
+            }
+          ]
+        },
         {
           "nodeName": "IDLE Strategy",
           "nodeType": "Sequence",
           "children": [
             {
-              "nodeName": "IsCombat",
+              "nodeName": "IsNotCombat",
               "nodeType": "Condition",
-			  "shouldBeTrue": "false",
-              "methodName": "CheckIsCombat"
+			  "shouldBeTrue": "true",
+              "methodName": "CheckIsNotCombat"
             },
             {
               "nodeName": "FindWaypoint",

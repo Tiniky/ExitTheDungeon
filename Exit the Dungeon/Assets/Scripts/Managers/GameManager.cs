@@ -97,23 +97,17 @@ public class GameManager : MonoBehaviour {
     public void HandleState(){
         switch(Phase){
             case GamePhase.ADVENTURE:
-                if(WasSceneChange){
-                    TurnOnOffMTM(false);
-                    WasSceneChange = false;
-                }
-
+                CheckForSceneChange(false);
                 CheckForRestart();
 
                 if(!_playerBehaviour.CheckIfCreatureCanMove()){
                     StartCoroutine(RestartMovementCoroutine());
                 }
                 break;
+            case GamePhase.INITIATIVE:
+                break;
             case GamePhase.COMBAT:
-                if(WasSceneChange){
-                    FreezePlayerMovement();
-                    TurnOnOffMTM(true);
-                    WasSceneChange = false;
-                }
+                CheckForSceneChange(true);
 
                 //need to check if works properly
                 /*foreach(var actionKey in ActionKeys){
@@ -466,16 +460,30 @@ public class GameManager : MonoBehaviour {
         CurrentCorridor = null;
 
         if((room.Room.Type == RoomType.COMBAT || room.Room.Type == RoomType.BOSS || room.Room.Type == RoomType.PRISON) && !_wasCleared[CurrentRoom]){
+            Phase = GamePhase.INITIATIVE;
             TileManager.Instance.LoadCurrentRoom(room);
+            FreezeAllMovements();
             HandleRoomDoors(true);
             StartCoroutine(Instance.InitializeCombat());
         }
     }
 
+    private void FreezeAllMovements(){
+        WasSceneChange = true;
+        FreezePlayerMovement();
+
+        foreach(GameObject ally in _partyMembers){
+            PartyMemberBehaviour pmb = ally.GetComponent<PartyMemberBehaviour>();
+            pmb.StopFollowing();
+        }
+
+        foreach(GameObject enemy in _enemiesList){
+            EnemyBehaviour eb = enemy.GetComponent<EnemyBehaviour>();
+            eb.StopMovement();
+        }
+    }
+
     private IEnumerator InitializeCombat(){
-        //FreezePlayerMovement();
-        Phase = GamePhase.COMBAT;
-        //WasSceneChange = true;
         yield return new WaitForSeconds(0.5f);
         BattleManager.Initialize();
     }
@@ -542,6 +550,13 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    private void CheckForSceneChange(bool state){
+        if(WasSceneChange){
+            TurnOnOffMTM(state);
+            WasSceneChange = false;
+        }
+    }
+
     private void CheckForRestart(){
         if(Input.GetKeyDown(KeyCode.R)){
             if(_keyPressCount == 0){
@@ -570,7 +585,6 @@ public class GameManager : MonoBehaviour {
     }
 
     public static void FightStarted(List<EntityRoll> rolls){
-        Phase = GamePhase.COMBAT;
         FightUIManager.InitiativeRollSetup(rolls);
         SwapTilesVisibility(true);
         Cursor.visible = true; 
@@ -646,6 +660,7 @@ public class GameManager : MonoBehaviour {
 
         fighters.Clear();
         FightUIManager.FightVisibility(true);
+        Phase = GamePhase.COMBAT;
     }
 
     public static void EndCombatPhase(){
@@ -677,7 +692,8 @@ public class GameManager : MonoBehaviour {
 
     public static void FightPositionSetup(){
         List<GameObject> participants = new List<GameObject>();
-        participants.AddRange(BattleManager.GetALL());
+        participants.Add(_player);
+        participants.AddRange(_rescued.Where(ally => ally.GetComponent<Entity>().isAlive));
 
         foreach(GameObject fighter in participants){
             if(fighter.GetComponent<BoxCollider2D>() != null){
