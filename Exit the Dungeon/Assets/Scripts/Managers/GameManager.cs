@@ -552,6 +552,7 @@ public class GameManager : MonoBehaviour {
 
     private void CheckForSceneChange(bool state){
         if(WasSceneChange){
+            Debug.Log("Turning the MTT: " + state);
             TurnOnOffMTM(state);
             WasSceneChange = false;
         }
@@ -628,16 +629,22 @@ public class GameManager : MonoBehaviour {
             PlayerMovement mvm = _player.GetComponent<PlayerMovement>();
             mvm.Stop();
             mvm.enabled = false;
+            Debug.Log("GameManager - Player movement stopped");
         }
     }
 
     private IEnumerator RestartMovementCoroutine() {
         yield return new WaitForSeconds(2.5f);
-        _playerBehaviour.AllowMovement();
-        PlayerMovement mvm = _player.GetComponent<PlayerMovement>();
-        mvm.Go();
-        mvm.enabled = true;
-        _cvc.m_Follow = _player.transform;
+        
+        if(Phase == GamePhase.ADVENTURE){
+            _playerBehaviour.AllowMovement();
+            PlayerMovement mvm = _player.GetComponent<PlayerMovement>();
+            mvm.Go();
+            mvm.enabled = true;
+            _cvc.m_Follow = _player.transform;
+        } else {
+            Debug.Log("GameManager - Skipping movement restart due to phase change");
+        }
     }
 
     public static void Rescue(GameObject hostage){

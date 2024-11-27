@@ -7,7 +7,6 @@ public class InteractableTile : MonoBehaviour {
     private SpriteRenderer _renderer;
     private GameObject _onTheTile;
     public bool isEmpty, isOffset;
-    //private bool _isOffset;
 
     public void InitializeBackend(bool IsOffset){
         isEmpty = true;
@@ -20,7 +19,7 @@ public class InteractableTile : MonoBehaviour {
         Vector3 cellPosition = gameObject.transform.position;
         isEmpty = true;
         _renderer = GetComponent<SpriteRenderer>();
-        isOffset = (Mathf.Abs(cellPosition.x) + Mathf.Abs(cellPosition.y)) % 2 == 1;
+        isOffset = CheckTileColorIs(offsetColor);
         Debug.Log("cellPosition: " + cellPosition + " tile: " + gameObject.name + " isOffset: " + isOffset);
         ResetColor();
     }
@@ -72,5 +71,9 @@ public class InteractableTile : MonoBehaviour {
         } else {
             _renderer.color = rejectColor;
         }
+    }
+
+    public bool CheckTileColorIs(Color color){
+        return _renderer.color == color;
     }
 }

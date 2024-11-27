@@ -668,3 +668,11 @@ the gap closing and attack needs a fixing
 created trello to organize tasks better: https://trello.com/b/4FBinLML/etd-finish-up
 started rebuilding the combat system, added precombat phase
 modified the BT again
+
+\\third week of november
+finished planning the combat system
+addressed some issues and functionalities that are working
+
+\\forth week of november
+started the rework point by point
+fixed the issues about mtt not swapping, player not stopping the movement and tiles getting recolored incorrectly
