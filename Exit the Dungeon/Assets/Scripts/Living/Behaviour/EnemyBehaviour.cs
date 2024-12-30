@@ -5,6 +5,12 @@ using UnityEngine;
 public class EnemyBehaviour : CreatureBehaviour {
     public EnemyMovement _movement;
 
+    void Update(){
+        if(!canMove && _movement.TargetPosition != _current.transform.position){
+            _movement.TargetPosition = _current.transform.position;
+        }
+    }
+
     public override void TakeDmg(int DMGvalue){
         Entity currentEntity = _current.GetComponent<Entity>();
         currentEntity.HP.Take(DMGvalue);

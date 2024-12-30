@@ -164,8 +164,6 @@ public class TileManager {
     }
 
     public void Reset(){
-        Debug.Log("repainting tiles: " + _tilesInRange.Count);
-
         foreach(InteractableTile tile in _tilesInRange){
             tile.ResetColor();
         }

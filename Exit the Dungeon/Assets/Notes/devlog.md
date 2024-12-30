@@ -676,3 +676,11 @@ addressed some issues and functionalities that are working
 \\forth week of november
 started the rework point by point
 fixed the issues about mtt not swapping, player not stopping the movement and tiles getting recolored incorrectly
+cleaned up the Combat Redo list, but still can't figure out the last 2 issue (gonna come back to them later)
+
+\\last weel of december
+started working on the save system:
+- created save JSON file
+- modified the pre game menu
+- imported new icons
+- set up all the characters/items/maps

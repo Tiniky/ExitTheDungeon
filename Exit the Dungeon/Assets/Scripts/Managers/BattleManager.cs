@@ -47,7 +47,9 @@ public static class BattleManager {
         GameManager.TurnOffTheLigths(allObj);
         battle = new Battle(all);
         _current = 0;
-        TurnIndicatorSetup(_current);
+        Debug.Log("BattleManager initialized.");
+        TurnIndicatorSetup(0);
+        Debug.Log("First turn indicator set.");
         HandleCurrentFighter();
     }
 
@@ -102,6 +104,7 @@ public static class BattleManager {
         
         TileManager.Instance.Reset();
 
+        Debug.Log("TurnIndicatorSetup called with curr: " + curr);
         if(curr == -1){
             foreach(InteractableTile tile in tiles){
                 tile.ResetColor();
@@ -111,6 +114,8 @@ public static class BattleManager {
                 tile.IndicateTurn();
             }
         }
+
+        Debug.Log("TurnIndicatorSetup completed for entity: " + nextUp.EntityName);
     }
 
     public static bool IsTheirTurn(Entity entity){
@@ -253,10 +258,11 @@ public static class BattleManager {
     }
 
     private static void HandleCurrentFighter(){
-        if(CurrentFighter().GetType() == typeof(Adventurer)){
+        Entity currentFighter = CurrentFighter();
+        if(currentFighter.GetType() == typeof(Adventurer)){
             BattleState.Reset();
-            AbilityUIManager.FillAbilitiesOf((Adventurer)CurrentFighter());
-            PassiveUIManager.FillPassiveOf((Adventurer)CurrentFighter());
+            AbilityUIManager.FillAbilitiesOf((Adventurer)currentFighter);
+            PassiveUIManager.FillPassiveOf((Adventurer)currentFighter);
             ActionUIManager.UpdateActions();
         } else {
             BattleState.LockActions();

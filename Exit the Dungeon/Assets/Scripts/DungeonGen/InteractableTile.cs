@@ -20,14 +20,13 @@ public class InteractableTile : MonoBehaviour {
         isEmpty = true;
         _renderer = GetComponent<SpriteRenderer>();
         isOffset = CheckTileColorIs(offsetColor);
-        Debug.Log("cellPosition: " + cellPosition + " tile: " + gameObject.name + " isOffset: " + isOffset);
         ResetColor();
     }
 
     public bool IsTileInEntityRange(GameObject entityObj, int range){
         float distance = DistanceFromEntity(entityObj);
 
-        Debug.Log(distance);
+        Debug.Log("Distance from entity: " + distance + ", range: " + range);
         return distance <= range;
     }
 
@@ -52,7 +51,7 @@ public class InteractableTile : MonoBehaviour {
 
     public void IndicateTurn(){    
         _renderer.color = turnindicatorColor;
-        Debug.Log("tile " + gameObject.transform.position + " was set as turn indicator");
+        Debug.Log("Indicating turn on: " + gameObject.name);
     }
 
     public GameObject EntityOnTile(){

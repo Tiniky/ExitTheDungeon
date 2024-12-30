@@ -45,16 +45,11 @@ public static class BehaviorNodeMethods {
     }
 
     public static NodeStatus SnapToTile(Blackboard Blackboard){
-        //get closest tile
-        //verify the closest tile is empty is false
-        //verify that entity on closest tile == this entity
-
         GameObject fighter = Blackboard.GetValue<GameObject>("OwnerObj");
         Vector3 currentPos = fighter.transform.position;
         InteractableTile tile = TileManager.Instance.GetClosestTile(currentPos);
-        if(tile.isEmpty){
-            TileManager.Instance.SnapToClosestTile(fighter, tile);
-            Debug.Log("GameManager - " + fighter.name + " snapped from " + currentPos + " to " + fighter.transform.position);
+        if(!tile.isEmpty && tile.EntityOnTile() == fighter){
+            Debug.Log("Entity is already on the tile.");
         }
 
         return NodeStatus.SUCCESS;

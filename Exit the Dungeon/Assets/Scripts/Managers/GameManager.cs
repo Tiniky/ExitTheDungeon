@@ -475,11 +475,13 @@ public class GameManager : MonoBehaviour {
         foreach(GameObject ally in _partyMembers){
             PartyMemberBehaviour pmb = ally.GetComponent<PartyMemberBehaviour>();
             pmb.StopFollowing();
+            Debug.Log("GameManager - " + ally.name + " stopped movement");
         }
 
         foreach(GameObject enemy in _enemiesList){
             EnemyBehaviour eb = enemy.GetComponent<EnemyBehaviour>();
             eb.StopMovement();
+            Debug.Log("GameManager - " + enemy.name + " stopped movement");
         }
     }
 
@@ -643,7 +645,7 @@ public class GameManager : MonoBehaviour {
             mvm.enabled = true;
             _cvc.m_Follow = _player.transform;
         } else {
-            Debug.Log("GameManager - Skipping movement restart due to phase change");
+            //Debug.Log("GameManager - Skipping movement restart due to phase change");
         }
     }
 
@@ -701,6 +703,7 @@ public class GameManager : MonoBehaviour {
         List<GameObject> participants = new List<GameObject>();
         participants.Add(_player);
         participants.AddRange(_rescued.Where(ally => ally.GetComponent<Entity>().isAlive));
+        participants.AddRange(_enemiesList);
 
         foreach(GameObject fighter in participants){
             if(fighter.GetComponent<BoxCollider2D>() != null){
