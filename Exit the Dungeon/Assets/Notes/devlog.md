@@ -684,3 +684,4 @@ started working on the save system:
 - modified the pre game menu
 - imported new icons
 - set up all the characters/items/maps
+created chain handler that shows if something is unlocked or not
