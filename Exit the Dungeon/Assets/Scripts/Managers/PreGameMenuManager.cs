@@ -4,13 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PreGameMenuManager : MonoBehaviour {
-    public Button _startButton, _backButton, _char1Button, _char2Button, _char3Button, _char4Button, _char5Button, _map1Button, _map2Button, _map3Button, _map4Button;
-    public GameObject _item1Obj, _item2Obj, _item3Obj, _item4Obj, _item5Obj;
+    public Button _startButton, _backButton, _char1Button, _char2Button, _char3Button, _char4Button, _char5Button;
+    public List<GameObject> stuff = new List<GameObject>();
+    public List<Button> buttons = new List<Button>();
     private string _selectedCharacter;
-    private Button _lastSelectedCharButton, _lastSelectedMapButton;
+    private Button _lastSelectedCharButton;
+    private GameObject descPrefab;
+    private Dictionary <GameObject, ExplanationController> _unlockDescriptions = new Dictionary<GameObject, ExplanationController>();
 
     void Start(){
         SaveManager.LoadGame();
+        descPrefab = Resources.Load<GameObject>("Prefabs/UI/ExplanationSmall");
+        SetUpUnlockConditions();
 
         _startButton.onClick.AddListener(StartGame);
         _backButton.onClick.AddListener(BackToMainMenu);
@@ -19,10 +24,6 @@ public class PreGameMenuManager : MonoBehaviour {
         _char3Button.onClick.AddListener(() => HandleCharSelectOrDeselect("ElfSorcerer", _char3Button));
         _char4Button.onClick.AddListener(() => HandleCharSelectOrDeselect("DwarfCleric", _char4Button));
         _char5Button.onClick.AddListener(() => HandleCharSelectOrDeselect("???", _char5Button));
-        _map1Button.onClick.AddListener(() => HandleMapSelectOrDeselect("Map1", _map1Button));
-        _map2Button.onClick.AddListener(() => HandleMapSelectOrDeselect("Map2", _map2Button));
-        _map3Button.onClick.AddListener(() => HandleMapSelectOrDeselect("Map3", _map3Button));
-        _map4Button.onClick.AddListener(() => HandleMapSelectOrDeselect("Map4", _map4Button));
     }
 
     private void StartGame(){
@@ -46,33 +47,44 @@ public class PreGameMenuManager : MonoBehaviour {
             button.image.color = defaultColor;
             Debug.Log("Deselected character: " + character);
         }else{
-            if (_lastSelectedCharButton != null) {
-                ColorUtility.TryParseHtmlString("#FFFFFF", out Color defaultColor);
-                _lastSelectedCharButton.image.color = defaultColor;
+            if(SaveManager.CheckIfUnlocked(AssetType.Character, character)){
+                if (_lastSelectedCharButton != null) {
+                    ColorUtility.TryParseHtmlString("#FFFFFF", out Color defaultColor);
+                    _lastSelectedCharButton.image.color = defaultColor;
+                }
+                _selectedCharacter = character;
+                _lastSelectedCharButton = button;
+                ColorUtility.TryParseHtmlString("#DCF096", out Color selectedColor);
+                button.image.color = selectedColor;
+                Debug.Log("Selected character: " + _selectedCharacter);
             }
-            _selectedCharacter = character;
-            _lastSelectedCharButton = button;
-            ColorUtility.TryParseHtmlString("#DCF096", out Color selectedColor);
-            button.image.color = selectedColor;
-            Debug.Log("Selected character: " + _selectedCharacter);
         }
     }
 
-    private void HandleMapSelectOrDeselect(string map, Button button){
-        if(_lastSelectedMapButton == button){
-            _lastSelectedMapButton = null;
-            ColorUtility.TryParseHtmlString("#FFFFFF", out Color defaultColor);
-            button.image.color = defaultColor;
-            Debug.Log("Deselected map: " + map);
-        }else{
-            if (_lastSelectedMapButton != null) {
-                ColorUtility.TryParseHtmlString("#FFFFFF", out Color defaultColor);
-                _lastSelectedMapButton.image.color = defaultColor;
-            }
-            _lastSelectedMapButton = button;
-            ColorUtility.TryParseHtmlString("#DCF096", out Color selectedColor);
-            button.image.color = selectedColor;
-            Debug.Log("Selected map: " + map);
+    private void SetUpUnlockConditions(){
+        foreach(GameObject obj in stuff){
+            Debug.Log("Setting up unlock condition for: " + obj.name);
+            CreateDescription(obj);
         }
+
+        foreach(Button button in buttons){
+            Debug.Log("Setting up unlock condition for: " + button.gameObject.name);
+            CreateDescription(button.gameObject);
+        }
+    }
+
+    private void CreateDescription(GameObject obj){
+        if(descPrefab == null){
+            Debug.LogError("Description prefab is null");
+            return;
+        }
+
+        MenuAssetHover asset = obj.AddComponent<MenuAssetHover>();        
+        GameObject explanationText = PrefabManager.InstantiatePrefabV2(descPrefab, obj, false, new Vector3(0, 0, 0f), "ExplanationOf" + obj.name);
+        ExplanationController ec = explanationText.GetComponent<ExplanationController>();
+        asset.ConnectExplanation(explanationText, obj.name);
+        ec.SetDescription(SaveManager.GetConditionOf(obj.name));
+        explanationText.SetActive(false);
+        _unlockDescriptions.Add(obj, ec);
     }
 }

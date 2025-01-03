@@ -8,7 +8,7 @@ public class ChainHandler : MonoBehaviour {
 
     void Update(){
         if(SaveManager.WasLoaded && !_wasChecked){
-            SaveManager.CheckIfUnlocked(assetType, gameObject);
+            SaveManager.HandleIfUnlocked(assetType, gameObject);
             _wasChecked = true;
         }
     }

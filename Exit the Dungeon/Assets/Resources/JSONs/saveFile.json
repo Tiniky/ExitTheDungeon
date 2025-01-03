@@ -82,7 +82,7 @@
 		"dcKill": 0,
 		"bossrush": 0,
 		"dmgDealt": 0,
-		"roomsDiscovered": 0,
+		"roomsCleared": 0,
 		"depthsBossKilled": false,
 		"otherworldBossKilled": false,
 		"charsUnlocked": 1

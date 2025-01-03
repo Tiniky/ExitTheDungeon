@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using Newtonsoft.Json.Linq;
 
@@ -55,24 +56,24 @@ public static class SaveManager {
     }
 
     private static void DebugAll(){
-        foreach (var character in Characters){
+        foreach(var character in Characters){
             Debug.Log("Character: " + character.Name + " - Unlocked: " + character.Unlocked + " - Condition: " + character.Condition);
         }
 
-        foreach (var item in Items){
+        foreach(var item in Items){
             Debug.Log("Item: " + item.Name + " - Unlocked: " + item.Unlocked + " - Condition: " + item.Condition);
         }
 
-        foreach (var map in Maps){
+        foreach(var map in Maps){
             Debug.Log("Map: " + map.Name + " - Unlocked: " + map.Unlocked + " - Condition: " + map.Condition);
         }
 
-        foreach (var stat in PlayerData){
+        foreach(var stat in PlayerData){
             Debug.Log("Stat: " + stat.Key + " - Value: " + stat.Value);
         }
     }
 
-    public static void CheckIfUnlocked(AssetType at, GameObject gameObject){
+    public static void HandleIfUnlocked(AssetType at, GameObject gameObject){
         string objectName = gameObject.name;
         
         switch(at){
@@ -113,5 +114,65 @@ public static class SaveManager {
                 }
                 break;
         }
+    }
+
+    public static bool CheckIfUnlocked(AssetType assetType, string objectName){
+        switch(assetType){
+            case AssetType.Character:
+                SaveAsset character = Characters.Find(c => c.Name == objectName);
+                if(character != null){
+                    return character.Unlocked;
+                }
+                break;
+            case AssetType.Item:
+                SaveAsset item = Items.Find(i => i.Name == objectName);
+                if(item != null){
+                    return item.Unlocked;
+                }
+                break;
+            case AssetType.Map:
+                SaveAsset map = Maps.Find(m => m.Name == objectName);
+                if(map != null){
+                    return map.Unlocked;
+                }
+                break;
+        }
+        return false;
+    }
+
+    public static string GetConditionOf(string name){
+        SaveAsset asset = GetAsset(name);
+
+        if(asset != null){
+            return asset.Condition;
+        }
+
+        return "";
+    }
+
+    public static SaveAsset GetAsset(string name){
+        SaveAsset asset = Characters.Find(c => c.Name == name);
+        if(asset == null){
+            asset = Items.Find(i => i.Name == name);
+            if(asset == null){
+                asset = Maps.Find(m => m.Name == name);
+            }
+        }
+
+        return asset;
+    }
+
+    public static void SaveProgress(){
+        Dictionary<string, string> newPlayerData = GameManager.GetPlayerData();
+        JObject loadData = JObject.Parse(jsonFile.text);
+
+        foreach(var stat in newPlayerData){
+            loadData["stats"][stat.Key] = JToken.FromObject(stat.Value);
+        }
+
+        string updatedJson = loadData.ToString();
+        File.WriteAllText("path/to/saveFile.json", updatedJson);
+
+        Debug.Log("Progress saved successfully.");
     }
 }

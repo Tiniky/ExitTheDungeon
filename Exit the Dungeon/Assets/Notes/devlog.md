@@ -685,3 +685,7 @@ started working on the save system:
 - imported new icons
 - set up all the characters/items/maps
 created chain handler that shows if something is unlocked or not
+
+\\first week of january yaaaay
+added conditions on hover
+finished up the save system

@@ -61,6 +61,10 @@ public class GameManager : MonoBehaviour {
     //testing
     public static bool IsGodModeOn = true;
 
+    //save system
+    private static Dictionary<string, string> _playerData = new Dictionary<string, string>();
+
+
     private void Awake() {
         if(Instance == null) {
             Instance = this;
@@ -88,6 +92,7 @@ public class GameManager : MonoBehaviour {
 
     private void SetUpGame(){
         Phase = GamePhase.INIT;
+        CopyDataFromSave();
         GenerateLevel(CurrentLevel);
         InitializeGame();
         Phase = GamePhase.ADVENTURE;
@@ -131,6 +136,13 @@ public class GameManager : MonoBehaviour {
                 break;
             default:
                 break;
+        }
+    }
+
+    private void CopyDataFromSave(){
+        _playerData = new Dictionary<string, string>();
+        foreach(var data in SaveManager.PlayerData){
+            _playerData.Add(data.Key, data.Value);
         }
     }
 
@@ -806,5 +818,23 @@ public class GameManager : MonoBehaviour {
         foreach(GameObject ally in _rescued){
             ally.GetComponent<BoxCollider2D>().enabled = true;
         }
+    }
+
+    public static void UpdateKillCount(string killedBy){
+        string key = "stats." + killedBy;
+        _playerData[key] = _playerData[key].Split(':')[0] + ": " + (int.Parse(_playerData[key].Split(':')[1]) + 1);
+        _playerData["stats.killCount"] = _playerData["stats.killCount"].Split(':')[0] + ": " + (int.Parse(_playerData["stats.killCount"].Split(':')[1]) + 1);
+    }
+
+    public static void UpdateDMGDealt(int dmg){
+        _playerData["stats.dmgDealt"] = _playerData["stats.dmgDealt"].Split(':')[0] + ": " + (int.Parse(_playerData["stats.dmgDealt"].Split(':')[1]) + dmg);
+    }
+
+    public static void UpdateRoomsCleared(){
+        _playerData["stats.roomsCleared"] = _playerData["stats.roomsCleared"].Split(':')[0] + ": " + (int.Parse(_playerData["stats.roomsCleared"].Split(':')[1]) + 1);
+    }
+
+    public static Dictionary<string,string> GetPlayerData(){
+        return _playerData;
     }
 }
