@@ -32,6 +32,7 @@ public static class PrefabManager {
     public static GameObject LOG_TEXT;
     public static GameObject EXPLANATION_BIG;
     public static GameObject EXPLANATION_SMALL;
+    public static GameObject ESCAPE_MENU;
 
     // UI Images
     public static Image IMG_ORC_TOKEN;
@@ -124,6 +125,7 @@ public static class PrefabManager {
         LOG_TEXT = Resources.Load<GameObject>("Prefabs/UI/LogText");
         EXPLANATION_BIG = Resources.Load<GameObject>("Prefabs/UI/ExplanationBig");
         EXPLANATION_SMALL = Resources.Load<GameObject>("Prefabs/UI/ExplanationSmall");
+        ESCAPE_MENU = Resources.Load<GameObject>("Prefabs/UI/EscapeMenu");
 
         IMG_HUMAN_TOKEN = Resources.Load<Image>("Images/HumanToken");
         IMG_ORC_TOKEN = Resources.Load<Image>("Images/OrcToken");

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public static class UIManager {
-    private static Canvas _canvas;
+    private static Canvas _canvas, _escapeMenuCanvas;
 
     public static void Initialize(){
         CreateCanvas();
@@ -18,6 +18,7 @@ public static class UIManager {
         InitializeFightRelatedThings();
         InitializeText();
         InitializeInventory();
+        InitializeEscapeMenu();
     }
 
     private static void CreateCanvas(){
@@ -28,6 +29,14 @@ public static class UIManager {
         canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
         canvasScaler.referenceResolution = new Vector2(1920, 1080);
         canvasObject.AddComponent<GraphicRaycaster>();
+
+        GameObject canvasObject2 = new GameObject("Canvas_EscapeMenu");
+        _escapeMenuCanvas = canvasObject2.AddComponent<Canvas>();
+        _escapeMenuCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        CanvasScaler canvasScaler2 = canvasObject2.AddComponent<CanvasScaler>();
+        canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+        canvasScaler.referenceResolution = new Vector2(1920, 1080);
+        canvasObject2.AddComponent<GraphicRaycaster>();
     }
 
     public static GameObject _CreateEmptyUIGameObject(string name, Vector3 pos){
@@ -85,6 +94,10 @@ public static class UIManager {
 
     private static void InitializeLogs(){
         LogManager.Initialize(_canvas);
+    }
+
+    private static void InitializeEscapeMenu(){
+        GameManager.InitializeEscapeMenu(_escapeMenuCanvas);
     }
 
     public static void UIVisibility(bool shouldBeVisible) {

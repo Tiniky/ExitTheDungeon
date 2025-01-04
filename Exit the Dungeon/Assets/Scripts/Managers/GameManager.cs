@@ -27,7 +27,6 @@ public class GameManager : MonoBehaviour {
     //global thing
     public static int Gem = 0;
     public static GamePhase Phase;
-    public static bool IsPaused = false;
     private static bool WasSceneChange = false;
     public delegate void KeyAction(KeyCode key);
     private static Dictionary<KeyCode, KeyAction> ActionKeys;
@@ -57,6 +56,9 @@ public class GameManager : MonoBehaviour {
     private static int _keyPressCount = 0;
     private static float _firstKeyPressTime = 0f;
     private static readonly float _keyPressInterval = 2f;
+    private static GameObject escapeMenu;
+    private static bool _isPaused = false;
+    private static GamePhase _previousPhase;
     
     //testing
     public static bool IsGodModeOn = true;
@@ -550,6 +552,10 @@ public class GameManager : MonoBehaviour {
     }
 
     private static void HandleInputs(){
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            TogglePause();
+        }
+
         if(Input.GetKeyDown(KeyCode.H)){
             UIManager.HideUI();
         }
@@ -836,5 +842,26 @@ public class GameManager : MonoBehaviour {
 
     public static Dictionary<string,string> GetPlayerData(){
         return _playerData;
+    }
+
+    public static void InitializeEscapeMenu(Canvas canvas){
+        GameObject prefab = PrefabManager.ESCAPE_MENU;
+        escapeMenu = PrefabManager.InstantiatePrefabV3(prefab, canvas.transform);
+        escapeMenu.SetActive(false);
+    }
+
+    public static void TogglePause(){
+        if(_isPaused){
+            UIManager.ShowUI();
+            escapeMenu.SetActive(false);
+            _isPaused = false;
+            Phase = _previousPhase;
+        } else {
+            UIManager.HideUI();
+            escapeMenu.SetActive(true);
+            _isPaused = true;
+            _previousPhase = Phase;
+            Phase = GamePhase.PAUSE;
+        }
     }
 }

@@ -689,3 +689,5 @@ created chain handler that shows if something is unlocked or not
 \\first week of january yaaaay
 added conditions on hover
 finished up the save system
+fixed the minimap
+added escape menu

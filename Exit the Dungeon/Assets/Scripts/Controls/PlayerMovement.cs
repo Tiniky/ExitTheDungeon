@@ -7,12 +7,18 @@ public class PlayerMovement : MonoBehaviour {
     public Vector2 move;
     public bool shouldStop;
 
-    void Start() {
+    void Start(){
         moveSpeed = 7.5f;
         shouldStop = false;
     }
 
-    void FixedUpdate() {
+    void FixedUpdate(){
+        if(GameManager.Phase == GamePhase.ADVENTURE){
+            Go();
+        } else{
+            Stop();
+        }
+
         if(!shouldStop){
             move.x = Input.GetAxisRaw("Horizontal");
             move.y = Input.GetAxisRaw("Vertical");
