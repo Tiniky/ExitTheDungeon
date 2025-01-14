@@ -1,6 +1,6 @@
 {
   "nodeName": "ROOT",
-  "nodeType": "Selector",
+  "nodeType": "Root",
   "children": [
     {
       "nodeName": "Select Strategy",
@@ -11,9 +11,10 @@
           "nodeType": "Sequence",
           "children": [
             {
-              "nodeName": "isCombat",
-              "nodeType": "Action",
-              "methodName": "isCombat"
+              "nodeName": "IsCombat",
+              "nodeType": "Condition",
+			  "shouldBeTrue": "true",
+              "methodName": "CheckIsCombat"
             },
             {
               "nodeName": "Select Strategy",
@@ -24,9 +25,10 @@
                   "nodeType": "Sequence",
                   "children": [
                     {
-                      "nodeName": "isTheirTurn",
-                      "nodeType": "Action",
-                      "methodName": "isTheirTurn"
+                      "nodeName": "IsTheirTurn",
+                      "nodeType": "Condition",
+					  "shouldBeTrue": "false",
+                      "methodName": "IsTheirTurn"
                     },
                     {
                       "nodeName": "FaceThePlayer",
@@ -35,7 +37,7 @@
                     }
                   ]
                 },
-                {
+				{
                   "nodeName": "Fight Strategy",
                   "nodeType": "Sequence",
                   "children": [
@@ -48,14 +50,15 @@
                           "nodeType": "Sequence",
                           "children": [
                             {
-                              "nodeName": "isLowOnHealth",
-                              "nodeType": "Action",
-                              "methodName": "isLowOnHealth"
+                              "nodeName": "ShouldFlee",
+                              "nodeType": "Condition",
+							  "shouldBeTrue": "true",
+                              "methodName": "ShouldFlee"
                             },
                             {
-                              "nodeName": "RollToDecideOnFlee",
+                              "nodeName": "IntCheckRoll",
                               "nodeType": "Action",
-                              "methodName": "RollToDecideOnFlee"
+                              "methodName": "IntCheckRoll"
                             },
                             {
                               "nodeName": "Select Strategy",
@@ -66,15 +69,32 @@
                                   "nodeType": "Sequence",
                                   "children": [
                                     {
-                                      "nodeName": "checkRoll",
-                                      "nodeType": "Action",
-                                      "methodName": "checkRoll"
+                                      "nodeName": "CanFlee",
+                                      "nodeType": "Condition",
+									  "shouldBeTrue": "true",
+                                      "methodName": "CanFlee"
                                     },
                                     {
-                                      "nodeName": "FleeFromCombat",
-                                      "nodeType": "Action",
-                                      "methodName": "FleeFromCombat"
-                                    }
+									  "nodeName": "Flee From Combat Strategy",
+									  "nodeType": "Sequence",
+									  "children": [
+										{
+										  "nodeName": "GetFleeDirection",
+										  "nodeType": "Action",
+										  "methodName": "GetFleeDirection"
+										},
+										{
+										  "nodeName": "FindFleeWaypoint",
+										  "nodeType": "Action",
+										  "methodName": "FindFleeWaypoint"
+										},
+										{
+										  "nodeName": "GoToFleeWaypoint",
+										  "nodeType": "Action",
+										  "methodName": "GoToFleeWaypoint"
+										}
+									  ]
+									}
                                   ]
                                 },
                                 {
@@ -82,14 +102,15 @@
                                   "nodeType": "Sequence",
                                   "children": [
                                     {
-                                      "nodeName": "checkRoll",
-                                      "nodeType": "Action",
-                                      "methodName": "checkRoll"
+                                      "nodeName": "CanFlee",
+                                      "nodeType": "Condition",
+									  "shouldBeTrue": "false",
+                                      "methodName": "CanFlee"
                                     },
                                     {
-                                      "nodeName": "ContinueFight",
+                                      "nodeName": "ContinueFighting",
                                       "nodeType": "Action",
-                                      "methodName": "ContinueFight"
+                                      "methodName": "ContinueFighting"
                                     }
                                   ]
                                 }
@@ -102,20 +123,21 @@
                           "nodeType": "Sequence",
                           "children": [
                             {
-                              "nodeName": "isLowOnHealth",
-                              "nodeType": "Action",
-                              "methodName": "isLowOnHealth"
+                              "nodeName": "ShouldFlee",
+                              "nodeType": "Condition",
+							  "shouldBeTrue": "false",
+                              "methodName": "ShouldFlee"
                             },
                             {
-                              "nodeName": "ContinueFight",
+                              "nodeName": "ContinueFighting",
                               "nodeType": "Action",
-                              "methodName": "ContinueFight"
+                              "methodName": "ContinueFighting"
                             }
                           ]
                         }
-                      ]
-                    },
-                    {
+					  ]
+					},
+					{
                       "nodeName": "Select Strategy",
                       "nodeType": "Selector",
                       "children": [
@@ -124,25 +146,27 @@
                           "nodeType": "Sequence",
                           "children": [
                             {
-                              "nodeName": "shouldKeepFighting",
-                              "nodeType": "Action",
-                              "methodName": "shouldKeepFighting"
+                              "nodeName": "ShouldKeepFighting",
+                              "nodeType": "Condition",
+							  "shouldBeTrue": "false",
+                              "methodName": "ShouldKeepFighting"
                             },
-                            {
-                              "nodeName": "DoNothing",
-                              "nodeType": "Action",
-                              "methodName": "DoNothing"
-                            }
+							{
+							  "nodeName": "Pass Turn",
+							  "nodeType": "Action",
+							  "methodName": "PassTurn"
+							}
                           ]
                         },
-                        {
+						{
                           "nodeName": "Action Strategy",
                           "nodeType": "Sequence",
                           "children": [
                             {
-                              "nodeName": "shouldKeepFighting",
-                              "nodeType": "Action",
-                              "methodName": "shouldKeepFighting"
+                              "nodeName": "ShouldKeepFighting",
+                              "nodeType": "Condition",
+							  "shouldBeTrue": "true",
+                              "methodName": "ShouldKeepFighting"
                             },
                             {
                               "nodeName": "SelectTarget",
@@ -164,101 +188,65 @@
                                   "children": [
                                     {
                                       "nodeName": "isInRange",
-                                      "nodeType": "Action",
-                                      "methodName": "isInRange"
+									  "nodeType": "Condition",
+									  "shouldBeTrue": "false",
+                                      "methodName": "IsInRange"
                                     },
-                                    {
-                                      "nodeName": "TryCloseGap",
-                                      "nodeType": "Action",
-                                      "methodName": "TryCloseGap"
-                                    }
+									{
+									  "nodeName": "Pass Turn",
+									  "nodeType": "Action",
+									  "methodName": "PassTurn"
+									}
                                   ]
                                 },
                                 {
-                                  "nodeName": "Select Strategy",
-                                  "nodeType": "Selector",
-                                  "children": [
-                                    {
-                                      "nodeName": "Still out of Range Strategy",
-                                      "nodeType": "Sequence",
-                                      "children": [
-                                        {
-                                          "nodeName": "isInRange",
-                                          "nodeType": "Action",
-                                          "methodName": "isInRange"
-                                        },
-                                        {
-                                          "nodeName": "DoNothing",
-                                          "nodeType": "Action",
-                                          "methodName": "DoNothing"
-                                        }
-                                      ]
-                                    },
-                                    {
-                                      "nodeName": "Attack Strategy",
-                                      "nodeType": "Sequence",
-                                      "children": [
-                                        {
-                                          "nodeName": "isInRange",
-                                          "nodeType": "Action",
-                                          "methodName": "isInRange"
-                                        },
-                                        {
-                                          "nodeName": "AttackRoll",
-                                          "nodeType": "Action",
-                                          "methodName": "AttackRoll"
-                                        },
-                                        {
-                                          "nodeName": "Select Strategy",
-                                          "nodeType": "Selector",
-                                          "children": [
-                                            {
-                                              "nodeName": "Handle Miss Strategy",
-                                              "nodeType": "Sequence",
-                                              "children": [
-                                                {
-                                                  "nodeName": "checkEnemyAC",
-                                                  "nodeType": "Action",
-                                                  "methodName": "checkEnemyAC"
-                                                }
-                                              ]
-                                            },
-                                            {
-                                              "nodeName": "Handle Hit Strategy",
-                                              "nodeType": "Sequence",
-                                              "children": [
-                                                {
-                                                  "nodeName": "checkEnemyAC",
-                                                  "nodeType": "Action",
-                                                  "methodName": "checkEnemyAC"
-                                                },
-                                                {
-                                                  "nodeName": "Attack",
-                                                  "nodeType": "Action",
-                                                  "methodName": "Attack"
-                                                },
-                                                {
-                                                  "nodeName": "Pass Turn",
-                                                  "nodeType": "Action",
-                                                  "methodName": "PassTurn"
-                                                }
-                                              ]
-                                            }
-                                          ]
-                                        }
-                                      ]
-                                    }
+								  "nodeName": "Attack Strategy",
+								  "nodeType": "Sequence",
+								  "children": [
+									{
+									  "nodeName": "isInRange",
+									  "nodeType": "Condition",
+									  "shouldBeTrue": "true",
+									  "methodName": "IsInRange"
+									},
+									{
+									  "nodeName": "AttemptAttack",
+									  "nodeType": "Action",
+									  "methodName": "ExecuteAttack"
+									},
+									{
+									  "nodeName": "Pass Turn",
+									  "nodeType": "Action",
+									  "methodName": "PassTurn"
+									}
                                   ]
                                 }
                               ]
                             }
                           ]
                         }
-                      ]
-                    }
-                  ]
-                }
-              ]
+					  ]
+					}
+				  ]
+				}
+			  ]
+			}
+          ]
+        },
+		{
+          "nodeName": "Initiative Strategy",
+          "nodeType": "Sequence",
+          "children": [
+            {
+              "nodeName": "IsPrecombat",
+              "nodeType": "Condition",
+			  "shouldBeTrue": "true",
+              "methodName": "CheckIsPreCombat"
+            },
+            {
+              "nodeName": "SnapToTile",
+              "nodeType": "Action",
+              "methodName": "SnapToTile"
             }
           ]
         },
@@ -267,9 +255,10 @@
           "nodeType": "Sequence",
           "children": [
             {
-              "nodeName": "isCombat",
-              "nodeType": "Action",
-              "methodName": "isCombat"
+              "nodeName": "IsNotCombat",
+              "nodeType": "Condition",
+			  "shouldBeTrue": "true",
+              "methodName": "CheckIsNotCombat"
             },
             {
               "nodeName": "FindWaypoint",

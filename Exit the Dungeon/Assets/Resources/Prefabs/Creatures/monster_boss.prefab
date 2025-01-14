@@ -12,15 +12,15 @@ GameObject:
   - component: {fileID: 147407923434839868}
   - component: {fileID: 147407923434839869}
   - component: {fileID: 147407923434839870}
-  - component: {fileID: 147407923434839871}
   - component: {fileID: 147407923434839864}
   - component: {fileID: 386305017220510813}
   - component: {fileID: 8541573378083564387}
   - component: {fileID: 707643810206060784}
   - component: {fileID: 401571521890915918}
   - component: {fileID: 2230560577795437130}
+  - component: {fileID: 345977667718398233}
   m_Layer: 0
-  m_Name: monster_goblin
+  m_Name: monster_boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: -1045382019
   m_SortingLayer: 5
   m_SortingOrder: 8
-  m_Sprite: {fileID: 21300000, guid: dc6265e2cab32eb4796060b186ffd130, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dbd759787c7bf594ba114d9c060b2b3c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,37 +126,19 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.1, y: -0.25}
+  m_Offset: {x: 0.014759332, y: -0.18554986}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1.4375}
+    oldSize: {x: 2, y: 2.25}
     newSize: {x: 1, y: 1.4375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.95}
+  m_Size: {x: 1.0867012, y: 1.5113406}
   m_EdgeRadius: 0
---- !u!114 &147407923434839871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147407923434839865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd8067dd53ccd44489d29fd82ae41537, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EntityName: 
-  entityIcon: {fileID: 4096938494736888266, guid: ccfd4353b44d7c74f9d4e813d72db360, type: 3}
-  isAlive: 0
-  highlight: {r: 1, g: 1, b: 1, a: 0.5882353}
-  inRange: {r: 0.6156863, g: 0.98039216, b: 0.6627451, a: 0.78431374}
-  outOfRange: {r: 0.9607843, g: 0.5568628, b: 0.38431373, a: 0.78431374}
 --- !u!95 &147407923434839864
 Animator:
   serializedVersion: 3
@@ -167,7 +149,7 @@ Animator:
   m_GameObject: {fileID: 147407923434839865}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: dfc783687afd7614f997093137ba0227, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -249,7 +231,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27ffa689d399af4eb16663faf648ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonFile: {fileID: 4900000, guid: 51cc67a0d059f2c43a527eb9b4fec29d, type: 3}
+  jsonFile: {fileID: 4900000, guid: 5fb67d2f1dd0d7245b6c7a40cf7c2b19, type: 3}
   Status: 0
   isTreeExecuting: 0
   wasInitialized: 0
+--- !u!114 &345977667718398233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147407923434839865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9179fed083a7a5429a67f029c177bd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

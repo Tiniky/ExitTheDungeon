@@ -1,0 +1,41 @@
+{
+  "nodeName": "ROOT",
+  "nodeType": "Root",
+  "children": [
+    {
+      "nodeName": "Select Strategy",
+      "nodeType": "Selector",
+      "children": [
+        {
+          "nodeName": "Combat Strategy",
+          "nodeType": "Sequence",
+          "children": [
+            {
+              "nodeName": "IsCombat",
+              "nodeType": "Condition",
+			  "shouldBeTrue": "true",
+              "methodName": "CheckIsCombat"
+            }
+		  ]
+		},
+		{
+          "nodeName": "Initiative Strategy",
+          "nodeType": "Sequence",
+          "children": [
+            {
+              "nodeName": "IsPrecombat",
+              "nodeType": "Condition",
+			  "shouldBeTrue": "true",
+              "methodName": "CheckIsPreCombat"
+            },
+            {
+              "nodeName": "SnapToTile",
+              "nodeType": "Action",
+              "methodName": "SnapToTile"
+            }
+		  ]
+		}
+	  ]
+	}
+  ]
+}

@@ -691,3 +691,8 @@ added conditions on hover
 finished up the save system
 fixed the minimap
 added escape menu
+
+\\second/third week of january
+added boss prefab
+created idle animation for boss
+created plan for big enemy and boss enemy BTs

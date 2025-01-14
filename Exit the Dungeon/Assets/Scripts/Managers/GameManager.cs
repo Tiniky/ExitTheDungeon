@@ -166,8 +166,7 @@ public class GameManager : MonoBehaviour {
         
         InitializePlayer();
         InitializeRooms();
-        //InitializePartyMembers();
-        InitializeTemporaryPartyMember();
+        InitializePartyMembers();
         InitializeEnvironment();
 
         ActionKeys = new Dictionary<KeyCode, KeyAction> {
@@ -262,30 +261,6 @@ public class GameManager : MonoBehaviour {
             Debug.Log("GameManager - " +allyAdventurer.EntityName + "'s health: " + allyAdventurer.HP.GetValue());
             option++;
         }
-    }
-
-    private void InitializeTemporaryPartyMember(){
-        _memberHostageLocation = new Dictionary<InstantiatedRoom, GameObject>();
-        _partyMembers = new List<GameObject>();
-        _rescued = new List<GameObject>();
-        _allyOptions = new List<GameObject>();
-        _allyOptions.Add(PrefabManager.GetRandomAlly());
-        Debug.Log("GameManager - ally options: " + _allyOptions.Count);
-        int option = 0;
-        Vector3 spawnPoint = new Vector3(-1.5f, 5.5f, 0);
-        GameObject allyObj = Instantiate(_allyOptions[option], spawnPoint, Quaternion.identity, _partyHolder.transform);
-        Debug.Log("GameManager - ally spawning at: " + spawnPoint.ToString());
-        
-        _memberHostageLocation.Add(CurrentRoom, allyObj);
-        _partyMembers.Add(allyObj); 
-        Adventurer allyAdventurer = allyObj.GetComponent<Adventurer>();
-        allyAdventurer.Initialize(5);
-        allyObj.name = allyAdventurer.EntityName;
-        PartyMemberBehaviour partyMember = allyObj.AddComponent<PartyMemberBehaviour>();
-        partyMember.Initialize(allyAdventurer.HP.GetValue());
-        partyMember.Escaped();
-        allyAdventurer.Behaviour = partyMember;
-        Debug.Log("GameManager - " +allyAdventurer.EntityName + "'s health: " + allyAdventurer.HP.GetValue());
     }
 
     private static void InitializeEnemies(InstantiatedRoom nextRoom){
