@@ -8,7 +8,7 @@ public class Goblin : Creature {
         HP = new HitPoints(2, DieType.D6, 0, 7);
         AC = new ArmorClass(15);
         PP = new PassivePerception(9);
-        Speed = new Speed(30);
+        Speed = new Speed(20);
         Size = Size.SMALL;
         SkillTree = new SkillTree(10, 14, 10, 8);
     

@@ -174,24 +174,24 @@
                               "methodName": "SelectTarget"
                             },
                             {
-                              "nodeName": "SelectAttack",
-                              "nodeType": "Action",
-                              "methodName": "SelectAttack"
-                            },
-                            {
-                              "nodeName": "Check Range Strategy",
+                              "nodeName": "Select Strategy",
                               "nodeType": "Selector",
                               "children": [
                                 {
-                                  "nodeName": "Close Gap Strategy",
+                                  "nodeName": "In Melee Range Strategy",
                                   "nodeType": "Sequence",
                                   "children": [
                                     {
-                                      "nodeName": "isInRange",
+                                      "nodeName": "isInCloseRange",
 									  "nodeType": "Condition",
-									  "shouldBeTrue": "false",
-                                      "methodName": "IsInRange"
+									  "shouldBeTrue": "true",
+                                      "methodName": "IsInCloseRange"
                                     },
+									{
+									  "nodeName": "AttemptMeleeAttack",
+									  "nodeType": "Action",
+									  "methodName": "AttemptMeleeAttack"
+									},
 									{
 									  "nodeName": "Pass Turn",
 									  "nodeType": "Action",
@@ -200,24 +200,86 @@
                                   ]
                                 },
                                 {
-								  "nodeName": "Attack Strategy",
-								  "nodeType": "Sequence",
-								  "children": [
-									{
-									  "nodeName": "isInRange",
+                                  "nodeName": "In Long Range Strategy",
+                                  "nodeType": "Sequence",
+                                  "children": [
+                                    {
+                                      "nodeName": "isInLongRange",
 									  "nodeType": "Condition",
 									  "shouldBeTrue": "true",
-									  "methodName": "IsInRange"
-									},
+                                      "methodName": "IsInLongRange"
+                                    },
 									{
-									  "nodeName": "AttemptAttack",
+									  "nodeName": "AttemptRangedAttack",
 									  "nodeType": "Action",
-									  "methodName": "ExecuteAttack"
+									  "methodName": "AttemptRangedAttack"
 									},
 									{
 									  "nodeName": "Pass Turn",
 									  "nodeType": "Action",
 									  "methodName": "PassTurn"
+									}
+                                  ]
+                                },
+								{
+                                  "nodeName": "Out of Range Strategy",
+                                  "nodeType": "Sequence",
+                                  "children": [
+                                    {
+                                      "nodeName": "isOutOfRange",
+									  "nodeType": "Condition",
+									  "shouldBeTrue": "false",
+                                      "methodName": "IsInLongRange"
+                                    },
+									{
+									  "nodeName": "TryCloseGap",
+									  "nodeType": "Action",
+									  "methodName": "TryCloseGap"
+									},
+									{
+									  "nodeName": "Select Strategy",
+									  "nodeType": "Selector",
+									  "children": [
+										{
+										  "nodeName": "In Long Range Strategy",
+										  "nodeType": "Sequence",
+										  "children": [
+											{
+											  "nodeName": "isInLongRange",
+											  "nodeType": "Condition",
+											  "shouldBeTrue": "true",
+											  "methodName": "IsInLongRange"
+											},
+											{
+											  "nodeName": "AttemptRangedAttack",
+											  "nodeType": "Action",
+											  "methodName": "AttemptRangedAttack"
+											},
+											{
+											  "nodeName": "Pass Turn",
+											  "nodeType": "Action",
+											  "methodName": "PassTurn"
+											}
+										  ]
+										},
+										{
+										  "nodeName": "Still Out of Range Strategy",
+										  "nodeType": "Sequence",
+										  "children": [
+											{
+											  "nodeName": "isOutOfRange",
+											  "nodeType": "Condition",
+											  "shouldBeTrue": "false",
+											  "methodName": "IsInLongRange"
+											},
+											{
+											  "nodeName": "Pass Turn",
+											  "nodeType": "Action",
+											  "methodName": "PassTurn"
+											}
+										  ]
+										}
+									  ]
 									}
                                   ]
                                 }
