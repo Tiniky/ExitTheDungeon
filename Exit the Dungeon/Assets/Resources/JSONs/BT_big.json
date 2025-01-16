@@ -15,7 +15,131 @@
               "nodeType": "Condition",
 			  "shouldBeTrue": "true",
               "methodName": "CheckIsCombat"
-            }
+            },
+            {
+              "nodeName": "Select Strategy",
+              "nodeType": "Selector",
+              "children": [
+                {
+                  "nodeName": "Wait Strategy",
+                  "nodeType": "Sequence",
+                  "children": [
+                    {
+                      "nodeName": "IsTheirTurn",
+                      "nodeType": "Condition",
+					  "shouldBeTrue": "false",
+                      "methodName": "IsTheirTurn"
+                    },
+                    {
+                      "nodeName": "FaceThePlayer",
+                      "nodeType": "Action",
+                      "methodName": "FaceThePlayer"
+                    }
+                  ]
+                },
+				{
+                  "nodeName": "Fight Strategy",
+                  "nodeType": "Sequence",
+                  "children": [
+                    {
+                      "nodeName": "SelectTarget",
+                      "nodeType": "Action",
+                      "methodName": "SelectTarget"
+                    },
+					{
+					  "nodeName": "Select Strategy",
+					  "nodeType": "Selector",
+					  "children": [
+						{
+						  "nodeName": "In Melee Range Strategy",
+						  "nodeType": "Sequence",
+						  "children": [
+							{
+							  "nodeName": "isInCloseRange",
+							  "nodeType": "Condition",
+							  "shouldBeTrue": "true",
+							  "methodName": "IsInCloseRange"
+							},
+							{
+							  "nodeName": "AttemptMeleeAttack",
+							  "nodeType": "Action",
+							  "methodName": "AttemptMeleeAttack"
+							},
+							{
+							  "nodeName": "Pass Turn",
+							  "nodeType": "Action",
+							  "methodName": "PassTurn"
+							}
+						  ]
+						},
+						{
+						  "nodeName": "Out of Range Strategy",
+						  "nodeType": "Sequence",
+						  "children": [
+							{
+							  "nodeName": "isOutOfRange",
+							  "nodeType": "Condition",
+							  "shouldBeTrue": "false",
+							  "methodName": "IsInLongRange"
+							},
+							{
+							  "nodeName": "TryCloseGap",
+							  "nodeType": "Action",
+							  "methodName": "TryCloseGap"
+							},
+							{
+							  "nodeName": "Select Strategy",
+							  "nodeType": "Selector",
+							  "children": [
+								{
+								  "nodeName": "In Melee Range Strategy",
+								  "nodeType": "Sequence",
+								  "children": [
+									{
+									  "nodeName": "isInCloseRange",
+									  "nodeType": "Condition",
+									  "shouldBeTrue": "true",
+									  "methodName": "IsInCloseRange"
+									},
+									{
+									  "nodeName": "AttemptMeleeAttack",
+									  "nodeType": "Action",
+									  "methodName": "AttemptMeleeAttack"
+									},
+									{
+									  "nodeName": "Pass Turn",
+									  "nodeType": "Action",
+									  "methodName": "PassTurn"
+									}
+								  ]
+								},
+								{
+								  "nodeName": "Still Out of Range Strategy",
+								  "nodeType": "Sequence",
+								  "children": [
+									{
+									  "nodeName": "isOutOfRange",
+									  "nodeType": "Condition",
+									  "shouldBeTrue": "false",
+									  "methodName": "IsInCloseRange"
+									},
+									{
+									  "nodeName": "Pass Turn",
+									  "nodeType": "Action",
+									  "methodName": "PassTurn"
+									}
+								  ]
+								}
+							  ]
+							}
+						  ]
+						}
+					  ]
+					}
+                  ]
+                }
+			  ]
+			}
 		  ]
 		},
 		{

@@ -1,0 +1,91 @@
+{
+  "nodeName": "ROOT",
+  "nodeType": "Root",
+  "children": [
+    {
+      "nodeName": "Select Strategy",
+      "nodeType": "Selector",
+      "children": [
+        {
+          "nodeName": "Combat Strategy",
+          "nodeType": "Sequence",
+          "children": [
+            {
+              "nodeName": "IsCombat",
+              "nodeType": "Condition",
+			  "shouldBeTrue": "true",
+              "methodName": "CheckIsCombat"
+            },
+            {
+              "nodeName": "Select Strategy",
+              "nodeType": "Selector",
+              "children": [
+                {
+                  "nodeName": "Summon Strategy",
+                  "nodeType": "Sequence",
+                  "children": [
+                    {
+                      "nodeName": "IsAlone",
+                      "nodeType": "Condition",
+					  "shouldBeTrue": "true",
+                      "methodName": "IsAlone"
+                    },
+                    {
+                      "nodeName": "SummonEnemies",
+                      "nodeType": "Action",
+                      "methodName": "SummonEnemies"
+                    },
+					{
+					  "nodeName": "Pass Turn",
+					  "nodeType": "Action",
+					  "methodName": "PassTurn"
+					}
+                  ]
+                },
+				{
+                  "nodeName": "Wipe Strategy",
+                  "nodeType": "Sequence",
+                  "children": [
+                    {
+                      "nodeName": "IsAlone",
+                      "nodeType": "Condition",
+					  "shouldBeTrue": "false",
+                      "methodName": "IsAlone"
+                    },
+                    {
+                      "nodeName": "CastDeathRay",
+                      "nodeType": "Action",
+                      "methodName": "CastDeathRay"
+                    },
+					{
+					  "nodeName": "Pass Turn",
+					  "nodeType": "Action",
+					  "methodName": "PassTurn"
+					}
+                  ]
+                }
+			  ]
+			}
+		  ]
+		},
+		{
+          "nodeName": "Initiative Strategy",
+          "nodeType": "Sequence",
+          "children": [
+            {
+              "nodeName": "IsPrecombat",
+              "nodeType": "Condition",
+			  "shouldBeTrue": "true",
+              "methodName": "CheckIsPreCombat"
+            },
+            {
+              "nodeName": "SnapToTile",
+              "nodeType": "Action",
+              "methodName": "SnapToTile"
+            }
+		  ]
+		}
+	  ]
+	}
+  ]
+}

@@ -696,3 +696,4 @@ added escape menu
 added boss prefab
 created idle animation for boss
 created plan for big enemy and boss enemy BTs
+created the final charts of the BTs and their related JSONs
