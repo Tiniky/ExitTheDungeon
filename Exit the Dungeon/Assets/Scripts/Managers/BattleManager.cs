@@ -312,4 +312,8 @@ public static class BattleManager {
     public static List<GameObject> GetALL(){
         return allObj;
     }
+
+    public static bool IsEnemyAlone(){
+        return GetStillAliveMonsters().Count == 1;
+    }
 }

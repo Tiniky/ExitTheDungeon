@@ -74,26 +74,20 @@
 									  "shouldBeTrue": "true",
                                       "methodName": "CanFlee"
                                     },
-                                    {
-									  "nodeName": "Flee From Combat Strategy",
-									  "nodeType": "Sequence",
-									  "children": [
-										{
-										  "nodeName": "GetFleeDirection",
-										  "nodeType": "Action",
-										  "methodName": "GetFleeDirection"
-										},
-										{
-										  "nodeName": "FindFleeWaypoint",
-										  "nodeType": "Action",
-										  "methodName": "FindFleeWaypoint"
-										},
-										{
-										  "nodeName": "GoToFleeWaypoint",
-										  "nodeType": "Action",
-										  "methodName": "GoToFleeWaypoint"
-										}
-									  ]
+									{
+									  "nodeName": "GetFleeDirection",
+									  "nodeType": "Action",
+									  "methodName": "GetFleeDirection"
+									},
+									{
+									  "nodeName": "FindFleeWaypoint",
+									  "nodeType": "Action",
+									  "methodName": "FindFleeWaypoint"
+									},
+									{
+									  "nodeName": "GoToFleeWaypoint",
+									  "nodeType": "Action",
+									  "methodName": "GoToFleeWaypoint"
 									}
                                   ]
                                 },

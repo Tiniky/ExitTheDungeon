@@ -8,17 +8,18 @@ public static class BehaviorNodeMethods {
         {"FindWaypoint", (blackboard) => FindWaypoint(blackboard)},
         {"GoToWaypoint", (blackboard) => GoToWaypoint(blackboard)},
         {"FaceThePlayer", (blackboard) => FaceThePlayer(blackboard)},
-        {"DoNothing", (blackboard) => DoNothing(blackboard)},
         {"IntCheckRoll", (blackboard) => RollDieForFlee(blackboard)},
         {"ContinueFighting", (blackboard) => ContinueFighting(blackboard)},
         {"GetFleeDirection", (blackboard) => GetFleeDirection(blackboard)},
         {"FindFleeWaypoint", (blackboard) => FindFleeWaypoint(blackboard)},
         {"GoToFleeWaypoint", (blackboard) => GoToFleeWaypoint(blackboard)},
         {"SelectTarget", (blackboard) => SelectTarget(blackboard)},
-        {"SelectAttack", (blackboard) => SelectAttack(blackboard)},
         {"TryCloseGap", (blackboard) => TryCloseGap(blackboard)},
-        {"ExecuteAttack", (blackboard) => ExecuteAttack(blackboard)},
-        {"PassTurn", (blackboard) => PassTurn(blackboard)}
+        {"PassTurn", (blackboard) => PassTurn(blackboard)},
+        {"AttemptMeleeAttack", (blackboard) => AttemptMeleeAttack(blackboard)},
+        {"AttemptRangedAttack", (blackboard) => AttemptRangedAttack(blackboard)},
+        {"SummonEnemies", (blackboard) => SummonEnemies(blackboard)},
+        {"CastDeathRay", (blackboard) => CastDeathRay(blackboard)}
     };
 
     public static Dictionary<string, ConditionLeafNode.Func> ConditionMethods = new Dictionary<string, ConditionLeafNode.Func>{
@@ -29,7 +30,9 @@ public static class BehaviorNodeMethods {
         {"ShouldFlee", (blackboard) => CheckIfShouldFlee(blackboard)},
         {"CanFlee", (blackboard) => CheckIfCanFlee(blackboard)},
         {"ShouldKeepFighting", (blackboard) => CheckIfShouldKeepFighting(blackboard)},
-        {"IsInRange", (blackboard) => CheckIsInRange(blackboard)}
+        {"IsInCloseRange", (blackboard) => IsInCloseRange(blackboard)},
+        {"IsInLongRange", (blackboard) => IsInLongRange(blackboard)},
+        {"IsAlone", (blackboard) => IsAlone(blackboard)}
     };
 
     private static readonly List<Vector3> OffsetList = new List<Vector3>(){
@@ -89,10 +92,6 @@ public static class BehaviorNodeMethods {
             enemy.transform.localScale = new Vector3(1, 1, 1);
         }
 
-        return NodeStatus.SUCCESS;
-    }
-
-    public static NodeStatus DoNothing(Blackboard Blackboard){
         return NodeStatus.SUCCESS;
     }
 
@@ -160,17 +159,6 @@ public static class BehaviorNodeMethods {
         return NodeStatus.SUCCESS;
     }
 
-    public static NodeStatus SelectAttack(Blackboard Blackboard){
-        GameObject current = Blackboard.GetValue<GameObject>("OwnerObj");
-        Creature creature = current.GetComponent<Creature>();
-        int attackIndex = Random.Range(0, creature.Attacks.Count);
-        Blackboard.SetValue("AttackIndex", attackIndex);
-
-        Debug.Log("Selected attackindex: " + attackIndex);
-
-        return NodeStatus.SUCCESS;
-    }
-
     public static NodeStatus TryCloseGap(Blackboard Blackboard){
         int range = Blackboard.GetValue<int>("Range");
         GameObject current = Blackboard.GetValue<GameObject>("OwnerObj");
@@ -194,15 +182,26 @@ public static class BehaviorNodeMethods {
         return NodeStatus.SUCCESS;
     }
 
-    public static NodeStatus ExecuteAttack(Blackboard Blackboard){
+    public static NodeStatus AttemptMeleeAttack(Blackboard Blackboard){
         GameObject current = Blackboard.GetValue<GameObject>("OwnerObj");
         Creature creature = current.GetComponent<Creature>();
         GameObject target = Blackboard.GetValue<GameObject>("TargetObj");
         Entity entity = target.GetComponent<Entity>();
-        int selectedAttack = Blackboard.GetValue<int>("AttackIndex");
 
-        Debug.Log("Executing attack: " + selectedAttack);
-        creature.UseAttack(entity, selectedAttack);
+        Debug.Log("Executing melee attack");
+        creature.UseAttack(entity, 0);
+
+        return NodeStatus.SUCCESS;
+    }
+
+    public static NodeStatus AttemptRangedAttack(Blackboard Blackboard){
+        GameObject current = Blackboard.GetValue<GameObject>("OwnerObj");
+        Creature creature = current.GetComponent<Creature>();
+        GameObject target = Blackboard.GetValue<GameObject>("TargetObj");
+        Entity entity = target.GetComponent<Entity>();
+
+        Debug.Log("Executing ranged attack");
+        creature.UseAttack(entity, 1);
 
         return NodeStatus.SUCCESS;
     }
@@ -212,6 +211,16 @@ public static class BehaviorNodeMethods {
 
         Debug.Log("Passing turn.");
         
+        return NodeStatus.SUCCESS;
+    }
+
+    public static NodeStatus SummonEnemies(Blackboard blackboard){
+        //spawn enemies in the boss room, spawn points needed
+        return NodeStatus.SUCCESS;
+    }
+
+    public static NodeStatus CastDeathRay(Blackboard blackboard){
+        //boss ability, kills everyone
         return NodeStatus.SUCCESS;
     }
 
@@ -269,15 +278,25 @@ public static class BehaviorNodeMethods {
         return status;
     }
 
-    public static bool CheckIsInRange(Blackboard Blackboard){
+    public static bool IsInCloseRange(Blackboard Blackboard){
         GameObject target = Blackboard.GetValue<GameObject>("TargetObj");
         Entity entity = target.GetComponent<Entity>();
-        GameObject current = Blackboard.GetValue<GameObject>("OwnerObj");
-        Creature creature = current.GetComponent<Creature>();
-        int selectedAttack = Blackboard.GetValue<int>("AttackIndex");
-        int range = creature.GetAttackRange(selectedAttack);
+        int range = 1;
         Blackboard.SetValue("Range", range);
         Debug.Log("Checking if target (" + entity.EntityName + ") is in range: "+ range +" "+ BattleManager.IsTargetInRange(entity, range));
         return BattleManager.IsTargetInActionRange(entity);
+    }
+
+    public static bool IsInLongRange(Blackboard Blackboard){
+        GameObject target = Blackboard.GetValue<GameObject>("TargetObj");
+        Entity entity = target.GetComponent<Entity>();
+        int range = 5;
+        Blackboard.SetValue("Range", range);
+        Debug.Log("Checking if target (" + entity.EntityName + ") is in range: "+ range +" "+ BattleManager.IsTargetInRange(entity, range));
+        return BattleManager.IsTargetInActionRange(entity);
+    }
+
+    public static bool IsAlone(Blackboard Blackboard){
+        return BattleManager.IsEnemyAlone();
     }
 }

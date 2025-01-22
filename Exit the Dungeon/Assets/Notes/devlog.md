@@ -697,3 +697,9 @@ added boss prefab
 created idle animation for boss
 created plan for big enemy and boss enemy BTs
 created the final charts of the BTs and their related JSONs
+
+\\fourth week of january
+finalized the drawio charts
+added missing nodes to the dictionary
+modified some functions
+added base stats for boss

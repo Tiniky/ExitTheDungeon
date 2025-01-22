@@ -14,17 +14,8 @@ public class Ogre : Creature {
     
         Attacks = new List<ActionFunc>(){};
         AttackRange = new Dictionary<ActionFunc, int>();
-        Attacks.Add(UseGreatclub);
-        AttackRange.Add(UseGreatclub, 2);
         Attacks.Add(SmashGreatclub);
         AttackRange.Add(SmashGreatclub, 2);
-    }
-
-    private void UseGreatclub(Entity target){
-        int damage = Die.Roll(DieType.D6, 2);
-        target.Behaviour.TakeDmg(damage);
-        Debug.Log($"{EntityName} hits {target.EntityName} with a greatclub for {damage} damage.");
-        LogManager.AddMessage($"{EntityName} hits {target.EntityName} with a greatclub for {damage} damage.");
     }
 
     private void SmashGreatclub(Entity target){
