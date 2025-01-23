@@ -51,7 +51,11 @@ public class InteractableTile : MonoBehaviour {
 
     public void IndicateTurn(){    
         _renderer.color = turnindicatorColor;
-        Debug.Log("Indicating turn on: " + gameObject.name);
+        //Debug.Log("Indicating turn on: " + gameObject.name);
+    }
+
+    public void IndicateEnemyTarget(){
+        _renderer.color = rejectColor;
     }
 
     public GameObject EntityOnTile(){

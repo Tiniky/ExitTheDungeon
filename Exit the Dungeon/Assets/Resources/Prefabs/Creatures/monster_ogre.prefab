@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 281867546385425443}
   - component: {fileID: 281867546385425452}
   - component: {fileID: 1371322873336103042}
-  - component: {fileID: 7432958100478796522}
   - component: {fileID: 832503023199938301}
   - component: {fileID: 5879266389964030980}
   m_Layer: 15
@@ -189,22 +188,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _current: {fileID: 0}
   _movement: {fileID: 0}
---- !u!70 &7432958100478796522
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 281867546385425442}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 2.5, y: -0.75}
-  m_Size: {x: 5, y: 3}
-  m_Direction: 1
 --- !u!70 &832503023199938301
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

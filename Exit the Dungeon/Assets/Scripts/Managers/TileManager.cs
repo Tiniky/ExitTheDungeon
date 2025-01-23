@@ -214,4 +214,25 @@ public class TileManager {
             FreeTiles(entity);
         }
     }
+
+    private List<InteractableTile> GetNeighborTiles(InteractableTile tile){
+        List<InteractableTile> neighbors = new List<InteractableTile>();
+        Vector2 tilePos = GetPosOfTile(tile);
+
+        foreach(var tilePosPair in _tiles){
+            Vector2 neighborPos = tilePosPair.Key;
+            if(Mathf.Abs(tilePos.x - neighborPos.x) + Mathf.Abs(tilePos.y - neighborPos.y) == 1){
+                neighbors.Add(tilePosPair.Value);
+            }
+        }
+
+        Debug.Log("TM - Neighbors of " + tile.gameObject.name + " are " + neighbors.Count);
+        return neighbors;
+    }
+
+    public InteractableTile GetClosestNeighbor(InteractableTile tile, GameObject entity){
+        List<InteractableTile> neighbors = GetNeighborTiles(tile);
+        InteractableTile closest = GetClosestFrom(neighbors, entity);
+        return closest;
+    }
 }

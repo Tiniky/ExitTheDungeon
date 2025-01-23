@@ -14,10 +14,10 @@ public static class BehaviorNodeMethods {
         {"FindFleeWaypoint", (blackboard) => FindFleeWaypoint(blackboard)},
         {"GoToFleeWaypoint", (blackboard) => GoToFleeWaypoint(blackboard)},
         {"SelectTarget", (blackboard) => SelectTarget(blackboard)},
-        {"TryCloseGap", (blackboard) => TryCloseGap(blackboard)},
         {"PassTurn", (blackboard) => PassTurn(blackboard)},
         {"AttemptMeleeAttack", (blackboard) => AttemptMeleeAttack(blackboard)},
         {"AttemptRangedAttack", (blackboard) => AttemptRangedAttack(blackboard)},
+        {"BattleCry", (blackboard) => BattleCry(blackboard)},
         {"SummonEnemies", (blackboard) => SummonEnemies(blackboard)},
         {"CastDeathRay", (blackboard) => CastDeathRay(blackboard)}
     };
@@ -31,7 +31,6 @@ public static class BehaviorNodeMethods {
         {"CanFlee", (blackboard) => CheckIfCanFlee(blackboard)},
         {"ShouldKeepFighting", (blackboard) => CheckIfShouldKeepFighting(blackboard)},
         {"IsInCloseRange", (blackboard) => IsInCloseRange(blackboard)},
-        {"IsInLongRange", (blackboard) => IsInLongRange(blackboard)},
         {"IsAlone", (blackboard) => IsAlone(blackboard)}
     };
 
@@ -88,8 +87,15 @@ public static class BehaviorNodeMethods {
 
         if(enemy.transform.position.x > player.transform.position.x){
             enemy.transform.localScale = new Vector3(-1, 1, 1);
+            Blackboard.SetValue("PlayerDirection", -1);
         } else {
             enemy.transform.localScale = new Vector3(1, 1, 1);
+            Blackboard.SetValue("PlayerDirection", 1);
+        }
+
+        Creature creature = enemy.GetComponent<Creature>();
+        if(creature.Size == Size.SMALL){
+            TileManager.Instance.SnapToClosestTile(enemy);
         }
 
         return NodeStatus.SUCCESS;
@@ -133,21 +139,39 @@ public static class BehaviorNodeMethods {
         int maxStep = creature.Speed.StepsAll();
         Vector3 pos = enemy.transform.position;
         Vector3 newWaypoint = new Vector3(pos.x + (direction * maxStep), pos.y, 0);
-        Blackboard.SetValue("SelectedWaypoint", newWaypoint);
+        InteractableTile tile = TileManager.Instance.GetClosestEmptyTile(newWaypoint);
+        tile.IndicateEnemyTarget();
+        Blackboard.SetValue("SelectedWaypoint", tile);
+        Debug.Log("Fleeing to: " + tile.transform.position);
         return NodeStatus.SUCCESS;
     }
 
     public static NodeStatus GoToFleeWaypoint(Blackboard Blackboard){
-        Vector3 targetPos = Blackboard.GetValue<Vector3>("SelectedWaypoint");
         GameObject current = Blackboard.GetValue<GameObject>("OwnerObj");
+        InteractableTile tile = Blackboard.GetValue<InteractableTile>("SelectedWaypoint");
         EnemyBehaviour enemy = current.GetComponent<EnemyBehaviour>();
-        InteractableTile tile = TileManager.Instance.GetClosestEmptyTile(targetPos);
-        targetPos = tile.transform.position + new Vector3(0, 0.5f, 0);
+        InteractableTile currentTile = TileManager.Instance.StandsOn(current, 1)[0];
+        currentTile.TileOccupation();
+        currentTile.ResetColor();
+        TileManager.Instance.shouldRepaint = false;
+        
+        Vector3 targetPos = tile.transform.position + new Vector3(0, 0.8f, 0);
         enemy.GoToTarget(tile.transform.position);
-        TileManager.Instance.SnapToClosestTile(current, tile);
+        tile.TileOccupation(current);
+        tile.IndicateTurn();
+        enemy.StartCoroutine(WaitForEnemyToReachTarget(current, tile));
+        Debug.Log("Fled to waypoint: " + tile.transform.position);
 
         return NodeStatus.SUCCESS;
     }
+
+    private static IEnumerator WaitForEnemyToReachTarget(GameObject enemy, InteractableTile targetTile) {
+        // Wait until the enemy reaches the target position
+        while (Vector3.Distance(enemy.transform.position, targetTile.transform.position) > 0.1f) {
+            Debug.Log("Waiting for enemy to reach target.");
+            yield return null;
+        }
+    }    
 
     public static NodeStatus SelectTarget(Blackboard Blackboard){
         List<Entity> targets = BattleManager.GetStillAliveAdventurers();
@@ -156,29 +180,6 @@ public static class BehaviorNodeMethods {
 
         Debug.Log("Selected target: " + target.EntityName);
 
-        return NodeStatus.SUCCESS;
-    }
-
-    public static NodeStatus TryCloseGap(Blackboard Blackboard){
-        int range = Blackboard.GetValue<int>("Range");
-        GameObject current = Blackboard.GetValue<GameObject>("OwnerObj");
-        Creature creature = current.GetComponent<Creature>();
-        int maxStep = creature.Speed.StepsAll();
-        GameObject target = Blackboard.GetValue<GameObject>("TargetObj");
-        Entity entity = target.GetComponent<Entity>();
-        
-        Vector3 pos = current.transform.position;
-        Vector3 targetPos = target.transform.position;
-        int distance = (int)Mathf.Abs(pos.x - targetPos.x);
-        Debug.Log("Distance between them: " + distance);
-
-        if(distance > range){
-            int direction = pos.x > targetPos.x ? -1 : 1;
-            Vector3 newWaypoint = new Vector3(pos.x + (direction * maxStep), pos.y, 0);
-            Blackboard.SetValue("SelectedWaypoint", newWaypoint);
-            return NodeStatus.SUCCESS;
-        }
-        
         return NodeStatus.SUCCESS;
     }
 
@@ -203,6 +204,13 @@ public static class BehaviorNodeMethods {
         Debug.Log("Executing ranged attack");
         creature.UseAttack(entity, 1);
 
+        return NodeStatus.SUCCESS;
+    }
+
+    public static NodeStatus BattleCry(Blackboard Blackboard){
+        GameObject current = Blackboard.GetValue<GameObject>("OwnerObj");
+        Creature creature = current.GetComponent<Creature>();
+        LogManager.AddMessage($"{creature.EntityName} is howling ready for battle.");
         return NodeStatus.SUCCESS;
     }
 
@@ -244,8 +252,6 @@ public static class BehaviorNodeMethods {
 
         if(isCurrentlyTheirTurn){
             Debug.Log("Checking if it's their turn: True");
-        } else{
-            Debug.Log("Waiting for their turn.");
         }
 
         return isCurrentlyTheirTurn;
@@ -257,7 +263,7 @@ public static class BehaviorNodeMethods {
         int currentHP = entity.HP.GetValue();
         int maxHP = entity.HP.GetMax();
 
-        if(currentHP <= maxHP * 0.15f){
+        if(currentHP <= maxHP * 0.15f || IsAlone(Blackboard)){
             Debug.Log("Should flee.");
             return true;
         }
@@ -268,7 +274,7 @@ public static class BehaviorNodeMethods {
 
     public static bool CheckIfCanFlee(Blackboard Blackboard){
         int rolled = Blackboard.GetValue<int>("Roll_FLEE");
-        Debug.Log(rolled > 10 ? "Fleeing." : "To dumb to flee.");
+        Debug.Log(rolled > 10 || IsAlone(Blackboard) ? "Fleeing." : "Too dumb to flee.");
         return rolled > 10;
     }
     
@@ -283,17 +289,9 @@ public static class BehaviorNodeMethods {
         Entity entity = target.GetComponent<Entity>();
         int range = 1;
         Blackboard.SetValue("Range", range);
-        Debug.Log("Checking if target (" + entity.EntityName + ") is in range: "+ range +" "+ BattleManager.IsTargetInRange(entity, range));
-        return BattleManager.IsTargetInActionRange(entity);
-    }
-
-    public static bool IsInLongRange(Blackboard Blackboard){
-        GameObject target = Blackboard.GetValue<GameObject>("TargetObj");
-        Entity entity = target.GetComponent<Entity>();
-        int range = 5;
-        Blackboard.SetValue("Range", range);
-        Debug.Log("Checking if target (" + entity.EntityName + ") is in range: "+ range +" "+ BattleManager.IsTargetInRange(entity, range));
-        return BattleManager.IsTargetInActionRange(entity);
+        bool inRange = BattleManager.IsTargetInRange(entity, range);
+        Debug.Log("Checking if target (" + entity.EntityName + ") is in range: "+ range +" "+ inRange);
+        return inRange;
     }
 
     public static bool IsAlone(Blackboard Blackboard){

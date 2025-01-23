@@ -7,7 +7,7 @@
 		},
 		{
 			"name": "HumanRogue",
-			"unlocked": false,
+			"unlocked": true,
 			"condition": "hr=10"
 		},
 		{

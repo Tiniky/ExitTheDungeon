@@ -198,10 +198,10 @@
                                   "nodeType": "Sequence",
                                   "children": [
                                     {
-                                      "nodeName": "isInLongRange",
+                                      "nodeName": "isInCloseRange",
 									  "nodeType": "Condition",
-									  "shouldBeTrue": "true",
-                                      "methodName": "IsInLongRange"
+									  "shouldBeTrue": "false",
+                                      "methodName": "IsInCloseRange"
                                     },
 									{
 									  "nodeName": "AttemptRangedAttack",
@@ -212,68 +212,6 @@
 									  "nodeName": "Pass Turn",
 									  "nodeType": "Action",
 									  "methodName": "PassTurn"
-									}
-                                  ]
-                                },
-								{
-                                  "nodeName": "Out of Range Strategy",
-                                  "nodeType": "Sequence",
-                                  "children": [
-                                    {
-                                      "nodeName": "isOutOfRange",
-									  "nodeType": "Condition",
-									  "shouldBeTrue": "false",
-                                      "methodName": "IsInLongRange"
-                                    },
-									{
-									  "nodeName": "TryCloseGap",
-									  "nodeType": "Action",
-									  "methodName": "TryCloseGap"
-									},
-									{
-									  "nodeName": "Select Strategy",
-									  "nodeType": "Selector",
-									  "children": [
-										{
-										  "nodeName": "In Long Range Strategy",
-										  "nodeType": "Sequence",
-										  "children": [
-											{
-											  "nodeName": "isInLongRange",
-											  "nodeType": "Condition",
-											  "shouldBeTrue": "true",
-											  "methodName": "IsInLongRange"
-											},
-											{
-											  "nodeName": "AttemptRangedAttack",
-											  "nodeType": "Action",
-											  "methodName": "AttemptRangedAttack"
-											},
-											{
-											  "nodeName": "Pass Turn",
-											  "nodeType": "Action",
-											  "methodName": "PassTurn"
-											}
-										  ]
-										},
-										{
-										  "nodeName": "Still Out of Range Strategy",
-										  "nodeType": "Sequence",
-										  "children": [
-											{
-											  "nodeName": "isOutOfRange",
-											  "nodeType": "Condition",
-											  "shouldBeTrue": "false",
-											  "methodName": "IsInLongRange"
-											},
-											{
-											  "nodeName": "Pass Turn",
-											  "nodeType": "Action",
-											  "methodName": "PassTurn"
-											}
-										  ]
-										}
-									  ]
 									}
                                   ]
                                 }

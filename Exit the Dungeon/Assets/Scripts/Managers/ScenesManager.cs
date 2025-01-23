@@ -17,11 +17,7 @@ public static class ScenesManager {
         LoadScene(Scene.MainMenu);
     }
 
-    public static void LoadPreGame(bool isNew = false){
-        if(isNew){
-            //clear save file
-        }
-
+    public static void LoadPreGame(){
         LoadScene(Scene.PreGameScene);
     }
 }

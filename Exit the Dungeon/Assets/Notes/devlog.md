@@ -703,3 +703,10 @@ finalized the drawio charts
 added missing nodes to the dictionary
 modified some functions
 added base stats for boss
+added wipe save to escape menu
+added icon for boss
+added spawnPoints for the boss room
+solved player can pass enemy's turn issue
+solved enemies spawning multiple times issue
+enemies are now fleeing and occupy tiles correctly
+simplified the BTs

@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
     private static CinemachineVirtualCamera _cvc;
 
     //menu things
-    //public static string SelectedCharacter; //<- will be used
+    //public static string SelectedCharacter;
     public static string SelectedCharacter = "OrcBarbarian";
     
     private static int CurrentLevel = 0;
@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour {
                     }
                 }*/
 
-                if(Input.GetKeyDown(Settings.PASSTURN) && BattleManager.WasButtonPressed()){
+                if(Input.GetKeyDown(Settings.PASSTURN) && BattleManager.WasButtonPressed() && BattleManager.IsCurrentAlly()){
                     BattleManager.GoNext();
                     Debug.Log("turn passed");
                 }
@@ -264,6 +264,11 @@ public class GameManager : MonoBehaviour {
     }
 
     private static void InitializeEnemies(InstantiatedRoom nextRoom){
+        if (_enemiesList != null && _enemiesList.Count > 0) {
+            Debug.Log("GameManager - Enemies already present in the room. Skipping enemy spawn.");
+            return;
+        }
+
         _enemiesList = new List<GameObject>();
         List<Vector2> spawnPoints = _enemySpawnPoints[nextRoom];
         Dictionary<Vector2, bool> spawnPointsDict = new Dictionary<Vector2, bool>();
@@ -275,7 +280,6 @@ public class GameManager : MonoBehaviour {
         GameObject enemyHolder = new GameObject("EnemyHolder");
         enemyHolder.transform.parent = nextRoom.RoomObj.transform;
         _enemiesList.Clear();
-
 
         foreach(string monster in monsters){
             int index = UnityEngine.Random.Range(0, spawnPointsDict.Count);
@@ -794,10 +798,13 @@ public class GameManager : MonoBehaviour {
         if(light != null){
             light.enabled = true;
             _player.GetComponent<BoxCollider2D>().enabled = true;
+            _adventurer.HP.HardReset();
         }
 
         foreach(GameObject ally in _rescued){
             ally.GetComponent<BoxCollider2D>().enabled = true;
+            Adventurer adventurer = ally.GetComponent<Adventurer>();
+            adventurer.HP.HardReset();
         }
     }
 
@@ -838,5 +845,10 @@ public class GameManager : MonoBehaviour {
             _previousPhase = Phase;
             Phase = GamePhase.PAUSE;
         }
+    }
+
+    public static void TerminateRun(){
+        SaveManager.SaveProgress();
+        ScenesManager.LoadMainMenu();
     }
 }

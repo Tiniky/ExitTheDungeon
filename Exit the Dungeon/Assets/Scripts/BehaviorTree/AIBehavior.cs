@@ -12,9 +12,6 @@ public class AIBehavior : MonoBehaviour {
     void Start(){
         wasInitialized = false;
 
-        //LoadJSON();
-        jsonFile = Resources.Load<TextAsset>("JSONs/BT_test");
-
         if(jsonFile == null){
             Debug.LogError("JSON file not found.");
             return;

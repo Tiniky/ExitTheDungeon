@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 147407923434839871}
   - component: {fileID: 147407923434839864}
   - component: {fileID: 386305017220510813}
-  - component: {fileID: 8541573378083564387}
   - component: {fileID: 707643810206060784}
   - component: {fileID: 401571521890915918}
   - component: {fileID: 2230560577795437130}
@@ -190,22 +189,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _current: {fileID: 0}
   _movement: {fileID: 401571521890915918}
---- !u!70 &8541573378083564387
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147407923434839865}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1, y: -0.35}
-  m_Size: {x: 2.25, y: 0.75}
-  m_Direction: 1
 --- !u!70 &707643810206060784
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

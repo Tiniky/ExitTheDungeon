@@ -39,6 +39,7 @@ public class MoveToTile : MonoBehaviour {
                     Debug.Log(hoveredTile.transform.position);
                     
                     if(hoveredTile.IsTileInEntityRange(gameObject, entity.Speed.StepsLeft()) && hoveredTile.isEmpty){
+                        currentTile = TileManager.Instance.StandsOn(gameObject, 1)[0];
                         currentTile.TileOccupation();
                         currentTile.ResetColor();
                         TileManager.Instance.shouldRepaint = false;

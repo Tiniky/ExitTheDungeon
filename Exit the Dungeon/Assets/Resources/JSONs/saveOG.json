@@ -1,27 +1,27 @@
 {
 	"characters": [
 		{
-			"charID": "OrcBarbarian",
+			"name": "OrcBarbarian",
 			"unlocked": true,
 			"condition": "none"
 		},
 		{
-			"charID": "HumanRogue",
+			"name": "HumanRogue",
 			"unlocked": false,
 			"condition": "hr=10"
 		},
 		{
-			"charID": "ElfSorcerer",
+			"name": "ElfSorcerer",
 			"unlocked": false,
 			"condition": "es=10"
 		},
 		{
-			"charID": "DwarfCleric",
+			"name": "DwarfCleric",
 			"unlocked": false,
 			"condition": "dc=10"
 		},
 		{
-			"charID": "???",
+			"name": "???",
 			"unlocked": false,
 			"condition": "bossrush=5"
 		}
@@ -75,16 +75,16 @@
 			"condition": "4_char_unlocked"
 		}
 	],
-	"stats": [
+	"stats": {
 		"killCount": 0,
 		"hrKill": 0,
 		"esKill": 0,
 		"dcKill": 0,
 		"bossrush": 0,
 		"dmgDealt": 0,
-		"roomsDiscovered": 0,
+		"roomsCleared": 0,
 		"depthsBossKilled": false,
 		"otherworldBossKilled": false,
 		"charsUnlocked": 1
-	]
+	}
 }

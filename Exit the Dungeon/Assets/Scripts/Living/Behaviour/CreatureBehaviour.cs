@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CreatureBehaviour : MonoBehaviour{
     public GameObject _current;
-    protected bool canMove;
+    public bool canMove;
     
     void Start(){
         canMove = true;

@@ -316,4 +316,8 @@ public static class BattleManager {
     public static bool IsEnemyAlone(){
         return GetStillAliveMonsters().Count == 1;
     }
+
+    public static bool IsCurrentAlly(){
+        return CurrentFighter().Type == Type.ALLY;
+    }
 }
