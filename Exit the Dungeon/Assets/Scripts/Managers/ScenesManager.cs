@@ -20,10 +20,15 @@ public static class ScenesManager {
     public static void LoadPreGame(){
         LoadScene(Scene.PreGameScene);
     }
+
+    public static void LoadDeathScreen(){
+        LoadScene(Scene.DeathScreenScene);
+    }
 }
 
 public enum Scene{
     MainMenu,
     DemoScene,
-    PreGameScene
+    PreGameScene,
+    DeathScreenScene
 }

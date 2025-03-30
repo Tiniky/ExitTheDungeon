@@ -76,43 +76,12 @@ public static class SaveManager {
     public static void HandleIfUnlocked(AssetType at, GameObject gameObject){
         string objectName = gameObject.name;
         
-        switch(at){
-            case AssetType.Character:
-                SaveAsset character = Characters.Find(c => c.Name == objectName);
-                if(character != null){
-                    if(character.Unlocked){
-                        Transform chains = gameObject.transform.Find("CHAINS");
-                        if(chains != null){
-                            GameObject childGameObject = chains.gameObject;
-                            childGameObject.SetActive(false);
-                        }
-                    }
-                }
-                break;
-            case AssetType.Item:
-                SaveAsset item = Items.Find(i => i.Name == objectName);
-                if(item != null){
-                    if(item.Unlocked){
-                        Transform chains = gameObject.transform.Find("CHAINS");
-                        if(chains != null){
-                            GameObject childGameObject = chains.gameObject;
-                            childGameObject.SetActive(false);
-                        }
-                    }
-                }
-                break;
-            case AssetType.Map:
-                SaveAsset map = Maps.Find(m => m.Name == objectName);
-                if(map != null){
-                    if(map.Unlocked){
-                        Transform chains = gameObject.transform.Find("CHAINS");
-                        if(chains != null){
-                            GameObject childGameObject = chains.gameObject;
-                            childGameObject.SetActive(false);
-                        }
-                    }
-                }
-                break;
+        if(CheckIfUnlocked(at, objectName)){
+            Transform chains = gameObject.transform.Find("CHAINS");
+            if(chains != null){
+                GameObject childGameObject = chains.gameObject;
+                childGameObject.SetActive(false);
+            }
         }
     }
 

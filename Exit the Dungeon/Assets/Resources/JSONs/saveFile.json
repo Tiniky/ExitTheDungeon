@@ -7,7 +7,7 @@
 		},
 		{
 			"name": "HumanRogue",
-			"unlocked": true,
+			"unlocked": false,
 			"condition": "hr=10"
 		},
 		{
@@ -77,11 +77,11 @@
 	],
 	"stats": {
 		"killCount": 0,
-		"hrKill": 0,
+		"hrKill": 2,
 		"esKill": 0,
 		"dcKill": 0,
 		"bossrush": 0,
-		"dmgDealt": 0,
+		"dmgDealt": 1234,
 		"roomsCleared": 0,
 		"depthsBossKilled": false,
 		"otherworldBossKilled": false,

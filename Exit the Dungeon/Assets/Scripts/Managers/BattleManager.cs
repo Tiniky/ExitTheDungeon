@@ -278,7 +278,7 @@ public static class BattleManager {
             }
         }
 
-        if(living == GameManager.Allies().Count + 1){
+        if(living == GetStillAliveAdventurers().Count){
             GameManager.EndCombatPhase();
         }
     }

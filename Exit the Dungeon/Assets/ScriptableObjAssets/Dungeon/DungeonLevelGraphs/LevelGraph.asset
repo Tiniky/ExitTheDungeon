@@ -34,7 +34,7 @@ MonoBehaviour:
   ID: bcd7d07c-0bee-46c4-93b0-db95898615d2
   Name: COMBAT
   Type: 2
-  Position: {x: 600, y: 500}
+  Position: {x: 625, y: 500}
   IsSelected: 0
   IsFocused: 0
   UniqueRoomTemplates: []

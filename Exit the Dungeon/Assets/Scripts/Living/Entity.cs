@@ -103,8 +103,8 @@ public abstract class Entity : MonoBehaviour {
 
             BattleManager.CheckForEndOfCombat();
         } else{
-            //DEATH SCREEN
             Debug.Log("you're ded");
+            ScenesManager.LoadDeathScreen();
         }
     }
 

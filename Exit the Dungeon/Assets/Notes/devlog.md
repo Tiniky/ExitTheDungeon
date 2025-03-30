@@ -710,3 +710,9 @@ solved player can pass enemy's turn issue
 solved enemies spawning multiple times issue
 enemies are now fleeing and occupy tiles correctly
 simplified the BTs
+
+~~documentation
+
+\\last week of march
+added death screen and created DeathScreenManager
+added info for user to select a character

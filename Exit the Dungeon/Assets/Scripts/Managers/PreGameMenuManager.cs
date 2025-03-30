@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PreGameMenuManager : MonoBehaviour {
-    public Button _startButton, _backButton, _char1Button, _char2Button, _char3Button, _char4Button, _char5Button;
+    public Button _startButton, _backButton, _char1Button, _char2Button, _char3Button, _char4Button, _char5Button, _hidePopupButton;
     public List<GameObject> stuff = new List<GameObject>();
     public List<Button> buttons = new List<Button>();
     private string _selectedCharacter;
     private Button _lastSelectedCharButton;
     private GameObject descPrefab;
     private Dictionary <GameObject, ExplanationController> _unlockDescriptions = new Dictionary<GameObject, ExplanationController>();
+    public GameObject popup;
 
     void Start(){
         SaveManager.LoadGame();
@@ -24,6 +25,9 @@ public class PreGameMenuManager : MonoBehaviour {
         _char3Button.onClick.AddListener(() => HandleCharSelectOrDeselect("ElfSorcerer", _char3Button));
         _char4Button.onClick.AddListener(() => HandleCharSelectOrDeselect("DwarfCleric", _char4Button));
         _char5Button.onClick.AddListener(() => HandleCharSelectOrDeselect("???", _char5Button));
+        _hidePopupButton.onClick.AddListener(HidePopup);
+
+        popup.SetActive(false);
     }
 
     private void StartGame(){
@@ -32,6 +36,7 @@ public class PreGameMenuManager : MonoBehaviour {
             ScenesManager.LoadGame();
         }else{
             Debug.Log("Please select a character");
+            popup.SetActive(true);
         }
     }
 
@@ -86,5 +91,9 @@ public class PreGameMenuManager : MonoBehaviour {
         ec.SetDescription(SaveManager.GetConditionOf(obj.name));
         explanationText.SetActive(false);
         _unlockDescriptions.Add(obj, ec);
+    }
+
+    private void HidePopup(){
+        popup.SetActive(false);
     }
 }
