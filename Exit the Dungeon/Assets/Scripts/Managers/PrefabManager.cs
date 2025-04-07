@@ -74,6 +74,8 @@ public static class PrefabManager {
     public static List<GameObject> ALLIES;
     public static GameObject OGRE;
     public static GameObject GOBLIN;
+    public static GameObject BOSS;
+    public static Vector2 BOSS_SPAWN = new Vector2(0, 0);
 
     // Object Prefabs
     public static GameObject CHEST;
@@ -170,6 +172,7 @@ public static class PrefabManager {
 
         OGRE = Resources.Load<GameObject>("Prefabs/Creatures/monster_ogre");
         GOBLIN = Resources.Load<GameObject>("Prefabs/Creatures/monster_goblin");
+        BOSS = Resources.Load<GameObject>("Prefabs/Creatures/monster_boss");
 
         CHEST = Resources.Load<GameObject>("Prefabs/Dungeon/Objects/chest");
         DOOR = Resources.Load<GameObject>("Prefabs/Dungeon/Objects/door");

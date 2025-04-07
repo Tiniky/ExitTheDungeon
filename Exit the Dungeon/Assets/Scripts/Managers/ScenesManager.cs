@@ -22,7 +22,7 @@ public static class ScenesManager {
     }
 
     public static void LoadDeathScreen(){
-        LoadScene(Scene.DeathScreenScene);
+        LoadScene(Scene.DeathScreen);
     }
 }
 
@@ -30,5 +30,5 @@ public enum Scene{
     MainMenu,
     DemoScene,
     PreGameScene,
-    DeathScreenScene
+    DeathScreen
 }

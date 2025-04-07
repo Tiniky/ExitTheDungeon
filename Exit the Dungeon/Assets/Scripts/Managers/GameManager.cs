@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour {
     private static GamePhase _previousPhase;
     
     //testing
-    public static bool IsGodModeOn = true;
+    public static bool IsGodModeOn = false;
 
     //save system
     private static Dictionary<string, string> _playerData = new Dictionary<string, string>();
@@ -81,8 +81,10 @@ public class GameManager : MonoBehaviour {
         HandleState();
         HandleInputs();
         
-        foreach(GameObject ally in _partyMembers){
-            CheckIfPlayerBehindCreature(ally);
+        if(Phase == GamePhase.ADVENTURE && _adventurer.IsAlive()){
+            foreach(GameObject ally in _partyMembers){
+                CheckIfPlayerBehindCreature(ally);
+            }
         }
 
         /*if(Phase == GamePhase.COMBAT){
@@ -264,44 +266,49 @@ public class GameManager : MonoBehaviour {
     }
 
     private static void InitializeEnemies(InstantiatedRoom nextRoom){
-        if (_enemiesList != null && _enemiesList.Count > 0) {
-            Debug.Log("GameManager - Enemies already present in the room. Skipping enemy spawn.");
-            return;
-        }
-
         _enemiesList = new List<GameObject>();
-        List<Vector2> spawnPoints = _enemySpawnPoints[nextRoom];
-        Dictionary<Vector2, bool> spawnPointsDict = new Dictionary<Vector2, bool>();
-        foreach(Vector2 point in spawnPoints){
-            spawnPointsDict.Add(point, false);
-        }
-
-        List<string> monsters = EnemySpawnManager.SpawnEnemies(nextRoom.RoomObj.GetComponent<EnemySpawnPoint>());
         GameObject enemyHolder = new GameObject("EnemyHolder");
         enemyHolder.transform.parent = nextRoom.RoomObj.transform;
-        _enemiesList.Clear();
 
-        foreach(string monster in monsters){
-            int index = UnityEngine.Random.Range(0, spawnPointsDict.Count);
-            KeyValuePair<Vector2, bool> randomEntry = spawnPointsDict.ElementAt(index);
-
-            while(randomEntry.Value){
-                index = UnityEngine.Random.Range(0, spawnPointsDict.Count);
-                randomEntry = spawnPointsDict.ElementAt(index);
+        if(nextRoom.Room.Type != RoomType.BOSS){
+            List<Vector2> spawnPoints = _enemySpawnPoints[nextRoom];
+            Dictionary<Vector2, bool> spawnPointsDict = new Dictionary<Vector2, bool>();
+            foreach(Vector2 point in spawnPoints){
+                spawnPointsDict.Add(point, false);
             }
 
-            spawnPointsDict[randomEntry.Key] = true;
-            Vector3 spawnPoint = new Vector3(randomEntry.Key.x + nextRoom.CurrentPosition().x, randomEntry.Key.y + nextRoom.CurrentPosition().y, 0);
+            List<string> monsters = EnemySpawnManager.SpawnEnemies(nextRoom.RoomObj.GetComponent<EnemySpawnPoint>());
+            _enemiesList.Clear();
 
-            GameObject enemy = null;
-            switch(monster){
-                case "OGRE":
-                    enemy = Instantiate(PrefabManager.OGRE, spawnPoint, Quaternion.identity, enemyHolder.transform);
-                    break;
-                case "GOBLIN":
-                    enemy = Instantiate(PrefabManager.GOBLIN, spawnPoint, Quaternion.identity, enemyHolder.transform);
-                    break;
+            foreach(string monster in monsters){
+                int index = UnityEngine.Random.Range(0, spawnPointsDict.Count);
+                KeyValuePair<Vector2, bool> randomEntry = spawnPointsDict.ElementAt(index);
+
+                while(randomEntry.Value){
+                    index = UnityEngine.Random.Range(0, spawnPointsDict.Count);
+                    randomEntry = spawnPointsDict.ElementAt(index);
+                }
+
+                spawnPointsDict[randomEntry.Key] = true;
+                Vector3 spawnPoint = new Vector3(randomEntry.Key.x + nextRoom.CurrentPosition().x, randomEntry.Key.y + nextRoom.CurrentPosition().y, 0);
+
+                GameObject enemy = null;
+                switch(monster){
+                    case "OGRE":
+                        enemy = Instantiate(PrefabManager.OGRE, spawnPoint, Quaternion.identity, enemyHolder.transform);
+                        break;
+                    case "GOBLIN":
+                        enemy = Instantiate(PrefabManager.GOBLIN, spawnPoint, Quaternion.identity, enemyHolder.transform);
+                        break;
+                }
+                Creature enemyCreature = enemy.GetComponent<Creature>();
+                EnemyBehaviour creature = enemy.GetComponent<EnemyBehaviour>();
+                enemyCreature.Behaviour = creature;
+                _enemiesList.Add(enemy);
+                Debug.Log("GameManager - Enemy's health: " + enemyCreature.HP.GetValue());
             }
+        } else {
+            GameObject enemy = Instantiate(PrefabManager.BOSS, PrefabManager.BOSS_SPAWN, Quaternion.identity, enemyHolder.transform);
             Creature enemyCreature = enemy.GetComponent<Creature>();
             EnemyBehaviour creature = enemy.GetComponent<EnemyBehaviour>();
             enemyCreature.Behaviour = creature;
@@ -491,6 +498,10 @@ public class GameManager : MonoBehaviour {
 
         CurrentCorridor = crd;
         InstantiatedRoom nextRoom = crd.GetOtherRoom(CurrentRoom);
+
+        if(!_wasCleared[CurrentRoom] && (CurrentRoom.Room.Type == RoomType.TREASURE || CurrentRoom.Room.Type == RoomType.GEM)){
+            _wasCleared[CurrentRoom] = true;
+        }
         
         if((nextRoom.Room.Type == RoomType.COMBAT || nextRoom.Room.Type == RoomType.BOSS || nextRoom.Room.Type == RoomType.PRISON) && !_wasCleared[nextRoom]){
             InitializeEnemies(nextRoom);
@@ -527,7 +538,6 @@ public class GameManager : MonoBehaviour {
 
     public static List<GameObject> Enemies(){
         return _enemiesList;
-        //return _enemies[CurrentRoom];
     }
 
     private static void HandleInputs(){
@@ -798,28 +808,71 @@ public class GameManager : MonoBehaviour {
         if(light != null){
             light.enabled = true;
             _player.GetComponent<BoxCollider2D>().enabled = true;
-            _adventurer.HP.HardReset();
         }
 
         foreach(GameObject ally in _rescued){
             ally.GetComponent<BoxCollider2D>().enabled = true;
-            Adventurer adventurer = ally.GetComponent<Adventurer>();
-            adventurer.HP.HardReset();
         }
     }
 
-    public static void UpdateKillCount(string killedBy){
-        string key = "stats." + killedBy;
-        _playerData[key] = _playerData[key].Split(':')[0] + ": " + (int.Parse(_playerData[key].Split(':')[1]) + 1);
-        _playerData["stats.killCount"] = _playerData["stats.killCount"].Split(':')[0] + ": " + (int.Parse(_playerData["stats.killCount"].Split(':')[1]) + 1);
+    public static void UpdateKillCount(string killedBy) {
+        if (!string.IsNullOrEmpty(killedBy)) {
+            string key = killedBy + "Kill";
+            if (_playerData.ContainsKey(key)) {
+                if (int.TryParse(_playerData[key], out int currentCount)) {
+                    _playerData[key] = (currentCount + 1).ToString();
+                } else {
+                    Debug.LogWarning($"Invalid value for {key}. Resetting to 1.");
+                    _playerData[key] = "1";
+                }
+            } else {
+                _playerData[key] = "1";
+            }
+        }
+
+        if (_playerData.ContainsKey("killCount")) {
+            if (int.TryParse(_playerData["killCount"], out int currentKillCount)) {
+                _playerData["killCount"] = (currentKillCount + 1).ToString();
+            } else {
+                Debug.LogWarning("Invalid value for killCount. Resetting to 1.");
+                _playerData["killCount"] = "1";
+            }
+        } else {
+            _playerData["killCount"] = "1";
+        }
     }
 
-    public static void UpdateDMGDealt(int dmg){
-        _playerData["stats.dmgDealt"] = _playerData["stats.dmgDealt"].Split(':')[0] + ": " + (int.Parse(_playerData["stats.dmgDealt"].Split(':')[1]) + dmg);
+    public static void UpdateDMGDealt(int dmg) {
+        if (_playerData.ContainsKey("dmgDealt")) {
+            if (int.TryParse(_playerData["dmgDealt"], out int currentDmg)) {
+                _playerData["dmgDealt"] = (currentDmg + dmg).ToString();
+            } else {
+                Debug.LogWarning("Invalid value for dmgDealt. Resetting to current damage.");
+                _playerData["dmgDealt"] = dmg.ToString();
+            }
+        } else {
+            _playerData["dmgDealt"] = dmg.ToString();
+        }
     }
 
-    public static void UpdateRoomsCleared(){
-        _playerData["stats.roomsCleared"] = _playerData["stats.roomsCleared"].Split(':')[0] + ": " + (int.Parse(_playerData["stats.roomsCleared"].Split(':')[1]) + 1);
+    public static void UpdateRoomsCleared() {
+        int rooms = 0;
+        foreach (KeyValuePair<InstantiatedRoom, bool> entry in _wasCleared) {
+            if (entry.Value) {
+                rooms++;
+            }
+        }
+
+        if (_playerData.ContainsKey("roomsCleared")) {
+            if (int.TryParse(_playerData["roomsCleared"], out int currentRoomsCleared)) {
+                _playerData["roomsCleared"] = (currentRoomsCleared + rooms).ToString();
+            } else {
+                Debug.LogWarning("Invalid value for roomsCleared. Resetting to current cleared rooms.");
+                _playerData["roomsCleared"] = rooms.ToString();
+            }
+        } else {
+            _playerData["roomsCleared"] = rooms.ToString();
+        }
     }
 
     public static Dictionary<string,string> GetPlayerData(){

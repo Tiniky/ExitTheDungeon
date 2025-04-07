@@ -18,7 +18,7 @@ public static class BehaviorNodeMethods {
         {"AttemptMeleeAttack", (blackboard) => AttemptMeleeAttack(blackboard)},
         {"AttemptRangedAttack", (blackboard) => AttemptRangedAttack(blackboard)},
         {"BattleCry", (blackboard) => BattleCry(blackboard)},
-        {"SummonEnemies", (blackboard) => SummonEnemies(blackboard)},
+        {"StartCharging", (blackboard) => StartCharging(blackboard)},
         {"CastDeathRay", (blackboard) => CastDeathRay(blackboard)}
     };
 
@@ -31,7 +31,7 @@ public static class BehaviorNodeMethods {
         {"CanFlee", (blackboard) => CheckIfCanFlee(blackboard)},
         {"ShouldKeepFighting", (blackboard) => CheckIfShouldKeepFighting(blackboard)},
         {"IsInCloseRange", (blackboard) => IsInCloseRange(blackboard)},
-        {"IsAlone", (blackboard) => IsAlone(blackboard)}
+        {"IsCharging", (blackboard) => CheckIsCharging(blackboard)}
     };
 
     private static readonly List<Vector3> OffsetList = new List<Vector3>(){
@@ -215,20 +215,30 @@ public static class BehaviorNodeMethods {
     }
 
     public static NodeStatus PassTurn(Blackboard Blackboard){
-        BattleManager.GoNext();
+        if(GameManager.InFight()){
+            BattleManager.GoNext();
 
-        Debug.Log("Passing turn.");
+            Debug.Log("Passing turn.");
+        }
         
         return NodeStatus.SUCCESS;
     }
 
-    public static NodeStatus SummonEnemies(Blackboard blackboard){
-        //spawn enemies in the boss room, spawn points needed
+    public static NodeStatus StartCharging(Blackboard blackboard){
+        LogManager.AddMessage("Boss started charging up a deadly ability.");
+        blackboard.SetValue("IsCharging", true);
+
         return NodeStatus.SUCCESS;
     }
 
     public static NodeStatus CastDeathRay(Blackboard blackboard){
-        //boss ability, kills everyone
+        List<Entity> targets = BattleManager.GetStillAliveAdventurers();
+        for(int i = 0; i < targets.Count; i++){
+            Entity target = targets[i];
+            target.HP.Take(target.HP.GetValue());
+            LogManager.AddMessage("Boss casted a deadly ray of energy.");
+        }
+        blackboard.SetValue("IsCharging", false);
         return NodeStatus.SUCCESS;
     }
 
@@ -292,6 +302,10 @@ public static class BehaviorNodeMethods {
         bool inRange = BattleManager.IsTargetInRange(entity, range);
         Debug.Log("Checking if target (" + entity.EntityName + ") is in range: "+ range +" "+ inRange);
         return inRange;
+    }
+
+    public static bool CheckIsCharging(Blackboard Blackboard){
+        return Blackboard.GetValue<bool>("IsCharging");
     }
 
     public static bool IsAlone(Blackboard Blackboard){

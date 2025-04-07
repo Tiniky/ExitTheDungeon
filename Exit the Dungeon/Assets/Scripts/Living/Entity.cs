@@ -104,6 +104,9 @@ public abstract class Entity : MonoBehaviour {
             BattleManager.CheckForEndOfCombat();
         } else{
             Debug.Log("you're ded");
+            GameManager.Phase = GamePhase.LOSE;
+            GameManager.UpdateRoomsCleared();
+            SaveManager.SaveProgress();
             ScenesManager.LoadDeathScreen();
         }
     }

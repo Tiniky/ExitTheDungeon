@@ -12,8 +12,8 @@ public class PlayerBehaviour : CreatureBehaviour {
         Entity current = GameManager.Player();
         current.HP.Take(DMGvalue);
 
-        if(current.HP.GetValue() <= 0){
-            AbilityManager.Notify(TriggerType.HP_UNDER_0, (Adventurer)entity);
+        if(current.HP.GetValue() <= current.HP.GetMax() / 2){
+            AbilityManager.Notify(TriggerType.HP_UNDER_50, (Adventurer)entity);
         }
 
         if(current.HP.GetValue() <= 0){

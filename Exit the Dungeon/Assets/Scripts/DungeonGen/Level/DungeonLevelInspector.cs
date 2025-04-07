@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -27,3 +28,4 @@ public class DungeonLevelInspector : UnityEditor.Editor{
         DungeonGenerator.GenerateDungeon(lvl, true);
     }
 }
+#endif

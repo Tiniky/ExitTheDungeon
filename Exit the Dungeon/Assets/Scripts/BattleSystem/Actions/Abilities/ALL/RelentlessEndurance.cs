@@ -10,7 +10,7 @@ public class RelentlessEndurance : Ability {
         this.Cooldown = 100;
         this.ActiveRounds = 0;
         this.LastTimeCasted = 0;
-        this.Trigger = TriggerType.HP_UNDER_0;
+        this.Trigger = TriggerType.HP_UNDER_50;
         this.Type = AbilityType.PASSIVE;
         this.Range = AbilityRange.SELF;
         this.State = AbilityState.READY;
@@ -24,8 +24,8 @@ public class RelentlessEndurance : Ability {
         Debug.Log(DisplayName);
         this.State = AbilityState.COOLDOWN;
         PassiveUIManager.OnCD(this);
-        CreatureBehaviour behaviour = _holder.gameObject.GetComponent<CreatureBehaviour>();
-        behaviour.Revive();
+        Adventurer adventurer = _holder.gameObject.GetComponent<Adventurer>();
+        adventurer.ModifyTemporaryDamage(Die.Roll(DieType.D10));
     }
 
     public void Reset() {

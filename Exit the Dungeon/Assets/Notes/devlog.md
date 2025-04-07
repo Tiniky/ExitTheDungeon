@@ -716,3 +716,13 @@ simplified the BTs
 \\last week of march
 added death screen and created DeathScreenManager
 added info for user to select a character
+
+\\1th-2nd week of april
+added boss, replaced summon ability with charging ability
+made a build, started playtesting
+the issues that came up:
+- Orc dying and not reviving <= changed the passive from revive to tmp dmg boost
+- combat not ending <= solved
+- death screen not showing <= solved
+- enemies not spawning after clearing first room <= solved
+- stats not saving <=wip

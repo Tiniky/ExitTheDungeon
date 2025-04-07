@@ -15,9 +15,11 @@ public class EnemyBehaviour : CreatureBehaviour {
         Entity currentEntity = _current.GetComponent<Entity>();
         currentEntity.HP.Take(DMGvalue);
 
+        GameManager.UpdateDMGDealt(DMGvalue);
         if(currentEntity.HP.GetValue() <= 0){
             Debug.Log(currentEntity.EntityName + " died");
             currentEntity.Death();
+            GameManager.UpdateKillCount(BattleManager.GetCurrentFighterInitial());
         }
 
         UpdateHP(currentEntity);

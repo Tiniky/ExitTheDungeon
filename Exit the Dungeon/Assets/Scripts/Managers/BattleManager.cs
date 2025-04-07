@@ -58,64 +58,68 @@ public static class BattleManager {
     }
 
     public static void GoNext(){
-        if(_isFirst){
-            _isFirst = false;
-        }
+        if(GameManager.InFight()){
+            if(_isFirst){
+                _isFirst = false;
+            }
 
-        ActionManager.CleanUpAfterTurn(_chosenAction);
-        _chosenAction = null;
-        AbilityManager.CleanUpAfterTurn(_chosenAbility);
-        _chosenAbility = null;
+            ActionManager.CleanUpAfterTurn(_chosenAction);
+            _chosenAction = null;
+            AbilityManager.CleanUpAfterTurn(_chosenAbility);
+            _chosenAbility = null;
 
-        int next = _current + 1;
-        TurnIndicatorSetup();
+            int next = _current + 1;
+            TurnIndicatorSetup();
 
-        if(next < all.Count){
-            _current++;
-            _arrow.transform.position += new Vector3(0, -100, 0);
-        } else {
-            _current = 0;
-            _turnCounter += 1;
-            _arrow.GetComponent<ArrowController>().Reset();
-        }
+            if(next < all.Count){
+                _current++;
+                _arrow.transform.position += new Vector3(0, -100, 0);
+            } else {
+                _current = 0;
+                _turnCounter += 1;
+                _arrow.GetComponent<ArrowController>().Reset();
+            }
 
-        TurnIndicatorSetup(_current);
-        Entity entity = battle.GetCurrent(_current);
-        if(entity.isAlive){
-            FightUIManager.UpdateMovementFor(entity);
-            HandleCurrentFighter();
-        } else {
-            GoNext();
+            TurnIndicatorSetup(_current);
+            Entity entity = battle.GetCurrent(_current);
+            if(entity.isAlive){
+                FightUIManager.UpdateMovementFor(entity);
+                HandleCurrentFighter();
+            } else {
+                GoNext();
+            }
         }
     }
 
     private static void TurnIndicatorSetup(int curr = -1){
-        AnnounceNextUp();
-        int index = curr == -1 ? _current : curr;
-        Entity nextUp = battle.GetCurrent(index);
-        
-        List<InteractableTile> tiles = new List<InteractableTile>();
-        
-        if(nextUp.Size == Size.MEDIUM || nextUp.Size == Size.SMALL){
-            tiles = TileManager.Instance.StandsOn(nextUp.gameObject, 1);
-        } else if(nextUp.Size == Size.LARGE) {
-            tiles = TileManager.Instance.StandsOn(nextUp.gameObject, 2);
-        }
-        
-        TileManager.Instance.Reset();
-
-        Debug.Log("TurnIndicatorSetup called with curr: " + curr);
-        if(curr == -1){
-            foreach(InteractableTile tile in tiles){
-                tile.ResetColor();
+        if(GameManager.InFight()){
+            AnnounceNextUp();
+            int index = curr == -1 ? _current : curr;
+            Entity nextUp = battle.GetCurrent(index);
+            
+            List<InteractableTile> tiles = new List<InteractableTile>();
+            
+            if(nextUp.Size == Size.MEDIUM || nextUp.Size == Size.SMALL){
+                tiles = TileManager.Instance.StandsOn(nextUp.gameObject, 1);
+            } else if(nextUp.Size == Size.LARGE) {
+                tiles = TileManager.Instance.StandsOn(nextUp.gameObject, 2);
             }
-        } else {
-            foreach(InteractableTile tile in tiles){
-                tile.IndicateTurn();
-            }
-        }
+            
+            TileManager.Instance.Reset();
 
-        Debug.Log("TurnIndicatorSetup completed for entity: " + nextUp.EntityName);
+            Debug.Log("TurnIndicatorSetup called with curr: " + curr);
+            if(curr == -1){
+                foreach(InteractableTile tile in tiles){
+                    tile.ResetColor();
+                }
+            } else {
+                foreach(InteractableTile tile in tiles){
+                    tile.IndicateTurn();
+                }
+            }
+
+            Debug.Log("TurnIndicatorSetup completed for entity: " + nextUp.EntityName);
+        }
     }
 
     public static bool IsTheirTurn(Entity entity){
@@ -228,9 +232,15 @@ public static class BattleManager {
             await WaitForButtonPress();
         }
 
-        FightUIManager.UpdateFightInfo("Next Up is " + CurrentFighter().EntityName);
+        if(GameManager.InFight()){
+            FightUIManager.UpdateFightInfo("Next Up is " + CurrentFighter().EntityName);
+        }
+
         await Task.Delay(750);
-        FightUIManager.ClearFightInfo();
+        
+        if(GameManager.InFight()){
+            FightUIManager.ClearFightInfo();
+        }
     }
 
     private static async Task WaitForButtonPress() {
@@ -319,5 +329,21 @@ public static class BattleManager {
 
     public static bool IsCurrentAlly(){
         return CurrentFighter().Type == Type.ALLY;
+    }
+
+    public static string GetCurrentFighterInitial(){
+        Adventurer currentFighter = (Adventurer)CurrentFighter();
+        switch(currentFighter.Class){
+            case ClassType.BARBARIAN:
+                return "";
+            case ClassType.CLERIC:
+                return "dc";
+            case ClassType.ROGUE:
+                return "hr";
+            case ClassType.SORCERER:
+                return "es";
+        }
+
+        return "";
     }
 }

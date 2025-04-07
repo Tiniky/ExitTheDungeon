@@ -135,12 +135,17 @@ public static class SaveManager {
         Dictionary<string, string> newPlayerData = GameManager.GetPlayerData();
         JObject loadData = JObject.Parse(jsonFile.text);
 
-        foreach(var stat in newPlayerData){
-            loadData["stats"][stat.Key] = JToken.FromObject(stat.Value);
+        foreach (var stat in newPlayerData) {
+        if (stat.Key.StartsWith("stats.")) {
+            string cleanKey = stat.Key.Substring(6);
+            loadData["stats"][cleanKey] = JToken.FromObject(stat.Value);
+        } else {
+            loadData[stat.Key] = JToken.FromObject(stat.Value);
         }
+    }
 
         string updatedJson = loadData.ToString();
-        File.WriteAllText("path/to/saveFile.json", updatedJson);
+        File.WriteAllText("Assets/Resources/JSONs/saveFile.json", updatedJson);
 
         Debug.Log("Progress saved successfully.");
     }

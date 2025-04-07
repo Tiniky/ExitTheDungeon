@@ -2,5 +2,5 @@ public enum TriggerType{
     NONE,
     LOAD_GAME,
     KILLED_A_CREATURE,
-    HP_UNDER_0
+    HP_UNDER_50
 }

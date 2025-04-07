@@ -21,19 +21,19 @@
               "nodeType": "Selector",
               "children": [
                 {
-                  "nodeName": "Summon Strategy",
+                  "nodeName": "Charge Strategy",
                   "nodeType": "Sequence",
                   "children": [
                     {
-                      "nodeName": "IsAlone",
+                      "nodeName": "IsCharging",
                       "nodeType": "Condition",
-					  "shouldBeTrue": "true",
-                      "methodName": "IsAlone"
+					  "shouldBeTrue": "false",
+                      "methodName": "CheckIsCharging"
                     },
                     {
-                      "nodeName": "SummonEnemies",
+                      "nodeName": "StartCharging",
                       "nodeType": "Action",
-                      "methodName": "SummonEnemies"
+                      "methodName": "StartCharging"
                     },
 					{
 					  "nodeName": "Pass Turn",
@@ -47,10 +47,10 @@
                   "nodeType": "Sequence",
                   "children": [
                     {
-                      "nodeName": "IsAlone",
+                      "nodeName": "IsCharging",
                       "nodeType": "Condition",
-					  "shouldBeTrue": "false",
-                      "methodName": "IsAlone"
+					  "shouldBeTrue": "true",
+                      "methodName": "CheckIsCharging"
                     },
                     {
                       "nodeName": "CastDeathRay",

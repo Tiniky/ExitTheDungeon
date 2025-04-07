@@ -208,4 +208,8 @@ public class Adventurer : Entity {
             GameManager.LeftRoom(collision.gameObject);
         }
     }
+
+    public bool IsAlive(){
+        return isAlive;
+    }
 }
