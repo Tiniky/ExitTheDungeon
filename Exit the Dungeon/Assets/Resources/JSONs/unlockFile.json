@@ -1,0 +1,78 @@
+{
+  "characters": [
+    {
+      "name": "OrcBarbarian",
+      "unlocked": true,
+      "condition": "none"
+    },
+    {
+      "name": "HumanRogue",
+      "unlocked": false,
+      "condition": "hr=10"
+    },
+    {
+      "name": "ElfSorcerer",
+      "unlocked": false,
+      "condition": "es=10"
+    },
+    {
+      "name": "DwarfCleric",
+      "unlocked": false,
+      "condition": "dc=10"
+    },
+    {
+      "name": "???",
+      "unlocked": false,
+      "condition": "bossrush=5"
+    }
+  ],
+  "items": [
+    {
+      "name": "Key",
+      "unlocked": false,
+      "condition": "kill=777"
+    },
+    {
+      "name": "NecklaceOfDamage",
+      "unlocked": false,
+      "condition": "dmg=10k"
+    },
+    {
+      "name": "NecklaceOfMovement",
+      "unlocked": false,
+      "condition": "rooms=150"
+    },
+    {
+      "name": "Undiscovered1",
+      "unlocked": false,
+      "condition": "undiscovered"
+    },
+    {
+      "name": "Undiscovered2",
+      "unlocked": false,
+      "condition": "undiscovered"
+    }
+  ],
+  "maps": [
+    {
+      "name": "Depths",
+      "unlocked": true,
+      "condition": "none"
+    },
+    {
+      "name": "Otherworld",
+      "unlocked": false,
+      "condition": "depths_boss_kill"
+    },
+    {
+      "name": "Unknown",
+      "unlocked": false,
+      "condition": "otherworld_boss_kill"
+    },
+    {
+      "name": "Endless",
+      "unlocked": false,
+      "condition": "4_char_unlocked"
+    }
+  ]
+}

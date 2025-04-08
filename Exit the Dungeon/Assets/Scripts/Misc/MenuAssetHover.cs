@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class MenuAssetHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
-    private GameObject _explanation;    private string _nameOfAsset;
+    private GameObject _explanation;
+    private string _nameOfAsset;
 
     public void ConnectExplanation(GameObject obj, string noa){
         _explanation = obj;
@@ -32,27 +33,28 @@ public class MenuAssetHover : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             } else{
                 switch(asset.Condition){
                     case "hr=10":
-                        string hrKill = SaveManager.PlayerData["stats.hrKill"].Split(':')[1].Trim();
+
+                        string hrKill = SaveManager.PlayerData["hrKill"];
                         ec.SetDescription(hrKill + "/10 kills");
                         break;
                     case "es=10":
-                        string esKill = SaveManager.PlayerData["stats.esKill"].Split(':')[1].Trim();
+                        string esKill = SaveManager.PlayerData["esKill"];
                         ec.SetDescription(esKill + "/10 kills");
                         break;
                     case "dc=10":
-                        string dcKill = SaveManager.PlayerData["stats.dcKill"].Split(':')[1].Trim();
+                        string dcKill = SaveManager.PlayerData["dcKill"];
                         ec.SetDescription(dcKill + "/10 kills");
                         break;
                     case "kill=777":
-                        string killCount = SaveManager.PlayerData["stats.killCount"].Split(':')[1].Trim();
+                        string killCount = SaveManager.PlayerData["killCount"];
                         ec.SetDescription(killCount + "/777 kills");
                         break;
                     case "dmg=10k":
-                        string dmgDealt = SaveManager.PlayerData["stats.dmgDealt"].Split(':')[1].Trim();
+                        string dmgDealt = SaveManager.PlayerData["dmgDealt"];
                         ec.SetDescription(dmgDealt + "/10k dmg");
                         break;
                     case "rooms=150":
-                        string roomsCleared = SaveManager.PlayerData["stats.roomsCleared"].Split(':')[1].Trim();
+                        string roomsCleared = SaveManager.PlayerData["roomsCleared"];
                         ec.SetDescription(roomsCleared + "/150 rooms");
                         break;
                     default:

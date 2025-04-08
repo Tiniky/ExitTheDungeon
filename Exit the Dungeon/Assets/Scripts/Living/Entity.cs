@@ -106,8 +106,11 @@ public abstract class Entity : MonoBehaviour {
             Debug.Log("you're ded");
             GameManager.Phase = GamePhase.LOSE;
             GameManager.UpdateRoomsCleared();
+            LogManager.AddMessage("GAME LOST");
             SaveManager.SaveProgress();
+            LogManager.AddMessage("Progress Saved");
             ScenesManager.LoadDeathScreen();
+            LogManager.AddMessage("Death Screen Loaded");
         }
     }
 

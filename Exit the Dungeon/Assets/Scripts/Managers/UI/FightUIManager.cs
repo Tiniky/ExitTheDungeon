@@ -121,7 +121,7 @@ public static class FightUIManager {
 
     private static IEnumerator RevertColorAfterDelay(Text textComponent, float delay, bool shouldChangeBack) {
         yield return new WaitForSeconds(delay);
-        if(shouldChangeBack){
+        if(GameManager.InFight() && shouldChangeBack){
             textComponent.color = originalColor;
         }
     }

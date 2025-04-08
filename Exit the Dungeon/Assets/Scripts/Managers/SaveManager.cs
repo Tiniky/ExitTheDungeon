@@ -6,7 +6,7 @@ using Newtonsoft.Json.Linq;
 
 public static class SaveManager {
     
-    private static TextAsset jsonFile;
+    private static TextAsset jsonFile, saveFile;
     public static List<SaveAsset> Characters = new List<SaveAsset>();
     public static List<SaveAsset> Items = new List<SaveAsset>();
     public static List<SaveAsset> Maps = new List<SaveAsset>();
@@ -14,14 +14,16 @@ public static class SaveManager {
     public static bool WasLoaded = false;
 
     public static void LoadGame(){
-        jsonFile = Resources.Load<TextAsset>("JSONs/saveFile");
+        jsonFile = Resources.Load<TextAsset>("JSONs/unlockFile");
+        saveFile = Resources.Load<TextAsset>("JSONs/saveFile");
 
-        if(jsonFile == null){
+        if(jsonFile == null || saveFile == null){
             Debug.LogError("JSON file not found.");
             return;
         }
 
         JObject loadData = JObject.Parse(jsonFile.text);
+        JObject saveData = JObject.Parse(saveFile.text);
 
         string assetName, assetCondition;
         bool assetUnlocked;
@@ -47,8 +49,8 @@ public static class SaveManager {
             Maps.Add(new SaveAsset(assetName, assetUnlocked, assetCondition));
         }
 
-        foreach(var stat in loadData["stats"]){
-            PlayerData[stat.Path] = stat.ToString();
+        foreach(var stat in saveData){
+            PlayerData[stat.Key] = stat.Value.ToString();
         }
         
         WasLoaded = true;
@@ -133,20 +135,21 @@ public static class SaveManager {
 
     public static void SaveProgress(){
         Dictionary<string, string> newPlayerData = GameManager.GetPlayerData();
-        JObject loadData = JObject.Parse(jsonFile.text);
+        JObject loadData = JObject.Parse(saveFile.text);
+
+        LogManager.AddMessage("save in progress");
 
         foreach (var stat in newPlayerData) {
-        if (stat.Key.StartsWith("stats.")) {
-            string cleanKey = stat.Key.Substring(6);
-            loadData["stats"][cleanKey] = JToken.FromObject(stat.Value);
-        } else {
+            LogManager.AddMessage("Stat: " + stat.Key + " - Value: " + stat.Value);
             loadData[stat.Key] = JToken.FromObject(stat.Value);
         }
-    }
+
+        LogManager.AddMessage("out of the loop");
 
         string updatedJson = loadData.ToString();
+        LogManager.AddMessage("save in progress 2");
         File.WriteAllText("Assets/Resources/JSONs/saveFile.json", updatedJson);
-
+        LogManager.AddMessage("JSON updated successfully.");
         Debug.Log("Progress saved successfully.");
     }
 }

@@ -725,4 +725,7 @@ the issues that came up:
 - combat not ending <= solved
 - death screen not showing <= solved
 - enemies not spawning after clearing first room <= solved
-- stats not saving <=wip
+- stats not saving <= solved
+added map zoom out
+added cursor to escape menu
+new issue: build not showing death screen AGAIN???

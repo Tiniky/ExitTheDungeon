@@ -9,7 +9,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance {get; private set;}
-    private static GameObject _cam;
+    private static GameObject _cam, _cam2;
     private static CinemachineVirtualCamera _cvc;
 
     //menu things
@@ -164,6 +164,7 @@ public class GameManager : MonoBehaviour {
         PrefabManager.Initialize();
         TileManager.Instance.Initialize();
         _cam = GameObject.FindGameObjectWithTag("MainCamera");
+        _cam2 = GameObject.FindGameObjectWithTag("CAM");
         _partyHolder = new GameObject("PARTY");
         
         InitializePlayer();
@@ -557,6 +558,16 @@ public class GameManager : MonoBehaviour {
             InventoryManager.InventoryVisibility();
             Debug.Log("GameManager - tab was pressed");
         }
+
+        if (Input.GetKey(KeyCode.M)) {
+            UIManager.HideUI();
+            _cam2.transform.localScale = new Vector3(10, 10, 10);
+        }
+
+        if (Input.GetKeyUp(KeyCode.M)) {
+            UIManager.ShowUI();
+            _cam2.transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 
     private void CheckForSceneChange(bool state){
@@ -891,12 +902,14 @@ public class GameManager : MonoBehaviour {
             escapeMenu.SetActive(false);
             _isPaused = false;
             Phase = _previousPhase;
+            Cursor.visible = false;
         } else {
             UIManager.HideUI();
             escapeMenu.SetActive(true);
             _isPaused = true;
             _previousPhase = Phase;
             Phase = GamePhase.PAUSE;
+            Cursor.visible = true;
         }
     }
 

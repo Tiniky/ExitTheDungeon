@@ -43,6 +43,6 @@ public class EscapeMenuController : MonoBehaviour {
     }
 
     private void TerminateRun(){
-        //GameManager.TerminateRun();
+        GameManager.TerminateRun();
     }
 }
